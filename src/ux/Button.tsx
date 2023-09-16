@@ -106,7 +106,7 @@ const Button: React.FC<ButtonProps> = ({
       width={width}
       height={height}
       flat={flat}
-      theme={theme}
+        theme={theme}
     >
       {children}
     </StyledButton>
