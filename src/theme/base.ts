@@ -5,7 +5,7 @@ export interface Theme {
     background: string;
     text: string;
     border: string;
-    // Add more theme variables here
+    
   };
 }
 
@@ -21,10 +21,10 @@ export const lightTheme: Theme = {
 
 export const darkTheme = {
   colors: {
-    primary: "#56A3A6", // Adjusted for better visibility
-    secondary: "#61C0BF", // Adjusted for better visibility
-    background: "#1B2021", // Dark background
-    text: "#E4DFDA", // Light text for contrast
-    border: "#2A2B2A", // Slightly darker border color
+    primary: "#56A3A6",
+    secondary: "#61C0BF",
+    background: "#1B2021", 
+    text: "#E4DFDA", 
+    border: "#2A2B2A",
   },
 };
