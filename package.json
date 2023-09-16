@@ -14,7 +14,8 @@
     "*.js": [
       "npm run lint --",
       "git add"
-    ]
+    ],
+    "**/*.{js,jsx,json,ts,tsx}": ["eslint . --fix", "prettier --write ."]
   },
   "husky": {
     "hooks": {
