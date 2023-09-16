@@ -1,12 +1,12 @@
-import '@testing-library/jest-dom'
+import '@testing-library/jest-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Button, { ButtonProps } from '../Button';
-import { ThemeProvider } from "../../theme/ThemeProvider";
+import { ThemeProvider } from '../../theme/ThemeProvider';
 const TestButton = (props: ButtonProps) => (
   <ThemeProvider>
-    <Button {...props}/>
+    <Button {...props} />
   </ThemeProvider>
-)
+);
 
 describe('Button', () => {
   it('renders correctly with default props', () => {
@@ -25,5 +25,4 @@ describe('Button', () => {
 
     expect(mockOnClick).toHaveBeenCalledTimes(1);
   });
-
 });

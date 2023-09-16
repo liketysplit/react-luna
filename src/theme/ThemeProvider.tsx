@@ -21,7 +21,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
 
   const toggleTheme = () => {
     setCurrentTheme((prevTheme) =>
-      prevTheme === lightTheme ? darkTheme : lightTheme
+      prevTheme === lightTheme ? darkTheme : lightTheme,
     );
   };
 
@@ -41,10 +41,10 @@ export const useTheme = () => {
     console.warn('Did you forget to wrap your app in a ThemeProvider?');
     const toggleTheme = () => {
       setCurrentTheme((prevTheme) =>
-        prevTheme === lightTheme ? darkTheme : lightTheme
+        prevTheme === lightTheme ? darkTheme : lightTheme,
       );
     };
-    return {theme: currentTheme, toggleTheme}
+    return { theme: currentTheme, toggleTheme };
   }
 
   return context;
