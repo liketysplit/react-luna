@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { useTheme } from "../theme/ThemeProvider"; // Import your theme provider
+import React, { ReactNode } from 'react';
+import styled from 'styled-components';
+import { useTheme } from '../theme/ThemeProvider'; // Import your theme provider
 
 export interface ButtonProps {
   backgroundColor?: string;
@@ -10,53 +10,56 @@ export interface ButtonProps {
   rounded?: boolean;
   disabled?: boolean;
   onClick?: () => void;
-  size?: "xxs" | "s" | "m" | "l" | "xl" | "xxl";
+  size?: 'xxs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
   width?: string;
   height?: string;
   flat?: boolean;
-  children: any;
+  children: ReactNode;
 }
-const borderThickness = "3px";
+const borderThickness = '3px';
 const StyledButton = styled.button<ButtonProps>`
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  width: ${({ width }) => width || "auto"};
-  height: ${({ height }) => height || "auto"};
+  width: ${({ width }) => width || 'auto'};
+  height: ${({ height }) => height || 'auto'};
   background-color: ${({ backgroundColor, theme }) =>
     backgroundColor || theme.colors.primary};
   color: ${({ textColor, theme }) => textColor || theme.colors.text};
   border: ${({ outlineColor, flat, theme }) => {
     return flat
-      ? "none"
+      ? 'none'
       : outlineColor
       ? `${borderThickness} solid ${outlineColor}`
       : `${borderThickness} solid ${theme.colors.border}`;
   }};
   border-radius: ${({ square, rounded }) =>
-    square ? "0" : rounded ? "50px" : "4px"};
+    square ? '0' : rounded ? '50px' : '4px'};
   padding: ${({ size }) => {
     switch (size) {
-      case "xxs":
-        return "4px 8px";
-      case "s":
-        return "8px 16px";
-      case "m":
-        return "12px 24px";
-      case "l":
-        return "16px 32px";
-      case "xl":
-        return "20px 40px";
-      case "xxl":
-        return "24px 48px";
+      case 'xxs':
+        return '4px 8px';
+      case 's':
+        return '8px 16px';
+      case 'm':
+        return '12px 24px';
+      case 'l':
+        return '16px 32px';
+      case 'xl':
+        return '20px 40px';
+      case 'xxl':
+        return '24px 48px';
       default:
-        return "12px 24px";
+        return '12px 24px';
     }
   }};
 
-  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   opacity: ${({ disabled }) => (disabled ? 0.6 : 1)};
-  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    border 0.3s;
 
   &:hover {
     background-color: ${({ backgroundColor, theme }) =>
@@ -72,7 +75,9 @@ const StyledButton = styled.button<ButtonProps>`
 
   &:focus {
     border: ${({ outlineColor }) =>
-      outlineColor ? `${borderThickness} solid ${outlineColor}` : `${borderThickness} solid transparent`};
+      outlineColor
+        ? `${borderThickness} solid ${outlineColor}`
+        : `${borderThickness} solid transparent`};
     outline: none; // Remove the default focus outline
   }
 `;
@@ -99,14 +104,14 @@ const Button: React.FC<ButtonProps> = ({
       textColor={textColor}
       outlineColor={outlineColor}
       square={square}
-      rounded={rounded}
+      rounded={Boolean(rounded)}
       disabled={disabled}
       onClick={onClick}
       size={size}
       width={width}
       height={height}
       flat={flat}
-        theme={theme}
+      theme={theme}
     >
       {children}
     </StyledButton>
