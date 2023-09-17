@@ -18,9 +18,9 @@ export interface ButtonProps {
 }
 const borderThickness = '3px';
 const StyledButton = styled.button<ButtonProps>`
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
+  font-family: ${({ theme }) => theme.fonts?.body} || inherit;
+  font-size: ${({ theme }) => theme.fontSizes?.body} || 1em;
+  font-weight: ${({ theme }) => theme.fontWeights?.body} || 500;
   width: ${({ width }) => width || 'auto'};
   height: ${({ height }) => height || 'auto'};
   background-color: ${({ backgroundColor, theme }) =>
