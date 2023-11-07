@@ -7,6 +7,7 @@ import MenuBar from './layout/MenuBar';
 import TopBar from './layout/TopBar';
 import Footer from './layout/Footer';
 import Button from './ux/Button';
+import ColorHelper from './_helpers/color/ColorHelper';
 function App() {
   const [showMenu, setShowMenu] = useState(false);
 
@@ -30,7 +31,9 @@ function App() {
         header={<TopBar>Header Content</TopBar>}
         footer={<Footer>Footer Content</Footer>}
       >
-        <div>Main Content</div>
+        <div>
+          <ColorHelper />
+        </div>
       </AppLayout>
     </>
   );

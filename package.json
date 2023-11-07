@@ -33,7 +33,8 @@
     "react": "^18.2.0",
     "react-app": "^1.1.2",
     "react-dom": "^18.2.0",
-    "styled-components": "^6.0.8"
+    "styled-components": "^6.0.8",
+    "tinycolor2": "^1.6.0"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.22.15",
