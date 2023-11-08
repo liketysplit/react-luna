@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ColorColumn from './ColorColumn';
 import tinycolor from 'tinycolor2';
 import Code from './Code';
 
 const ColorHelper = () => {
+  const numShades = 9;
+
   const getColorShades = (baseColor: string) => {
-    const numShades = 9;
     const colorShades = [];
     const baseColorHSL = tinycolor(baseColor).toHsl();
 
@@ -15,106 +16,125 @@ const ColorHelper = () => {
       const shade = `hsl(${baseColorHSL.h}, ${s}%, ${b}%)`;
       colorShades.push(shade);
     }
+
     return colorShades;
   };
-  const [selectedColors, setSelectedColors] = useState([
-    '#ffffff',
-    '#ffffff',
-    '#a8a4a4',
-    '#524747',
-    '#0fdb27',
-    '#264de8',
-    '#f01919',
-    '#e0c71f',
-  ]); // Default colors
-  const [colorNames, setColorNames] = useState([
-    'primary',
-    'secondary',
-    'outline-light',
-    'outline-dark',
-    'success',
-    'info',
-    'error',
-    'warning',
-  ]);
-  const [colors, setColors] = useState([
-    getColorShades(selectedColors[0]),
-    getColorShades(selectedColors[1]),
-    getColorShades(selectedColors[2]),
-    getColorShades(selectedColors[3]),
-    getColorShades(selectedColors[4]),
-    getColorShades(selectedColors[5]),
-    getColorShades(selectedColors[6]),
-    getColorShades(selectedColors[7]),
-  ]);
 
-  const generateColorShades = (baseColor: string, index: number) => {
-    const colorShades = getColorShades(baseColor);
-    handleColorsChange(colorShades, index);
+  const getGrayscaleShades = (baseColor: string) => {
+    const colorShades = [];
+    const baseColorHSL = tinycolor(baseColor).toHsl();
+    const numShades = 9;
+
+    // Find the minimum lightness of the input shade
+    const inputShadeLuminance = tinycolor(baseColor).getLuminance();
+    const minLightness = 100 - inputShadeLuminance * 66 * 0.2;
+
+    for (let i = 1; i <= numShades; i++) {
+      let l = minLightness - i * 10; // Adjust lightness based on the minimum lightness
+
+      // Ensure the lightness doesn't go below 0
+      if (l < 0) {
+        l = 0;
+      }
+
+      const shade = `hsl(${baseColorHSL.h}, ${baseColorHSL.s}%, ${l}%)`;
+      colorShades.push(shade);
+    }
+
+    return colorShades;
   };
 
-  const handleColorsChange = (colorShades: string[], index: number) => {
-    const colorsCopy = [...colors];
-    colorsCopy[index] = colorShades;
-    setColors(colorsCopy);
-  };
+  // Define an object to hold colors, color names, and their shades
+  const [colorData, setColorData] = useState([
+    {
+      color: '#513399',
+      name: 'primary',
+      shades: getColorShades('#513399'),
+      greyScale: false,
+    },
+    {
+      color: '#663399',
+      name: 'secondary',
+      shades: getColorShades('#663399'),
+      greyScale: false,
+    },
+    {
+      color: '#a8a4a4',
+      name: 'outline-light',
+      shades: getGrayscaleShades('#a8a4a4'),
+      greyScale: true,
+    },
+    {
+      color: '#524747',
+      name: 'outline-dark',
+      shades: getGrayscaleShades('#524747'),
+      greyScale: true,
+    },
+    {
+      color: '#0fdb27',
+      name: 'success',
+      shades: getColorShades('#0fdb27'),
+      greyScale: false,
+    },
+    {
+      color: '#264de8',
+      name: 'info',
+      shades: getColorShades('#264de8'),
+      greyScale: false,
+    },
+    {
+      color: '#f01919',
+      name: 'error',
+      shades: getColorShades('#f01919'),
+      greyScale: false,
+    },
+    {
+      color: '#e0c71f',
+      name: 'warning',
+      shades: getColorShades('#e0c71f'),
+      greyScale: false,
+    },
+  ]);
 
   const handleColorChange = (
     event: React.ChangeEvent<HTMLInputElement>,
     index: number,
   ) => {
-    const colorsCopy = [...selectedColors];
-    colorsCopy[index] = event.target.value;
-    setSelectedColors(colorsCopy);
-    generateColorShades(event.target.value, index);
+    const updatedColorData = [...colorData];
+    updatedColorData[index].color = event.target.value;
+    const shades = !updatedColorData[index].greyScale
+      ? getColorShades(updatedColorData[index].color)
+      : getGrayscaleShades(updatedColorData[index].color);
+    updatedColorData[index].shades = shades;
+    setColorData(updatedColorData);
   };
-
-  useEffect(() => {
-    generateColorShades(selectedColors[0], 0);
-    generateColorShades(selectedColors[1], 1);
-    generateColorShades(selectedColors[2], 2);
-    generateColorShades(selectedColors[3], 3);
-    generateColorShades(selectedColors[4], 4);
-    generateColorShades(selectedColors[5], 5);
-    generateColorShades(selectedColors[6], 6);
-    generateColorShades(selectedColors[7], 7);
-  }, []);
 
   const addColumn = () => {
     const baseColor = '#ff0000';
     const colorShades = getColorShades(baseColor);
-    const colorsCopy = [...colors];
-    const colorShadesCopy = [...colorShades];
-    colorsCopy.push(colorShadesCopy);
-    setColors(colorsCopy);
-    const selectedColorsCopy = [...selectedColors];
-    selectedColorsCopy.push(baseColor);
-    setSelectedColors(selectedColorsCopy);
-    const colorNamesCopy = [...colorNames];
-    colorNamesCopy.push('color');
-    setColorNames(colorNamesCopy);
+    const updatedColorData = [...colorData];
+    updatedColorData.push({
+      color: baseColor,
+      name: 'color',
+      shades: colorShades,
+      greyScale: false,
+    });
+    setColorData(updatedColorData);
   };
 
   const deleteColumn = (index: number) => {
-    const colorsCopy = [...colors];
-    colorsCopy.splice(index, 1);
-    setColors(colorsCopy);
-    const selectedColorsCopy = [...selectedColors];
-    selectedColorsCopy.splice(index, 1);
-    setSelectedColors(selectedColorsCopy);
-    const colorNamesCopy = [...colorNames];
-    colorNamesCopy.splice(index, 1);
-    setColorNames(colorNamesCopy);
+    const updatedColorData = [...colorData];
+    updatedColorData.splice(index, 1);
+    setColorData(updatedColorData);
   };
 
   const generateColorShadesCss = () => {
     let css = '';
-    for (let i = 0; i < selectedColors.length; i++) {
-      const colorShades = colors[i];
-      for (let j = 0; j < colorShades.length; j++) {
-        const color = colorShades[j];
-
-        css += `    --color-${colorNames[i]}-${(j + 1) * 100}: ${tinycolor(
+    for (let i = 0; i < colorData.length; i++) {
+      const colorItem = colorData[i];
+      for (let j = 0; j < colorItem.shades.length; j++) {
+        const color = colorItem.shades[j];
+        css += `    --color-${colorItem.name}-${(j + 1) * 100}: ${tinycolor(
           color,
         ).toHexString()}\n`;
       }
@@ -125,23 +145,24 @@ const ColorHelper = () => {
   return (
     <div>
       <div style={{ display: 'flex', flexDirection: 'row', margin: '10px' }}>
-        {selectedColors.map((color, index) => (
+        {colorData.map((colorItem, index) => (
           <div
+            key={index}
             style={{ display: 'flex', flexDirection: 'column', margin: '10px' }}
           >
             <input
               type="color"
-              value={selectedColors[index]}
+              value={colorItem.color}
               onChange={(e) => handleColorChange(e, index)}
               style={{ marginLeft: '12px', width: '105px' }}
             />
             <input
               type="text"
-              value={colorNames[index]}
+              value={colorItem.name}
               onChange={(e) => {
-                const colorNamesCopy = [...colorNames];
-                colorNamesCopy[index] = e.target.value;
-                setColorNames(colorNamesCopy);
+                const updatedColorData = [...colorData];
+                updatedColorData[index].name = e.target.value;
+                setColorData(updatedColorData);
               }}
               style={{ marginLeft: '12px', width: '98px' }}
             />
@@ -151,7 +172,7 @@ const ColorHelper = () => {
             >
               Remove Color
             </button>
-            <ColorColumn colors={colors[index]} />
+            <ColorColumn colors={colorItem.shades} />
           </div>
         ))}
         <button onClick={addColumn}>Add Color</button>
