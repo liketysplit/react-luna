@@ -1,0 +1,15 @@
+﻿:root {
+  color-scheme: light dark;
+}
+
+[data-luna-theme] {
+  color: var(--luna-foreground);
+  background: var(--luna-background);
+  font-family: var(--luna-font-family, "Work Sans", system-ui, sans-serif);
+  min-height: 100vh;
+}
+
+.luna-reset {
+  font-family: inherit;
+  color: inherit;
+}

@@ -19,17 +19,18 @@ Workflow
 - Pause for verification before proceeding to the next step.
 - Commit each completed step with a clear message.
 - Confirm results together before expanding scope.
+- Never abbreviate; spell out words to keep communication clear.
 
 Plan (Local Tracking)
 - Phase 1: Foundation
-- [ ] Vite + Vitest setup
-- [ ] Storybook setup
-- [ ] Theme types and tokens
-- [ ] ThemeProvider with light/dark defaults
-- [ ] Deep merge for partial theme overrides
-- [ ] Custom named colors support
-- [ ] CSS variable generation
-- [ ] Base styles reset
+- [x] Vite + Vitest setup
+- [x] Storybook setup
+- [x] Theme types and tokens
+- [x] ThemeProvider with light/dark defaults
+- [x] Deep merge for partial theme overrides
+- [x] Custom named colors support
+- [x] CSS variable generation
+- [x] Base styles reset
 
 - Phase 2: Primitives
 - [ ] Button
