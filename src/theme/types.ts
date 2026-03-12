@@ -41,13 +41,22 @@ export type ThemeRadii = Record<string, string>;
 export type ThemeShadows = Record<string, string>;
 export type ThemeMotion = Record<string, string>;
 
+export type ThemeButtonSizeProfile = {
+  paddingX?: string;
+  paddingY?: string;
+  fontSize?: string;
+  minHeight?: string;
+  gap?: string;
+  iconSize?: string;
+};
+
 export type ThemeComponents = {
   button?: {
+    defaultSize?: string;
+    defaultIconDirection?: "left" | "right";
     radius?: string;
-    paddingX?: string;
-    paddingY?: string;
-    fontSize?: string;
     fontWeight?: number;
+    sizes?: Record<string, ThemeButtonSizeProfile>;
     colors?: Record<string, { bg?: string; fg?: string; border?: string }>;
   };
 };

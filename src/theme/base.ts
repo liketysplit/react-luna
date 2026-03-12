@@ -147,11 +147,52 @@ export const lunarTheme: Theme = {
   },
   components: {
     button: {
+      defaultSize: "medium",
+      defaultIconDirection: "right",
       radius: "md",
-      paddingX: "4",
-      paddingY: "2",
-      fontSize: "sm",
       fontWeight: 600,
+      sizes: {
+        "x-small": {
+          paddingX: "2",
+          paddingY: "1",
+          fontSize: "xs",
+          minHeight: "1.75rem",
+          gap: "1",
+          iconSize: "0.875rem"
+        },
+        small: {
+          paddingX: "3",
+          paddingY: "1",
+          fontSize: "xs",
+          minHeight: "2rem",
+          gap: "1",
+          iconSize: "0.875rem"
+        },
+        medium: {
+          paddingX: "4",
+          paddingY: "2",
+          fontSize: "sm",
+          minHeight: "2.5rem",
+          gap: "2",
+          iconSize: "1rem"
+        },
+        large: {
+          paddingX: "5",
+          paddingY: "2",
+          fontSize: "md",
+          minHeight: "3rem",
+          gap: "2",
+          iconSize: "1.125rem"
+        },
+        "x-large": {
+          paddingX: "6",
+          paddingY: "3",
+          fontSize: "lg",
+          minHeight: "3.5rem",
+          gap: "3",
+          iconSize: "1.25rem"
+        }
+      },
       colors: {
         primary: {
           bg: "primary.600",
