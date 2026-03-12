@@ -5,6 +5,16 @@ import type { LunaButtonProps } from "./LunaButton.props";
 import "./LunaButton.css";
 
 const warnedMessages = new Set<string>();
+const BURST_ANIMATION_CONFIG: Partial<Record<NonNullable<LunaButtonProps["animation"]>, { activeMs: number; cycleMs: number }>> = {
+  bounce: {
+    activeMs: 1800,
+    cycleMs: 5000
+  },
+  wiggle: {
+    activeMs: 1800,
+    cycleMs: 5000
+  }
+};
 
 function warnOnce(message: string) {
   if (!import.meta.env.DEV || warnedMessages.has(message)) {
@@ -72,6 +82,34 @@ export const LunaButton = React.forwardRef<HTMLButtonElement, LunaButtonProps>(
     const resolvedIconDirection =
       iconDirection ?? theme.components.button?.defaultIconDirection ?? "right";
     const resolvedColor = resolveButtonColor(color, theme);
+    const [isBurstAnimationActive, setIsBurstAnimationActive] = React.useState(true);
+    const burstAnimationConfig = animation ? BURST_ANIMATION_CONFIG[animation] : undefined;
+
+    React.useEffect(() => {
+      if (!burstAnimationConfig) {
+        setIsBurstAnimationActive(true);
+        return;
+      }
+
+      setIsBurstAnimationActive(true);
+
+      const activeTimer = window.setTimeout(() => {
+        setIsBurstAnimationActive(false);
+      }, burstAnimationConfig.activeMs);
+
+      const cycleTimer = window.setInterval(() => {
+        setIsBurstAnimationActive(true);
+
+        window.setTimeout(() => {
+          setIsBurstAnimationActive(false);
+        }, burstAnimationConfig.activeMs);
+      }, burstAnimationConfig.cycleMs);
+
+      return () => {
+        window.clearTimeout(activeTimer);
+        window.clearInterval(cycleTimer);
+      };
+    }, [burstAnimationConfig]);
 
     if (absolute && fixed) {
       warnOnce("LunaButton: `fixed` overrides `absolute` when both are provided.");
@@ -139,6 +177,7 @@ export const LunaButton = React.forwardRef<HTMLButtonElement, LunaButtonProps>(
         type={type}
         className={rootClassName}
         data-animation={animation}
+        data-animation-active={isBurstAnimationActive ? "true" : "false"}
         data-disabled={disabled ? "true" : undefined}
         data-icon-direction={resolvedIconDirection}
         data-loading={loading ? "true" : undefined}

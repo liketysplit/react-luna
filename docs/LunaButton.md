@@ -141,8 +141,9 @@ Rules:
 
 Rules:
 - `animation` is a mutually exclusive string prop
-- current values are `ripple` and `bounce`
+- current values are `ripple`, `bounce`, and `wiggle`
 - animation does not stack
+- `bounce` and `wiggle` currently run as burst animations with an internal pause between cycles
 
 ### Size
 
@@ -217,8 +218,14 @@ Rules:
 ## Polish Notes
 
 - `loading` is currently using the orbit-ring treatment that replaced the earlier experimental conic variant.
+- `bounce` and `wiggle` are currently driven by internal burst timing rather than a dedicated animation system.
 - `bounce` and `wiggle` are usable, but still candidates for future motion polish after more visual review.
 - `outline`, `info`, and color interactions should get another visual pass once the broader button surface language settles.
+
+## Todo
+
+- Build a more deliberate animation process for `LunaButton`, especially for burst-style motion where run windows and idle gaps should be modeled cleanly rather than improvised through CSS timing alone.
+- Revisit `ripple` so it behaves more like random water drops than a simple centered pulse.
 
 ## Build Order
 

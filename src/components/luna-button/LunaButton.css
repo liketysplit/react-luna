@@ -213,12 +213,12 @@
   background: var(--luna-btn-loader-surface);
 }
 
-.luna-button[data-animation="bounce"] {
-  animation: luna-button-bounce 1800ms cubic-bezier(0.4, 0, 0.2, 1) infinite;
+.luna-button[data-animation="bounce"][data-animation-active="true"] {
+  animation: luna-button-bounce 1800ms cubic-bezier(0.4, 0, 0.2, 1) 1;
 }
 
-.luna-button[data-animation="wiggle"] {
-  animation: luna-button-wiggle 1800ms cubic-bezier(0.4, 0, 0.2, 1) infinite;
+.luna-button[data-animation="wiggle"][data-animation-active="true"] {
+  animation: luna-button-wiggle 1800ms cubic-bezier(0.4, 0, 0.2, 1) 1;
 }
 
 .luna-button[data-animation="ripple"]::after {
