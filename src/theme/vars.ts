@@ -52,6 +52,34 @@ export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<str
   if (button?.fontWeight) {
     vars["--luna-btn-font-weight"] = String(button.fontWeight);
   }
+  const buttonMode = button?.modes?.[mode];
+  if (buttonMode?.bg) {
+    vars["--luna-btn-bg-default"] = resolveTokenValue(theme, buttonMode.bg);
+  }
+  if (buttonMode?.fg) {
+    vars["--luna-btn-fg-default"] = resolveTokenValue(theme, buttonMode.fg);
+  }
+  if (buttonMode?.hoverBg) {
+    vars["--luna-btn-hover-bg"] = resolveTokenValue(theme, buttonMode.hoverBg);
+  }
+  if (buttonMode?.outlineFg) {
+    vars["--luna-btn-outline-fg"] = resolveTokenValue(theme, buttonMode.outlineFg);
+  }
+  if (buttonMode?.outlineBorder) {
+    vars["--luna-btn-outline-border"] = resolveTokenValue(theme, buttonMode.outlineBorder);
+  }
+  if (buttonMode?.outlineHoverBg) {
+    vars["--luna-btn-outline-hover-bg"] = resolveTokenValue(theme, buttonMode.outlineHoverBg);
+  }
+  if (buttonMode?.flatFg) {
+    vars["--luna-btn-flat-fg"] = resolveTokenValue(theme, buttonMode.flatFg);
+  }
+  if (buttonMode?.infoFg) {
+    vars["--luna-btn-info-fg"] = resolveTokenValue(theme, buttonMode.infoFg);
+  }
+  if (buttonMode?.infoHoverFg) {
+    vars["--luna-btn-info-hover-fg"] = resolveTokenValue(theme, buttonMode.infoHoverFg);
+  }
   if (button?.sizes) {
     for (const [name, profile] of Object.entries(button.sizes)) {
       if (profile.paddingX) {

@@ -3,28 +3,32 @@ import React from "react";
 import { ThemeProvider } from "../src/theme";
 import "../src/styles/theme-root.css";
 
+const LIGHT_CANVAS = "#f8fafc";
+const DARK_CANVAS = "#0f172a";
+
 const preview: Preview = {
-  globalTypes: {
-    themeMode: {
-      name: "Theme Mode",
-      description: "Global theme mode for stories",
-      defaultValue: "light",
-      toolbar: {
-        icon: "mirror",
-        items: [
-          { value: "light", title: "Light" },
-          { value: "dark", title: "Dark" }
-        ],
-        showName: true
-      }
+  parameters: {
+    backgrounds: {
+      default: "light",
+      values: [
+        { name: "light", value: LIGHT_CANVAS },
+        { name: "dark", value: DARK_CANVAS }
+      ]
     }
   },
   decorators: [
-    (Story, context) => (
-      <ThemeProvider mode={context.globals.themeMode}>
-        <Story />
-      </ThemeProvider>
-    )
+    (Story, context) => {
+      const canvasBackground = context.globals.backgrounds?.value;
+      const mode = canvasBackground === DARK_CANVAS ? "dark" : "light";
+
+      return (
+        <ThemeProvider mode={mode}>
+          <div style={{ padding: "1.5rem" }}>
+            <Story />
+          </div>
+        </ThemeProvider>
+      );
+    }
   ]
 };
 

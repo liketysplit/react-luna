@@ -50,6 +50,18 @@ export type ThemeButtonSizeProfile = {
   iconSize?: string;
 };
 
+export type ThemeButtonModeTokens = {
+  bg?: string;
+  fg?: string;
+  hoverBg?: string;
+  outlineFg?: string;
+  outlineBorder?: string;
+  outlineHoverBg?: string;
+  flatFg?: string;
+  infoFg?: string;
+  infoHoverFg?: string;
+};
+
 export type ThemeComponents = {
   button?: {
     defaultSize?: string;
@@ -57,6 +69,7 @@ export type ThemeComponents = {
     radius?: string;
     fontWeight?: number;
     sizes?: Record<string, ThemeButtonSizeProfile>;
+    modes?: Partial<Record<ThemeMode, ThemeButtonModeTokens>>;
     colors?: Record<string, { bg?: string; fg?: string; border?: string }>;
   };
 };

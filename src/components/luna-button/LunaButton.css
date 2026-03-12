@@ -1,5 +1,5 @@
 .luna-button {
-  --luna-btn-loader-surface: var(--luna-btn-bg, var(--luna-color-primary-600));
+  --luna-btn-loader-surface: var(--luna-btn-bg, var(--luna-btn-bg-default, var(--luna-color-primary-600)));
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -10,8 +10,8 @@
     var(--luna-btn-size-medium-padding-x, var(--luna-space-4));
   border: 1px solid transparent;
   border-radius: var(--luna-btn-radius, var(--luna-radius-md));
-  background: var(--luna-btn-bg, var(--luna-color-primary-600));
-  color: #ffffff;
+  background: var(--luna-btn-bg, var(--luna-btn-bg-default, var(--luna-color-primary-600)));
+  color: var(--luna-btn-fg-default, #ffffff);
   box-shadow: var(--luna-shadow-sm);
   font-family: var(--luna-font-family);
   font-size: var(--luna-btn-size-medium-font-size, var(--luna-font-size-sm, 0.875rem));
@@ -32,7 +32,10 @@
 }
 
 .luna-button:hover {
-  background: color-mix(in srgb, var(--luna-btn-bg, var(--luna-color-primary-600)) 88%, #000000);
+  background: var(
+    --luna-btn-hover-bg,
+    color-mix(in srgb, var(--luna-btn-bg, var(--luna-btn-bg-default, var(--luna-color-primary-600))) 88%, #000000)
+  );
 }
 
 .luna-button:focus-visible {
@@ -64,13 +67,14 @@
 }
 
 .luna-button--outline {
-  border-color: var(--luna-border);
+  color: var(--luna-btn-outline-fg, var(--luna-foreground));
+  border-color: var(--luna-btn-outline-border, var(--luna-border));
 }
 
 .luna-button--flat {
   --luna-btn-loader-surface: transparent;
   background: transparent;
-  color: var(--luna-foreground);
+  color: var(--luna-btn-flat-fg, var(--luna-foreground));
 }
 
 .luna-button--flat:hover {
@@ -90,7 +94,7 @@
   background: transparent;
   box-shadow: none;
   border-color: transparent;
-  color: var(--luna-btn-info-color, var(--luna-color-primary-500));
+  color: var(--luna-btn-info-color, var(--luna-btn-info-fg, var(--luna-color-primary-500)));
   min-height: auto;
   padding: 0;
   text-decoration: underline;
@@ -99,7 +103,7 @@
 
 .luna-button--info:hover {
   background: transparent;
-  color: color-mix(in srgb, var(--luna-btn-info-color, var(--luna-color-primary-500)) 84%, #000000);
+  color: var(--luna-btn-info-hover-fg, color-mix(in srgb, var(--luna-btn-info-color, var(--luna-btn-info-fg, var(--luna-color-primary-500))) 84%, #000000));
 }
 
 .luna-button--fab {

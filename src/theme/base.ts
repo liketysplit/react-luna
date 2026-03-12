@@ -151,6 +151,30 @@ export const lunarTheme: Theme = {
       defaultIconDirection: "right",
       radius: "md",
       fontWeight: 600,
+      modes: {
+        light: {
+          bg: "primary.600",
+          fg: "#ffffff",
+          hoverBg: "primary.700",
+          outlineFg: "#ffffff",
+          outlineBorder: "neutral.300",
+          outlineHoverBg: "neutral.100",
+          flatFg: "neutral.900",
+          infoFg: "primary.500",
+          infoHoverFg: "primary.600"
+        },
+        dark: {
+          bg: "primary.400",
+          fg: "#ffffff",
+          hoverBg: "primary.300",
+          outlineFg: "neutral.50",
+          outlineBorder: "neutral.500",
+          outlineHoverBg: "neutral.700",
+          flatFg: "neutral.50",
+          infoFg: "primary.200",
+          infoHoverFg: "primary.100"
+        }
+      },
       sizes: {
         "x-small": {
           paddingX: "2",
