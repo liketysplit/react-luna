@@ -214,6 +214,12 @@ Rules:
 - Do we ship icons or consume arbitrary icon content?
 - Should icon names map to a built-in icon set immediately, or can that wait until later?
 
+## Polish Notes
+
+- `loading` is currently using the orbit-ring treatment that replaced the earlier experimental conic variant.
+- `bounce` and `wiggle` are usable, but still candidates for future motion polish after more visual review.
+- `outline`, `info`, and color interactions should get another visual pass once the broader button surface language settles.
+
 ## Build Order
 
 1. Finalize `ButtonProps`

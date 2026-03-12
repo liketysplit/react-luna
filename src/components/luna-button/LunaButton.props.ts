@@ -1,6 +1,6 @@
 import type React from "react";
 
-export type LunaButtonAnimation = "ripple" | "bounce";
+export type LunaButtonAnimation = "ripple" | "bounce" | "wiggle";
 export type LunaButtonIconDirection = "left" | "right";
 export type LunaButtonLoadingAnimation = "loading";
 

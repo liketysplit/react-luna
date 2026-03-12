@@ -88,6 +88,7 @@ export const MotionAndState: Story = {
       <div className="luna-button-story-row">
         <LunaButton animation="ripple">Ripple</LunaButton>
         <LunaButton animation="bounce">Bounce</LunaButton>
+        <LunaButton animation="wiggle">Wiggle</LunaButton>
         <LunaButton loading>Loading</LunaButton>
         <LunaButton disabled>Disabled</LunaButton>
         <LunaButton loading disabled>
