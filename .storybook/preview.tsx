@@ -4,9 +4,24 @@ import { ThemeProvider } from "../src/theme";
 import "../src/styles/theme-root.css";
 
 const preview: Preview = {
+  globalTypes: {
+    themeMode: {
+      name: "Theme Mode",
+      description: "Global theme mode for stories",
+      defaultValue: "light",
+      toolbar: {
+        icon: "mirror",
+        items: [
+          { value: "light", title: "Light" },
+          { value: "dark", title: "Dark" }
+        ],
+        showName: true
+      }
+    }
+  },
   decorators: [
-    (Story) => (
-      <ThemeProvider>
+    (Story, context) => (
+      <ThemeProvider mode={context.globals.themeMode}>
         <Story />
       </ThemeProvider>
     )

@@ -1,4 +1,5 @@
 .luna-button {
+  --luna-btn-loader-surface: var(--luna-btn-bg, var(--luna-color-primary-600));
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -9,7 +10,7 @@
     var(--luna-btn-size-medium-padding-x, var(--luna-space-4));
   border: 1px solid transparent;
   border-radius: var(--luna-btn-radius, var(--luna-radius-md));
-  background: var(--luna-color-primary-600);
+  background: var(--luna-btn-bg, var(--luna-color-primary-600));
   color: #ffffff;
   box-shadow: var(--luna-shadow-sm);
   font-family: var(--luna-font-family);
@@ -20,6 +21,7 @@
   cursor: pointer;
   user-select: none;
   white-space: nowrap;
+  overflow: hidden;
   transition:
     background-color var(--luna-motion-base),
     border-color var(--luna-motion-base),
@@ -30,7 +32,7 @@
 }
 
 .luna-button:hover {
-  background: var(--luna-color-primary-700);
+  background: color-mix(in srgb, var(--luna-btn-bg, var(--luna-color-primary-600)) 88%, #000000);
 }
 
 .luna-button:focus-visible {
@@ -66,7 +68,9 @@
 }
 
 .luna-button--flat {
+  --luna-btn-loader-surface: transparent;
   background: transparent;
+  color: var(--luna-foreground);
 }
 
 .luna-button--flat:hover {
@@ -82,10 +86,11 @@
 }
 
 .luna-button--info {
+  --luna-btn-loader-surface: transparent;
   background: transparent;
   box-shadow: none;
   border-color: transparent;
-  color: var(--luna-color-primary-500);
+  color: var(--luna-btn-info-color, var(--luna-color-primary-500));
   min-height: auto;
   padding: 0;
   text-decoration: underline;
@@ -94,7 +99,7 @@
 
 .luna-button--info:hover {
   background: transparent;
-  color: var(--luna-color-primary-600);
+  color: color-mix(in srgb, var(--luna-btn-info-color, var(--luna-color-primary-500)) 84%, #000000);
 }
 
 .luna-button--fab {
@@ -104,11 +109,13 @@
 }
 
 .luna-button--light {
+  --luna-btn-loader-surface: var(--luna-background);
   background: var(--luna-background);
   color: var(--luna-foreground);
 }
 
 .luna-button--dark {
+  --luna-btn-loader-surface: var(--luna-foreground);
   background: var(--luna-foreground);
   color: var(--luna-background);
 }
@@ -159,21 +166,51 @@
   justify-content: center;
   flex: 0 0 auto;
   font-size: inherit;
+  position: relative;
+  z-index: 1;
 }
 
 .luna-button__content {
   display: inline-flex;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .luna-button__loader {
-  display: inline-flex;
-  width: 0.9em;
-  height: 0.9em;
-  border: 0.14em solid currentColor;
-  border-right-color: transparent;
-  border-radius: 999px;
-  animation: luna-button-border-swirl 900ms linear infinite;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.luna-button[data-loading-animation="loading"] .luna-button__loader::before {
+  content: "";
+  position: absolute;
+  width: 220%;
+  height: 220%;
+  top: -60%;
+  left: -60%;
+  background-image: conic-gradient(
+    transparent 0deg,
+    transparent 258deg,
+    rgb(255 255 255 / 0.06) 286deg,
+    currentColor 318deg,
+    rgb(255 255 255 / 0.14) 334deg,
+    transparent 356deg,
+    transparent 360deg
+  );
+  animation: luna-button-orbit 2400ms linear infinite;
+}
+
+.luna-button[data-loading-animation="loading"] .luna-button__loader::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: inherit;
+  background: var(--luna-btn-loader-surface);
 }
 
 .luna-button[data-animation="bounce"]:hover {
@@ -200,7 +237,7 @@
   transform: scale(1);
 }
 
-@keyframes luna-button-border-swirl {
+@keyframes luna-button-orbit {
   to {
     transform: rotate(360deg);
   }

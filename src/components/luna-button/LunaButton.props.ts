@@ -2,6 +2,7 @@ import type React from "react";
 
 export type LunaButtonAnimation = "ripple" | "bounce";
 export type LunaButtonIconDirection = "left" | "right";
+export type LunaButtonLoadingAnimation = "loading";
 
 export type LunaButtonProps = Omit<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -23,6 +24,7 @@ export type LunaButtonProps = Omit<
   left?: boolean | string | number;
   light?: boolean;
   loading?: boolean;
+  loadingAnimation?: LunaButtonLoadingAnimation;
   outline?: boolean;
   right?: boolean | string | number;
   rounded?: boolean;

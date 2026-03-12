@@ -16,3 +16,21 @@
   background: linear-gradient(180deg, var(--luna-surface), color-mix(in srgb, var(--luna-surface) 82%, var(--luna-background)));
   border: 1px solid var(--luna-border);
 }
+
+.luna-button-story-matrix {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.luna-button-story-matrix-row {
+  display: grid;
+  grid-template-columns: 10rem repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.luna-button-story-matrix-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--luna-muted);
+}

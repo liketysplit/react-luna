@@ -2,6 +2,21 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { LunaButton } from "./LunaButton";
 import "./LunaButton.stories.css";
 
+const themeColorRows = [
+  { label: "Primary", value: "primary.600" },
+  { label: "Accent", value: "accent.500" },
+  { label: "Success", value: "success.500" },
+  { label: "Warning", value: "warning.500" },
+  { label: "Danger", value: "danger.500" },
+  { label: "Neutral", value: "neutral.700" }
+];
+
+const customColorRows = [
+  { label: "Moon glow", value: "#7ab8ff" },
+  { label: "Lunar ice", value: "#9ae6ff" },
+  { label: "Dust rose", value: "#c78db7" }
+];
+
 const meta = {
   title: "Components/LunaButton",
   component: LunaButton,
@@ -78,6 +93,47 @@ export const MotionAndState: Story = {
         <LunaButton loading disabled>
           Loading disabled
         </LunaButton>
+      </div>
+    </div>
+  )
+};
+
+export const ColorMatrix: Story = {
+  render: () => (
+    <div className="luna-button-story-grid">
+      <div className="luna-button-story-surface luna-button-story-matrix">
+        {themeColorRows.map((row) => (
+          <div className="luna-button-story-matrix-row" key={row.label}>
+            <div className="luna-button-story-matrix-label">{row.label}</div>
+            <LunaButton color={row.value}>Default</LunaButton>
+            <LunaButton color={row.value} outline>
+              Outline
+            </LunaButton>
+            <LunaButton color={row.value} flat>
+              Flat
+            </LunaButton>
+            <LunaButton color={row.value} info>
+              Info
+            </LunaButton>
+          </div>
+        ))}
+      </div>
+      <div className="luna-button-story-surface luna-button-story-matrix">
+        {customColorRows.map((row) => (
+          <div className="luna-button-story-matrix-row" key={row.label}>
+            <div className="luna-button-story-matrix-label">{row.label}</div>
+            <LunaButton color={row.value}>Default</LunaButton>
+            <LunaButton color={row.value} outline>
+              Outline
+            </LunaButton>
+            <LunaButton color={row.value} flat>
+              Flat
+            </LunaButton>
+            <LunaButton color={row.value} info>
+              Info
+            </LunaButton>
+          </div>
+        ))}
       </div>
     </div>
   )

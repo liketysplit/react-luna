@@ -45,6 +45,7 @@ This document tracks the current design direction for the `Button` component bef
 
 - `disabled?: boolean`
 - `loading?: boolean`
+- `loadingAnimation?: "loading"`
 
 ### Native Button Behavior
 
@@ -90,7 +91,7 @@ Rules:
 
 Rules:
 - `loading` is visual feedback, not disabled behavior
-- the loading concept is a border swirl by default
+- current loading animation is `loading`
 - loading presentation is theme-driven
 - `loading` does not suppress interaction
 - `loading` and `disabled` can both be true

@@ -1,5 +1,6 @@
 import React from "react";
 import { useTheme } from "../../theme";
+import { resolveTokenValue } from "../../theme/resolve";
 import type { LunaButtonProps } from "./LunaButton.props";
 import "./LunaButton.css";
 
@@ -22,6 +23,14 @@ function hasDirectionalValue(value: boolean | string | number | undefined) {
   return value !== undefined && value !== false;
 }
 
+function resolveButtonColor(value: string | undefined, theme: ReturnType<typeof useTheme>["theme"]) {
+  if (!value) {
+    return undefined;
+  }
+
+  return resolveTokenValue(theme, value);
+}
+
 export const LunaButton = React.forwardRef<HTMLButtonElement, LunaButtonProps>(
   function LunaButton(
     {
@@ -31,6 +40,7 @@ export const LunaButton = React.forwardRef<HTMLButtonElement, LunaButtonProps>(
       bottom,
       children,
       className,
+      color,
       dark,
       depressed,
       disabled,
@@ -44,6 +54,7 @@ export const LunaButton = React.forwardRef<HTMLButtonElement, LunaButtonProps>(
       left,
       light,
       loading,
+      loadingAnimation = "loading",
       outline,
       right,
       rounded,
@@ -60,6 +71,7 @@ export const LunaButton = React.forwardRef<HTMLButtonElement, LunaButtonProps>(
     const resolvedSize = size ?? theme.components.button?.defaultSize ?? "medium";
     const resolvedIconDirection =
       iconDirection ?? theme.components.button?.defaultIconDirection ?? "right";
+    const resolvedColor = resolveButtonColor(color, theme);
 
     if (absolute && fixed) {
       warnOnce("LunaButton: `fixed` overrides `absolute` when both are provided.");
@@ -111,6 +123,14 @@ export const LunaButton = React.forwardRef<HTMLButtonElement, LunaButtonProps>(
       dark && "luna-button--dark",
       className
     ]);
+    const resolvedStyle = {
+      ...(resolvedColor
+        ? info
+          ? { ["--luna-btn-info-color" as const]: resolvedColor }
+          : { ["--luna-btn-bg" as const]: resolvedColor }
+        : {}),
+      ...style
+    };
 
     return (
       <button
@@ -122,9 +142,10 @@ export const LunaButton = React.forwardRef<HTMLButtonElement, LunaButtonProps>(
         data-disabled={disabled ? "true" : undefined}
         data-icon-direction={resolvedIconDirection}
         data-loading={loading ? "true" : undefined}
+        data-loading-animation={loading ? loadingAnimation : undefined}
         data-size={resolvedSize}
         disabled={disabled}
-        style={style}
+        style={resolvedStyle}
       >
         {renderLeadingIcon ? <span className="luna-button__icon">{resolvedIcon}</span> : null}
         <span className="luna-button__content">{content}</span>
