@@ -40,8 +40,8 @@ export function ThemeProvider({
     }
   }, [controlledMode]);
 
-  const mergedTheme = React.useMemo(() => {
-    const base = deepMerge(lunarTheme, theme);
+  const mergedTheme = React.useMemo<Theme>(() => {
+    const base = deepMerge<Theme>(lunarTheme, theme);
     if (!colors || Object.keys(colors).length === 0) {
       return base;
     }
