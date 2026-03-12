@@ -1,0 +1,84 @@
+import type { Meta, StoryObj } from "@storybook/react";
+import { LunaButton } from "./LunaButton";
+import "./LunaButton.stories.css";
+
+const meta = {
+  title: "Components/LunaButton",
+  component: LunaButton,
+  parameters: {
+    layout: "centered"
+  },
+  args: {
+    children: "Launch mission"
+  }
+} satisfies Meta<typeof LunaButton>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Playground: Story = {};
+
+export const SizeScale: Story = {
+  render: () => (
+    <div className="luna-button-story-grid">
+      <div className="luna-button-story-row">
+        <LunaButton size="x-small">X-Small</LunaButton>
+        <LunaButton size="small">Small</LunaButton>
+        <LunaButton size="medium">Medium</LunaButton>
+        <LunaButton size="large">Large</LunaButton>
+        <LunaButton size="x-large">X-Large</LunaButton>
+      </div>
+    </div>
+  )
+};
+
+export const SurfaceTreatments: Story = {
+  render: () => (
+    <div className="luna-button-story-row">
+      <LunaButton>Default</LunaButton>
+      <LunaButton outline>Outline</LunaButton>
+      <LunaButton flat>Flat</LunaButton>
+      <LunaButton depressed>Depressed</LunaButton>
+      <LunaButton outline flat depressed>
+        Combined
+      </LunaButton>
+    </div>
+  )
+};
+
+export const InfoAndIconography: Story = {
+  render: () => (
+    <div className="luna-button-story-grid">
+      <div className="luna-button-story-row">
+        <LunaButton info>Mission briefing</LunaButton>
+        <LunaButton info color="#7ab8ff">
+          Lunar atlas
+        </LunaButton>
+      </div>
+      <div className="luna-button-story-row">
+        <LunaButton icon={<span aria-hidden="true">☾</span>}>Orbit</LunaButton>
+        <LunaButton icon={<span aria-hidden="true">☾</span>} iconDirection="left">
+          Dock
+        </LunaButton>
+        <LunaButton fab icon={<span aria-hidden="true">☾</span>} aria-label="Open moon actions" />
+      </div>
+    </div>
+  )
+};
+
+export const MotionAndState: Story = {
+  render: () => (
+    <div className="luna-button-story-surface">
+      <div className="luna-button-story-row">
+        <LunaButton animation="ripple">Ripple</LunaButton>
+        <LunaButton animation="bounce">Bounce</LunaButton>
+        <LunaButton loading>Loading</LunaButton>
+        <LunaButton disabled>Disabled</LunaButton>
+        <LunaButton loading disabled>
+          Loading disabled
+        </LunaButton>
+      </div>
+    </div>
+  )
+};
