@@ -21,6 +21,17 @@ Design Approach
 Tooling
 - React for component implementation.
 - Storybook for interactive component exploration and configuration.
+- Changesets for package versioning and release notes.
+
+Release Flow
+- Add a changeset with `npm run changeset` for any package change that should affect the published version.
+- Merge to `main`.
+- GitHub Actions opens or updates a release pull request with version bumps and changelog updates.
+- Merging that release pull request publishes the package to npm.
+
+Publishing Prerequisites
+- `NPM_TOKEN` must be set in GitHub Actions secrets.
+- The repository release workflow publishes from `main`.
 
 Licensing
 All rights reserved.

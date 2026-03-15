@@ -4,12 +4,41 @@
   "private": false,
   "type": "module",
   "description": "Self-sufficient React component library with a lunar theme.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": "./dist/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liketysplit/react-luna.git"
+  },
+  "bugs": {
+    "url": "https://github.com/liketysplit/react-luna/issues"
+  },
+  "homepage": "https://github.com/liketysplit/react-luna#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -p tsconfig.build.json && vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build"
   },
@@ -21,6 +50,7 @@
     "@storybook/addon-essentials": "^8.5.0",
     "@storybook/react": "^8.5.0",
     "@storybook/react-vite": "^8.5.0",
+    "@changesets/cli": "^2.29.6",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",

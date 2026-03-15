@@ -21,6 +21,28 @@ Workflow
 - Confirm results together before expanding scope.
 - Never abbreviate; spell out words to keep communication clear.
 
+Standard Delivery Flow
+- Build each feature in this order unless there is a clear reason not to:
+- implementation
+- Storybook coverage
+- visual verification
+- unit tests
+- public documentation updates
+- release metadata updates when the change affects the published package
+- Do not treat a component as complete until Storybook, tests, and public documentation are updated.
+- Prefer shipping one coherent vertical slice at a time instead of partially touching many layers.
+
+Release And Versioning Flow
+- Use Changesets for package versioning.
+- Add a changeset for any merged change that should affect the published package.
+- Keep `CHANGELOG.md` consumer-facing and release-oriented.
+- Storybook is the primary public component documentation surface.
+- Keep deeper design process notes in `docs/`, but ensure consumer-facing behavior is reflected in Storybook and release notes.
+- Before calling a component ready for release, verify:
+- `npm run build`
+- `npm test`
+- relevant Storybook stories for the changed component
+
 Plan (Local Tracking)
 - Phase 1: Foundation
 - [x] Vite + Vitest setup
