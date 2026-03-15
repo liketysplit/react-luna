@@ -34,7 +34,7 @@ This document tracks the current design direction for the `Button` component bef
 - `icon?: React.ReactNode`
 - `iconName?: string`
 - `iconDirection?: "left" | "right"`
-- `animation?: "ripple" | "bounce"`
+- `animation?: string`
 
 ### Theme Context
 
@@ -45,7 +45,7 @@ This document tracks the current design direction for the `Button` component bef
 
 - `disabled?: boolean`
 - `loading?: boolean`
-- `loadingAnimation?: "loading"`
+- `loadingAnimation?: "lunar" | "loading-star"`
 
 ### Native Button Behavior
 
@@ -91,10 +91,12 @@ Rules:
 
 Rules:
 - `loading` is visual feedback, not disabled behavior
-- current loading animation is `loading`
+- default loading animation is `lunar`
+- `loading-star` remains available as a legacy alternate loading treatment
 - loading presentation is theme-driven
 - `loading` does not suppress interaction
 - `loading` and `disabled` can both be true
+- loading hides button content and centers the loader without changing the button shell layout
 
 ### Informational Intent
 
@@ -141,9 +143,11 @@ Rules:
 
 Rules:
 - `animation` is a mutually exclusive string prop
-- current values are `ripple`, `bounce`, and `wiggle`
+- public contract is CSS shorthand in the shape `"<name> <duration> <iterationCount>"`
+- examples: `bounce 3s infinite`, `wiggle 4s infinite`, `pulse 2s infinite`
 - animation does not stack
-- `bounce` and `wiggle` currently run as burst animations with an internal pause between cycles
+- `bounce`, `wiggle`, and `pulse` include their own built-in idle time inside the keyframes
+- legacy animation classes still exist as compatibility hooks, but the string `animation` prop is the real contract
 
 ### Size
 
@@ -217,14 +221,14 @@ Rules:
 
 ## Polish Notes
 
-- `loading` is currently using the orbit-ring treatment that replaced the earlier experimental conic variant.
-- `bounce` and `wiggle` are currently driven by internal burst timing rather than a dedicated animation system.
-- `bounce` and `wiggle` are usable, but still candidates for future motion polish after more visual review.
+- `loading` now defaults to a centered lunar phase loader inside the existing button shell.
+- `loading-star` is preserved as a legacy alternate loader.
+- `bounce`, `wiggle`, and `pulse` are now driven by the public animation shorthand contract.
+- motion values are usable, but still candidates for future polish after more visual review.
 - `outline`, `info`, and color interactions should get another visual pass once the broader button surface language settles.
 
 ## Todo
 
-- Build a more deliberate animation process for `LunaButton`, especially for burst-style motion where run windows and idle gaps should be modeled cleanly rather than improvised through CSS timing alone.
 - Revisit `ripple` so it behaves more like random water drops than a simple centered pulse.
 
 ## Build Order

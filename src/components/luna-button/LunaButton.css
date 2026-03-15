@@ -1,5 +1,7 @@
 .luna-button {
-  --luna-btn-loader-surface: var(--luna-btn-bg, var(--luna-btn-bg-default, var(--luna-color-primary-600)));
+  --luna-btn-loader-gap: 0.28rem;
+  --luna-btn-loader-min-width: 4.35rem;
+  --luna-btn-loader-moon-size: 0.58rem;
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -72,7 +74,6 @@
 }
 
 .luna-button--flat {
-  --luna-btn-loader-surface: transparent;
   background: transparent;
   color: var(--luna-btn-flat-fg, var(--luna-foreground));
 }
@@ -90,7 +91,6 @@
 }
 
 .luna-button--info {
-  --luna-btn-loader-surface: transparent;
   background: transparent;
   box-shadow: none;
   border-color: transparent;
@@ -113,18 +113,19 @@
 }
 
 .luna-button--light {
-  --luna-btn-loader-surface: var(--luna-background);
   background: var(--luna-background);
   color: var(--luna-foreground);
 }
 
 .luna-button--dark {
-  --luna-btn-loader-surface: var(--luna-foreground);
   background: var(--luna-foreground);
   color: var(--luna-background);
 }
 
 .luna-button[data-size="x-small"] {
+  --luna-btn-loader-gap: 0.22rem;
+  --luna-btn-loader-min-width: 3.5rem;
+  --luna-btn-loader-moon-size: 0.48rem;
   gap: var(--luna-btn-size-x-small-gap, var(--luna-space-1));
   min-height: var(--luna-btn-size-x-small-min-height, 1.75rem);
   padding: var(--luna-btn-size-x-small-padding-y, var(--luna-space-1))
@@ -133,6 +134,9 @@
 }
 
 .luna-button[data-size="small"] {
+  --luna-btn-loader-gap: 0.24rem;
+  --luna-btn-loader-min-width: 3.9rem;
+  --luna-btn-loader-moon-size: 0.52rem;
   gap: var(--luna-btn-size-small-gap, var(--luna-space-1));
   min-height: var(--luna-btn-size-small-min-height, 2rem);
   padding: var(--luna-btn-size-small-padding-y, var(--luna-space-1))
@@ -149,6 +153,9 @@
 }
 
 .luna-button[data-size="large"] {
+  --luna-btn-loader-gap: 0.32rem;
+  --luna-btn-loader-min-width: 4.9rem;
+  --luna-btn-loader-moon-size: 0.64rem;
   gap: var(--luna-btn-size-large-gap, var(--luna-space-2));
   min-height: var(--luna-btn-size-large-min-height, 3rem);
   padding: var(--luna-btn-size-large-padding-y, var(--luna-space-2))
@@ -157,6 +164,9 @@
 }
 
 .luna-button[data-size="x-large"] {
+  --luna-btn-loader-gap: 0.36rem;
+  --luna-btn-loader-min-width: 5.35rem;
+  --luna-btn-loader-moon-size: 0.7rem;
   gap: var(--luna-btn-size-x-large-gap, var(--luna-space-3));
   min-height: var(--luna-btn-size-x-large-min-height, 3.5rem);
   padding: var(--luna-btn-size-x-large-padding-y, var(--luna-space-3))
@@ -179,18 +189,111 @@
   align-items: center;
   position: relative;
   z-index: 1;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.luna-button[data-loading="true"] .luna-button__content,
+.luna-button[data-loading="true"] .luna-button__icon {
+  opacity: 0;
+  transform: scale(0.97);
 }
 
 .luna-button__loader {
   position: absolute;
   inset: 0;
-  border-radius: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   pointer-events: none;
-  z-index: 0;
+  z-index: 2;
+  opacity: 0;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+  transform: scale(0.97);
+}
+
+.luna-button[data-loading="true"] .luna-button__loader {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.luna-button__loader-phases {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--luna-btn-loader-gap);
+  min-width: var(--luna-btn-loader-min-width);
+}
+
+.luna-button__moon {
+  width: var(--luna-btn-loader-moon-size);
+  height: var(--luna-btn-loader-moon-size);
+  border-radius: 999px;
+  flex: 0 0 auto;
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.05);
+  will-change:
+    transform,
+    opacity,
+    filter;
+  animation: luna-button-lunar-pulse 1.8s infinite ease-in-out;
+}
+
+.luna-button__moon:nth-child(2) {
+  animation-delay: 0.18s;
+}
+
+.luna-button__moon:nth-child(3) {
+  animation-delay: 0.36s;
+}
+
+.luna-button__moon:nth-child(4) {
+  animation-delay: 0.54s;
+}
+
+.luna-button__moon:nth-child(5) {
+  animation-delay: 0.72s;
+}
+
+.luna-button__moon--new {
+  background: color-mix(in srgb, currentColor 58%, transparent);
+}
+
+.luna-button__moon--waxing {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, currentColor 62%, transparent) 50%,
+    rgb(255 255 255 / 0.16) 50%
+  );
+}
+
+.luna-button__moon--full {
+  background: color-mix(in srgb, currentColor 88%, #ffffff);
+}
+
+.luna-button__moon--waning {
+  background: linear-gradient(
+    90deg,
+    rgb(255 255 255 / 0.16) 50%,
+    color-mix(in srgb, currentColor 88%, #ffffff) 50%
+  );
+}
+
+.luna-button__moon--faint {
+  background: color-mix(in srgb, currentColor 30%, transparent);
+}
+
+.luna-button__loader-star {
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  border-radius: inherit;
+  position: relative;
   overflow: hidden;
 }
 
-.luna-button[data-loading-animation="loading"] .luna-button__loader::before {
+.luna-button__loader-star::before {
   content: "";
   position: absolute;
   width: 220%;
@@ -206,46 +309,53 @@
     transparent 356deg,
     transparent 360deg
   );
-  animation: luna-button-orbit 2400ms linear infinite;
+  animation: luna-button-loading-star 2400ms linear infinite;
 }
 
-.luna-button[data-loading-animation="loading"] .luna-button__loader::after {
+.luna-button__loader-star::after {
   content: "";
   position: absolute;
   inset: 2px;
   border-radius: inherit;
-  background: var(--luna-btn-loader-surface);
+  background: var(--luna-btn-bg, var(--luna-btn-bg-default, var(--luna-color-primary-600)));
 }
 
-.luna-button[data-animation="bounce"][data-animation-active="true"] {
-  animation: luna-button-bounce 1800ms cubic-bezier(0.4, 0, 0.2, 1) 1;
+.luna-button.is-bouncing {
+  animation: luna-button-bounce 3s infinite;
 }
 
-.luna-button[data-animation="wiggle"][data-animation-active="true"] {
-  animation: luna-button-wiggle 1800ms cubic-bezier(0.4, 0, 0.2, 1) 1;
+.luna-button.is-wiggling {
+  animation: luna-button-wiggle 4s infinite;
 }
 
-.luna-button[data-animation="ripple"]::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background:
-    radial-gradient(circle at center, rgb(255 255 255 / 0.22) 0, rgb(255 255 255 / 0) 60%);
-  opacity: 0;
-  transform: scale(0.92);
-  transition:
-    opacity var(--luna-motion-base),
-    transform var(--luna-motion-base);
-  pointer-events: none;
+.luna-button.is-pulsing {
+  animation: luna-button-pulse 2s infinite;
 }
 
-.luna-button[data-animation="ripple"]:hover::after {
-  opacity: 1;
-  transform: scale(1);
+.luna-button[data-loading-animation="lunar"] .luna-button__moon {
+  animation-name: luna-button-lunar-pulse;
 }
 
-@keyframes luna-button-orbit {
+.luna-button[data-loading-animation="loading-star"] .luna-button__loader-star {
+  display: block;
+}
+
+@keyframes luna-button-lunar-pulse {
+  0%,
+  100% {
+    transform: translateY(0) scale(0.96);
+    opacity: 0.42;
+    filter: brightness(0.95);
+  }
+
+  50% {
+    transform: translateY(-1px) scale(1);
+    opacity: 1;
+    filter: brightness(1.08);
+  }
+}
+
+@keyframes luna-button-loading-star {
   to {
     transform: rotate(360deg);
   }
@@ -253,81 +363,60 @@
 
 @keyframes luna-button-bounce {
   0%,
-  48%,
+  24%,
   100% {
     transform: translateY(0);
   }
 
   6% {
-    transform: translateY(-6px);
+    transform: translateY(-10px);
   }
 
   12% {
-    transform: translateY(4px);
+    transform: translateY(2px);
   }
 
   18% {
     transform: translateY(-4px);
   }
-
-  24% {
-    transform: translateY(3px);
-  }
-
-  30% {
-    transform: translateY(-5px);
-  }
-
-  36% {
-    transform: translateY(4px);
-  }
-
-  42% {
-    transform: translateY(-3px);
-  }
-
-  46%,
-  47.9% {
-    transform: translateY(3px);
-  }
 }
 
 @keyframes luna-button-wiggle {
   0%,
-  48%,
+  16%,
   100% {
-    transform: translateX(0);
+    transform: rotate(0deg);
   }
 
-  6% {
-    transform: translateX(-8px);
+  4% {
+    transform: rotate(-3deg);
+  }
+
+  8% {
+    transform: rotate(2deg);
   }
 
   12% {
-    transform: translateX(6px);
+    transform: rotate(-1.5deg);
+  }
+}
+
+@keyframes luna-button-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: var(--luna-shadow-md);
   }
 
-  18% {
-    transform: translateX(-6px);
+  10% {
+    transform: scale(1.02);
+    box-shadow:
+      var(--luna-shadow-md),
+      0 0 18px rgb(140 180 255 / 0.22);
   }
 
-  24% {
-    transform: translateX(8px);
-  }
-
-  30% {
-    transform: translateX(-6px);
-  }
-
-  36% {
-    transform: translateX(6px);
-  }
-
-  42% {
-    transform: translateX(-8px);
-  }
-
-  46% {
-    transform: translateX(2px);
+  20% {
+    transform: scale(1);
+    box-shadow: var(--luna-shadow-md);
   }
 }

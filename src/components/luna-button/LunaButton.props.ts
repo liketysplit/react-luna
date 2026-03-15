@@ -1,8 +1,8 @@
 import type React from "react";
 
-export type LunaButtonAnimation = "ripple" | "bounce" | "wiggle";
+export type LunaButtonAnimation = string;
 export type LunaButtonIconDirection = "left" | "right";
-export type LunaButtonLoadingAnimation = "loading";
+export type LunaButtonLoadingAnimation = "lunar" | "loading-star";
 
 export type LunaButtonProps = Omit<
   React.ButtonHTMLAttributes<HTMLButtonElement>,

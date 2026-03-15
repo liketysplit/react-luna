@@ -5,15 +5,10 @@ import type { LunaButtonProps } from "./LunaButton.props";
 import "./LunaButton.css";
 
 const warnedMessages = new Set<string>();
-const BURST_ANIMATION_CONFIG: Partial<Record<NonNullable<LunaButtonProps["animation"]>, { activeMs: number; cycleMs: number }>> = {
-  bounce: {
-    activeMs: 1800,
-    cycleMs: 5000
-  },
-  wiggle: {
-    activeMs: 1800,
-    cycleMs: 5000
-  }
+const LEGACY_ANIMATION_MAP: Record<string, string> = {
+  bounce: "bounce 3s infinite",
+  wiggle: "wiggle 4s infinite",
+  pulse: "pulse 2s infinite"
 };
 
 function warnOnce(message: string) {
@@ -41,6 +36,32 @@ function resolveButtonColor(value: string | undefined, theme: ReturnType<typeof 
   return resolveTokenValue(theme, value);
 }
 
+function resolveAnimation(animation: string | undefined) {
+  if (!animation) {
+    return undefined;
+  }
+
+  const legacyAnimation = LEGACY_ANIMATION_MAP[animation];
+  const animationValue = (legacyAnimation ?? animation).trim();
+  const [name, ...rest] = animationValue.split(/\s+/);
+
+  if (!name) {
+    return undefined;
+  }
+
+  if (rest.length < 2) {
+    warnOnce(
+      "LunaButton: `animation` should follow \"<name> <duration> <iterationCount>\"."
+    );
+    return undefined;
+  }
+
+  const keyframesName =
+    name === "lunarPulse" ? "luna-button-lunar-pulse" : `luna-button-${name}`;
+
+  return [keyframesName, ...rest].join(" ");
+}
+
 export const LunaButton = React.forwardRef<HTMLButtonElement, LunaButtonProps>(
   function LunaButton(
     {
@@ -64,7 +85,7 @@ export const LunaButton = React.forwardRef<HTMLButtonElement, LunaButtonProps>(
       left,
       light,
       loading,
-      loadingAnimation = "loading",
+      loadingAnimation = "lunar",
       outline,
       right,
       rounded,
@@ -82,34 +103,7 @@ export const LunaButton = React.forwardRef<HTMLButtonElement, LunaButtonProps>(
     const resolvedIconDirection =
       iconDirection ?? theme.components.button?.defaultIconDirection ?? "right";
     const resolvedColor = resolveButtonColor(color, theme);
-    const [isBurstAnimationActive, setIsBurstAnimationActive] = React.useState(true);
-    const burstAnimationConfig = animation ? BURST_ANIMATION_CONFIG[animation] : undefined;
-
-    React.useEffect(() => {
-      if (!burstAnimationConfig) {
-        setIsBurstAnimationActive(true);
-        return;
-      }
-
-      setIsBurstAnimationActive(true);
-
-      const activeTimer = window.setTimeout(() => {
-        setIsBurstAnimationActive(false);
-      }, burstAnimationConfig.activeMs);
-
-      const cycleTimer = window.setInterval(() => {
-        setIsBurstAnimationActive(true);
-
-        window.setTimeout(() => {
-          setIsBurstAnimationActive(false);
-        }, burstAnimationConfig.activeMs);
-      }, burstAnimationConfig.cycleMs);
-
-      return () => {
-        window.clearTimeout(activeTimer);
-        window.clearInterval(cycleTimer);
-      };
-    }, [burstAnimationConfig]);
+    const resolvedAnimation = resolveAnimation(animation);
 
     if (absolute && fixed) {
       warnOnce("LunaButton: `fixed` overrides `absolute` when both are provided.");
@@ -162,6 +156,7 @@ export const LunaButton = React.forwardRef<HTMLButtonElement, LunaButtonProps>(
       className
     ]);
     const resolvedStyle = {
+      ...(resolvedAnimation ? { animation: resolvedAnimation } : {}),
       ...(resolvedColor
         ? info
           ? { ["--luna-btn-info-color" as const]: resolvedColor }
@@ -176,8 +171,7 @@ export const LunaButton = React.forwardRef<HTMLButtonElement, LunaButtonProps>(
         ref={ref}
         type={type}
         className={rootClassName}
-        data-animation={animation}
-        data-animation-active={isBurstAnimationActive ? "true" : "false"}
+        aria-busy={loading ? "true" : undefined}
         data-disabled={disabled ? "true" : undefined}
         data-icon-direction={resolvedIconDirection}
         data-loading={loading ? "true" : undefined}
@@ -188,7 +182,21 @@ export const LunaButton = React.forwardRef<HTMLButtonElement, LunaButtonProps>(
       >
         {renderLeadingIcon ? <span className="luna-button__icon">{resolvedIcon}</span> : null}
         <span className="luna-button__content">{content}</span>
-        {loading ? <span aria-hidden="true" className="luna-button__loader" /> : null}
+        {loading ? (
+          <span aria-hidden="true" className="luna-button__loader">
+            {loadingAnimation === "loading-star" ? (
+              <span className="luna-button__loader-star" />
+            ) : (
+              <span className="luna-button__loader-phases">
+                <span className="luna-button__moon luna-button__moon--new" />
+                <span className="luna-button__moon luna-button__moon--waxing" />
+                <span className="luna-button__moon luna-button__moon--full" />
+                <span className="luna-button__moon luna-button__moon--waning" />
+                <span className="luna-button__moon luna-button__moon--faint" />
+              </span>
+            )}
+          </span>
+        ) : null}
         {renderTrailingIcon ? <span className="luna-button__icon">{resolvedIcon}</span> : null}
       </button>
     );
