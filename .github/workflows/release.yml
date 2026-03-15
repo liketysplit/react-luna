@@ -33,6 +33,7 @@ jobs:
         run: npm run build
 
       - name: Create release pull request or publish
+        id: changesets
         uses: changesets/action@v1
         with:
           version: npm run version-packages
@@ -40,3 +41,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Enable auto-merge for release pull request
+        if: steps.changesets.outputs.published != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if gh pr view changeset-release/main --json number >/dev/null 2>&1; then
+            gh pr merge changeset-release/main --auto --squash
+          fi
