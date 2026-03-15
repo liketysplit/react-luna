@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2
+
+### Patch Changes
+
+- 117b0cb: Trigger the next package release after finalizing npm publishing setup and release automation.
+
 ## 0.1.1
 
 ### Patch Changes
