@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.3
+
+### Patch Changes
+
+- 83d3230: Preserve generated type declarations in published builds, update the release workflow action versions, and record the release secret review reminder in project guidance.
+
 ## 0.1.2
 
 ### Patch Changes
