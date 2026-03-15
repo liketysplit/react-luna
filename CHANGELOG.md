@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.1
+
+### Patch Changes
+
+- 1e0dd64: Switch the published package name to `@liketysplit/react-luna` so the first npm release publishes under the maintained scope.
+
 ## 0.1.0
 
 ### Minor Changes
