@@ -39,13 +39,13 @@ jobs:
           version: npm run version-packages
           publish: npm run release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Enable auto-merge for release pull request
         if: steps.changesets.outputs.published != 'true'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.RELEASE_GH_TOKEN }}
         run: |
           if gh pr view changeset-release/main --json number >/dev/null 2>&1; then
             gh pr merge changeset-release/main --auto --squash
