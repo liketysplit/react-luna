@@ -35,9 +35,14 @@ Standard Delivery Flow
 Release And Versioning Flow
 - Use Changesets for package versioning.
 - Add a changeset for any merged change that should affect the published package.
+- Do not add a release-trigger-only changeset just to exercise the pipeline without explicit user approval first.
 - Keep `CHANGELOG.md` consumer-facing and release-oriented.
 - Storybook is the primary public component documentation surface.
 - Keep deeper design process notes in `docs/`, but ensure consumer-facing behavior is reflected in Storybook and release notes.
+- Review the expiry date of publish-related secrets every 60 days and rotate them before they lapse.
+- Publish secret review tracker:
+- last reviewed: `2026-03-15`
+- review again by: `2026-05-14`
 - Before calling a component ready for release, verify:
 - `npm run build`
 - `npm test`
