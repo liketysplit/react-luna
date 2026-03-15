@@ -1,7 +1,7 @@
-﻿react-luna
+@liketysplit/react-luna
 
 Statement
-react-luna is a self-sufficient React component library designed to be a durable foundation for personal applications. It targets a clean, lunar aesthetic with a default light and dark theme that can be overridden at the project level after installation.
+@liketysplit/react-luna is a self-sufficient React component library designed to be a durable foundation for personal applications. It targets a clean, lunar aesthetic with a default light and dark theme that can be overridden at the project level after installation.
 
 Goals
 - Provide a complete set of reusable UI primitives and layouts.
@@ -10,7 +10,6 @@ Goals
 - Allow downstream projects to override theme tokens and component styling.
 
 Non-goals
-- Recreating Vue or Vuetify patterns.
 - Depending on external UI component libraries.
 
 Design Approach
