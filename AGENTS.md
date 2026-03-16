@@ -26,6 +26,10 @@ Tracking And Delivery
 - `PLAN.md` is a temporary migration file for turning roadmap items into GitHub Issues.
 - `docs/` contains project-level and component-level reference material.
 - `CHANGELOG.md` contains release-facing history only.
+- GitHub Issues are now the active task backlog.
+- GitHub Milestones group work by project phase.
+- GitHub Project board: `react-luna`
+- Project URL: `https://github.com/users/liketysplit/projects/3`
 
 Phase Snapshot
 - Foundation is complete.
