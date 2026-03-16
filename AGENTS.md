@@ -23,6 +23,7 @@ Workflow
 
 Tracking And Delivery
 - `WORKFLOW.md` is the source of truth for delivery order, completion rules, release flow, and tracking design.
+- `CHANGE_MANAGEMENT.md` is the source of truth for how work must be justified, created, and tracked before implementation.
 - `PLAN.md` is a temporary migration file for turning roadmap items into GitHub Issues.
 - `docs/` contains project-level and component-level reference material.
 - `CHANGELOG.md` contains release-facing history only.
@@ -30,6 +31,8 @@ Tracking And Delivery
 - GitHub Milestones group work by project phase.
 - GitHub Project board: `react-luna`
 - Project URL: `https://github.com/users/liketysplit/projects/3`
+- Default rule: work should be issue-driven.
+- If there is no existing issue for non-trivial work, the change must be justified and a new issue must be created before implementation begins.
 
 Phase Snapshot
 - Foundation is complete.
