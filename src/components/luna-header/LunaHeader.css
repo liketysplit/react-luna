@@ -1,0 +1,13 @@
+.luna-header {
+  display: grid;
+  gap: var(--luna-header-gap, 0.5rem);
+  justify-items: var(--luna-header-align, start);
+  text-align: var(--luna-header-text-align, left);
+  min-width: 0;
+}
+
+.luna-header__title,
+.luna-header__subtitle {
+  min-width: 0;
+  margin: 0;
+}
