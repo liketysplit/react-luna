@@ -1,0 +1,55 @@
+.luna-card {
+  display: grid;
+  gap: var(--luna-card-gap, var(--luna-card-gap-default, 1rem));
+  padding: var(--luna-card-padding, var(--luna-card-padding-default, 1rem));
+  border: 1px solid var(--luna-card-border, var(--luna-border));
+  border-radius: var(--luna-card-radius, var(--luna-radius-lg));
+  background: var(--luna-card-bg-override, var(--luna-card-bg, var(--luna-surface)));
+  color: var(--luna-card-fg, var(--luna-foreground));
+  box-shadow: var(--luna-card-shadow, var(--luna-shadow-sm));
+  transition:
+    border-color var(--luna-motion-base),
+    box-shadow var(--luna-motion-base),
+    background-color var(--luna-motion-base),
+    transform var(--luna-motion-fast);
+}
+
+.luna-card--outlined {
+  border-color: var(--luna-card-border, var(--luna-border));
+}
+
+.luna-card--elevated {
+  box-shadow: var(--luna-card-elevated-shadow, var(--luna-shadow-md));
+}
+
+.luna-card--flat {
+  box-shadow: none;
+}
+
+.luna-card--rounded {
+  border-radius: var(--luna-radius-pill);
+}
+
+.luna-card--interactive {
+  cursor: pointer;
+}
+
+.luna-card--interactive:hover {
+  border-color: var(--luna-card-hover-border, var(--luna-card-border, var(--luna-border)));
+  box-shadow: var(--luna-card-hover-shadow, var(--luna-card-shadow, var(--luna-shadow-sm)));
+  transform: translateY(-1px);
+}
+
+.luna-card__title {
+  margin: 0;
+}
+
+.luna-card__actions {
+  min-width: 0;
+}
+
+.luna-card__header,
+.luna-card__body,
+.luna-card__actions {
+  min-width: 0;
+}

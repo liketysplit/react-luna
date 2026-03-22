@@ -77,6 +77,16 @@ export type ThemeTextModeTokens = {
   surfaceBorder?: string;
 };
 
+export type ThemeCardModeTokens = {
+  bg?: string;
+  fg?: string;
+  border?: string;
+  shadow?: string;
+  elevatedShadow?: string;
+  hoverBorder?: string;
+  hoverShadow?: string;
+};
+
 export type ThemeComponents = {
   button?: {
     defaultSize?: string;
@@ -91,6 +101,12 @@ export type ThemeComponents = {
     defaultVariant?: string;
     variants?: Record<string, ThemeTextVariantProfile>;
     modes?: Partial<Record<ThemeMode, ThemeTextModeTokens>>;
+  };
+  card?: {
+    defaultPadding?: string;
+    defaultGap?: string;
+    radius?: string;
+    modes?: Partial<Record<ThemeMode, ThemeCardModeTokens>>;
   };
 };
 

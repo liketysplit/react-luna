@@ -4,10 +4,11 @@ import { resolveScaleValue } from "../theme/resolve";
 
 export type LunaLayoutBreakpoint = "xs" | "sm" | "md" | "lg" | "xl";
 export type LunaLayoutAlias = "mobile" | "tablet" | "desktop";
+export type LunaLayoutSpanValue = number | "auto";
 export type LunaLayoutResponsiveSpan = Partial<
-  Record<LunaLayoutBreakpoint | LunaLayoutAlias, number>
+  Record<LunaLayoutBreakpoint | LunaLayoutAlias, LunaLayoutSpanValue>
 >;
-export type LunaLayoutSpan = number | LunaLayoutResponsiveSpan | undefined;
+export type LunaLayoutSpan = LunaLayoutSpanValue | LunaLayoutResponsiveSpan | undefined;
 export type LunaLayoutAlign = "start" | "center" | "end" | "stretch" | "baseline";
 export type LunaLayoutJustify =
   | "start"
@@ -56,8 +57,10 @@ export function normalizeGap(
   return resolveScaleValue(theme.spacing, value) ?? value;
 }
 
-export function normalizeLayoutSpan(span: LunaLayoutSpan): Record<LunaLayoutBreakpoint, number> {
-  if (typeof span === "number") {
+export function normalizeLayoutSpan(
+  span: LunaLayoutSpan
+): Record<LunaLayoutBreakpoint, LunaLayoutSpanValue> {
+  if (typeof span === "number" || span === "auto") {
     return { xs: span, sm: span, md: span, lg: span, xl: span };
   }
 
@@ -65,10 +68,10 @@ export function normalizeLayoutSpan(span: LunaLayoutSpan): Record<LunaLayoutBrea
     return { xs: 12, sm: 12, md: 12, lg: 12, xl: 12 };
   }
 
-  const normalized: Partial<Record<LunaLayoutBreakpoint, number>> = {};
+  const normalized: Partial<Record<LunaLayoutBreakpoint, LunaLayoutSpanValue>> = {};
 
   for (const [key, value] of Object.entries(span)) {
-    if (typeof value !== "number") {
+    if (typeof value !== "number" && value !== "auto") {
       continue;
     }
 
@@ -80,8 +83,8 @@ export function normalizeLayoutSpan(span: LunaLayoutSpan): Record<LunaLayoutBrea
     }
   }
 
-  let last = normalized.xs ?? 12;
-  const resolved: Record<LunaLayoutBreakpoint, number> = {
+  let last: LunaLayoutSpanValue = normalized.xs ?? 12;
+  const resolved: Record<LunaLayoutBreakpoint, LunaLayoutSpanValue> = {
     xs: last,
     sm: last,
     md: last,
@@ -91,7 +94,7 @@ export function normalizeLayoutSpan(span: LunaLayoutSpan): Record<LunaLayoutBrea
 
   for (const key of BREAKPOINTS) {
     if (normalized[key] !== undefined) {
-      last = normalized[key] as number;
+      last = normalized[key] as LunaLayoutSpanValue;
     }
 
     resolved[key] = last;

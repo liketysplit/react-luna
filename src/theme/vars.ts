@@ -161,5 +161,45 @@ export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<str
     }
   }
 
+  const card = theme.components.card;
+  if (card?.defaultPadding) {
+    vars["--luna-card-padding-default"] =
+      resolveScaleValue(theme.spacing, card.defaultPadding) ?? card.defaultPadding;
+  }
+  if (card?.defaultGap) {
+    vars["--luna-card-gap-default"] =
+      resolveScaleValue(theme.spacing, card.defaultGap) ?? card.defaultGap;
+  }
+  if (card?.radius) {
+    vars["--luna-card-radius"] = resolveScaleValue(theme.radii, card.radius) ?? card.radius;
+  }
+  const cardMode = card?.modes?.[mode];
+  if (cardMode?.bg) {
+    vars["--luna-card-bg"] = resolveTokenValue(theme, cardMode.bg);
+  }
+  if (cardMode?.fg) {
+    vars["--luna-card-fg"] = resolveTokenValue(theme, cardMode.fg);
+  }
+  if (cardMode?.border) {
+    vars["--luna-card-border"] = resolveTokenValue(theme, cardMode.border);
+  }
+  if (cardMode?.shadow) {
+    vars["--luna-card-shadow"] =
+      resolveScaleValue(theme.shadows, cardMode.shadow) ?? resolveTokenValue(theme, cardMode.shadow);
+  }
+  if (cardMode?.elevatedShadow) {
+    vars["--luna-card-elevated-shadow"] =
+      resolveScaleValue(theme.shadows, cardMode.elevatedShadow) ??
+      resolveTokenValue(theme, cardMode.elevatedShadow);
+  }
+  if (cardMode?.hoverBorder) {
+    vars["--luna-card-hover-border"] = resolveTokenValue(theme, cardMode.hoverBorder);
+  }
+  if (cardMode?.hoverShadow) {
+    vars["--luna-card-hover-shadow"] =
+      resolveScaleValue(theme.shadows, cardMode.hoverShadow) ??
+      resolveTokenValue(theme, cardMode.hoverShadow);
+  }
+
   return vars;
 }

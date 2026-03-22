@@ -275,6 +275,31 @@ export const lunarTheme: Theme = {
           letterSpacing: "-0.02em"
         }
       }
+    },
+    card: {
+      defaultPadding: "4",
+      defaultGap: "4",
+      radius: "lg",
+      modes: {
+        light: {
+          bg: "neutral.50",
+          fg: "neutral.900",
+          border: "neutral.200",
+          shadow: "sm",
+          elevatedShadow: "md",
+          hoverBorder: "neutral.300",
+          hoverShadow: "md"
+        },
+        dark: {
+          bg: "neutral.800",
+          fg: "neutral.50",
+          border: "neutral.700",
+          shadow: "sm",
+          elevatedShadow: "md",
+          hoverBorder: "neutral.500",
+          hoverShadow: "md"
+        }
+      }
     }
   }
 };
