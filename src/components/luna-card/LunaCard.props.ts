@@ -4,9 +4,8 @@ export type LunaCardAlign = "left" | "center" | "right";
 
 export type LunaCardProps = Omit<React.HTMLAttributes<HTMLElement>, "title" | "color"> & {
   as?: React.ElementType;
-  title?: React.ReactNode;
+  header?: React.ReactNode;
   actions?: React.ReactNode;
-  titleAlign?: LunaCardAlign;
   bodyAlign?: LunaCardAlign;
   actionsAlign?: LunaCardAlign;
   actionsGap?: string;

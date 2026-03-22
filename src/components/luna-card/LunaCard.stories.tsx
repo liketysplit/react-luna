@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { LunaButton } from "../luna-button";
 import { LunaColumn } from "../luna-column";
+import { LunaHeader } from "../luna-header";
 import { LunaText } from "../luna-text";
 import { LunaCard } from "./LunaCard";
 
@@ -9,7 +10,7 @@ const meta = {
   title: "Components/LunaCard",
   component: LunaCard,
   args: {
-    title: "Mission Brief"
+    header: <LunaHeader title="Mission Brief" subtitle="Primary telemetry is stable." />
   }
 } satisfies Meta<typeof LunaCard>;
 
@@ -36,12 +37,11 @@ export const Basic: Story = {
   )
 };
 
-export const RegionAlignment: Story = {
+export const HeaderVariants: Story = {
   render: () => (
     <LunaColumn gap="4">
       <LunaCard
-        title="Centered card"
-        titleAlign="center"
+        header={<LunaHeader title="Centered card" subtitle="Reusable header content." align="center" />}
         bodyAlign="center"
         actionsAlign="center"
         actions={<LunaButton>Continue</LunaButton>}
@@ -51,7 +51,12 @@ export const RegionAlignment: Story = {
         </LunaText>
       </LunaCard>
       <LunaCard
-        title="Right-aligned actions"
+        header={
+          <div>
+            <strong>Custom header</strong>
+            <div>Header can also be arbitrary content.</div>
+          </div>
+        }
         actionsAlign="right"
         actionsGap="3"
         actions={
@@ -61,7 +66,7 @@ export const RegionAlignment: Story = {
           </>
         }
       >
-        <LunaText>Action alignment is independent from title and body alignment.</LunaText>
+        <LunaText>Custom header content and card actions can still coexist cleanly.</LunaText>
       </LunaCard>
     </LunaColumn>
   )
@@ -70,19 +75,19 @@ export const RegionAlignment: Story = {
 export const SurfaceTreatments: Story = {
   render: () => (
     <LunaColumn gap="4">
-      <LunaCard title="Default card">
+      <LunaCard header={<LunaHeader title="Default card" />}>
         <LunaText>Base grouped-content surface.</LunaText>
       </LunaCard>
-      <LunaCard title="Outlined card" outlined>
+      <LunaCard header={<LunaHeader title="Outlined card" />} outlined>
         <LunaText>Border-first surface treatment.</LunaText>
       </LunaCard>
-      <LunaCard title="Elevated card" elevated>
+      <LunaCard header={<LunaHeader title="Elevated card" />} elevated>
         <LunaText>Stronger elevation treatment.</LunaText>
       </LunaCard>
-      <LunaCard title="Flat interactive card" flat interactive>
+      <LunaCard header={<LunaHeader title="Flat interactive card" />} flat interactive>
         <LunaText>Interactive surface with no shadow.</LunaText>
       </LunaCard>
-      <LunaCard title="Colored card" color="primary.600">
+      <LunaCard header={<LunaHeader title="Colored card" />} color="primary.600">
         <LunaText color="#ffffff">Color sets background intent while content stays composable.</LunaText>
       </LunaCard>
     </LunaColumn>
@@ -92,11 +97,11 @@ export const SurfaceTreatments: Story = {
 export const Spacing: Story = {
   render: () => (
     <LunaColumn gap="4">
-      <LunaCard title="Compact card" padding="3" gap="2">
+      <LunaCard header={<LunaHeader title="Compact card" />} padding="3" gap="2">
         <LunaText variant="body-small">Smaller padding and region spacing.</LunaText>
       </LunaCard>
       <LunaCard
-        title="Spacious card"
+        header={<LunaHeader title="Spacious card" />}
         padding="6"
         gap="5"
         actionsGap="4"
