@@ -1,0 +1,95 @@
+.luna-divider {
+  position: relative;
+  border: 0;
+  color: var(--luna-divider-line-color, var(--luna-divider-default, var(--luna-border)));
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.luna-divider--horizontal {
+  display: grid;
+  align-items: center;
+  gap: var(--luna-space-3, 0.75rem);
+  margin-block: var(--luna-divider-spacing, var(--luna-divider-spacing-default, 1rem));
+}
+
+.luna-divider--horizontal::before,
+.luna-divider--horizontal::after {
+  content: "";
+  display: block;
+  border-top: 1px solid currentColor;
+}
+
+.luna-divider--horizontal:not(.luna-divider--labeled) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.luna-divider--horizontal:not(.luna-divider--labeled)::after {
+  display: none;
+}
+
+.luna-divider--horizontal.luna-divider--label-start {
+  grid-template-columns: max-content minmax(0, 1fr);
+}
+
+.luna-divider--horizontal.luna-divider--label-start::before {
+  display: none;
+}
+
+.luna-divider--horizontal.luna-divider--label-center {
+  grid-template-columns: minmax(0, 1fr) max-content minmax(0, 1fr);
+}
+
+.luna-divider--horizontal.luna-divider--label-end {
+  grid-template-columns: minmax(0, 1fr) max-content;
+}
+
+.luna-divider--horizontal.luna-divider--label-end::after {
+  display: none;
+}
+
+.luna-divider--vertical {
+  display: block;
+  width: 1px;
+  min-width: 1px;
+  height: 100%;
+  min-height: 3rem;
+  background: currentColor;
+  margin-inline: var(--luna-divider-spacing, var(--luna-divider-spacing-default, 1rem));
+}
+
+.luna-divider--muted {
+  color: var(--luna-divider-muted, var(--luna-border));
+}
+
+.luna-divider--strong {
+  color: var(--luna-divider-strong, var(--luna-foreground));
+}
+
+.luna-divider--inset.luna-divider--horizontal {
+  margin-inline: var(--luna-divider-inset, var(--luna-divider-inset-default, 1rem));
+}
+
+.luna-divider--inset.luna-divider--vertical {
+  margin-block: var(--luna-divider-inset, var(--luna-divider-inset-default, 1rem));
+}
+
+.luna-divider__label {
+  grid-column: 2;
+  min-width: 0;
+  padding-inline: var(--luna-space-2, 0.5rem);
+  background: var(--luna-divider-label-bg, var(--luna-background));
+  color: var(--luna-divider-label-fg, var(--luna-muted));
+}
+
+.luna-divider--label-start .luna-divider__label {
+  grid-column: 1;
+}
+
+.luna-divider--label-center .luna-divider__label {
+  grid-column: 2;
+}
+
+.luna-divider--label-end .luna-divider__label {
+  grid-column: 2;
+}

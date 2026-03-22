@@ -87,6 +87,14 @@ export type ThemeCardModeTokens = {
   hoverShadow?: string;
 };
 
+export type ThemeDividerModeTokens = {
+  default?: string;
+  muted?: string;
+  strong?: string;
+  labelBg?: string;
+  labelFg?: string;
+};
+
 export type ThemeComponents = {
   button?: {
     defaultSize?: string;
@@ -107,6 +115,11 @@ export type ThemeComponents = {
     defaultGap?: string;
     radius?: string;
     modes?: Partial<Record<ThemeMode, ThemeCardModeTokens>>;
+  };
+  divider?: {
+    defaultSpacing?: string;
+    defaultInset?: string;
+    modes?: Partial<Record<ThemeMode, ThemeDividerModeTokens>>;
   };
 };
 

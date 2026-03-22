@@ -201,5 +201,31 @@ export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<str
       resolveTokenValue(theme, cardMode.hoverShadow);
   }
 
+  const divider = theme.components.divider;
+  if (divider?.defaultSpacing) {
+    vars["--luna-divider-spacing-default"] =
+      resolveScaleValue(theme.spacing, divider.defaultSpacing) ?? divider.defaultSpacing;
+  }
+  if (divider?.defaultInset) {
+    vars["--luna-divider-inset-default"] =
+      resolveScaleValue(theme.spacing, divider.defaultInset) ?? divider.defaultInset;
+  }
+  const dividerMode = divider?.modes?.[mode];
+  if (dividerMode?.default) {
+    vars["--luna-divider-default"] = resolveTokenValue(theme, dividerMode.default);
+  }
+  if (dividerMode?.muted) {
+    vars["--luna-divider-muted"] = resolveTokenValue(theme, dividerMode.muted);
+  }
+  if (dividerMode?.strong) {
+    vars["--luna-divider-strong"] = resolveTokenValue(theme, dividerMode.strong);
+  }
+  if (dividerMode?.labelBg) {
+    vars["--luna-divider-label-bg"] = resolveTokenValue(theme, dividerMode.labelBg);
+  }
+  if (dividerMode?.labelFg) {
+    vars["--luna-divider-label-fg"] = resolveTokenValue(theme, dividerMode.labelFg);
+  }
+
   return vars;
 }

@@ -300,6 +300,26 @@ export const lunarTheme: Theme = {
           hoverShadow: "md"
         }
       }
+    },
+    divider: {
+      defaultSpacing: "4",
+      defaultInset: "4",
+      modes: {
+        light: {
+          default: "neutral.200",
+          muted: "neutral.100",
+          strong: "neutral.400",
+          labelBg: "neutral.50",
+          labelFg: "neutral.500"
+        },
+        dark: {
+          default: "neutral.700",
+          muted: "neutral.800",
+          strong: "neutral.500",
+          labelBg: "neutral.900",
+          labelFg: "neutral.400"
+        }
+      }
     }
   }
 };
