@@ -223,6 +223,58 @@ export const lunarTheme: Theme = {
           fg: "#ffffff"
         }
       }
+    },
+    text: {
+      defaultVariant: "body",
+      modes: {
+        light: {
+          fg: "neutral.900",
+          mutedFg: "neutral.500",
+          surfaceBg: "neutral.100",
+          surfaceBorder: "neutral.200"
+        },
+        dark: {
+          fg: "neutral.50",
+          mutedFg: "neutral.400",
+          surfaceBg: "neutral.800",
+          surfaceBorder: "neutral.700"
+        }
+      },
+      variants: {
+        body: {
+          fontSize: "md",
+          fontWeight: "regular",
+          lineHeight: "relaxed"
+        },
+        "body-small": {
+          fontSize: "sm",
+          fontWeight: "regular",
+          lineHeight: "relaxed"
+        },
+        caption: {
+          fontSize: "xs",
+          fontWeight: "medium",
+          lineHeight: "normal",
+          letterSpacing: "0.01em"
+        },
+        label: {
+          fontSize: "sm",
+          fontWeight: "semibold",
+          lineHeight: "normal",
+          letterSpacing: "0.01em"
+        },
+        title: {
+          fontSize: "xl",
+          fontWeight: "semibold",
+          lineHeight: "tight"
+        },
+        display: {
+          fontSize: "xxl",
+          fontWeight: "bold",
+          lineHeight: "tight",
+          letterSpacing: "-0.02em"
+        }
+      }
     }
   }
 };

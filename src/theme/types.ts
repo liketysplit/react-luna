@@ -62,6 +62,21 @@ export type ThemeButtonModeTokens = {
   infoHoverFg?: string;
 };
 
+export type ThemeTextVariantProfile = {
+  fontSize?: string;
+  fontWeight?: string | number;
+  lineHeight?: string;
+  letterSpacing?: string;
+  textTransform?: string;
+};
+
+export type ThemeTextModeTokens = {
+  fg?: string;
+  mutedFg?: string;
+  surfaceBg?: string;
+  surfaceBorder?: string;
+};
+
 export type ThemeComponents = {
   button?: {
     defaultSize?: string;
@@ -71,6 +86,11 @@ export type ThemeComponents = {
     sizes?: Record<string, ThemeButtonSizeProfile>;
     modes?: Partial<Record<ThemeMode, ThemeButtonModeTokens>>;
     colors?: Record<string, { bg?: string; fg?: string; border?: string }>;
+  };
+  text?: {
+    defaultVariant?: string;
+    variants?: Record<string, ThemeTextVariantProfile>;
+    modes?: Partial<Record<ThemeMode, ThemeTextModeTokens>>;
   };
 };
 

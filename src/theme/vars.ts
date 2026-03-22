@@ -1,5 +1,17 @@
-﻿import type { Theme } from "./types";
+import type { Theme } from "./types";
 import { resolveModeTokens, resolveTokenValue, resolveScaleValue } from "./resolve";
+
+function resolveFontWeightValue(theme: Theme, value?: string | number): string | undefined {
+  if (value === undefined) {
+    return undefined;
+  }
+
+  if (typeof value === "number") {
+    return String(value);
+  }
+
+  return String(theme.typography.weights[value] ?? value);
+}
 
 export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<string, string> {
   const vars: Record<string, string> = {};
@@ -105,6 +117,46 @@ export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<str
       if (profile.iconSize) {
         vars[`--luna-btn-size-${name}-icon-size`] =
           resolveScaleValue(theme.typography.sizes, profile.iconSize) ?? profile.iconSize;
+      }
+    }
+  }
+
+  const text = theme.components.text;
+  if (text?.defaultVariant) {
+    vars["--luna-text-variant-default"] = text.defaultVariant;
+  }
+  const textMode = text?.modes?.[mode];
+  if (textMode?.fg) {
+    vars["--luna-text-fg"] = resolveTokenValue(theme, textMode.fg);
+  }
+  if (textMode?.mutedFg) {
+    vars["--luna-text-muted-fg"] = resolveTokenValue(theme, textMode.mutedFg);
+  }
+  if (textMode?.surfaceBg) {
+    vars["--luna-text-surface-bg"] = resolveTokenValue(theme, textMode.surfaceBg);
+  }
+  if (textMode?.surfaceBorder) {
+    vars["--luna-text-surface-border"] = resolveTokenValue(theme, textMode.surfaceBorder);
+  }
+  if (text?.variants) {
+    for (const [name, profile] of Object.entries(text.variants)) {
+      if (profile.fontSize) {
+        vars[`--luna-text-variant-${name}-font-size`] =
+          resolveScaleValue(theme.typography.sizes, profile.fontSize) ?? profile.fontSize;
+      }
+      if (profile.fontWeight !== undefined) {
+        vars[`--luna-text-variant-${name}-font-weight`] =
+          resolveFontWeightValue(theme, profile.fontWeight) ?? String(profile.fontWeight);
+      }
+      if (profile.lineHeight) {
+        vars[`--luna-text-variant-${name}-line-height`] =
+          resolveScaleValue(theme.typography.lineHeights, profile.lineHeight) ?? profile.lineHeight;
+      }
+      if (profile.letterSpacing) {
+        vars[`--luna-text-variant-${name}-letter-spacing`] = profile.letterSpacing;
+      }
+      if (profile.textTransform) {
+        vars[`--luna-text-variant-${name}-text-transform`] = profile.textTransform;
       }
     }
   }

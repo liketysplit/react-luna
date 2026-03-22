@@ -1,0 +1,96 @@
+.luna-text {
+  --luna-text-current-font-size: var(--luna-text-variant-body-font-size, var(--luna-font-size-md, 1rem));
+  --luna-text-current-font-weight: var(--luna-text-variant-body-font-weight, 400);
+  --luna-text-current-line-height: var(--luna-text-variant-body-line-height, 1.6);
+  --luna-text-current-letter-spacing: var(--luna-text-variant-body-letter-spacing, normal);
+  --luna-text-current-text-transform: var(--luna-text-variant-body-text-transform, none);
+  display: block;
+  margin: 0;
+  color: var(--luna-text-color, var(--luna-text-fg, var(--luna-foreground)));
+  font-family: var(--luna-font-family);
+  font-size: var(--luna-text-current-font-size);
+  font-weight: var(--luna-text-current-font-weight);
+  line-height: var(--luna-text-current-line-height);
+  letter-spacing: var(--luna-text-current-letter-spacing);
+  text-transform: var(--luna-text-current-text-transform);
+  text-align: var(--luna-text-align, inherit);
+  text-decoration: none;
+}
+
+.luna-text--inline {
+  display: inline;
+}
+
+.luna-text--muted {
+  color: var(--luna-text-muted-fg, var(--luna-muted));
+}
+
+.luna-text--truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.luna-text--surface {
+  background: var(--luna-text-surface-bg, var(--luna-surface));
+  border: 1px solid var(--luna-text-surface-border, var(--luna-border));
+  border-radius: var(--luna-radius-sm);
+  padding: 0.08em 0.42em;
+}
+
+.luna-text--italic {
+  font-style: italic;
+}
+
+.luna-text--underline {
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.luna-text[data-variant="body"] {
+  --luna-text-current-font-size: var(--luna-text-variant-body-font-size, 1rem);
+  --luna-text-current-font-weight: var(--luna-text-variant-body-font-weight, 400);
+  --luna-text-current-line-height: var(--luna-text-variant-body-line-height, 1.6);
+  --luna-text-current-letter-spacing: var(--luna-text-variant-body-letter-spacing, normal);
+  --luna-text-current-text-transform: var(--luna-text-variant-body-text-transform, none);
+}
+
+.luna-text[data-variant="body-small"] {
+  --luna-text-current-font-size: var(--luna-text-variant-body-small-font-size, 0.875rem);
+  --luna-text-current-font-weight: var(--luna-text-variant-body-small-font-weight, 400);
+  --luna-text-current-line-height: var(--luna-text-variant-body-small-line-height, 1.6);
+  --luna-text-current-letter-spacing: var(--luna-text-variant-body-small-letter-spacing, normal);
+  --luna-text-current-text-transform: var(--luna-text-variant-body-small-text-transform, none);
+}
+
+.luna-text[data-variant="caption"] {
+  --luna-text-current-font-size: var(--luna-text-variant-caption-font-size, 0.75rem);
+  --luna-text-current-font-weight: var(--luna-text-variant-caption-font-weight, 500);
+  --luna-text-current-line-height: var(--luna-text-variant-caption-line-height, 1.4);
+  --luna-text-current-letter-spacing: var(--luna-text-variant-caption-letter-spacing, 0.01em);
+  --luna-text-current-text-transform: var(--luna-text-variant-caption-text-transform, none);
+}
+
+.luna-text[data-variant="label"] {
+  --luna-text-current-font-size: var(--luna-text-variant-label-font-size, 0.875rem);
+  --luna-text-current-font-weight: var(--luna-text-variant-label-font-weight, 600);
+  --luna-text-current-line-height: var(--luna-text-variant-label-line-height, 1.4);
+  --luna-text-current-letter-spacing: var(--luna-text-variant-label-letter-spacing, 0.01em);
+  --luna-text-current-text-transform: var(--luna-text-variant-label-text-transform, none);
+}
+
+.luna-text[data-variant="title"] {
+  --luna-text-current-font-size: var(--luna-text-variant-title-font-size, 1.25rem);
+  --luna-text-current-font-weight: var(--luna-text-variant-title-font-weight, 600);
+  --luna-text-current-line-height: var(--luna-text-variant-title-line-height, 1.1);
+  --luna-text-current-letter-spacing: var(--luna-text-variant-title-letter-spacing, normal);
+  --luna-text-current-text-transform: var(--luna-text-variant-title-text-transform, none);
+}
+
+.luna-text[data-variant="display"] {
+  --luna-text-current-font-size: var(--luna-text-variant-display-font-size, 1.5rem);
+  --luna-text-current-font-weight: var(--luna-text-variant-display-font-weight, 700);
+  --luna-text-current-line-height: var(--luna-text-variant-display-line-height, 1.1);
+  --luna-text-current-letter-spacing: var(--luna-text-variant-display-letter-spacing, -0.02em);
+  --luna-text-current-text-transform: var(--luna-text-variant-display-text-transform, none);
+}
