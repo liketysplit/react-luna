@@ -18,6 +18,7 @@ This document defines the design direction for `LunaHeader` before implementatio
 - title rendering
 - subtitle rendering
 - alignment of the header content
+- header size selection
 - spacing between title and subtitle
 - theme-aware default typography choices
 
@@ -68,9 +69,17 @@ Rules:
 `LunaHeader` should not own a separate typography system.
 
 It should compose `LunaText` with opinionated defaults:
-- title should map to a stronger text variant such as `title`
-- subtitle should map to a quieter text variant such as `body-small` or `caption`
+- title should map to a stronger text variant based on `size`
+- subtitle should map to a quieter text variant based on `size`
 - subtitle should likely use muted text by default
+
+Recommended prop:
+- `size?: "sm" | "md" | "lg"`
+
+Recommended defaults:
+- `sm` -> title `label`, subtitle `caption`
+- `md` -> title `title`, subtitle `body-small`
+- `lg` -> title `display`, subtitle `body`
 
 That keeps `LunaHeader` visually consistent with the text system instead of inventing a parallel one.
 
@@ -121,6 +130,7 @@ When implemented, tests should cover:
 - `as` override
 - title rendering
 - subtitle rendering
+- size mapping behavior
 - alignment behavior
 - spacing token resolution
 - `LunaText` composition for string inputs

@@ -19,7 +19,7 @@ This document defines the design direction for `LunaCard` before implementation.
 
 `LunaCard` should own:
 - grouped-content surface rendering
-- title region
+- header region
 - body region
 - actions region
 - card-level visual treatment
@@ -46,12 +46,12 @@ Rules:
 ## Content Model
 
 V1 should support three logical regions:
-- `title`
+- `header`
 - `body`
 - `actions`
 
 Public inputs:
-- `title?: React.ReactNode`
+- `header?: React.ReactNode`
 - `children?: React.ReactNode`
 - `actions?: React.ReactNode`
 
@@ -59,9 +59,10 @@ Body rules:
 - `children` are the body content
 - body always exists if `children` are present
 
-Title rules:
-- `title` is the top content region
-- if needed later, a subtitle can be added, but it is not required for V1
+Header rules:
+- `header` is the top content region
+- the default reusable header content should come from `LunaHeader`
+- custom header content should also be allowed directly
 
 Actions rules:
 - `actions` is the action region for buttons, links, and related controls
@@ -70,16 +71,15 @@ This gives the card a slot-like API without introducing dedicated subcomponents 
 
 ## Region Alignment
 
-Each logical region should support alignment.
+Body and actions should support alignment directly.
 
 Direction:
-- `titleAlign?: "left" | "center" | "right"`
 - `bodyAlign?: "left" | "center" | "right"`
 - `actionsAlign?: "left" | "center" | "right"`
 - `actionsGap?: string`
 
 Rules:
-- these control text/content alignment inside their region
+- these control content alignment inside their region
 - they should not become general layout controls for the whole card
 - defaults should come from the normal document flow, which is effectively left/start aligned
 - `actionsGap` should control spacing between direct action children and resolve through theme spacing first
@@ -174,7 +174,7 @@ Keep:
 - `className?: string`
 - `style?: React.CSSProperties`
 - `id?: string`
-- `title?: React.ReactNode | string`
+- native `title?: string`
 - `tabIndex?: number`
 - `role?: string`
 - `aria-*`
@@ -191,8 +191,8 @@ Rules:
 When implemented, tests should cover:
 - default semantic tag
 - `as` override
-- title, body, and actions region rendering
-- region alignment props
+- header, body, and actions region rendering
+- body and actions alignment props
 - visual treatment conflict handling
 - theme-driven default surface behavior
 - spacing token resolution

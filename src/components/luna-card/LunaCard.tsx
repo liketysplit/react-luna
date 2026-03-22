@@ -3,7 +3,6 @@ import { useTheme } from "../../theme";
 import { resolveScaleValue, resolveTokenValue } from "../../theme/resolve";
 import { LunaColumn } from "../luna-column";
 import { LunaRow } from "../luna-row";
-import { LunaText } from "../luna-text";
 import type { LunaCardProps } from "./LunaCard.props";
 import "./LunaCard.css";
 
@@ -64,13 +63,12 @@ export const LunaCard = React.forwardRef<HTMLElement, LunaCardProps>(function Lu
     elevated,
     flat,
     gap,
+    header,
     interactive,
     outlined,
     padding,
     rounded,
     style,
-    title,
-    titleAlign = "left",
     ...props
   },
   ref
@@ -105,15 +103,9 @@ export const LunaCard = React.forwardRef<HTMLElement, LunaCardProps>(function Lu
 
   return (
     <Component {...props} ref={ref} className={rootClassName} style={resolvedStyle}>
-      {title ? (
-        <LunaColumn className="luna-card__header" align={titleAlign === "center" ? "center" : titleAlign === "right" ? "end" : "start"} gap="2">
-          {typeof title === "string" ? (
-            <LunaText as="h3" variant="title" className="luna-card__title">
-              {title}
-            </LunaText>
-          ) : (
-            <div className="luna-card__title">{title}</div>
-          )}
+      {header ? (
+        <LunaColumn className="luna-card__header" align="start" gap="2">
+          <div className="luna-card__header-content">{header}</div>
         </LunaColumn>
       ) : null}
       {children ? (

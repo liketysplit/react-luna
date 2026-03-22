@@ -17,12 +17,14 @@ Default element:
 - `title?: React.ReactNode`
 - `subtitle?: React.ReactNode`
 - `align?: "left" | "center" | "right"`
+- `size?: "sm" | "md" | "lg"`
 - `gap?: string`
 
 ## Contract
 
-- string `title` values render through `LunaText` with the `title` variant
-- string `subtitle` values render through `LunaText` with muted `body-small` styling
+- string `title` values render through `LunaText` using the configured header size
+- string `subtitle` values render through `LunaText` using the configured header size with muted styling
 - custom React content is rendered as provided
+- `size` defaults to `md`
 - `gap` resolves through theme spacing first, then raw CSS values
 - `className` and `style` pass through to the root

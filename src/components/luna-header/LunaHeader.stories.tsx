@@ -7,7 +7,8 @@ const meta = {
   component: LunaHeader,
   args: {
     title: "Mission Brief",
-    subtitle: "Primary telemetry is stable and ready for review."
+    subtitle: "Primary telemetry is stable and ready for review.",
+    size: "md"
   }
 } satisfies Meta<typeof LunaHeader>;
 
@@ -23,6 +24,28 @@ export const Alignments: Story = {
       <LunaHeader title="Left aligned" subtitle="Default header behavior." />
       <LunaHeader title="Centered" subtitle="Useful for cards and spotlight content." align="center" />
       <LunaHeader title="Right aligned" subtitle="Useful for utility-heavy panels." align="right" />
+    </div>
+  )
+};
+
+export const Sizes: Story = {
+  render: () => (
+    <div style={{ display: "grid", gap: "1.5rem" }}>
+      <LunaHeader
+        title="Compact header"
+        subtitle="Useful for tighter cards and utility panels."
+        size="sm"
+      />
+      <LunaHeader
+        title="Standard header"
+        subtitle="The default reusable header size."
+        size="md"
+      />
+      <LunaHeader
+        title="Large header"
+        subtitle="Useful for more prominent sections and page lead-ins."
+        size="lg"
+      />
     </div>
   )
 };

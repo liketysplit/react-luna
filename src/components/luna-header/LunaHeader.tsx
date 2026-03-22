@@ -32,14 +32,36 @@ function resolveAlign(align: LunaHeaderProps["align"]) {
   return { item: "start", text: "left" };
 }
 
+function resolveVariants(size: LunaHeaderProps["size"]) {
+  if (size === "sm") {
+    return {
+      title: "label",
+      subtitle: "caption"
+    };
+  }
+
+  if (size === "lg") {
+    return {
+      title: "display",
+      subtitle: "body"
+    };
+  }
+
+  return {
+    title: "title",
+    subtitle: "body-small"
+  };
+}
+
 export const LunaHeader = React.forwardRef<HTMLElement, LunaHeaderProps>(function LunaHeader(
-  { align = "left", as, className, gap, style, subtitle, title, ...props },
+  { align = "left", as, className, gap, size = "md", style, subtitle, title, ...props },
   ref
 ) {
   const { theme } = useTheme();
   const Component = (as ?? "div") as React.ElementType;
   const resolvedGap = resolveSpacingValue(gap, theme);
   const resolvedAlign = resolveAlign(align);
+  const resolvedVariants = resolveVariants(size);
   const resolvedStyle = {
     ...(resolvedGap ? { ["--luna-header-gap" as const]: resolvedGap } : {}),
     ["--luna-header-align" as const]: resolvedAlign.item,
@@ -57,23 +79,37 @@ export const LunaHeader = React.forwardRef<HTMLElement, LunaHeaderProps>(functio
       {title !== undefined && title !== null
         ? typeof title === "string"
           ? (
-            <LunaText as="h2" variant="title" className="luna-header__title">
+            <LunaText
+              as="h2"
+              variant={resolvedVariants.title}
+              className="luna-header__title"
+              data-size={size}
+            >
               {title}
             </LunaText>
           )
           : (
-            <div className="luna-header__title">{title}</div>
+            <div className="luna-header__title" data-size={size}>
+              {title}
+            </div>
           )
         : null}
       {subtitle !== undefined && subtitle !== null
         ? typeof subtitle === "string"
           ? (
-            <LunaText variant="body-small" muted className="luna-header__subtitle">
+            <LunaText
+              variant={resolvedVariants.subtitle}
+              muted
+              className="luna-header__subtitle"
+              data-size={size}
+            >
               {subtitle}
             </LunaText>
           )
           : (
-            <div className="luna-header__subtitle">{subtitle}</div>
+            <div className="luna-header__subtitle" data-size={size}>
+              {subtitle}
+            </div>
           )
         : null}
     </Component>

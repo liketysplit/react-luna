@@ -15,7 +15,7 @@ afterEach(() => {
 
 describe("LunaCard", () => {
   it("renders a section by default", () => {
-    renderWithTheme(<LunaCard title="Mission">Body</LunaCard>);
+    renderWithTheme(<LunaCard header="Mission">Body</LunaCard>);
 
     const card = screen.getByText("Mission").closest("section");
 
@@ -24,7 +24,7 @@ describe("LunaCard", () => {
 
   it("supports semantic overrides through as", () => {
     renderWithTheme(
-      <LunaCard as="article" title="Mission">
+      <LunaCard as="article" header="Mission">
         Body
       </LunaCard>
     );
@@ -34,27 +34,26 @@ describe("LunaCard", () => {
     expect(card).toBeInTheDocument();
   });
 
-  it("renders title, body, and actions regions", () => {
+  it("renders header, body, and actions regions", () => {
     renderWithTheme(
-      <LunaCard title="Mission" actions={<button type="button">Launch</button>}>
+      <LunaCard header="Mission" actions={<button type="button">Launch</button>}>
         Body copy
       </LunaCard>
     );
 
-    const title = screen.getByText("Mission");
+    const header = screen.getByText("Mission");
     const body = screen.getByText("Body copy");
     const action = screen.getByRole("button", { name: "Launch" });
 
-    expect(title.closest(".luna-card__header")).toBeInTheDocument();
+    expect(header.closest(".luna-card__header")).toBeInTheDocument();
     expect(body.closest(".luna-card__body")).toBeInTheDocument();
     expect(action.closest(".luna-card__actions")).toBeInTheDocument();
   });
 
-  it("applies alignment props to each region", () => {
+  it("applies alignment props to body and actions regions", () => {
     renderWithTheme(
       <LunaCard
-        title="Mission"
-        titleAlign="center"
+        header={<span>Mission</span>}
         bodyAlign="right"
         actionsAlign="center"
         actions={<button type="button">Launch</button>}
@@ -63,9 +62,7 @@ describe("LunaCard", () => {
       </LunaCard>
     );
 
-    expect(screen.getByText("Mission").closest(".luna-card__header")).toHaveStyle({
-      "--luna-layout-align": "center"
-    });
+    expect(screen.getByText("Mission").closest(".luna-card__header")).toBeInTheDocument();
     expect(screen.getByText("Body copy").closest(".luna-card__body")).toHaveStyle({
       "--luna-layout-align": "flex-end"
     });
@@ -78,7 +75,7 @@ describe("LunaCard", () => {
     const warnSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
 
     renderWithTheme(
-      <LunaCard flat elevated title="Mission">
+      <LunaCard flat elevated header="Mission">
         Body
       </LunaCard>
     );
@@ -94,7 +91,7 @@ describe("LunaCard", () => {
 
   it("resolves spacing tokens onto the root style", () => {
     renderWithTheme(
-      <LunaCard title="Mission" padding="6" gap="3">
+      <LunaCard header="Mission" padding="6" gap="3">
         Body
       </LunaCard>
     );
@@ -109,7 +106,7 @@ describe("LunaCard", () => {
 
   it("resolves color onto the card background override variable", () => {
     renderWithTheme(
-      <LunaCard title="Mission" color="primary.600">
+      <LunaCard header="Mission" color="primary.600">
         Body
       </LunaCard>
     );

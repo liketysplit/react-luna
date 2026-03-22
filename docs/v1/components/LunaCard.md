@@ -4,7 +4,7 @@
 
 It owns:
 - card surface rendering
-- title region
+- header region
 - body region
 - actions region
 - per-region alignment
@@ -16,9 +16,8 @@ Default element:
 ## Props
 
 - `as?: React.ElementType`
-- `title?: React.ReactNode`
+- `header?: React.ReactNode`
 - `actions?: React.ReactNode`
-- `titleAlign?: "left" | "center" | "right"`
 - `bodyAlign?: "left" | "center" | "right"`
 - `actionsAlign?: "left" | "center" | "right"`
 - `actionsGap?: string`
@@ -34,9 +33,10 @@ Default element:
 ## Contract
 
 - `children` are the body region
-- `title` is the header region
+- `header` is the header region
 - `actions` is the action region
-- each region has independent alignment
+- `body` and `actions` have independent alignment
+- simple title and subtitle content should usually be passed through `LunaHeader`
 - `actionsGap` controls spacing between action children
 - `className` and `style` pass through to the root
 

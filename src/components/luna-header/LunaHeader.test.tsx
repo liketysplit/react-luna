@@ -40,6 +40,24 @@ describe("LunaHeader", () => {
     expect(subtitle.className).toContain("luna-text--muted");
   });
 
+  it("maps size variants onto the built-in title and subtitle text treatments", () => {
+    const { rerender } = renderWithTheme(
+      <LunaHeader title="Mission" subtitle="Telemetry stable" size="sm" />
+    );
+
+    expect(screen.getByText("Mission")).toHaveAttribute("data-variant", "label");
+    expect(screen.getByText("Telemetry stable")).toHaveAttribute("data-variant", "caption");
+
+    rerender(
+      <ThemeProvider>
+        <LunaHeader title="Mission" subtitle="Telemetry stable" size="lg" />
+      </ThemeProvider>
+    );
+
+    expect(screen.getByText("Mission")).toHaveAttribute("data-variant", "display");
+    expect(screen.getByText("Telemetry stable")).toHaveAttribute("data-variant", "body");
+  });
+
   it("applies alignment styles to the root", () => {
     renderWithTheme(<LunaHeader title="Mission" align="center" />);
 
