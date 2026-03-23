@@ -1,0 +1,147 @@
+.luna-textarea-field {
+  display: inline-grid;
+  gap: var(--luna-space-2, 0.5rem);
+  min-width: 16rem;
+}
+
+.luna-textarea-field--full-width {
+  display: grid;
+  width: 100%;
+}
+
+.luna-textarea-field__label {
+  color: var(--luna-input-label-fg, var(--luna-foreground));
+}
+
+.luna-textarea-field__label--inset {
+  position: absolute;
+  top: 50%;
+  left: var(--luna-input-current-padding-x, var(--luna-input-size-md-padding-x, 0.75rem));
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  max-width: calc(100% - (var(--luna-input-current-padding-x, 0.75rem) * 2));
+  padding-inline: var(--luna-space-1, 0.25rem);
+  color: var(--luna-input-placeholder, var(--luna-muted));
+  line-height: 1;
+  transform: translateY(-50%);
+  transition:
+    top var(--luna-motion-base),
+    transform var(--luna-motion-base),
+    color var(--luna-motion-base),
+    background-color var(--luna-motion-base);
+}
+
+.luna-textarea-field__control {
+  position: relative;
+  display: block;
+  min-height: var(--luna-input-current-min-height, var(--luna-input-size-md-min-height, 2.375rem));
+  padding-inline: var(--luna-input-current-padding-x, var(--luna-input-size-md-padding-x, 0.75rem));
+  padding-block: var(--luna-input-current-padding-y, var(--luna-input-size-md-padding-y, 0.25rem));
+  border: 1px solid var(--luna-input-border, var(--luna-border));
+  border-radius: var(--luna-input-radius, var(--luna-radius-md));
+  background: var(--luna-input-bg, var(--luna-surface));
+  color: var(--luna-input-fg, var(--luna-foreground));
+  transition:
+    border-color var(--luna-motion-base),
+    box-shadow var(--luna-motion-base),
+    background-color var(--luna-motion-base);
+}
+
+.luna-textarea-field__control:hover {
+  border-color: var(--luna-input-hover-border, var(--luna-input-border, var(--luna-border)));
+}
+
+.luna-textarea-field__control:focus-within {
+  border-color: var(--luna-input-focus-border, var(--luna-color-primary-500));
+  box-shadow: 0 0 0 3px var(--luna-input-focus-ring, rgba(99, 102, 241, 0.18));
+}
+
+.luna-textarea-field--invalid .luna-textarea-field__control {
+  border-color: var(--luna-input-error-border, var(--luna-color-danger-500));
+}
+
+.luna-textarea-field--invalid .luna-textarea-field__control:focus-within {
+  border-color: var(--luna-input-error-border, var(--luna-color-danger-500));
+  box-shadow: 0 0 0 3px var(--luna-input-error-focus-ring, rgba(239, 68, 68, 0.18));
+}
+
+.luna-textarea-field--disabled .luna-textarea-field__control {
+  background: var(--luna-input-disabled-bg, var(--luna-surface));
+  color: var(--luna-input-disabled-fg, var(--luna-muted));
+  border-color: var(--luna-input-disabled-border, var(--luna-border));
+}
+
+.luna-textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: var(--luna-input-current-font-size, var(--luna-input-size-md-font-size, 0.875rem));
+  line-height: 1.5;
+  padding: 0;
+  margin: 0;
+  resize: var(--luna-textarea-resize, vertical);
+}
+
+.luna-textarea::placeholder {
+  color: var(--luna-input-placeholder, var(--luna-muted));
+}
+
+.luna-textarea:disabled {
+  cursor: not-allowed;
+}
+
+.luna-textarea-field--inset-label .luna-textarea-field__control {
+  padding-top: var(--luna-input-current-padding-y, 0.25rem);
+}
+
+.luna-textarea-field--inset-label-active .luna-textarea-field__control {
+  padding-top: calc(
+    var(--luna-input-current-padding-y, 0.25rem) + var(--luna-space-2, 0.5rem)
+  );
+}
+
+.luna-textarea-field--inset-label-active .luna-textarea-field__label--inset {
+  top: 0;
+  background: var(--luna-input-bg, var(--luna-surface));
+  transform: translateY(-50%);
+}
+
+.luna-textarea-field__message {
+  min-width: 0;
+}
+
+.luna-textarea-field__message--help {
+  color: var(--luna-input-help-fg, var(--luna-muted));
+}
+
+.luna-textarea-field__message--error {
+  color: var(--luna-input-error-fg, var(--luna-color-danger-600));
+}
+
+.luna-textarea-field[data-size="sm"] {
+  --luna-input-current-min-height: var(--luna-input-size-sm-min-height, 2rem);
+  --luna-input-current-padding-x: var(--luna-input-size-sm-padding-x, 0.5rem);
+  --luna-input-current-padding-y: var(--luna-input-size-sm-padding-y, 0.25rem);
+  --luna-input-current-font-size: var(--luna-input-size-sm-font-size, 0.75rem);
+}
+
+.luna-textarea-field[data-size="md"] {
+  --luna-input-current-min-height: var(--luna-input-size-md-min-height, 2.375rem);
+  --luna-input-current-padding-x: var(--luna-input-size-md-padding-x, 0.75rem);
+  --luna-input-current-padding-y: var(--luna-input-size-md-padding-y, 0.25rem);
+  --luna-input-current-font-size: var(--luna-input-size-md-font-size, 0.875rem);
+}
+
+.luna-textarea-field[data-size="lg"] {
+  --luna-input-current-min-height: var(--luna-input-size-lg-min-height, 2.75rem);
+  --luna-input-current-padding-x: var(--luna-input-size-lg-padding-x, 1rem);
+  --luna-input-current-padding-y: var(--luna-input-size-lg-padding-y, 0.5rem);
+  --luna-input-current-font-size: var(--luna-input-size-lg-font-size, 0.875rem);
+}
