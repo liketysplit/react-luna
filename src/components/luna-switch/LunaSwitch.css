@@ -1,0 +1,122 @@
+.luna-switch-field {
+  display: grid;
+  gap: var(--luna-space-2, 0.5rem);
+  min-width: 0;
+}
+
+.luna-switch-field__main {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: var(--luna-checkbox-current-gap, var(--luna-space-2, 0.5rem));
+  cursor: pointer;
+}
+
+.luna-switch-field--disabled .luna-switch-field__main {
+  cursor: not-allowed;
+}
+
+.luna-switch {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  pointer-events: none;
+}
+
+.luna-switch__track {
+  --luna-switch-track-width: calc(var(--luna-checkbox-current-box-size, 1.125rem) * 2.15);
+  --luna-switch-track-height: calc(var(--luna-checkbox-current-box-size, 1.125rem) + 0.125rem);
+  --luna-switch-thumb-size: calc(var(--luna-switch-track-height) - 0.25rem);
+  --luna-switch-thumb-offset: calc(var(--luna-switch-track-width) - var(--luna-switch-thumb-size) - 0.125rem);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  inline-size: var(--luna-switch-track-width);
+  block-size: var(--luna-switch-track-height);
+  margin-top: var(--luna-checkbox-current-offset-y, 0.125rem);
+  padding: 0.0625rem;
+  border: 1px solid var(--luna-checkbox-border, var(--luna-input-border, var(--luna-border)));
+  border-radius: 999px;
+  background: var(--luna-checkbox-bg, transparent);
+  transition:
+    border-color var(--luna-motion-base),
+    background-color var(--luna-motion-base),
+    box-shadow var(--luna-motion-base);
+}
+
+.luna-switch__thumb {
+  inline-size: var(--luna-switch-thumb-size);
+  block-size: var(--luna-switch-thumb-size);
+  border-radius: 999px;
+  background: var(--luna-checkbox-check-fg, #ffffff);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.18);
+  transition: transform var(--luna-motion-base), background-color var(--luna-motion-base);
+}
+
+.luna-switch-field__main:hover .luna-switch__track {
+  border-color: var(--luna-checkbox-hover-border, var(--luna-checkbox-border));
+}
+
+.luna-switch:focus-visible + .luna-switch__track {
+  border-color: var(--luna-checkbox-focus-border, var(--luna-input-focus-border, var(--luna-color-primary-500)));
+  box-shadow: 0 0 0 3px var(--luna-checkbox-focus-ring, var(--luna-input-focus-ring, rgba(99, 102, 241, 0.18)));
+}
+
+.luna-switch:checked + .luna-switch__track {
+  background: var(--luna-checkbox-checked-bg, var(--luna-btn-bg-default, var(--luna-color-primary-600)));
+  border-color: var(--luna-checkbox-checked-border, var(--luna-checkbox-checked-bg));
+}
+
+.luna-switch:checked + .luna-switch__track .luna-switch__thumb {
+  transform: translateX(var(--luna-switch-thumb-offset));
+}
+
+.luna-switch:disabled + .luna-switch__track {
+  background: var(--luna-checkbox-disabled-bg, var(--luna-input-disabled-bg, var(--luna-surface)));
+  border-color: var(--luna-checkbox-disabled-border, var(--luna-input-disabled-border, var(--luna-border)));
+}
+
+.luna-switch:disabled + .luna-switch__track .luna-switch__thumb {
+  background: var(--luna-checkbox-disabled-fg, var(--luna-input-disabled-fg, var(--luna-muted)));
+}
+
+.luna-switch-field--invalid .luna-switch__track {
+  border-color: var(--luna-checkbox-error-border, var(--luna-input-error-border, var(--luna-color-danger-500)));
+}
+
+.luna-switch-field__text {
+  display: grid;
+  gap: var(--luna-space-1, 0.25rem);
+  min-width: 0;
+}
+
+.luna-switch-field__label {
+  color: var(--luna-checkbox-label-fg, var(--luna-input-label-fg, var(--luna-foreground)));
+}
+
+.luna-switch-field__description {
+  color: var(--luna-checkbox-description-fg, var(--luna-input-help-fg, var(--luna-muted)));
+}
+
+.luna-switch-field--disabled .luna-switch-field__label,
+.luna-switch-field--disabled .luna-switch-field__description {
+  color: var(--luna-checkbox-disabled-label-fg, var(--luna-input-disabled-fg, var(--luna-muted)));
+}
+
+.luna-switch-field__message {
+  min-width: 0;
+  padding-left: calc(
+    calc(var(--luna-checkbox-current-box-size, 1.125rem) * 2.15) +
+      var(--luna-checkbox-current-gap, var(--luna-space-2, 0.5rem))
+  );
+}
+
+.luna-switch-field__message--help {
+  color: var(--luna-checkbox-help-fg, var(--luna-input-help-fg, var(--luna-muted)));
+}
+
+.luna-switch-field__message--error {
+  color: var(--luna-checkbox-error-fg, var(--luna-input-error-fg, var(--luna-color-danger-600)));
+}

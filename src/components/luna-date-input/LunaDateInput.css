@@ -1,0 +1,181 @@
+.luna-date-input-field {
+  display: inline-grid;
+  gap: var(--luna-space-2, 0.5rem);
+  min-width: 0;
+}
+
+.luna-date-input-field--full-width {
+  display: grid;
+  width: 100%;
+}
+
+.luna-date-input-field__label {
+  color: var(--luna-input-label-fg, var(--luna-foreground));
+}
+
+.luna-date-input-field__label--inset {
+  position: absolute;
+  top: 50%;
+  left: var(--luna-date-input-current-padding-x, var(--luna-input-size-md-padding-x, 0.75rem));
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  max-width: calc(100% - (var(--luna-date-input-current-padding-x, 0.75rem) * 2));
+  padding-inline: var(--luna-space-1, 0.25rem);
+  color: var(--luna-input-placeholder, var(--luna-muted));
+  line-height: 1;
+  transform: translateY(-50%);
+  transition:
+    top var(--luna-motion-base),
+    transform var(--luna-motion-base),
+    color var(--luna-motion-base),
+    background-color var(--luna-motion-base);
+}
+
+.luna-date-input-field__control {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--luna-date-input-current-gap, var(--luna-input-size-md-gap, 0.5rem));
+  height: var(--luna-date-input-current-min-height, var(--luna-input-size-md-min-height, 2.75rem));
+  min-height: var(--luna-date-input-current-min-height, var(--luna-input-size-md-min-height, 2.75rem));
+  padding-inline: var(--luna-date-input-current-padding-x, var(--luna-input-size-md-padding-x, 1rem));
+  padding-block: var(--luna-date-input-current-padding-y, var(--luna-input-size-md-padding-y, 0.5rem));
+  border: 1px solid var(--luna-input-border, var(--luna-border));
+  border-radius: var(--luna-input-radius, var(--luna-radius-md));
+  background: var(--luna-input-bg, var(--luna-surface));
+  color: var(--luna-input-fg, var(--luna-foreground));
+  transition:
+    border-color var(--luna-motion-base),
+    box-shadow var(--luna-motion-base),
+    background-color var(--luna-motion-base);
+}
+
+.luna-date-input-field__control:hover {
+  border-color: var(--luna-input-hover-border, var(--luna-input-border, var(--luna-border)));
+}
+
+.luna-date-input-field__control:focus-within {
+  border-color: var(--luna-input-focus-border, var(--luna-color-primary-500));
+  box-shadow: 0 0 0 3px var(--luna-input-focus-ring, rgba(99, 102, 241, 0.18));
+}
+
+.luna-date-input-field--invalid .luna-date-input-field__control {
+  border-color: var(--luna-input-error-border, var(--luna-color-danger-500));
+}
+
+.luna-date-input-field--invalid .luna-date-input-field__control:focus-within {
+  box-shadow: 0 0 0 3px var(--luna-input-error-focus-ring, rgba(239, 68, 68, 0.18));
+}
+
+.luna-date-input-field--disabled .luna-date-input-field__control {
+  background: var(--luna-input-disabled-bg, var(--luna-surface));
+  color: var(--luna-input-disabled-fg, var(--luna-muted));
+  border-color: var(--luna-input-disabled-border, var(--luna-border));
+}
+
+.luna-date-input-field__content {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.luna-date-input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: var(--luna-date-input-current-font-size, var(--luna-input-size-md-font-size, 0.875rem));
+  line-height: 1;
+  min-height: 1em;
+  padding: 0;
+  margin: 0;
+  transition: transform var(--luna-motion-base);
+}
+
+.luna-date-input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.luna-date-input:disabled::-webkit-calendar-picker-indicator {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.luna-date-input-field--inset-label .luna-date-input-field__control {
+  padding-top: var(--luna-date-input-current-padding-y, 0.25rem);
+}
+
+.luna-date-input-field--inset-label-active .luna-date-input-field__control {
+  padding-top: calc(
+    var(--luna-date-input-current-padding-y, 0.25rem) + var(--luna-space-2, 0.5rem)
+  );
+}
+
+.luna-date-input-field--inset-label-active .luna-date-input-field__label--inset {
+  top: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--luna-container-bg, var(--luna-background, transparent)) 0 50%,
+    var(--luna-input-bg, var(--luna-surface)) 50% 100%
+  );
+  transform: translateY(-50%);
+}
+
+.luna-date-input-field--disabled.luna-date-input-field--inset-label-active .luna-date-input-field__label--inset {
+  background: linear-gradient(
+    to bottom,
+    var(--luna-container-bg, var(--luna-background, transparent)) 0 50%,
+    var(--luna-input-disabled-bg, var(--luna-surface)) 50% 100%
+  );
+}
+
+.luna-date-input-field--inset-label-active .luna-date-input {
+  transform: translateY(calc(var(--luna-space-2, 0.5rem) * -0.5));
+}
+
+.luna-date-input:disabled {
+  cursor: not-allowed;
+}
+
+.luna-date-input-field__message {
+  min-width: 0;
+}
+
+.luna-date-input-field__message--help {
+  color: var(--luna-input-help-fg, var(--luna-muted));
+}
+
+.luna-date-input-field__message--error {
+  color: var(--luna-input-error-fg, var(--luna-color-danger-600));
+}
+
+.luna-date-input-field[data-size="sm"] {
+  --luna-date-input-current-min-height: var(--luna-input-size-sm-min-height, 2rem);
+  --luna-date-input-current-padding-x: var(--luna-input-size-sm-padding-x, 0.5rem);
+  --luna-date-input-current-padding-y: var(--luna-input-size-sm-padding-y, 0.25rem);
+  --luna-date-input-current-font-size: var(--luna-input-size-sm-font-size, 0.75rem);
+  --luna-date-input-current-gap: var(--luna-input-size-sm-gap, 0.25rem);
+}
+
+.luna-date-input-field[data-size="md"] {
+  --luna-date-input-current-min-height: var(--luna-input-size-md-min-height, 2.5rem);
+  --luna-date-input-current-padding-x: var(--luna-input-size-md-padding-x, 1rem);
+  --luna-date-input-current-padding-y: var(--luna-input-size-md-padding-y, 0.5rem);
+  --luna-date-input-current-font-size: var(--luna-input-size-md-font-size, 0.875rem);
+  --luna-date-input-current-gap: var(--luna-input-size-md-gap, 0.5rem);
+}
+
+.luna-date-input-field[data-size="lg"] {
+  --luna-date-input-current-min-height: var(--luna-input-size-lg-min-height, 3rem);
+  --luna-date-input-current-padding-x: var(--luna-input-size-lg-padding-x, 1.25rem);
+  --luna-date-input-current-padding-y: var(--luna-input-size-lg-padding-y, 0.5rem);
+  --luna-date-input-current-font-size: var(--luna-input-size-lg-font-size, 1rem);
+  --luna-date-input-current-gap: var(--luna-input-size-lg-gap, 0.5rem);
+}
