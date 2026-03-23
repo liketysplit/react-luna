@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.5
+
+### Patch Changes
+
+- 94d21dc: Add the new `LunaCheckbox` and `LunaRadio` input primitives with Storybook coverage, unit tests, and versioned docs.
+
 ## 0.1.4
 
 ### Patch Changes
