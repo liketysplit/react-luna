@@ -354,9 +354,7 @@ export const LunaSelect = React.forwardRef<HTMLSelectElement, LunaSelectProps>(f
             aria-label="Clear selection"
             onMouseDown={(event) => event.preventDefault()}
             onClick={clearSelection}
-          >
-            <span aria-hidden="true">×</span>
-          </button>
+          />
         ) : null}
         <select
           ref={hiddenSelectRef}

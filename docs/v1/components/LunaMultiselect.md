@@ -1,13 +1,13 @@
-# LunaSelect
+# LunaMultiselect
 
-`LunaSelect` is the base single-selection dropdown primitive for `react-luna`.
+`LunaMultiselect` is the base multi-selection dropdown primitive for `react-luna`.
 
 It owns:
 - label rendering
-- select field shell rendering
+- multiselect field shell rendering
 - help and error text rendering
 - theme-aware field states
-- custom single-select interaction
+- custom multi-select interaction
 
 ## Props
 
@@ -19,10 +19,11 @@ It owns:
 - `fullWidth?: boolean`
 - `options: Array<{ value: string; label: string; disabled?: boolean }>`
 - `placeholder?: string`
+- `value?: string[]`
+- `defaultValue?: string[]`
+- `onChange?: (value: string[]) => void`
 
 Important native select props are also supported through passthrough, especially:
-- `value`
-- `defaultValue`
 - `name`
 - `disabled`
 - `required`
@@ -32,9 +33,11 @@ Important native select props are also supported through passthrough, especially
 
 - inset label is the default when `label` is present
 - `externalLabel` opts back to the classic label-above-field layout
-- inset labels rest in the field line when empty and float to the border when focused, filled, or when a placeholder is present
+- inset labels rest in the field line when empty and float to the border when focused, filled, open, or when a placeholder is present
 - the entire control shell is clickable
+- option clicks toggle values without closing the list
 - selected values can be cleared from the field chrome
+- the closed field shows the first selected label and summarizes additional values as `(+N)`
 - `placeholder` provides the empty-state visible prompt
 - `error` takes precedence over `helpText`
 - `error` sets invalid visuals and `aria-invalid`
@@ -44,7 +47,7 @@ Important native select props are also supported through passthrough, especially
 
 ## Theme Integration
 
-`LunaSelect` uses the same theme-backed field tokens as `LunaInput` and `LunaTextarea` for:
+`LunaMultiselect` uses the same theme-backed field tokens as `LunaInput`, `LunaTextarea`, and `LunaSelect` for:
 - size defaults
 - control background and foreground
 - border, hover, and focus styling
