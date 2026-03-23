@@ -320,6 +320,69 @@ export const lunarTheme: Theme = {
           labelFg: "neutral.400"
         }
       }
+    },
+    input: {
+      defaultSize: "md",
+      radius: "md",
+      sizes: {
+        sm: {
+          minHeight: "2rem",
+          paddingX: "2",
+          paddingY: "1",
+          fontSize: "xs",
+          gap: "1"
+        },
+        md: {
+          minHeight: "2.375rem",
+          paddingX: "3",
+          paddingY: "1",
+          fontSize: "sm",
+          gap: "2"
+        },
+        lg: {
+          minHeight: "2.75rem",
+          paddingX: "4",
+          paddingY: "2",
+          fontSize: "sm",
+          gap: "2"
+        }
+      },
+      modes: {
+        light: {
+          bg: "neutral.50",
+          fg: "neutral.900",
+          border: "neutral.300",
+          hoverBorder: "neutral.400",
+          focusBorder: "primary.500",
+          focusRing: "rgba(99, 102, 241, 0.18)",
+          placeholder: "neutral.400",
+          disabledBg: "neutral.100",
+          disabledFg: "neutral.500",
+          disabledBorder: "neutral.200",
+          errorBorder: "danger.500",
+          errorFocusRing: "rgba(239, 68, 68, 0.18)",
+          helpFg: "neutral.500",
+          errorFg: "danger.600",
+          labelFg: "neutral.800"
+        },
+        dark: {
+          bg: "neutral.800",
+          fg: "neutral.50",
+          border: "neutral.600",
+          hoverBorder: "neutral.500",
+          focusBorder: "primary.300",
+          focusRing: "rgba(129, 140, 248, 0.22)",
+          placeholder: "neutral.500",
+          disabledBg: "neutral.900",
+          disabledFg: "neutral.500",
+          disabledBorder: "neutral.700",
+          errorBorder: "danger.400",
+          errorFocusRing: "rgba(248, 113, 113, 0.2)",
+          helpFg: "neutral.400",
+          errorFg: "danger.300",
+          labelFg: "neutral.100"
+        }
+      }
     }
   }
 };

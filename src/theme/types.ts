@@ -95,6 +95,32 @@ export type ThemeDividerModeTokens = {
   labelFg?: string;
 };
 
+export type ThemeInputSizeProfile = {
+  minHeight?: string;
+  paddingX?: string;
+  paddingY?: string;
+  fontSize?: string;
+  gap?: string;
+};
+
+export type ThemeInputModeTokens = {
+  bg?: string;
+  fg?: string;
+  border?: string;
+  hoverBorder?: string;
+  focusBorder?: string;
+  focusRing?: string;
+  placeholder?: string;
+  disabledBg?: string;
+  disabledFg?: string;
+  disabledBorder?: string;
+  errorBorder?: string;
+  errorFocusRing?: string;
+  helpFg?: string;
+  errorFg?: string;
+  labelFg?: string;
+};
+
 export type ThemeComponents = {
   button?: {
     defaultSize?: string;
@@ -120,6 +146,12 @@ export type ThemeComponents = {
     defaultSpacing?: string;
     defaultInset?: string;
     modes?: Partial<Record<ThemeMode, ThemeDividerModeTokens>>;
+  };
+  input?: {
+    defaultSize?: string;
+    radius?: string;
+    sizes?: Record<string, ThemeInputSizeProfile>;
+    modes?: Partial<Record<ThemeMode, ThemeInputModeTokens>>;
   };
 };
 

@@ -227,5 +227,83 @@ export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<str
     vars["--luna-divider-label-fg"] = resolveTokenValue(theme, dividerMode.labelFg);
   }
 
+  const input = theme.components.input;
+  if (input?.defaultSize) {
+    vars["--luna-input-size-default"] = input.defaultSize;
+  }
+  if (input?.radius) {
+    vars["--luna-input-radius"] = resolveScaleValue(theme.radii, input.radius) ?? input.radius;
+  }
+  const inputMode = input?.modes?.[mode];
+  if (inputMode?.bg) {
+    vars["--luna-input-bg"] = resolveTokenValue(theme, inputMode.bg);
+  }
+  if (inputMode?.fg) {
+    vars["--luna-input-fg"] = resolveTokenValue(theme, inputMode.fg);
+  }
+  if (inputMode?.border) {
+    vars["--luna-input-border"] = resolveTokenValue(theme, inputMode.border);
+  }
+  if (inputMode?.hoverBorder) {
+    vars["--luna-input-hover-border"] = resolveTokenValue(theme, inputMode.hoverBorder);
+  }
+  if (inputMode?.focusBorder) {
+    vars["--luna-input-focus-border"] = resolveTokenValue(theme, inputMode.focusBorder);
+  }
+  if (inputMode?.focusRing) {
+    vars["--luna-input-focus-ring"] = inputMode.focusRing;
+  }
+  if (inputMode?.placeholder) {
+    vars["--luna-input-placeholder"] = resolveTokenValue(theme, inputMode.placeholder);
+  }
+  if (inputMode?.disabledBg) {
+    vars["--luna-input-disabled-bg"] = resolveTokenValue(theme, inputMode.disabledBg);
+  }
+  if (inputMode?.disabledFg) {
+    vars["--luna-input-disabled-fg"] = resolveTokenValue(theme, inputMode.disabledFg);
+  }
+  if (inputMode?.disabledBorder) {
+    vars["--luna-input-disabled-border"] = resolveTokenValue(theme, inputMode.disabledBorder);
+  }
+  if (inputMode?.errorBorder) {
+    vars["--luna-input-error-border"] = resolveTokenValue(theme, inputMode.errorBorder);
+  }
+  if (inputMode?.errorFocusRing) {
+    vars["--luna-input-error-focus-ring"] = inputMode.errorFocusRing;
+  }
+  if (inputMode?.helpFg) {
+    vars["--luna-input-help-fg"] = resolveTokenValue(theme, inputMode.helpFg);
+  }
+  if (inputMode?.errorFg) {
+    vars["--luna-input-error-fg"] = resolveTokenValue(theme, inputMode.errorFg);
+  }
+  if (inputMode?.labelFg) {
+    vars["--luna-input-label-fg"] = resolveTokenValue(theme, inputMode.labelFg);
+  }
+  if (input?.sizes) {
+    for (const [name, profile] of Object.entries(input.sizes)) {
+      if (profile.minHeight) {
+        vars[`--luna-input-size-${name}-min-height`] =
+          resolveScaleValue(theme.spacing, profile.minHeight) ?? profile.minHeight;
+      }
+      if (profile.paddingX) {
+        vars[`--luna-input-size-${name}-padding-x`] =
+          resolveScaleValue(theme.spacing, profile.paddingX) ?? profile.paddingX;
+      }
+      if (profile.paddingY) {
+        vars[`--luna-input-size-${name}-padding-y`] =
+          resolveScaleValue(theme.spacing, profile.paddingY) ?? profile.paddingY;
+      }
+      if (profile.fontSize) {
+        vars[`--luna-input-size-${name}-font-size`] =
+          resolveScaleValue(theme.typography.sizes, profile.fontSize) ?? profile.fontSize;
+      }
+      if (profile.gap) {
+        vars[`--luna-input-size-${name}-gap`] =
+          resolveScaleValue(theme.spacing, profile.gap) ?? profile.gap;
+      }
+    }
+  }
+
   return vars;
 }
