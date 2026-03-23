@@ -7,6 +7,8 @@ Constraints
 - React only for UI, no third-party UI component libraries.
 - Keep dependencies minimal and focused on dev and testing.
 - Provide a theme system that can be overridden by downstream projects.
+- Do not mention third-party design systems, component libraries, or external design products anywhere in the codebase, docs, stories, tests, or comments.
+- Keep all shipped design language and rationale distinct to react-luna, even when outside sanity checks are used during development.
 
 Tooling
 - Use Storybook for component exploration and configuration.

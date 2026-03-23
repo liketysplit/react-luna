@@ -4,16 +4,6 @@ This document defines the design direction for `LunaRadio` before implementation
 
 `LunaRadio` should be the mutually exclusive selection primitive for the library. It should stay visually aligned with `LunaCheckbox`, reuse the same theme language, and keep the interaction model narrow.
 
-## Reference Read
-
-The sanity check from Vuetify and Cloudscape points to the same core shape:
-- a radio should stay a distinct single-choice control
-- radios should be grouped by shared `name`
-- label content should be first-class
-- disabled and invalid treatment should match the rest of the field family
-
-That matches the direction we should take here.
-
 ## Design Stance
 
 - Base the visual and support-text model on `LunaCheckbox`.

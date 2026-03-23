@@ -4,16 +4,6 @@ This document defines the design direction for `LunaCheckbox` before implementat
 
 `LunaCheckbox` should be the base boolean selection primitive for the library. It should stay visually aligned with our button and field language while keeping the interaction model narrow and predictable.
 
-## Reference Read
-
-The sanity check from Vuetify and Cloudscape points to the same core shape:
-- a checkbox should stay a small, explicit boolean control
-- label content should be first-class
-- indeterminate should be a state, not a separate component
-- checkbox, radio, and toggle should remain distinct primitives
-
-That matches the direction we should take here.
-
 ## Design Stance
 
 - Keep the primitive narrow.

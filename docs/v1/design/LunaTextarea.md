@@ -50,8 +50,8 @@ Important native textarea props should still surface through passthrough, especi
 ## Research Notes
 
 Primary references:
-- Vuetify `v-textarea` exposes `rows`, `row-height`, and `auto-grow`
-- MUI Textarea Autosize emphasizes `minRows` and `maxRows`
+- Preserve native textarea expectations around `rows` and height behavior.
+- Support `minRows` and `maxRows` as the main growth bounds in the base contract.
 - MDN treats `resize` as the correct control for user resizing behavior
 
 The V1 choice here is:

@@ -56,8 +56,8 @@ Important native select props should still surface through passthrough, especial
 ## Research Notes
 
 Sanity checks:
-- Vuetify supports configurable item title and item value mapping, but that is broader than we need for a base select
-- Cloudscape’s select guidance reinforces keeping single selection separate from more advanced suggestion-based controls
+- Keep the option shape explicit and narrow for the base select.
+- Keep single selection separate from more advanced suggestion-based controls.
 
 The V1 choice here is:
 - fixed `{ value, label, disabled? }` option shape
