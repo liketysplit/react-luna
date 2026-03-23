@@ -1,6 +1,7 @@
 import React from "react";
 import { useTheme } from "../../theme";
 import { LunaText } from "../luna-text";
+import { useParentBackgroundVar } from "../useParentBackgroundVar";
 import type { LunaInputProps } from "./LunaInput.props";
 import "./LunaInput.css";
 
@@ -41,6 +42,7 @@ export const LunaInput = React.forwardRef<HTMLInputElement, LunaInputProps>(func
   const showExternalLabel = label !== undefined && label !== null && externalLabel;
   const showInsetLabel = label !== undefined && label !== null && !externalLabel;
   const hasPlaceholder = typeof placeholder === "string" && placeholder.length > 0;
+  const rootRef = useParentBackgroundVar<HTMLDivElement>([theme]);
   const [isFocused, setIsFocused] = React.useState(false);
   const [isFilled, setIsFilled] = React.useState(
     value !== undefined
@@ -79,6 +81,7 @@ export const LunaInput = React.forwardRef<HTMLInputElement, LunaInputProps>(func
 
   return (
     <div
+      ref={rootRef}
       className={toClassName([
         "luna-input-field",
         fullWidth && "luna-input-field--full-width",

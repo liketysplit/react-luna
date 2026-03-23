@@ -2,6 +2,7 @@ import React from "react";
 import { useTheme } from "../../theme";
 import { resolveScaleValue } from "../../theme/resolve";
 import { LunaText } from "../luna-text";
+import { useParentBackgroundVar } from "../useParentBackgroundVar";
 import type { LunaTextareaProps } from "./LunaTextarea.props";
 import "./LunaTextarea.css";
 
@@ -60,6 +61,7 @@ export const LunaTextarea = React.forwardRef<HTMLTextAreaElement, LunaTextareaPr
     const showExternalLabel = label !== undefined && label !== null && externalLabel;
     const showInsetLabel = label !== undefined && label !== null && !externalLabel;
     const hasPlaceholder = typeof placeholder === "string" && placeholder.length > 0;
+    const rootRef = useParentBackgroundVar<HTMLDivElement>([theme]);
     const [isFocused, setIsFocused] = React.useState(false);
     const [isFilled, setIsFilled] = React.useState(
       value !== undefined
@@ -140,6 +142,7 @@ export const LunaTextarea = React.forwardRef<HTMLTextAreaElement, LunaTextareaPr
 
     return (
       <div
+        ref={rootRef}
         className={toClassName([
           "luna-textarea-field",
           fullWidth && "luna-textarea-field--full-width",

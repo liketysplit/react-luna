@@ -4,6 +4,7 @@ export * from "./luna-divider";
 export * from "./luna-header";
 export * from "./luna-input";
 export * from "./luna-textarea";
+export * from "./luna-select";
 export * from "./luna-text";
 export * from "./luna-row";
 export * from "./luna-column";

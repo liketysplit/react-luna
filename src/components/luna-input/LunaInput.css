@@ -114,8 +114,20 @@
 
 .luna-input-field--inset-label-active .luna-input-field__label--inset {
   top: 0;
-  background: var(--luna-input-bg, var(--luna-surface));
+  background: linear-gradient(
+    to bottom,
+    var(--luna-container-bg, var(--luna-background, transparent)) 0 50%,
+    var(--luna-input-bg, var(--luna-surface)) 50% 100%
+  );
   transform: translateY(-50%);
+}
+
+.luna-input-field--disabled.luna-input-field--inset-label-active .luna-input-field__label--inset {
+  background: linear-gradient(
+    to bottom,
+    var(--luna-container-bg, var(--luna-background, transparent)) 0 50%,
+    var(--luna-input-disabled-bg, var(--luna-surface)) 50% 100%
+  );
 }
 
 .luna-input::placeholder {
