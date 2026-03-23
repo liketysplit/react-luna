@@ -305,5 +305,78 @@ export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<str
     }
   }
 
+  const checkbox = theme.components.checkbox;
+  if (checkbox?.radius) {
+    vars["--luna-checkbox-radius"] =
+      resolveScaleValue(theme.radii, checkbox.radius) ?? checkbox.radius;
+  }
+  if (checkbox?.boxSize) {
+    vars["--luna-checkbox-current-box-size"] =
+      resolveScaleValue(theme.spacing, checkbox.boxSize) ?? checkbox.boxSize;
+  }
+  if (checkbox?.gap) {
+    vars["--luna-checkbox-current-gap"] =
+      resolveScaleValue(theme.spacing, checkbox.gap) ?? checkbox.gap;
+  }
+  if (checkbox?.offsetY) {
+    vars["--luna-checkbox-current-offset-y"] =
+      resolveScaleValue(theme.spacing, checkbox.offsetY) ?? checkbox.offsetY;
+  }
+  const checkboxMode = checkbox?.modes?.[mode];
+  if (checkboxMode?.bg) {
+    vars["--luna-checkbox-bg"] = resolveTokenValue(theme, checkboxMode.bg);
+  }
+  if (checkboxMode?.border) {
+    vars["--luna-checkbox-border"] = resolveTokenValue(theme, checkboxMode.border);
+  }
+  if (checkboxMode?.hoverBorder) {
+    vars["--luna-checkbox-hover-border"] = resolveTokenValue(theme, checkboxMode.hoverBorder);
+  }
+  if (checkboxMode?.checkedBg) {
+    vars["--luna-checkbox-checked-bg"] = resolveTokenValue(theme, checkboxMode.checkedBg);
+  }
+  if (checkboxMode?.checkedBorder) {
+    vars["--luna-checkbox-checked-border"] = resolveTokenValue(theme, checkboxMode.checkedBorder);
+  }
+  if (checkboxMode?.checkFg) {
+    vars["--luna-checkbox-check-fg"] = resolveTokenValue(theme, checkboxMode.checkFg);
+  }
+  if (checkboxMode?.focusBorder) {
+    vars["--luna-checkbox-focus-border"] = resolveTokenValue(theme, checkboxMode.focusBorder);
+  }
+  if (checkboxMode?.focusRing) {
+    vars["--luna-checkbox-focus-ring"] = checkboxMode.focusRing;
+  }
+  if (checkboxMode?.disabledBg) {
+    vars["--luna-checkbox-disabled-bg"] = resolveTokenValue(theme, checkboxMode.disabledBg);
+  }
+  if (checkboxMode?.disabledBorder) {
+    vars["--luna-checkbox-disabled-border"] = resolveTokenValue(theme, checkboxMode.disabledBorder);
+  }
+  if (checkboxMode?.disabledFg) {
+    vars["--luna-checkbox-disabled-fg"] = resolveTokenValue(theme, checkboxMode.disabledFg);
+  }
+  if (checkboxMode?.errorBorder) {
+    vars["--luna-checkbox-error-border"] = resolveTokenValue(theme, checkboxMode.errorBorder);
+  }
+  if (checkboxMode?.helpFg) {
+    vars["--luna-checkbox-help-fg"] = resolveTokenValue(theme, checkboxMode.helpFg);
+  }
+  if (checkboxMode?.errorFg) {
+    vars["--luna-checkbox-error-fg"] = resolveTokenValue(theme, checkboxMode.errorFg);
+  }
+  if (checkboxMode?.labelFg) {
+    vars["--luna-checkbox-label-fg"] = resolveTokenValue(theme, checkboxMode.labelFg);
+  }
+  if (checkboxMode?.descriptionFg) {
+    vars["--luna-checkbox-description-fg"] = resolveTokenValue(theme, checkboxMode.descriptionFg);
+  }
+  if (checkboxMode?.disabledLabelFg) {
+    vars["--luna-checkbox-disabled-label-fg"] = resolveTokenValue(
+      theme,
+      checkboxMode.disabledLabelFg
+    );
+  }
+
   return vars;
 }

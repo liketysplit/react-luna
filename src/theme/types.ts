@@ -121,6 +121,26 @@ export type ThemeInputModeTokens = {
   labelFg?: string;
 };
 
+export type ThemeCheckboxModeTokens = {
+  bg?: string;
+  border?: string;
+  hoverBorder?: string;
+  checkedBg?: string;
+  checkedBorder?: string;
+  checkFg?: string;
+  focusBorder?: string;
+  focusRing?: string;
+  disabledBg?: string;
+  disabledBorder?: string;
+  disabledFg?: string;
+  errorBorder?: string;
+  helpFg?: string;
+  errorFg?: string;
+  labelFg?: string;
+  descriptionFg?: string;
+  disabledLabelFg?: string;
+};
+
 export type ThemeComponents = {
   button?: {
     defaultSize?: string;
@@ -152,6 +172,13 @@ export type ThemeComponents = {
     radius?: string;
     sizes?: Record<string, ThemeInputSizeProfile>;
     modes?: Partial<Record<ThemeMode, ThemeInputModeTokens>>;
+  };
+  checkbox?: {
+    radius?: string;
+    boxSize?: string;
+    gap?: string;
+    offsetY?: string;
+    modes?: Partial<Record<ThemeMode, ThemeCheckboxModeTokens>>;
   };
 };
 

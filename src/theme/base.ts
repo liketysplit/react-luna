@@ -383,6 +383,52 @@ export const lunarTheme: Theme = {
           labelFg: "neutral.100"
         }
       }
+    },
+    checkbox: {
+      radius: "sm",
+      boxSize: "1.125rem",
+      gap: "2",
+      offsetY: "0.125rem",
+      modes: {
+        light: {
+          bg: "neutral.50",
+          border: "neutral.300",
+          hoverBorder: "neutral.400",
+          checkedBg: "primary.600",
+          checkedBorder: "primary.600",
+          checkFg: "#ffffff",
+          focusBorder: "primary.500",
+          focusRing: "rgba(99, 102, 241, 0.18)",
+          disabledBg: "neutral.100",
+          disabledBorder: "neutral.200",
+          disabledFg: "neutral.500",
+          errorBorder: "danger.500",
+          helpFg: "neutral.500",
+          errorFg: "danger.600",
+          labelFg: "neutral.900",
+          descriptionFg: "neutral.500",
+          disabledLabelFg: "neutral.500"
+        },
+        dark: {
+          bg: "neutral.800",
+          border: "neutral.600",
+          hoverBorder: "neutral.500",
+          checkedBg: "primary.400",
+          checkedBorder: "primary.400",
+          checkFg: "#ffffff",
+          focusBorder: "primary.300",
+          focusRing: "rgba(129, 140, 248, 0.22)",
+          disabledBg: "neutral.900",
+          disabledBorder: "neutral.700",
+          disabledFg: "neutral.500",
+          errorBorder: "danger.400",
+          helpFg: "neutral.400",
+          errorFg: "danger.300",
+          labelFg: "neutral.50",
+          descriptionFg: "neutral.400",
+          disabledLabelFg: "neutral.500"
+        }
+      }
     }
   }
 };
