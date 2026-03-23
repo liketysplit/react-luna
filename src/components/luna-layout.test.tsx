@@ -15,7 +15,7 @@ afterEach(() => {
 });
 
 describe("layout primitives", () => {
-  it("wraps row children internally and defaults row wrapping on", () => {
+  it("wraps row children internally, defaults row wrapping on, and uses auto child spans", () => {
     renderWithTheme(
       <LunaRow gap="4" data-testid="row">
         <div data-col-span={6}>One</div>
@@ -30,7 +30,7 @@ describe("layout primitives", () => {
     expect(row.className).not.toContain("luna-row--no-wrap");
     expect(items).toHaveLength(2);
     expect(items[0]).toHaveStyle({ "--luna-layout-span-xs": "6" });
-    expect(items[1]).toHaveStyle({ "--luna-layout-span-xs": "12" });
+    expect(items[1]).toHaveStyle({ "--luna-layout-span-xs": "auto" });
   });
 
   it("normalizes alias-based responsive spans", () => {

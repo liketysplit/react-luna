@@ -2,9 +2,18 @@ import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { LunaColumn } from "./luna-column";
 import { LunaGrid } from "./luna-grid";
+import { LunaInput } from "./luna-input";
 import { LunaRow } from "./luna-row";
+import { LunaSelect } from "./luna-select";
+import { LunaTextarea } from "./luna-textarea";
 import "./luna-layout.stories.css";
 import type { LunaLayoutSpan } from "./layout-shared";
+
+const fieldOptions = [
+  { value: "alpha", label: "Alpha" },
+  { value: "beta", label: "Beta" },
+  { value: "gamma", label: "Gamma", disabled: true }
+];
 
 function DemoBlock({
   label,
@@ -181,6 +190,51 @@ export const GridResponsiveSpans: Story = {
           />
           <LayoutItem label="Content band" detail="xs 12, md 8, xl 9" colSpan={{ xs: 12, md: 8, xl: 9 }} />
           <LayoutItem label="Utility panel" detail="xs 12, md 4, xl 3" colSpan={{ xs: 12, md: 4, xl: 3 }} />
+        </LunaGrid>
+      </Section>
+    </div>
+  )
+};
+
+export const FieldLayoutComparison: Story = {
+  render: () => (
+    <div className="luna-layout-story">
+      <Section title="Row with fields">
+        <LunaRow gap="4">
+          <LunaInput
+            label="Input"
+            placeholder="Enter value"
+          />
+          <LunaSelect
+            label="Select"
+            options={fieldOptions}
+            placeholder="Choose"
+          />
+          <LunaTextarea
+            label="Textarea"
+            minRows={1}
+            placeholder="Enter notes"
+          />
+        </LunaRow>
+      </Section>
+      <Section title="Column with fields">
+        <LunaColumn gap="4">
+          <LunaInput label="Input" placeholder="Enter value" />
+          <LunaSelect label="Select" options={fieldOptions} placeholder="Choose" />
+          <LunaTextarea label="Textarea" minRows={1} placeholder="Enter notes" />
+        </LunaColumn>
+      </Section>
+      <Section title="Grid with fields">
+        <LunaGrid gap="4">
+          <div data-col-span={4}>
+            <LunaInput label="Input" placeholder="Enter value" />
+          </div>
+          <div data-col-span={4}>
+            <LunaSelect label="Select" options={fieldOptions} placeholder="Choose" />
+          </div>
+          <div data-col-span={4}>
+            <LunaTextarea label="Textarea" minRows={1} placeholder="Enter notes" />
+          </div>
         </LunaGrid>
       </Section>
     </div>

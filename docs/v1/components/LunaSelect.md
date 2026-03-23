@@ -38,6 +38,7 @@ Important native select props are also supported through passthrough, especially
 - `placeholder` provides the empty-state visible prompt
 - `error` takes precedence over `helpText`
 - `error` sets invalid visuals and `aria-invalid`
+- `sm`, `md`, and `lg` align to the button size scale so field and button chrome can sit beside each other cleanly
 - `fullWidth` stretches the field to its container
 
 ## Theme Integration

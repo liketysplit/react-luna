@@ -37,7 +37,7 @@ export const LunaRow = React.forwardRef<HTMLElement, LunaRowProps>(function Luna
       ])}
       style={resolvedStyle}
     >
-      {wrapLayoutChildren(children, "luna-row__item")}
+      {wrapLayoutChildren(children, "luna-row__item", "auto")}
     </Component>
   );
 });

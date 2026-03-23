@@ -1,7 +1,7 @@
 .luna-textarea-field {
   display: inline-grid;
   gap: var(--luna-space-2, 0.5rem);
-  min-width: 16rem;
+  min-width: 0;
 }
 
 .luna-textarea-field--full-width {
@@ -138,22 +138,22 @@
 }
 
 .luna-textarea-field[data-size="sm"] {
-  --luna-input-current-min-height: var(--luna-input-size-sm-min-height, 2rem);
+  --luna-input-current-min-height: max(var(--luna-input-size-sm-min-height, 2rem), 4.5rem);
   --luna-input-current-padding-x: var(--luna-input-size-sm-padding-x, 0.5rem);
   --luna-input-current-padding-y: var(--luna-input-size-sm-padding-y, 0.25rem);
   --luna-input-current-font-size: var(--luna-input-size-sm-font-size, 0.75rem);
 }
 
 .luna-textarea-field[data-size="md"] {
-  --luna-input-current-min-height: var(--luna-input-size-md-min-height, 2.375rem);
-  --luna-input-current-padding-x: var(--luna-input-size-md-padding-x, 0.75rem);
-  --luna-input-current-padding-y: var(--luna-input-size-md-padding-y, 0.25rem);
+  --luna-input-current-min-height: max(var(--luna-input-size-md-min-height, 2.5rem), 5.5rem);
+  --luna-input-current-padding-x: var(--luna-input-size-md-padding-x, 1rem);
+  --luna-input-current-padding-y: var(--luna-input-size-md-padding-y, 0.5rem);
   --luna-input-current-font-size: var(--luna-input-size-md-font-size, 0.875rem);
 }
 
 .luna-textarea-field[data-size="lg"] {
-  --luna-input-current-min-height: var(--luna-input-size-lg-min-height, 2.75rem);
-  --luna-input-current-padding-x: var(--luna-input-size-lg-padding-x, 1rem);
+  --luna-input-current-min-height: max(var(--luna-input-size-lg-min-height, 3rem), 6.5rem);
+  --luna-input-current-padding-x: var(--luna-input-size-lg-padding-x, 1.25rem);
   --luna-input-current-padding-y: var(--luna-input-size-lg-padding-y, 0.5rem);
-  --luna-input-current-font-size: var(--luna-input-size-lg-font-size, 0.875rem);
+  --luna-input-current-font-size: var(--luna-input-size-lg-font-size, 1rem);
 }

@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
+import { ThemeProvider } from "../../theme";
 import { LunaColumn } from "../luna-column";
+import { LunaRow } from "../luna-row";
 import { LunaTextarea } from "./LunaTextarea";
 
 const meta = {
@@ -70,5 +72,47 @@ export const SupportingText: Story = {
         error="A longer response is required."
       />
     </LunaColumn>
+  )
+};
+
+export const States: Story = {
+  render: () => (
+    <LunaColumn gap="4">
+      <LunaTextarea label="Prefilled" defaultValue="Staging complete." />
+      <LunaTextarea label="Disabled" defaultValue="Locked field" disabled />
+      <LunaTextarea label="Full width" fullWidth placeholder="This field stretches with its container" />
+    </LunaColumn>
+  )
+};
+
+export const SizeParity: Story = {
+  render: () => (
+    <LunaColumn gap="4">
+      <LunaRow gap="4">
+        <LunaTextarea label="Small textarea" inputSize="sm" minRows={1} placeholder="Small textarea" />
+        <LunaTextarea label="Small disabled" inputSize="sm" minRows={1} defaultValue="Disabled" disabled />
+      </LunaRow>
+      <LunaRow gap="4">
+        <LunaTextarea label="Medium textarea" inputSize="md" minRows={1} placeholder="Medium textarea" />
+        <LunaTextarea label="Medium disabled" inputSize="md" minRows={1} defaultValue="Disabled" disabled />
+      </LunaRow>
+      <LunaRow gap="4">
+        <LunaTextarea label="Large textarea" inputSize="lg" minRows={1} placeholder="Large textarea" />
+        <LunaTextarea label="Large disabled" inputSize="lg" minRows={1} defaultValue="Disabled" disabled />
+      </LunaRow>
+    </LunaColumn>
+  )
+};
+
+export const DarkMode: Story = {
+  render: () => (
+    <ThemeProvider mode="dark">
+      <div style={{ padding: "1rem", background: "var(--luna-background)" }}>
+        <LunaColumn gap="4">
+          <LunaTextarea label="Mission notes" placeholder="Write mission notes" />
+          <LunaTextarea label="Disabled" defaultValue="Locked field" disabled />
+        </LunaColumn>
+      </div>
+    </ThemeProvider>
   )
 };

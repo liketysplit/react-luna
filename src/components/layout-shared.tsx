@@ -103,13 +103,16 @@ export function normalizeLayoutSpan(
   return resolved;
 }
 
-export function getChildSpan(child: React.ReactNode): LunaLayoutSpan {
+export function getChildSpan(
+  child: React.ReactNode,
+  defaultSpan?: LunaLayoutSpanValue
+): LunaLayoutSpan {
   if (!React.isValidElement(child)) {
-    return undefined;
+    return defaultSpan;
   }
 
   const props = child.props as Record<string, unknown>;
-  return (props.colSpan ?? props["data-col-span"]) as LunaLayoutSpan;
+  return ((props.colSpan ?? props["data-col-span"]) as LunaLayoutSpan | undefined) ?? defaultSpan;
 }
 
 export function stripLayoutChildProps(child: React.ReactNode) {
@@ -156,14 +159,22 @@ export function mapJustify(value: LunaLayoutJustify | undefined) {
   return JUSTIFY_MAP[value];
 }
 
-export function wrapLayoutChildren(children: React.ReactNode, itemClassName: string) {
+export function wrapLayoutChildren(
+  children: React.ReactNode,
+  itemClassName: string,
+  defaultSpan?: LunaLayoutSpanValue
+) {
   return React.Children.map(children, (child, index) => {
     if (child === null || child === undefined || typeof child === "boolean") {
       return child;
     }
 
     return (
-      <div className={itemClassName} style={buildSpanStyle(getChildSpan(child))} key={index}>
+      <div
+        className={itemClassName}
+        style={buildSpanStyle(getChildSpan(child, defaultSpan))}
+        key={index}
+      >
         {stripLayoutChildProps(child)}
       </div>
     );

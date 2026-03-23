@@ -42,6 +42,7 @@ Important native input props are also supported through passthrough, especially:
 - `error` sets invalid visuals and `aria-invalid`
 - `leading` and `trailing` render inside the control shell
 - `inputSize` controls field height, spacing, and font size
+- `sm`, `md`, and `lg` align to the button size scale so field and button chrome can sit beside each other cleanly
 - `fullWidth` stretches the field to its container
 - `className`, `style`, `data-*`, and `aria-*` still pass through the native input contract
 

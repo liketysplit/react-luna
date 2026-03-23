@@ -1,7 +1,7 @@
 .luna-input-field {
   display: inline-grid;
   gap: var(--luna-space-2, 0.5rem);
-  min-width: 16rem;
+  min-width: 0;
 }
 
 .luna-input-field--full-width {
@@ -33,10 +33,12 @@
 }
 
 .luna-input-field__control {
+  box-sizing: border-box;
   position: relative;
   display: flex;
   align-items: center;
   gap: var(--luna-input-current-gap, var(--luna-input-size-md-gap, 0.5rem));
+  height: var(--luna-input-current-min-height, var(--luna-input-size-md-min-height, 2.75rem));
   min-height: var(--luna-input-current-min-height, var(--luna-input-size-md-min-height, 2.75rem));
   padding-inline: var(--luna-input-current-padding-x, var(--luna-input-size-md-padding-x, 1rem));
   padding-block: var(--luna-input-current-padding-y, var(--luna-input-size-md-padding-y, 0.5rem));
@@ -51,7 +53,8 @@
 }
 
 .luna-input-field__content {
-  display: block;
+  display: flex;
+  align-items: center;
   flex: 1 1 auto;
   min-width: 0;
 }
@@ -97,9 +100,11 @@
   color: inherit;
   font: inherit;
   font-size: var(--luna-input-current-font-size, var(--luna-input-size-md-font-size, 0.875rem));
-  line-height: 1.4;
+  line-height: 1;
+  min-height: 1em;
   padding: 0;
   margin: 0;
+  transition: transform var(--luna-motion-base);
 }
 
 .luna-input-field--inset-label .luna-input-field__control {
@@ -128,6 +133,10 @@
     var(--luna-container-bg, var(--luna-background, transparent)) 0 50%,
     var(--luna-input-disabled-bg, var(--luna-surface)) 50% 100%
   );
+}
+
+.luna-input-field--inset-label-active .luna-input {
+  transform: translateY(calc(var(--luna-space-2, 0.5rem) * -0.5));
 }
 
 .luna-input::placeholder {
@@ -159,17 +168,17 @@
 }
 
 .luna-input-field[data-size="md"] {
-  --luna-input-current-min-height: var(--luna-input-size-md-min-height, 2.375rem);
-  --luna-input-current-padding-x: var(--luna-input-size-md-padding-x, 0.75rem);
-  --luna-input-current-padding-y: var(--luna-input-size-md-padding-y, 0.25rem);
+  --luna-input-current-min-height: var(--luna-input-size-md-min-height, 2.5rem);
+  --luna-input-current-padding-x: var(--luna-input-size-md-padding-x, 1rem);
+  --luna-input-current-padding-y: var(--luna-input-size-md-padding-y, 0.5rem);
   --luna-input-current-font-size: var(--luna-input-size-md-font-size, 0.875rem);
   --luna-input-current-gap: var(--luna-input-size-md-gap, 0.5rem);
 }
 
 .luna-input-field[data-size="lg"] {
-  --luna-input-current-min-height: var(--luna-input-size-lg-min-height, 2.75rem);
-  --luna-input-current-padding-x: var(--luna-input-size-lg-padding-x, 1rem);
+  --luna-input-current-min-height: var(--luna-input-size-lg-min-height, 3rem);
+  --luna-input-current-padding-x: var(--luna-input-size-lg-padding-x, 1.25rem);
   --luna-input-current-padding-y: var(--luna-input-size-lg-padding-y, 0.5rem);
-  --luna-input-current-font-size: var(--luna-input-size-lg-font-size, 0.875rem);
+  --luna-input-current-font-size: var(--luna-input-size-lg-font-size, 1rem);
   --luna-input-current-gap: var(--luna-input-size-lg-gap, 0.5rem);
 }

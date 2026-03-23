@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { LunaColumn } from "../luna-column";
 import { ThemeProvider } from "../../theme";
+import { LunaRow } from "../luna-row";
 import { LunaSelect } from "./LunaSelect";
 
 const options = [
@@ -41,6 +42,25 @@ export const Sizes: Story = {
       <LunaSelect label="Small select" inputSize="sm" options={options} placeholder="Choose" />
       <LunaSelect label="Medium select" inputSize="md" options={options} placeholder="Choose" />
       <LunaSelect label="Large select" inputSize="lg" options={options} placeholder="Choose" />
+    </LunaColumn>
+  )
+};
+
+export const SizeParity: Story = {
+  render: () => (
+    <LunaColumn gap="4">
+      <LunaRow gap="4">
+        <LunaSelect label="Small select" inputSize="sm" options={options} placeholder="Choose" />
+        <LunaSelect label="Small disabled" inputSize="sm" options={options} defaultValue="alpha" disabled />
+      </LunaRow>
+      <LunaRow gap="4">
+        <LunaSelect label="Medium select" inputSize="md" options={options} placeholder="Choose" />
+        <LunaSelect label="Medium disabled" inputSize="md" options={options} defaultValue="alpha" disabled />
+      </LunaRow>
+      <LunaRow gap="4">
+        <LunaSelect label="Large select" inputSize="lg" options={options} placeholder="Choose" />
+        <LunaSelect label="Large disabled" inputSize="lg" options={options} defaultValue="alpha" disabled />
+      </LunaRow>
     </LunaColumn>
   )
 };

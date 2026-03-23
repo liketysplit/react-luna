@@ -324,29 +324,29 @@ export const lunarTheme: Theme = {
     input: {
       defaultSize: "md",
       radius: "md",
-      sizes: {
-        sm: {
-          minHeight: "2rem",
-          paddingX: "2",
-          paddingY: "1",
-          fontSize: "xs",
-          gap: "1"
+        sizes: {
+          sm: {
+            minHeight: "2rem",
+            paddingX: "2",
+            paddingY: "1",
+            fontSize: "xs",
+            gap: "1"
+          },
+          md: {
+            minHeight: "2.5rem",
+            paddingX: "4",
+            paddingY: "2",
+            fontSize: "sm",
+            gap: "2"
+          },
+          lg: {
+            minHeight: "3rem",
+            paddingX: "5",
+            paddingY: "2",
+            fontSize: "md",
+            gap: "2"
+          }
         },
-        md: {
-          minHeight: "2.375rem",
-          paddingX: "3",
-          paddingY: "1",
-          fontSize: "sm",
-          gap: "2"
-        },
-        lg: {
-          minHeight: "2.75rem",
-          paddingX: "4",
-          paddingY: "2",
-          fontSize: "sm",
-          gap: "2"
-        }
-      },
       modes: {
         light: {
           bg: "neutral.50",
