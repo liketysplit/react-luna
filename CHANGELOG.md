@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.1.4
+
+### Patch Changes
+
+- 6f1ab8f: Add the next primitive wave after `LunaButton`, including:
+
+  - `LunaText`
+  - `LunaRow`
+  - `LunaColumn`
+  - `LunaGrid`
+  - `LunaCard`
+  - `LunaHeader`
+  - `LunaDivider`
+  - `LunaInput`
+  - `LunaTextarea`
+  - `LunaSelect`
+  - `LunaMultiselect`
+  - `LunaAutocomplete`
+
+  Also refine shared field sizing, width behavior, and select-family interaction polish.
+
 ## 0.1.3
 
 ### Patch Changes
