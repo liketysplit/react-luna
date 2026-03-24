@@ -4,7 +4,7 @@ import { LunaColumn } from "../luna-column";
 import { LunaDateInput } from "./LunaDateInput";
 
 const meta = {
-  title: "Components/LunaDateInput",
+  title: "Internal/LunaDateInput",
   component: LunaDateInput,
   args: {
     label: "Launch date"

@@ -3,6 +3,7 @@ import React from "react";
 import { ThemeProvider } from "../theme";
 import { LunaButton } from "./luna-button";
 import { LunaColumn } from "./luna-column";
+import { LunaDatePicker } from "./luna-date-picker";
 import { LunaRow } from "./luna-row";
 import { LunaInput } from "./luna-input";
 import { LunaSelect } from "./luna-select";
@@ -59,6 +60,11 @@ function SizeColumn({ size }: { size: "sm" | "md" | "lg" }) {
         options={selectOptions}
         placeholder="Choose"
       />
+      <LunaDatePicker
+        mode="picker"
+        label={`${sizeLabel} date`}
+        inputSize={size}
+      />
       <LunaTextarea
         label={`${sizeLabel} textarea`}
         inputSize={size}
@@ -88,6 +94,11 @@ function FieldRow({ size }: { size: "sm" | "md" | "lg" }) {
         options={selectOptions}
         placeholder="Choose"
       />
+      <LunaDatePicker
+        mode="picker"
+        label={`${sizeLabel} date`}
+        inputSize={size}
+      />
       <LunaTextarea
         label={`${sizeLabel} textarea`}
         inputSize={size}
@@ -116,6 +127,11 @@ export const SizeComparison: Story = {
         <LunaSelect label="Medium select" inputSize="md" options={selectOptions} placeholder="Choose" />
         <LunaSelect label="Large select" inputSize="lg" options={selectOptions} placeholder="Choose" />
       </ComponentColumn>
+      <ComponentColumn title="Date Pickers">
+        <LunaDatePicker mode="picker" label="Small date" inputSize="sm" />
+        <LunaDatePicker mode="picker" label="Medium date" inputSize="md" />
+        <LunaDatePicker mode="picker" label="Large date" inputSize="lg" />
+      </ComponentColumn>
       <ComponentColumn title="Textareas">
         <LunaTextarea label="Small textarea" inputSize="sm" minRows={1} placeholder="Small textarea" />
         <LunaTextarea label="Medium textarea" inputSize="md" minRows={1} placeholder="Medium textarea" />
@@ -132,6 +148,16 @@ export const SizeWall: Story = {
       <SizeColumn size="md" />
       <SizeColumn size="lg" />
     </LunaRow>
+  )
+};
+
+export const DatePickerSizeComparison: Story = {
+  render: () => (
+    <LunaColumn gap="4">
+      <FieldRow size="sm" />
+      <FieldRow size="md" />
+      <FieldRow size="lg" />
+    </LunaColumn>
   )
 };
 
@@ -154,6 +180,11 @@ export const DarkModeSizeComparison: Story = {
             <LunaSelect label="Small select" inputSize="sm" options={selectOptions} placeholder="Choose" />
             <LunaSelect label="Medium select" inputSize="md" options={selectOptions} placeholder="Choose" />
             <LunaSelect label="Large select" inputSize="lg" options={selectOptions} placeholder="Choose" />
+          </ComponentColumn>
+          <ComponentColumn title="Date Pickers">
+            <LunaDatePicker mode="picker" label="Small date" inputSize="sm" />
+            <LunaDatePicker mode="picker" label="Medium date" inputSize="md" />
+            <LunaDatePicker mode="picker" label="Large date" inputSize="lg" />
           </ComponentColumn>
           <ComponentColumn title="Textareas">
             <LunaTextarea label="Small textarea" inputSize="sm" minRows={1} placeholder="Small textarea" />

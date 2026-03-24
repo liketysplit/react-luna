@@ -2,6 +2,7 @@ export * from "./luna-button";
 export * from "./luna-card";
 export * from "./luna-checkbox";
 export * from "./luna-date-input";
+export * from "./luna-date-picker";
 export * from "./luna-radio";
 export * from "./luna-divider";
 export * from "./luna-header";
