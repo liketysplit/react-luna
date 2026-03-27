@@ -9,6 +9,7 @@ Constraints
 - Provide a theme system that can be overridden by downstream projects.
 - Do not mention third-party design systems, component libraries, or external design products anywhere in the codebase, docs, stories, tests, or comments.
 - Keep all shipped design language and rationale distinct to react-luna, even when outside sanity checks are used during development.
+- Keep repository-facing rationale local to react-luna. External reference work belongs in private process and skill guidance, not in the repo.
 
 Tooling
 - Use Storybook for component exploration and configuration.
@@ -22,6 +23,7 @@ Workflow
 - Commit each completed step with a clear message.
 - Confirm results together before expanding scope.
 - Never abbreviate; spell out words to keep communication clear.
+- Default delivery slice for meaningful component work is implementation, Storybook, tests, and docs together unless explicitly scoped otherwise.
 
 Tracking And Delivery
 - `WORKFLOW.md` is the source of truth for delivery order, completion rules, release flow, and tracking design.
@@ -40,3 +42,8 @@ Phase Snapshot
 - Foundation is complete.
 - Current focus is Primitives, beginning with `LunaButton`.
 - Long-term roadmap and issue migration live in `PLAN.md`.
+
+North Star
+- `LunaButton` is the baseline primitive for hardened contract quality.
+- Themeability is first-class.
+- Downstream consumers should be able to make the library feel like their own without fighting the system.

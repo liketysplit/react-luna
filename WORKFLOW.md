@@ -8,6 +8,7 @@ This file defines how work should be tracked and moved through the repository. I
 - Make project state easy to understand from git and GitHub.
 - Standardize how features move from idea to release.
 - Keep process rules stable even as components evolve.
+- Keep component quality tied to contract clarity, themeability, Storybook coverage, tests, and docs.
 
 ## Source Of Truth
 
@@ -17,6 +18,8 @@ This file defines how work should be tracked and moved through the repository. I
 - `CHANGELOG.md` contains release-facing history only.
 - GitHub Issues should be the source of truth for active and planned work once issue tracking is in place.
 - GitHub Projects should be the source of truth for status once project tracking is in place.
+
+If repository docs and GitHub tracking drift apart, call that out and align them instead of guessing which one still matters.
 
 ## Tracking Model
 
@@ -98,6 +101,8 @@ A task is not done until the relevant items below are complete:
 - public documentation was updated when behavior changed
 - a changeset was added when the published package should release the change
 
+For primitive work, "done" also means the contract remains compatible with the library's theming model and does not make downstream customization harder.
+
 ## Delivery Order
 
 Default delivery order for component work:
@@ -107,6 +112,8 @@ Default delivery order for component work:
 4. unit tests
 5. public documentation updates
 6. release metadata updates when needed
+
+`LunaButton` remains the baseline example for how a primitive contract should feel when these steps are done well.
 
 ## Release Rules
 
@@ -138,6 +145,9 @@ Planned end state:
 - Storybook documents live component behavior
 - `docs/` holds canonical written reference material
 - Changesets controls package versioning and release notes
+
+Current note:
+- the project board exists, but its active status model should stay aligned with this file or this file should be updated to match actual use
 
 ## Operational Reminders
 

@@ -9,6 +9,8 @@ This document tracks the current design direction for the `Button` component bef
 - Keep access to theme values open.
 - Allow custom colors where useful, including hex values.
 - Prefer explicit props over hidden behavior.
+- Treat `LunaButton` as the baseline example for hardened primitive contracts across the library.
+- Keep the contract compatible with strong downstream theme customization.
 
 ## Decisions So Far
 
@@ -219,6 +221,13 @@ Rules:
 - Do we ship icons or consume arbitrary icon content?
 - Should icon names map to a built-in icon set immediately, or can that wait until later?
 
+Current suggested direction:
+
+- prefer user-supplied icon content first
+- preserve a path for custom icons, user-installed icon packs, and eventual first-party icons
+- treat library-managed icon names as deferred until a deliberate internal icon strategy exists
+- see `docs/ICON_STRATEGY.md`
+
 ## Polish Notes
 
 - `loading` now defaults to a centered lunar phase loader inside the existing button shell.
@@ -238,3 +247,5 @@ Rules:
 3. Add styling hooks and theme integration
 4. Add Storybook coverage
 5. Add tests for baseline behavior
+
+This order is the expected standard for other meaningful primitives as well.

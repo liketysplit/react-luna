@@ -2,6 +2,8 @@
 
 `LunaButton` is the base action primitive for `react-luna`.
 
+It is also the baseline example for what a durable primitive contract should look like in the library.
+
 It is responsible for:
 - button sizing
 - button surface treatments
@@ -25,6 +27,11 @@ Core rules:
 - native button props continue to work
 - `disabled` controls interactivity
 - `loading` controls presentation only
+
+North star:
+- the contract should stay small enough to be learnable
+- the contract should stay expressive enough for real downstream use
+- the contract should remain compatible with strong theme overrides
 
 ## Props
 
@@ -169,6 +176,8 @@ Rules:
 
 Note:
 - library icon strategy is intentionally deferred to its own story
+- suggested direction is captured in `docs/ICON_STRATEGY.md`
+- target direction includes custom consumer icons, user-installed icon packs, and eventual first-party icons
 
 ### State
 
@@ -200,6 +209,8 @@ Rules:
 
 The base theme ships opinionated lunar defaults, and downstream themes can override them.
 
+`LunaButton` should remain the proving ground for whether the theming model is actually strong enough for the rest of the library.
+
 ## Testing Focus
 
 The button contract should stay covered in unit tests for:
@@ -214,4 +225,6 @@ The button contract should stay covered in unit tests for:
 ## Deferred Work
 
 - icon-library decisions are deferred to the icon story
+- v1 icon-path guidance lives in `docs/ICON_STRATEGY.md`
+- long-term icon support should preserve custom icons, installed icon packs, and first-party icons
 - animation polish can continue without changing the public contract

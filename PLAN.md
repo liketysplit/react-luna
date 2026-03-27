@@ -10,6 +10,6 @@ Current source of truth:
 - `WORKFLOW.md` for tracking and delivery rules
 
 Follow-up:
-- create the GitHub Project board
-- move issue status tracking there
+- keep repository docs aligned with the issue and milestone direction
+- either align the GitHub Project board status model to `WORKFLOW.md` or simplify `WORKFLOW.md` to match actual board use
 - delete this file once the project board is in active use

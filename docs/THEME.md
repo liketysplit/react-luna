@@ -2,6 +2,12 @@
 
 This guide explains how to use the default lunar theme and how to override it with your own tokens and colors.
 
+Themeability is a first-class requirement in `react-luna`.
+
+The goal is not only to ship a usable default theme. The goal is to let downstream projects make the library feel like their own while staying inside a stable component contract.
+
+`LunaButton` is the baseline primitive for this expectation. If the theme model cannot express button customization cleanly, the theme model still needs work.
+
 ## Basic Usage
 
 Use the provider and do nothing else to get the default light theme.
@@ -92,6 +98,17 @@ export function App() {
 ```
 
 You can then reference `mystic` in component props that accept a `color` token.
+
+## Contract Expectations
+
+Theme overrides should be able to influence component behavior and presentation without requiring component forks or one-off styling hacks.
+
+The expected direction is:
+
+- override tokens first
+- keep component contracts stable
+- let components derive their visual treatment from theme values
+- avoid pushing app-specific styling decisions into shared component APIs
 
 ## Token Usage
 
