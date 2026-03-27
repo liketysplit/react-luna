@@ -36,6 +36,12 @@ Working Model
 - Keep repository docs aligned with the actual issue and milestone direction.
 - Treat implementation, Storybook, tests, and docs as one delivery slice when behavior changes.
 
+Roadmap Shape
+- `docs/ROADMAP.md` records the release-shape north star.
+- `0.0.x` is for building the needed component base.
+- `0.x.x` is for hardening the library.
+- `1.1.x` is for building a real app with the library and correcting flaws found through actual use.
+
 Release Flow
 - Add a changeset with `npm run changeset` for any package change that should affect the published version.
 - Merge to `main`.
