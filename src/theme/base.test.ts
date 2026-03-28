@@ -20,4 +20,25 @@ describe("theme size contract", () => {
     expect(avatarSizes?.large?.size).toBe(buttonSizes?.large?.minHeight);
     expect(avatarSizes?.["x-large"]?.size).toBe(buttonSizes?.["x-large"]?.minHeight);
   });
+
+  it("defines alert defaults and all built-in tones", () => {
+    const alert = lunarTheme.components.alert;
+
+    expect(alert?.defaultPadding).toBe("4");
+    expect(alert?.defaultGap).toBe("3");
+    expect(Object.keys(alert?.tones?.light ?? {})).toEqual([
+      "neutral",
+      "info",
+      "success",
+      "warning",
+      "danger"
+    ]);
+    expect(Object.keys(alert?.tones?.dark ?? {})).toEqual([
+      "neutral",
+      "info",
+      "success",
+      "warning",
+      "danger"
+    ]);
+  });
 });
