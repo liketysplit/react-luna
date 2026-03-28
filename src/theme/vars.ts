@@ -541,6 +541,56 @@ export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<str
     vars["--luna-drawer-backdrop"] = resolveTokenValue(theme, drawerMode.backdrop);
   }
 
+  const modal = theme.components.modal;
+  if (modal?.defaultSize) {
+    vars["--luna-modal-size-default"] = modal.defaultSize;
+  }
+  if (modal?.defaultPadding) {
+    vars["--luna-modal-padding-default"] =
+      resolveScaleValue(theme.spacing, modal.defaultPadding) ?? modal.defaultPadding;
+  }
+  if (modal?.defaultGap) {
+    vars["--luna-modal-gap-default"] =
+      resolveScaleValue(theme.spacing, modal.defaultGap) ?? modal.defaultGap;
+  }
+  if (modal?.defaultInset) {
+    vars["--luna-modal-inset-default"] =
+      resolveScaleValue(theme.spacing, modal.defaultInset) ?? modal.defaultInset;
+  }
+  if (modal?.radius) {
+    vars["--luna-modal-radius"] = resolveScaleValue(theme.radii, modal.radius) ?? modal.radius;
+  }
+  if (modal?.sizes) {
+    for (const [sizeName, profile] of Object.entries(modal.sizes)) {
+      if (!profile) {
+        continue;
+      }
+
+      if (profile.maxWidth) {
+        vars[`--luna-modal-size-${sizeName}-max-width`] =
+          resolveScaleValue(theme.spacing, profile.maxWidth) ?? profile.maxWidth;
+      }
+    }
+  }
+  const modalMode = modal?.modes?.[mode];
+  if (modalMode?.bg) {
+    vars["--luna-modal-bg"] = resolveTokenValue(theme, modalMode.bg);
+  }
+  if (modalMode?.fg) {
+    vars["--luna-modal-fg"] = resolveTokenValue(theme, modalMode.fg);
+  }
+  if (modalMode?.border) {
+    vars["--luna-modal-border"] = resolveTokenValue(theme, modalMode.border);
+  }
+  if (modalMode?.backdrop) {
+    vars["--luna-modal-backdrop"] = resolveTokenValue(theme, modalMode.backdrop);
+  }
+  if (modalMode?.shadow) {
+    vars["--luna-modal-shadow"] =
+      resolveScaleValue(theme.shadows, modalMode.shadow) ??
+      resolveTokenValue(theme, modalMode.shadow);
+  }
+
   const divider = theme.components.divider;
   if (divider?.defaultSpacing) {
     vars["--luna-divider-spacing-default"] =

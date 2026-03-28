@@ -303,6 +303,18 @@ export type ThemeDrawerModeTokens = {
   backdrop?: string;
 };
 
+export type ThemeModalSizeProfile = {
+  maxWidth?: string;
+};
+
+export type ThemeModalModeTokens = {
+  bg?: string;
+  fg?: string;
+  border?: string;
+  backdrop?: string;
+  shadow?: string;
+};
+
 export type ThemeComponents = {
   button?: {
     defaultSize?: string;
@@ -414,6 +426,16 @@ export type ThemeComponents = {
     radius?: string;
     shadow?: string;
     modes?: Partial<Record<ThemeMode, ThemeDrawerModeTokens>>;
+  };
+
+  modal?: {
+    defaultSize?: string;
+    defaultPadding?: string;
+    defaultGap?: string;
+    defaultInset?: string;
+    radius?: string;
+    sizes?: Record<string, ThemeModalSizeProfile>;
+    modes?: Partial<Record<ThemeMode, ThemeModalModeTokens>>;
   };
   divider?: {
     defaultSpacing?: string;

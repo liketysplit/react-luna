@@ -1,0 +1,152 @@
+.luna-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+}
+
+.luna-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--luna-modal-backdrop, rgb(15 23 42 / 0.58));
+}
+
+.luna-modal__viewport {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+  padding: var(--luna-modal-inset, var(--luna-modal-inset-default, var(--luna-space-4)));
+}
+
+.luna-modal__panel {
+  width: min(
+    calc(100vw - (var(--luna-modal-inset, var(--luna-modal-inset-default, var(--luna-space-4))) * 2)),
+    var(--luna-modal-size-medium-max-width, 36rem)
+  );
+  max-height: calc(100dvh - (var(--luna-modal-inset, var(--luna-modal-inset-default, var(--luna-space-4))) * 2));
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: var(--luna-modal-gap, var(--luna-modal-gap-default, var(--luna-space-4)));
+  padding: var(--luna-modal-padding, var(--luna-modal-padding-default, var(--luna-space-5)));
+  border: 1px solid var(--luna-modal-border, var(--luna-border));
+  border-radius: var(--luna-modal-radius, var(--luna-radius-lg));
+  background: var(--luna-modal-bg, var(--luna-surface));
+  color: var(--luna-modal-fg, var(--luna-foreground));
+  box-shadow: var(--luna-modal-shadow, var(--luna-shadow-lg));
+  overflow: hidden;
+}
+
+.luna-modal__panel--rounded {
+  border-radius: calc(var(--luna-modal-radius, var(--luna-radius-lg)) * 1.35);
+}
+
+.luna-modal__panel[data-size="small"] {
+  width: min(
+    calc(100vw - (var(--luna-modal-inset, var(--luna-modal-inset-default, var(--luna-space-4))) * 2)),
+    var(--luna-modal-size-small-max-width, 28rem)
+  );
+}
+
+.luna-modal__panel[data-size="large"] {
+  width: min(
+    calc(100vw - (var(--luna-modal-inset, var(--luna-modal-inset-default, var(--luna-space-4))) * 2)),
+    var(--luna-modal-size-large-max-width, 48rem)
+  );
+}
+
+.luna-modal__panel[data-size="full"] {
+  width: calc(100vw - (var(--luna-modal-inset, var(--luna-modal-inset-default, var(--luna-space-4))) * 2));
+  height: calc(100dvh - (var(--luna-modal-inset, var(--luna-modal-inset-default, var(--luna-space-4))) * 2));
+  max-width: none;
+}
+
+.luna-modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--luna-modal-gap, var(--luna-modal-gap-default, var(--luna-space-4)));
+}
+
+.luna-modal__header-copy {
+  display: grid;
+  gap: calc(var(--luna-modal-gap, var(--luna-modal-gap-default, var(--luna-space-4))) * 0.35);
+  min-width: 0;
+}
+
+.luna-modal__title {
+  margin: 0;
+  font-size: var(--luna-text-variant-title-font-size, 1.25rem);
+  font-weight: var(--luna-text-variant-title-font-weight, 600);
+  line-height: var(--luna-text-variant-title-line-height, 1.1);
+}
+
+.luna-modal__description,
+.luna-modal__body,
+.luna-modal__actions {
+  margin: 0;
+  font-size: var(--luna-text-variant-body-font-size, 1rem);
+  line-height: var(--luna-text-variant-body-line-height, 1.6);
+}
+
+.luna-modal__description {
+  color: color-mix(in srgb, var(--luna-modal-fg, var(--luna-foreground)) 74%, transparent);
+}
+
+.luna-modal__body {
+  min-height: 0;
+  overflow: auto;
+}
+
+.luna-modal__body > :first-child,
+.luna-modal__actions > :first-child {
+  margin-top: 0;
+}
+
+.luna-modal__body > :last-child,
+.luna-modal__actions > :last-child {
+  margin-bottom: 0;
+}
+
+.luna-modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: calc(var(--luna-modal-gap, var(--luna-modal-gap-default, var(--luna-space-4))) * 0.5);
+}
+
+.luna-modal__dismiss {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  border-radius: var(--luna-radius-pill);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.luna-modal__dismiss:hover {
+  background: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.luna-modal__dismiss:focus-visible,
+.luna-modal__panel:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .luna-modal__viewport {
+    place-items: end center;
+  }
+
+  .luna-modal__panel,
+  .luna-modal__panel[data-size="small"],
+  .luna-modal__panel[data-size="large"] {
+    width: calc(100vw - (var(--luna-modal-inset, var(--luna-modal-inset-default, var(--luna-space-4))) * 2));
+  }
+}
