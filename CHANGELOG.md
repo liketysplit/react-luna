@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0
+
+### Minor Changes
+
+- c9644c1: Add the new `LunaAvatar` primitive with theme sizing, image and initials fallback behavior, Storybook coverage, tests, and docs.
+
 ## 0.1.6
 
 ### Patch Changes
