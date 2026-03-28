@@ -201,6 +201,53 @@ export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<str
       resolveTokenValue(theme, cardMode.hoverShadow);
   }
 
+  const accordion = theme.components.accordion;
+  if (accordion?.defaultGap) {
+    vars["--luna-accordion-gap-default"] =
+      resolveScaleValue(theme.spacing, accordion.defaultGap) ?? accordion.defaultGap;
+  }
+  if (accordion?.defaultItemGap) {
+    vars["--luna-accordion-item-gap-default"] =
+      resolveScaleValue(theme.spacing, accordion.defaultItemGap) ?? accordion.defaultItemGap;
+  }
+  if (accordion?.defaultPanelPadding) {
+    vars["--luna-accordion-panel-padding-default"] =
+      resolveScaleValue(theme.spacing, accordion.defaultPanelPadding) ??
+      accordion.defaultPanelPadding;
+  }
+  if (accordion?.radius) {
+    vars["--luna-accordion-radius"] =
+      resolveScaleValue(theme.radii, accordion.radius) ?? accordion.radius;
+  }
+  const accordionMode = accordion?.modes?.[mode];
+  if (accordionMode?.itemBg) {
+    vars["--luna-accordion-item-bg"] = resolveTokenValue(theme, accordionMode.itemBg);
+  }
+  if (accordionMode?.itemBorder) {
+    vars["--luna-accordion-item-border"] = resolveTokenValue(theme, accordionMode.itemBorder);
+  }
+  if (accordionMode?.itemHoverBg) {
+    vars["--luna-accordion-item-hover-bg"] = resolveTokenValue(theme, accordionMode.itemHoverBg);
+  }
+  if (accordionMode?.itemActiveBg) {
+    vars["--luna-accordion-item-active-bg"] = resolveTokenValue(theme, accordionMode.itemActiveBg);
+  }
+  if (accordionMode?.itemFg) {
+    vars["--luna-accordion-item-fg"] = resolveTokenValue(theme, accordionMode.itemFg);
+  }
+  if (accordionMode?.itemMutedFg) {
+    vars["--luna-accordion-item-muted-fg"] = resolveTokenValue(theme, accordionMode.itemMutedFg);
+  }
+  if (accordionMode?.itemIndicatorFg) {
+    vars["--luna-accordion-item-indicator-fg"] = resolveTokenValue(
+      theme,
+      accordionMode.itemIndicatorFg
+    );
+  }
+  if (accordionMode?.panelFg) {
+    vars["--luna-accordion-panel-fg"] = resolveTokenValue(theme, accordionMode.panelFg);
+  }
+
   const emptyState = theme.components.emptyState;
   if (emptyState?.defaultPadding) {
     vars["--luna-empty-state-padding-default"] =
