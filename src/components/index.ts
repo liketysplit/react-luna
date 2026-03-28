@@ -1,5 +1,6 @@
 export * from "./luna-avatar";
 export * from "./luna-alert";
+export * from "./luna-accordion";
 export * from "./luna-badge";
 export * from "./luna-button";
 export * from "./luna-card";

@@ -261,6 +261,17 @@ export type ThemeTooltipModeTokens = {
   shadow?: string;
 };
 
+export type ThemeAccordionModeTokens = {
+  itemBg?: string;
+  itemBorder?: string;
+  itemHoverBg?: string;
+  itemActiveBg?: string;
+  itemFg?: string;
+  itemMutedFg?: string;
+  itemIndicatorFg?: string;
+  panelFg?: string;
+};
+
 export type ThemeComponents = {
   button?: {
     defaultSize?: string;
@@ -412,6 +423,13 @@ export type ThemeComponents = {
     paddingX?: string;
     paddingY?: string;
     modes?: Partial<Record<ThemeMode, ThemeTooltipModeTokens>>;
+  };
+  accordion?: {
+    defaultGap?: string;
+    defaultItemGap?: string;
+    defaultPanelPadding?: string;
+    radius?: string;
+    modes?: Partial<Record<ThemeMode, ThemeAccordionModeTokens>>;
   };
 };
 

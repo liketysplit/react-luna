@@ -452,6 +452,34 @@ export const lunarTheme: Theme = {
         }
       }
     },
+    accordion: {
+      defaultGap: "3",
+      defaultItemGap: "0.375rem",
+      defaultPanelPadding: "4",
+      radius: "lg",
+      modes: {
+        light: {
+          itemBg: "neutral.50",
+          itemBorder: "neutral.200",
+          itemHoverBg: "neutral.100",
+          itemActiveBg: "primary.50",
+          itemFg: "neutral.900",
+          itemMutedFg: "neutral.600",
+          itemIndicatorFg: "primary.600",
+          panelFg: "neutral.800"
+        },
+        dark: {
+          itemBg: "neutral.800",
+          itemBorder: "neutral.700",
+          itemHoverBg: "neutral.700",
+          itemActiveBg: "neutral.700",
+          itemFg: "neutral.50",
+          itemMutedFg: "neutral.300",
+          itemIndicatorFg: "primary.300",
+          panelFg: "neutral.100"
+        }
+      }
+    },
     alert: {
       defaultPadding: "4",
       defaultGap: "3",
