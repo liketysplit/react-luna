@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0
+
+### Minor Changes
+
+- 6634f2c: Add the `LunaToast` primitive with theme-aware placement, controlled or uncontrolled visibility, auto-dismiss handling, Storybook coverage, tests, and docs.
+
 ## 0.3.0
 
 ### Minor Changes
