@@ -34,6 +34,7 @@ Existing ideas should stay valid unless there is a strong reason to move them la
 
 The current shipped base already includes:
 
+- `LunaAvatar`
 - `LunaAutocomplete`
 - `LunaButton`
 - `LunaCard`
@@ -75,7 +76,6 @@ The roadmap already includes these valid component ideas and they should stay in
 
 The following still appear missing from the base roadmap and should be added without removing existing ideas:
 
-- `LunaAvatar`
 - `LunaSkeleton`
 - `LunaProgress`
 - `LunaSpinner`

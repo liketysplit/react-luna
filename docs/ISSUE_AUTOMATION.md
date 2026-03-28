@@ -48,11 +48,18 @@ Use labels like:
 
 - `codex-ready`
 - `codex-running`
+- `codex-retry`
 - `codex-blocked`
 - `codex-review`
 - `no-codex`
 - `codex-refine`
 - `tracker`
+- `build-fail`
+- `test-fail`
+- `storybook-fail`
+- `runtime-fail`
+- `env-fail`
+- `spec-fail`
 
 These labels are operational labels. They do not replace the existing domain and phase labels.
 
@@ -61,7 +68,18 @@ Recommended meaning:
 - `tracker`: root issue that should be cut into execution issues
 - `codex-refine`: execution issue that still needs a local shaping pass
 - `codex-ready`: execution issue that is ready for automation
+- `codex-retry`: execution issue that failed in a repairable way and should be retried automatically up to a capped limit
+- `codex-blocked`: execution issue that needs human help or environment repair before automation should continue
 - `no-codex`: issue that should stay out of automation
+
+Failure reason labels should be used alongside the state labels:
+
+- `build-fail`
+- `test-fail`
+- `storybook-fail`
+- `runtime-fail`
+- `env-fail`
+- `spec-fail`
 
 ## Issue Templates
 
@@ -172,9 +190,18 @@ If verification cannot run cleanly, that should be stated in the pull request an
 
 If the worker cannot proceed, it should:
 
-- add or switch to `codex-blocked`
+- classify the failure
+- use `codex-retry` for repairable execution misses
+- use `codex-blocked` for real human-needed failures
 - leave a short issue comment explaining why
 - avoid opening a fake-progress pull request
+
+Common retry reasons:
+
+- build failure
+- test failure
+- Storybook build failure
+- runtime failure inside the repo workflow
 
 Common blocked reasons:
 
@@ -182,7 +209,16 @@ Common blocked reasons:
 - contract ambiguity
 - missing labels or milestone
 - dependency on another issue
-- test or repo setup problem
+- missing tool or auth
+- broken environment that the worker cannot repair safely
+
+The retry loop should be capped.
+
+The default recommendation is:
+
+- one immediate repair attempt inside the current run
+- one or two future scheduled retries at most
+- then move to `codex-blocked` if the issue still fails
 
 ## Recommended Issue Shape
 

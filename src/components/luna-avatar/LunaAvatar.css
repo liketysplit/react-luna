@@ -1,0 +1,69 @@
+.luna-avatar {
+  --luna-avatar-size: 2.5rem;
+  --luna-avatar-font-size: 0.875rem;
+  --luna-avatar-bg: var(--luna-color-surface, #f1f5f9);
+  --luna-avatar-fg: var(--luna-color-foreground, #0f172a);
+  --luna-avatar-border: var(--luna-color-border, #e2e8f0);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: var(--luna-avatar-size);
+  block-size: var(--luna-avatar-size);
+  overflow: hidden;
+  border: 1px solid var(--luna-avatar-border);
+  border-radius: var(--luna-avatar-radius, 999px);
+  background: var(--luna-avatar-bg);
+  color: var(--luna-avatar-fg);
+  font-family: inherit;
+  font-size: var(--luna-avatar-font-size);
+  font-weight: var(--luna-avatar-font-weight, 600);
+  line-height: 1;
+  text-transform: uppercase;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.luna-avatar__image {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.luna-avatar__initials,
+.luna-avatar__fallback,
+.luna-avatar__placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.luna-avatar__fallback {
+  font-size: 1em;
+}
+
+.luna-avatar__placeholder {
+  position: relative;
+}
+
+.luna-avatar__placeholder::before,
+.luna-avatar__placeholder-core {
+  display: block;
+  border-radius: 999px;
+  background: color-mix(in srgb, currentColor 20%, transparent);
+}
+
+.luna-avatar__placeholder::before {
+  content: "";
+  inline-size: 42%;
+  block-size: 42%;
+  transform: translateY(-18%);
+}
+
+.luna-avatar__placeholder-core {
+  position: absolute;
+  inset-inline: 20%;
+  inset-block-end: 18%;
+  block-size: 28%;
+}
