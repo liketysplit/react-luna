@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.12.0
+
+### Minor Changes
+
+- be426da: Add the new `LunaTable` composite with Storybook coverage, tests, and component docs.
+
 ## 0.11.0
 
 ### Minor Changes
