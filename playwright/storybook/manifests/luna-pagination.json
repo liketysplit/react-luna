@@ -1,0 +1,22 @@
+[
+  {
+    "storyId": "components-lunapagination--basic",
+    "fileName": "luna-pagination-basic",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunapagination--compact",
+    "fileName": "luna-pagination-compact",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunapagination--dense-range",
+    "fileName": "luna-pagination-dense-range",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunapagination--disabled",
+    "fileName": "luna-pagination-disabled",
+    "backgrounds": ["light"]
+  }
+]

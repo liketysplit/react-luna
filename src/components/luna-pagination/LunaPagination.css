@@ -1,0 +1,74 @@
+.luna-pagination {
+  display: flex;
+  width: 100%;
+}
+
+.luna-pagination__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--luna-pagination-gap, var(--luna-space-2, 0.5rem));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.luna-pagination__item {
+  display: flex;
+  align-items: center;
+}
+
+.luna-pagination__control {
+  --luna-btn-bg: var(--luna-pagination-control-bg, transparent);
+  --luna-btn-hover-bg: var(
+    --luna-pagination-control-hover-bg,
+    color-mix(in srgb, var(--luna-foreground, #101828) 8%, transparent)
+  );
+  --luna-btn-outline-border: var(--luna-pagination-control-border, var(--luna-border, #d0d5dd));
+  --luna-btn-outline-fg: var(--luna-pagination-control-fg, var(--luna-foreground, #101828));
+  min-width: var(--luna-pagination-control-min-width, 2.5rem);
+  box-shadow: none;
+}
+
+.luna-pagination__control--current {
+  --luna-btn-bg: var(
+    --luna-pagination-current-bg,
+    var(--luna-btn-bg-default, var(--luna-color-primary-600, #4f46e5))
+  );
+  --luna-btn-hover-bg: var(
+    --luna-pagination-current-hover-bg,
+    color-mix(in srgb, var(--luna-pagination-current-bg, var(--luna-btn-bg-default, var(--luna-color-primary-600, #4f46e5))) 88%, #000000)
+  );
+  color: var(--luna-pagination-current-fg, var(--luna-btn-fg-default, #ffffff));
+}
+
+.luna-pagination__control--direction {
+  min-width: var(--luna-pagination-direction-min-width, 5.75rem);
+}
+
+.luna-pagination__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--luna-pagination-control-min-width, 2.5rem);
+  color: var(--luna-pagination-ellipsis-fg, var(--luna-muted-foreground, var(--luna-foreground, #101828)));
+  font-size: var(--luna-pagination-ellipsis-font-size, var(--luna-font-size-sm, 0.875rem));
+}
+
+.luna-pagination[data-size="sm"] .luna-pagination__control,
+.luna-pagination[data-size="sm"] .luna-pagination__ellipsis {
+  min-width: var(--luna-pagination-control-min-width-sm, 2rem);
+}
+
+.luna-pagination[data-size="sm"] .luna-pagination__control--direction {
+  min-width: var(--luna-pagination-direction-min-width-sm, 4.75rem);
+}
+
+.luna-pagination[data-size="lg"] .luna-pagination__control,
+.luna-pagination[data-size="lg"] .luna-pagination__ellipsis {
+  min-width: var(--luna-pagination-control-min-width-lg, 3rem);
+}
+
+.luna-pagination[data-size="lg"] .luna-pagination__control--direction {
+  min-width: var(--luna-pagination-direction-min-width-lg, 6.5rem);
+}
