@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.11.0
+
+### Minor Changes
+
+- 3e31b2f: Add the new `LunaAccordion` composite with theme support, Storybook coverage, tests, and public docs.
+
 ## 0.10.0
 
 ### Minor Changes
