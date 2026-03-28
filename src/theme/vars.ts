@@ -500,6 +500,47 @@ export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<str
     }
   }
 
+  const drawer = theme.components.drawer;
+  if (drawer?.defaultPadding) {
+    vars["--luna-drawer-padding-default"] =
+      resolveScaleValue(theme.spacing, drawer.defaultPadding) ?? drawer.defaultPadding;
+  }
+  if (drawer?.defaultGap) {
+    vars["--luna-drawer-gap-default"] =
+      resolveScaleValue(theme.spacing, drawer.defaultGap) ?? drawer.defaultGap;
+  }
+  if (drawer?.defaultInset) {
+    vars["--luna-drawer-inset-default"] =
+      resolveScaleValue(theme.spacing, drawer.defaultInset) ?? drawer.defaultInset;
+  }
+  if (drawer?.defaultSize) {
+    vars["--luna-drawer-size-default"] =
+      resolveScaleValue(theme.spacing, drawer.defaultSize) ?? drawer.defaultSize;
+  }
+  if (drawer?.defaultPlacement) {
+    vars["--luna-drawer-placement-default"] = drawer.defaultPlacement;
+  }
+  if (drawer?.radius) {
+    vars["--luna-drawer-radius"] = resolveScaleValue(theme.radii, drawer.radius) ?? drawer.radius;
+  }
+  if (drawer?.shadow) {
+    vars["--luna-drawer-shadow"] =
+      resolveScaleValue(theme.shadows, drawer.shadow) ?? resolveTokenValue(theme, drawer.shadow);
+  }
+  const drawerMode = drawer?.modes?.[mode];
+  if (drawerMode?.bg) {
+    vars["--luna-drawer-bg"] = resolveTokenValue(theme, drawerMode.bg);
+  }
+  if (drawerMode?.fg) {
+    vars["--luna-drawer-fg"] = resolveTokenValue(theme, drawerMode.fg);
+  }
+  if (drawerMode?.border) {
+    vars["--luna-drawer-border"] = resolveTokenValue(theme, drawerMode.border);
+  }
+  if (drawerMode?.backdrop) {
+    vars["--luna-drawer-backdrop"] = resolveTokenValue(theme, drawerMode.backdrop);
+  }
+
   const divider = theme.components.divider;
   if (divider?.defaultSpacing) {
     vars["--luna-divider-spacing-default"] =

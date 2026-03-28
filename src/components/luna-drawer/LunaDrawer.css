@@ -1,0 +1,149 @@
+.luna-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: flex;
+  padding: var(--luna-drawer-inset, var(--luna-drawer-inset-default, var(--luna-space-4)));
+  pointer-events: none;
+}
+
+.luna-drawer[data-overlay="false"] {
+  position: absolute;
+}
+
+.luna-drawer__backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--luna-drawer-backdrop, rgba(15, 23, 42, 0.52));
+  pointer-events: auto;
+}
+
+.luna-drawer__panel {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--luna-drawer-gap, var(--luna-drawer-gap-default, var(--luna-space-4)));
+  width: min(var(--luna-drawer-size, var(--luna-drawer-size-default, 28rem)), 100%);
+  max-width: calc(
+    100vw - (var(--luna-drawer-inset, var(--luna-drawer-inset-default, var(--luna-space-4))) * 2)
+  );
+  max-height: calc(
+    100vh - (var(--luna-drawer-inset, var(--luna-drawer-inset-default, var(--luna-space-4))) * 2)
+  );
+  padding: var(--luna-drawer-padding, var(--luna-drawer-padding-default, var(--luna-space-5)));
+  border: 1px solid var(--luna-drawer-border, var(--luna-border));
+  border-radius: var(--luna-drawer-radius, var(--luna-radius-lg));
+  background: var(--luna-drawer-bg, var(--luna-surface));
+  color: var(--luna-drawer-fg, var(--luna-foreground));
+  box-shadow: var(--luna-drawer-shadow, var(--luna-shadow-lg));
+  overflow: auto;
+  pointer-events: auto;
+}
+
+.luna-drawer--rounded .luna-drawer__panel {
+  border-radius: calc(var(--luna-drawer-radius, var(--luna-radius-lg)) * 1.25);
+}
+
+.luna-drawer__header,
+.luna-drawer__footer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: calc(var(--luna-drawer-gap, var(--luna-drawer-gap-default, var(--luna-space-4))) * 0.75);
+}
+
+.luna-drawer__heading,
+.luna-drawer__content {
+  display: grid;
+  gap: calc(var(--luna-drawer-gap, var(--luna-drawer-gap-default, var(--luna-space-4))) * 0.5);
+  min-width: 0;
+}
+
+.luna-drawer__content {
+  align-content: start;
+}
+
+.luna-drawer__title {
+  font-size: var(--luna-text-variant-title-font-size, 1.25rem);
+  font-weight: var(--luna-text-variant-title-font-weight, 600);
+  line-height: var(--luna-text-variant-title-line-height, 1.1);
+}
+
+.luna-drawer__description,
+.luna-drawer__footer {
+  color: var(--luna-muted);
+}
+
+.luna-drawer__dismiss {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  min-width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--luna-drawer-border, var(--luna-border));
+  border-radius: var(--luna-radius-pill);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.luna-drawer__dismiss:hover {
+  background: color-mix(
+    in srgb,
+    var(--luna-drawer-bg, var(--luna-surface)) 88%,
+    var(--luna-foreground) 12%
+  );
+}
+
+.luna-drawer__dismiss:focus-visible {
+  outline: 2px solid var(--luna-color-primary-500);
+  outline-offset: 2px;
+}
+
+.luna-drawer[data-placement="left"] {
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.luna-drawer[data-placement="right"] {
+  justify-content: flex-end;
+  align-items: stretch;
+}
+
+.luna-drawer[data-placement="top"] {
+  justify-content: stretch;
+  align-items: flex-start;
+}
+
+.luna-drawer[data-placement="bottom"] {
+  justify-content: stretch;
+  align-items: flex-end;
+}
+
+.luna-drawer[data-placement="left"] .luna-drawer__panel,
+.luna-drawer[data-placement="right"] .luna-drawer__panel {
+  height: 100%;
+}
+
+.luna-drawer[data-placement="top"] .luna-drawer__panel,
+.luna-drawer[data-placement="bottom"] .luna-drawer__panel {
+  width: 100%;
+  height: min(var(--luna-drawer-size, var(--luna-drawer-size-default, 28rem)), 100%);
+}
+
+@media (max-width: 768px) {
+  .luna-drawer {
+    padding: var(--luna-drawer-inset, var(--luna-drawer-inset-default, var(--luna-space-2)));
+  }
+
+  .luna-drawer[data-placement="left"] .luna-drawer__panel,
+  .luna-drawer[data-placement="right"] .luna-drawer__panel {
+    width: min(
+      var(--luna-drawer-size, var(--luna-drawer-size-default, 28rem)),
+      calc(
+        100vw - (var(--luna-drawer-inset, var(--luna-drawer-inset-default, var(--luna-space-2))) * 2)
+      )
+    );
+  }
+}
