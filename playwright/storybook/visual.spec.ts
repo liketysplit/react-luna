@@ -12,9 +12,10 @@ for (const capture of storybookCaptures) {
     test(`${capture.storyId} [${background}]`, async ({ page }) => {
       const screenshotPath = join(screenshotDir, `${capture.fileName}--${background}.png`);
       mkdirSync(dirname(screenshotPath), { recursive: true });
+      const globalsQuery = background === "light" ? "" : `&globals=backgrounds.value:${background}`;
 
       await page.goto(
-        `/iframe.html?id=${capture.storyId}&viewMode=story&globals=backgrounds.value:${background}`,
+        `/iframe.html?id=${capture.storyId}&viewMode=story${globalsQuery}`,
         { waitUntil: "networkidle" }
       );
 
