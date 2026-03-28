@@ -88,6 +88,20 @@ export type ThemeTextModeTokens = {
   surfaceBorder?: string;
 };
 
+export type ThemeTagSizeProfile = {
+  paddingX?: string;
+  paddingY?: string;
+  fontSize?: string;
+  minHeight?: string;
+  gap?: string;
+};
+
+export type ThemeTagSurfaceTokens = {
+  bg?: string;
+  fg?: string;
+  border?: string;
+};
+
 export type ThemeCardModeTokens = {
   bg?: string;
   fg?: string;
@@ -238,6 +252,14 @@ export type ThemeComponents = {
     defaultVariant?: string;
     variants?: Record<string, ThemeTextVariantProfile>;
     modes?: Partial<Record<ThemeMode, ThemeTextModeTokens>>;
+  };
+  tag?: {
+    defaultVariant?: string;
+    defaultSize?: string;
+    radius?: string;
+    fontWeight?: string | number;
+    sizes?: Record<string, ThemeTagSizeProfile>;
+    variants?: Partial<Record<ThemeMode, Record<string, ThemeTagSurfaceTokens>>>;
   };
   card?: {
     defaultPadding?: string;

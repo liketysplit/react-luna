@@ -315,6 +315,91 @@ export const lunarTheme: Theme = {
         }
       }
     },
+    tag: {
+      defaultVariant: "neutral",
+      defaultSize: "medium",
+      radius: "md",
+      fontWeight: "medium",
+      sizes: {
+        small: {
+          paddingX: "2",
+          paddingY: "1",
+          fontSize: "xs",
+          minHeight: "1.25rem",
+          gap: "1"
+        },
+        medium: {
+          paddingX: "3",
+          paddingY: "1",
+          fontSize: "sm",
+          minHeight: "1.5rem",
+          gap: "1"
+        },
+        large: {
+          paddingX: "4",
+          paddingY: "2",
+          fontSize: "sm",
+          minHeight: "1.875rem",
+          gap: "2"
+        }
+      },
+      variants: {
+        light: {
+          neutral: {
+            bg: "neutral.100",
+            fg: "neutral.700",
+            border: "neutral.300"
+          },
+          primary: {
+            bg: "primary.100",
+            fg: "primary.700",
+            border: "primary.200"
+          },
+          success: {
+            bg: "success.100",
+            fg: "success.800",
+            border: "success.200"
+          },
+          warning: {
+            bg: "warning.100",
+            fg: "warning.800",
+            border: "warning.200"
+          },
+          danger: {
+            bg: "danger.100",
+            fg: "danger.800",
+            border: "danger.200"
+          }
+        },
+        dark: {
+          neutral: {
+            bg: "neutral.800",
+            fg: "neutral.100",
+            border: "neutral.700"
+          },
+          primary: {
+            bg: "primary.900",
+            fg: "primary.100",
+            border: "primary.700"
+          },
+          success: {
+            bg: "success.900",
+            fg: "success.100",
+            border: "success.700"
+          },
+          warning: {
+            bg: "warning.900",
+            fg: "warning.100",
+            border: "warning.700"
+          },
+          danger: {
+            bg: "danger.900",
+            fg: "danger.100",
+            border: "danger.700"
+          }
+        }
+      }
+    },
     card: {
       defaultPadding: "4",
       defaultGap: "4",

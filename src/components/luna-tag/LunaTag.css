@@ -1,0 +1,24 @@
+.luna-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--luna-tag-gap, var(--luna-space-1));
+  min-height: var(--luna-tag-min-height, 1.5rem);
+  padding: var(--luna-tag-padding-y, var(--luna-space-1))
+    var(--luna-tag-padding-x, var(--luna-space-3));
+  border: 1px solid var(--luna-tag-border, var(--luna-border));
+  border-radius: var(--luna-tag-radius, var(--luna-radius-pill));
+  background: var(--luna-tag-bg, var(--luna-surface));
+  color: var(--luna-tag-fg, var(--luna-foreground));
+  font-family: var(--luna-font-family);
+  font-size: var(--luna-tag-font-size, var(--luna-font-size-xs, 0.75rem));
+  font-weight: var(--luna-tag-font-weight, 500);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.luna-tag--rounded {
+  border-radius: var(--luna-radius-pill);
+}

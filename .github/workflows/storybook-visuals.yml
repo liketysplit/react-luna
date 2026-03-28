@@ -79,14 +79,30 @@ jobs:
           PREVIEW_DIR: pr-${{ github.event.pull_request.number }}
         with:
           script: |
+            const fs = require('fs');
+            const path = require('path');
             const marker = '<!-- storybook-visuals-artifact -->';
             const base = `https://raw.githubusercontent.com/${context.repo.owner}/${context.repo.repo}/${process.env.PREVIEW_BRANCH}/${process.env.PREVIEW_DIR}`;
-            const images = [
-              { alt: 'LunaToast playground light', file: 'luna-toast-playground--light.png' },
-              { alt: 'LunaToast playground dark', file: 'luna-toast-playground--dark.png' },
-              { alt: 'LunaToast tone and emphasis matrix', file: 'luna-toast-tone-and-emphasis-matrix--light.png' },
-              { alt: 'LunaToast controlled visibility', file: 'luna-toast-controlled-visibility--light.png' },
-            ];
+            const artifactDir = path.join(process.env.GITHUB_WORKSPACE, 'artifacts', 'storybook-screenshots');
+            const images = fs.existsSync(artifactDir)
+              ? fs.readdirSync(artifactDir)
+                  .filter((file) => file.endsWith('.png'))
+                  .sort()
+                  .map((file) => ({
+                    alt: file
+                      .replace(/\.png$/, '')
+                      .split('--')
+                      .map((segment) =>
+                        segment
+                          .split('-')
+                          .filter(Boolean)
+                          .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+                          .join(' ')
+                      )
+                      .join(' / '),
+                    file,
+                  }))
+              : [];
             const body = [
               marker,
               'Storybook screenshots are ready for review.',
@@ -94,11 +110,13 @@ jobs:
               `- Run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
               `- Preview directory: [${process.env.PREVIEW_DIR}](${base}/)`,
               '',
-              ...images.flatMap((image) => [
-                `### ${image.alt}`,
-                `![${image.alt}](${base}/${image.file})`,
-                '',
-              ]),
+              ...(images.length > 0
+                ? images.flatMap((image) => [
+                    `### ${image.alt}`,
+                    `![${image.alt}](${base}/${image.file})`,
+                    '',
+                  ])
+                : ['No screenshots were generated for this run.', '']),
             ].join('\n');
 
             const { data: comments } = await github.rest.issues.listComments({

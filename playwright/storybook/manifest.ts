@@ -6,18 +6,23 @@ export type StoryCapture = {
 
 export const storybookCaptures: StoryCapture[] = [
   {
-    storyId: "components-lunatoast--playground",
-    fileName: "luna-toast-playground",
+    storyId: "components-lunatag--playground",
+    fileName: "luna-tag-playground",
     backgrounds: ["light", "dark"]
   },
   {
-    storyId: "components-lunatoast--tone-and-emphasis-matrix",
-    fileName: "luna-toast-tone-and-emphasis-matrix",
+    storyId: "components-lunatag--variant-matrix",
+    fileName: "luna-tag-variant-matrix",
     backgrounds: ["light"]
   },
   {
-    storyId: "components-lunatoast--controlled-visibility",
-    fileName: "luna-toast-controlled-visibility",
+    storyId: "components-lunatag--size-scale",
+    fileName: "luna-tag-size-scale",
+    backgrounds: ["light"]
+  },
+  {
+    storyId: "components-lunatag--semantic-overrides-and-color",
+    fileName: "luna-tag-semantic-overrides-and-color",
     backgrounds: ["light"]
   }
 ];
