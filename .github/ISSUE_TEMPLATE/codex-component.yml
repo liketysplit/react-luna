@@ -45,6 +45,7 @@ body:
       value: |
         - implementation
         - Storybook coverage
+        - screenshot-ready story states
         - tests
         - docs
     validations:

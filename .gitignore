@@ -4,3 +4,5 @@
 .idea
 dist
 storybook-static
+artifacts
+playwright-report
