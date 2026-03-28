@@ -1,6 +1,8 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { LunaButton } from "../luna-button";
+import { LunaColumn } from "../luna-column";
+import { LunaRow } from "../luna-row";
 import { LunaNotification } from "./LunaNotification";
 
 const tones = ["neutral", "info", "success", "warning", "danger"] as const;
@@ -28,12 +30,9 @@ export const Playground: Story = {};
 
 export const ToneAndEmphasisMatrix: Story = {
   render: () => (
-    <div style={{ display: "grid", gap: "1rem" }}>
+    <LunaColumn gap="4" style={{ width: "min(100%, 40rem)" }}>
       {emphases.map((emphasis) => (
-        <div
-          key={emphasis}
-          style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(3, minmax(0, 1fr))" }}
-        >
+        <LunaColumn key={emphasis} gap="3">
           {tones.map((tone) => (
             <LunaNotification
               key={`${tone}-${emphasis}`}
@@ -45,27 +44,27 @@ export const ToneAndEmphasisMatrix: Story = {
               Persistent application-level feedback for {tone} surfaces.
             </LunaNotification>
           ))}
-        </div>
+        </LunaColumn>
       ))}
-    </div>
+    </LunaColumn>
   )
 };
 
 export const WithActionAndMetadata: Story = {
   render: () => (
-    <div style={{ display: "grid", gap: "1rem", maxWidth: "36rem" }}>
+    <LunaColumn gap="4" style={{ maxWidth: "36rem" }}>
       <LunaNotification
         tone="info"
         title="Scheduled maintenance"
         meta="12 minutes ago"
         icon={<span>i</span>}
         action={
-          <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+          <LunaRow gap="3" wrap>
             <LunaButton size="small">Review</LunaButton>
             <LunaButton size="small" flat>
               Later
             </LunaButton>
-          </div>
+          </LunaRow>
         }
       >
         The next relay upgrade is ready for review before it is promoted to the fleet.
@@ -81,7 +80,48 @@ export const WithActionAndMetadata: Story = {
       >
         This notification keeps its semantics opt-in so consumers can decide when an announcement is needed.
       </LunaNotification>
-    </div>
+    </LunaColumn>
+  )
+};
+
+export const EdgeVarieties: Story = {
+  render: () => (
+    <LunaColumn gap="4" style={{ width: "min(100%, 38rem)" }}>
+      <LunaNotification
+        tone="info"
+        title="Review requested"
+        meta="Queue"
+        icon={<span>i</span>}
+      >
+        Soft notifications keep the left edge subtle while still signaling the tone.
+      </LunaNotification>
+      <LunaNotification
+        tone="success"
+        emphasis="outline"
+        title="Deployment completed"
+        meta="2 minutes ago"
+        icon={<span>*</span>}
+      >
+        Outline notifications let the accent edge do more of the visual work.
+      </LunaNotification>
+      <LunaNotification
+        tone="danger"
+        emphasis="solid"
+        title="Pager escalation"
+        meta="Action needed"
+        icon={<span>!</span>}
+        action={
+          <LunaRow gap="3" wrap>
+            <LunaButton size="small">Open incident</LunaButton>
+            <LunaButton size="small" flat>
+              Silence
+            </LunaButton>
+          </LunaRow>
+        }
+      >
+        Solid notifications can still carry a readable edge treatment without losing density.
+      </LunaNotification>
+    </LunaColumn>
   )
 };
 
@@ -91,7 +131,7 @@ export const ControlledVisibility: Story = {
       const [open, setOpen] = React.useState(true);
 
       return (
-        <div style={{ display: "grid", gap: "1rem", maxWidth: "32rem" }}>
+        <LunaColumn gap="4" style={{ maxWidth: "32rem" }}>
           <LunaButton size="small" onClick={() => setOpen((value) => !value)}>
             {open ? "Hide notification" : "Show notification"}
           </LunaButton>
@@ -105,7 +145,7 @@ export const ControlledVisibility: Story = {
           >
             This story shows controlled visibility without introducing a notification group.
           </LunaNotification>
-        </div>
+        </LunaColumn>
       );
     }
 
