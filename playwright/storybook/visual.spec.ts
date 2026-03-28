@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { mkdirSync, readFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { storybookCaptures } from "./manifest";
 
@@ -7,6 +7,22 @@ const screenshotDir = join(process.cwd(), "artifacts", "storybook-screenshots");
 const requestedComponent = process.env.STORYBOOK_COMPONENT?.trim();
 
 type StoryCapture = (typeof storybookCaptures)[number];
+
+function loadBranchManifest(componentSlug: string): StoryCapture[] | null {
+  const manifestPath = join(
+    process.cwd(),
+    "playwright",
+    "storybook",
+    "manifests",
+    `${componentSlug}.json`
+  );
+
+  if (!existsSync(manifestPath)) {
+    return null;
+  }
+
+  return JSON.parse(readFileSync(manifestPath, "utf8")) as StoryCapture[];
+}
 
 function buildCapturesFromStorybookIndex(componentSlug: string): StoryCapture[] {
   const normalizedComponent = componentSlug.replace(/-/g, "");
@@ -31,7 +47,7 @@ function buildCapturesFromStorybookIndex(componentSlug: string): StoryCapture[] 
 
 const captures =
   requestedComponent && requestedComponent.length > 0
-    ? buildCapturesFromStorybookIndex(requestedComponent)
+    ? loadBranchManifest(requestedComponent) ?? buildCapturesFromStorybookIndex(requestedComponent)
     : storybookCaptures;
 
 for (const capture of captures) {
