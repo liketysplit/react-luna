@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.16.0
+
+### Minor Changes
+
+- 23d4ebe: Add the `LunaDrawer` composite with theme support, Storybook stories, tests, and docs.
+
 ## 0.15.0
 
 ### Minor Changes
