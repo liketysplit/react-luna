@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.0
+
+### Minor Changes
+
+- 36b346c: Add the `LunaEmptyState` composite with theme-driven media, body, alignment, and action regions.
+
 ## 0.7.0
 
 ### Minor Changes
