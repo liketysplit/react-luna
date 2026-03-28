@@ -41,4 +41,25 @@ describe("theme size contract", () => {
       "danger"
     ]);
   });
+
+  it("defines notification defaults and all built-in tones", () => {
+    const notification = lunarTheme.components.notification;
+
+    expect(notification?.defaultPadding).toBe("4");
+    expect(notification?.defaultGap).toBe("3");
+    expect(Object.keys(notification?.tones?.light ?? {})).toEqual([
+      "neutral",
+      "info",
+      "success",
+      "warning",
+      "danger"
+    ]);
+    expect(Object.keys(notification?.tones?.dark ?? {})).toEqual([
+      "neutral",
+      "info",
+      "success",
+      "warning",
+      "danger"
+    ]);
+  });
 });

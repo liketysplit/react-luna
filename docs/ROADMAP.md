@@ -47,6 +47,7 @@ The current shipped base already includes:
 - `LunaHeader`
 - `LunaInput`
 - `LunaMultiselect`
+- `LunaNotification`
 - `LunaRadio`
 - `LunaRow`
 - `LunaSelect`
@@ -64,7 +65,6 @@ The roadmap already includes these valid component ideas and they should stay in
 - `LunaBadge`
 - `LunaTag`
 - `LunaTooltip`
-- `LunaNotification`
 - `LunaHoverText`
 - `LunaForm`
 - `LunaPopover`
