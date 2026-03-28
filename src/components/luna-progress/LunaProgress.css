@@ -1,0 +1,71 @@
+.luna-progress {
+  display: grid;
+  gap: var(--luna-space-2, 0.5rem);
+  width: 100%;
+}
+
+.luna-progress__header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--luna-space-3, 0.75rem);
+}
+
+.luna-progress__label {
+  color: var(--luna-progress-label-fg, var(--luna-foreground));
+}
+
+.luna-progress__description {
+  color: var(--luna-progress-description-fg, var(--luna-muted));
+}
+
+.luna-progress__value {
+  color: var(--luna-progress-value-fg, var(--luna-muted));
+  white-space: nowrap;
+}
+
+.luna-progress__track {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-width: 0;
+  height: var(--luna-progress-current-height, 0.5rem);
+  border-radius: var(--luna-progress-current-radius, var(--luna-radius-pill));
+  background: var(--luna-progress-current-track-bg, var(--luna-border));
+}
+
+.luna-progress__indicator {
+  position: absolute;
+  inset: 0 auto 0 0;
+  display: block;
+  width: var(--luna-progress-current-value, 0%);
+  max-width: 100%;
+  border-radius: inherit;
+  background: var(--luna-progress-current-fill, var(--luna-primary-600));
+  box-shadow: 0 0 0.75rem var(--luna-progress-current-glow, transparent);
+  transition:
+    width var(--luna-motion-base, 180ms) ease,
+    background-color var(--luna-motion-base, 180ms) ease;
+}
+
+.luna-progress[data-indeterminate="true"] .luna-progress__indicator {
+  inset: 0;
+  width: 45%;
+  min-width: 20%;
+  animation: luna-progress-indeterminate
+    var(--luna-progress-current-indeterminate-duration, 1.4s) ease-in-out infinite;
+}
+
+@keyframes luna-progress-indeterminate {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  55% {
+    transform: translateX(110%);
+  }
+
+  100% {
+    transform: translateX(230%);
+  }
+}

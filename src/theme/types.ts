@@ -134,6 +134,22 @@ export type ThemeSpinnerModeTokens = {
   track?: string;
 };
 
+export type ThemeProgressSizeProfile = {
+  height?: string;
+};
+
+export type ThemeProgressModeTokens = {
+  trackBg?: string;
+  labelFg?: string;
+  descriptionFg?: string;
+  valueFg?: string;
+};
+
+export type ThemeProgressToneTokens = {
+  fill?: string;
+  glow?: string;
+};
+
 export type ThemeInputSizeProfile = {
   minHeight?: string;
   paddingX?: string;
@@ -238,6 +254,15 @@ export type ThemeComponents = {
     defaultLabel?: string;
     sizes?: Record<string, ThemeSpinnerSizeProfile>;
     modes?: Partial<Record<ThemeMode, ThemeSpinnerModeTokens>>;
+  };
+  progress?: {
+    defaultSize?: string;
+    defaultTone?: string;
+    radius?: string;
+    indeterminateDuration?: string;
+    sizes?: Record<string, ThemeProgressSizeProfile>;
+    modes?: Partial<Record<ThemeMode, ThemeProgressModeTokens>>;
+    tones?: Record<string, ThemeProgressToneTokens>;
   };
   input?: {
     defaultSize?: string;
