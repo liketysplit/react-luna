@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { LunaButton } from "../luna-button";
 import { LunaColumn } from "../luna-column";
+import { LunaRow } from "../luna-row";
 import { LunaText } from "../luna-text";
 import { LunaEmptyState } from "./LunaEmptyState";
 
@@ -45,10 +46,10 @@ export const StandardNoData: Story = {
       {...args}
       media={<EmptyOrbitIllustration />}
       actions={
-        <>
+        <LunaRow gap="3" justify="center">
           <LunaButton flat>Import data</LunaButton>
           <LunaButton>Create mission</LunaButton>
-        </>
+        </LunaRow>
       }
     />
   )
@@ -61,10 +62,10 @@ export const FirstRunFlow: Story = {
       description="Connect a source or create a draft mission to turn this workspace into your launch board."
       media={<EmptyOrbitIllustration />}
       actions={
-        <>
+        <LunaRow gap="3" justify="center">
           <LunaButton flat>View guide</LunaButton>
           <LunaButton>Connect source</LunaButton>
-        </>
+        </LunaRow>
       }
     />
   )
@@ -86,10 +87,10 @@ export const AlignmentAndSurfaceVariants: Story = {
         title="Unframed variant"
         description="The contract can sit inside an existing parent surface without stacking extra chrome."
         actions={
-          <>
+          <LunaRow gap="3" justify="end">
             <LunaButton flat>Dismiss</LunaButton>
             <LunaButton>Review options</LunaButton>
-          </>
+          </LunaRow>
         }
       />
     </LunaColumn>
