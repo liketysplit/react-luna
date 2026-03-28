@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.0
+
+### Minor Changes
+
+- db887be: Add the new `LunaAlert` primitive with theme-driven tone and emphasis styling, Storybook coverage, tests, and public docs.
+- 60ac455: Add the new `LunaProgress` primitive with determinate and indeterminate modes, theme-driven sizing and tone, Storybook coverage, tests, and public docs.
+- 8837810: Add the new `LunaSkeleton` primitive with theme-driven shapes, sizing, animation, Storybook coverage, tests, and public docs.
+- a7d71cf: Add the new `LunaSpinner` primitive with theme-driven sizing, color, motion defaults, Storybook coverage, tests, and public docs.
+
 ## 0.2.0
 
 ### Minor Changes
