@@ -521,6 +521,192 @@ export const lunarTheme: Theme = {
         }
       }
     },
+    toast: {
+      defaultPadding: "4",
+      defaultGap: "3",
+      defaultInset: "4",
+      defaultDuration: 5000,
+      defaultPlacement: "bottom-right",
+      radius: "lg",
+      maxWidth: "24rem",
+      shadow: "md",
+      tones: {
+        light: {
+          neutral: {
+            soft: {
+              bg: "neutral.50",
+              border: "neutral.200",
+              fg: "neutral.900"
+            },
+            solid: {
+              bg: "neutral.800",
+              border: "neutral.800",
+              fg: "neutral.50"
+            },
+            outline: {
+              bg: "neutral.50",
+              border: "neutral.300",
+              fg: "neutral.900"
+            }
+          },
+          info: {
+            soft: {
+              bg: "primary.50",
+              border: "primary.200",
+              fg: "primary.800"
+            },
+            solid: {
+              bg: "primary.600",
+              border: "primary.600",
+              fg: "#ffffff"
+            },
+            outline: {
+              bg: "neutral.50",
+              border: "primary.300",
+              fg: "primary.800"
+            }
+          },
+          success: {
+            soft: {
+              bg: "success.50",
+              border: "success.200",
+              fg: "success.800"
+            },
+            solid: {
+              bg: "success.600",
+              border: "success.600",
+              fg: "#ffffff"
+            },
+            outline: {
+              bg: "neutral.50",
+              border: "success.300",
+              fg: "success.800"
+            }
+          },
+          warning: {
+            soft: {
+              bg: "warning.50",
+              border: "warning.200",
+              fg: "warning.900"
+            },
+            solid: {
+              bg: "warning.600",
+              border: "warning.600",
+              fg: "#ffffff"
+            },
+            outline: {
+              bg: "neutral.50",
+              border: "warning.300",
+              fg: "warning.900"
+            }
+          },
+          danger: {
+            soft: {
+              bg: "danger.50",
+              border: "danger.200",
+              fg: "danger.800"
+            },
+            solid: {
+              bg: "danger.600",
+              border: "danger.600",
+              fg: "#ffffff"
+            },
+            outline: {
+              bg: "neutral.50",
+              border: "danger.300",
+              fg: "danger.800"
+            }
+          }
+        },
+        dark: {
+          neutral: {
+            soft: {
+              bg: "neutral.800",
+              border: "neutral.600",
+              fg: "neutral.50"
+            },
+            solid: {
+              bg: "neutral.200",
+              border: "neutral.200",
+              fg: "#0b1220"
+            },
+            outline: {
+              bg: "neutral.900",
+              border: "neutral.600",
+              fg: "neutral.50"
+            }
+          },
+          info: {
+            soft: {
+              bg: "primary.900",
+              border: "primary.700",
+              fg: "primary.100"
+            },
+            solid: {
+              bg: "primary.400",
+              border: "primary.400",
+              fg: "#ffffff"
+            },
+            outline: {
+              bg: "neutral.900",
+              border: "primary.500",
+              fg: "primary.100"
+            }
+          },
+          success: {
+            soft: {
+              bg: "success.900",
+              border: "success.700",
+              fg: "success.100"
+            },
+            solid: {
+              bg: "success.400",
+              border: "success.400",
+              fg: "#0b1220"
+            },
+            outline: {
+              bg: "neutral.900",
+              border: "success.500",
+              fg: "success.100"
+            }
+          },
+          warning: {
+            soft: {
+              bg: "warning.900",
+              border: "warning.700",
+              fg: "warning.100"
+            },
+            solid: {
+              bg: "warning.400",
+              border: "warning.400",
+              fg: "#0b1220"
+            },
+            outline: {
+              bg: "neutral.900",
+              border: "warning.500",
+              fg: "warning.100"
+            }
+          },
+          danger: {
+            soft: {
+              bg: "danger.900",
+              border: "danger.700",
+              fg: "danger.100"
+            },
+            solid: {
+              bg: "danger.400",
+              border: "danger.400",
+              fg: "#ffffff"
+            },
+            outline: {
+              bg: "neutral.900",
+              border: "danger.500",
+              fg: "danger.100"
+            }
+          }
+        }
+      }
+    },
     divider: {
       defaultSpacing: "4",
       defaultInset: "4",

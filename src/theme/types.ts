@@ -107,6 +107,20 @@ export type ThemeAlertSurfaceTokens = {
   fg?: string;
 };
 
+export type ThemeToastPlacement =
+  | "top-left"
+  | "top-center"
+  | "top-right"
+  | "bottom-left"
+  | "bottom-center"
+  | "bottom-right";
+
+export type ThemeToastSurfaceTokens = {
+  bg?: string;
+  border?: string;
+  fg?: string;
+};
+
 export type ThemeDividerModeTokens = {
   default?: string;
   muted?: string;
@@ -232,6 +246,22 @@ export type ThemeComponents = {
       Record<
         ThemeMode,
         Partial<Record<ThemeAlertTone, Partial<Record<ThemeAlertEmphasis, ThemeAlertSurfaceTokens>>>>
+      >
+    >;
+  };
+  toast?: {
+    defaultPadding?: string;
+    defaultGap?: string;
+    defaultInset?: string;
+    defaultDuration?: number;
+    defaultPlacement?: ThemeToastPlacement;
+    radius?: string;
+    maxWidth?: string;
+    shadow?: string;
+    tones?: Partial<
+      Record<
+        ThemeMode,
+        Partial<Record<ThemeAlertTone, Partial<Record<ThemeAlertEmphasis, ThemeToastSurfaceTokens>>>>
       >
     >;
   };

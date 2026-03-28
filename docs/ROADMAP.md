@@ -55,6 +55,7 @@ The current shipped base already includes:
 - `LunaSwitch`
 - `LunaText`
 - `LunaTextarea`
+- `LunaToast`
 
 ### Tracked Base Gaps
 
@@ -63,7 +64,6 @@ The roadmap already includes these valid component ideas and they should stay in
 - `LunaBadge`
 - `LunaTag`
 - `LunaTooltip`
-- `LunaToast`
 - `LunaNotification`
 - `LunaHoverText`
 - `LunaForm`

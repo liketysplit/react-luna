@@ -40,7 +40,9 @@
     "version-packages": "changeset version",
     "release": "changeset publish",
     "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build"
+    "storybook:build": "storybook build",
+    "screenshots:storybook": "playwright test -c playwright.storybook.config.ts",
+    "screenshots:storybook:list": "playwright test -c playwright.storybook.config.ts --list"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
@@ -50,6 +52,7 @@
     "@storybook/addon-essentials": "^8.5.0",
     "@storybook/react": "^8.5.0",
     "@storybook/react-vite": "^8.5.0",
+    "@playwright/test": "^1.53.0",
     "@changesets/cli": "^2.29.6",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
