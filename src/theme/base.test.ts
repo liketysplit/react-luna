@@ -72,4 +72,12 @@ describe("theme size contract", () => {
     expect(drawer?.defaultInset).toBe("4");
     expect(drawer?.defaultSize).toBe("28rem");
   });
+
+  it("defines modal defaults and supported size tiers", () => {
+    const modal = lunarTheme.components.modal;
+
+    expect(modal?.defaultSize).toBe("medium");
+    expect(modal?.defaultPadding).toBe("5");
+    expect(Object.keys(modal?.sizes ?? {})).toEqual(["small", "medium", "large", "full"]);
+  });
 });

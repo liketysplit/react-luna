@@ -1,0 +1,32 @@
+[
+  {
+    "storyId": "components-lunamodal--playground",
+    "fileName": "luna-modal-playground",
+    "backgrounds": ["light", "dark"]
+  },
+  {
+    "storyId": "components-lunamodal--controlled-visibility",
+    "fileName": "luna-modal-controlled-visibility",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunamodal--small",
+    "fileName": "luna-modal-small",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunamodal--large",
+    "fileName": "luna-modal-large",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunamodal--full",
+    "fileName": "luna-modal-full",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunamodal--long-body-content",
+    "fileName": "luna-modal-long-body-content",
+    "backgrounds": ["light"]
+  }
+]

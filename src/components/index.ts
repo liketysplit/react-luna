@@ -20,6 +20,7 @@ export * from "./luna-slider";
 export * from "./luna-textarea";
 export * from "./luna-select";
 export * from "./luna-multiselect";
+export * from "./luna-modal";
 export * from "./luna-notification";
 export * from "./luna-autocomplete";
 export * from "./luna-skeleton";
