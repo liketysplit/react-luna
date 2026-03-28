@@ -51,8 +51,17 @@ Use labels like:
 - `codex-blocked`
 - `codex-review`
 - `no-codex`
+- `codex-refine`
+- `tracker`
 
 These labels are operational labels. They do not replace the existing domain and phase labels.
+
+Recommended meaning:
+
+- `tracker`: root issue that should be cut into execution issues
+- `codex-refine`: execution issue that still needs a local shaping pass
+- `codex-ready`: execution issue that is ready for automation
+- `no-codex`: issue that should stay out of automation
 
 ## Issue Templates
 
@@ -71,6 +80,24 @@ The issue should already answer:
 - what done looks like
 
 If an issue does not answer those cleanly, it is usually not ready for `codex-ready`.
+
+## Root Issue Pattern
+
+Use root issues to track a broader slice of work.
+
+Root issues should:
+
+- carry the `tracker` label
+- usually carry `no-codex`
+- collect child execution issues
+- preserve intent, scope, and north star
+
+Execution issues should be cut from the root issue and move through:
+
+- `codex-refine`
+- then `codex-ready`
+
+This keeps automation focused on small, reviewable slices instead of broad planning issues.
 
 ## Trigger Model
 
