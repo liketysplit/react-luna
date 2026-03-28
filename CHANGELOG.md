@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.0
+
+### Minor Changes
+
+- 5433cb2: Add the `LunaTag` primitive with theme-aware variants, Storybook coverage, tests, and docs.
+
 ## 0.5.0
 
 ### Minor Changes
