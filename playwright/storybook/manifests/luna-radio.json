@@ -1,0 +1,30 @@
+[
+  {
+    "storyId": "components-lunaradio--basic",
+    "fileName": "luna-radio-basic",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaradio--dark-mode",
+    "fileName": "luna-radio-dark-mode",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaradio--grouped",
+    "fileName": "luna-radio-grouped",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaradio--support-text",
+    "fileName": "luna-radio-support-text",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]

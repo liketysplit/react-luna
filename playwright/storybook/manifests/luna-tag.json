@@ -1,0 +1,31 @@
+[
+  {
+    "storyId": "components-lunatag--playground",
+    "fileName": "luna-tag-playground",
+    "backgrounds": [
+      "light",
+      "dark"
+    ]
+  },
+  {
+    "storyId": "components-lunatag--semantic-overrides-and-color",
+    "fileName": "luna-tag-semantic-overrides-and-color",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunatag--size-scale",
+    "fileName": "luna-tag-size-scale",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunatag--variant-matrix",
+    "fileName": "luna-tag-variant-matrix",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]

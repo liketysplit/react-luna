@@ -1,0 +1,51 @@
+[
+  {
+    "storyId": "components-lunamultiselect--basic",
+    "fileName": "luna-multiselect-basic",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunamultiselect--dark-mode",
+    "fileName": "luna-multiselect-dark-mode",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunamultiselect--label-modes",
+    "fileName": "luna-multiselect-label-modes",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunamultiselect--size-parity",
+    "fileName": "luna-multiselect-size-parity",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunamultiselect--sizes",
+    "fileName": "luna-multiselect-sizes",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunamultiselect--states",
+    "fileName": "luna-multiselect-states",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunamultiselect--supporting-text",
+    "fileName": "luna-multiselect-supporting-text",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]

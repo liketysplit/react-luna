@@ -1,0 +1,31 @@
+[
+  {
+    "storyId": "components-lunaavatar--content-modes",
+    "fileName": "luna-avatar-content-modes",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaavatar--playground",
+    "fileName": "luna-avatar-playground",
+    "backgrounds": [
+      "light",
+      "dark"
+    ]
+  },
+  {
+    "storyId": "components-lunaavatar--size-scale",
+    "fileName": "luna-avatar-size-scale",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaavatar--theme-overrides",
+    "fileName": "luna-avatar-theme-overrides",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]

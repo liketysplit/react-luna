@@ -1,0 +1,38 @@
+[
+  {
+    "storyId": "components-lunaskeleton--animation-modes",
+    "fileName": "luna-skeleton-animation-modes",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaskeleton--playground",
+    "fileName": "luna-skeleton-playground",
+    "backgrounds": [
+      "light",
+      "dark"
+    ]
+  },
+  {
+    "storyId": "components-lunaskeleton--shape-matrix",
+    "fileName": "luna-skeleton-shape-matrix",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaskeleton--size-scale",
+    "fileName": "luna-skeleton-size-scale",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaskeleton--surface-composition",
+    "fileName": "luna-skeleton-surface-composition",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]

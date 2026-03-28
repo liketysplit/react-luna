@@ -1,0 +1,30 @@
+[
+  {
+    "storyId": "components-lunaswitch--basic",
+    "fileName": "luna-switch-basic",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaswitch--dark-mode",
+    "fileName": "luna-switch-dark-mode",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaswitch--states",
+    "fileName": "luna-switch-states",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaswitch--support-text",
+    "fileName": "luna-switch-support-text",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]
