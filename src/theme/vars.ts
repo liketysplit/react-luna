@@ -656,6 +656,79 @@ export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<str
     }
   }
 
+  const tabs = theme.components.tabs;
+  if (tabs?.defaultSize) {
+    vars["--luna-tabs-size-default"] = tabs.defaultSize;
+  }
+  if (tabs?.radius) {
+    vars["--luna-tabs-radius"] = resolveScaleValue(theme.radii, tabs.radius) ?? tabs.radius;
+  }
+  if (tabs?.panelRadius) {
+    vars["--luna-tabs-panel-radius"] =
+      resolveScaleValue(theme.radii, tabs.panelRadius) ?? tabs.panelRadius;
+  }
+  if (tabs?.gap) {
+    vars["--luna-tabs-gap-default"] = resolveScaleValue(theme.spacing, tabs.gap) ?? tabs.gap;
+  }
+  const tabsMode = tabs?.modes?.[mode];
+  if (tabsMode?.listBg) {
+    vars["--luna-tabs-list-bg"] = resolveTokenValue(theme, tabsMode.listBg);
+  }
+  if (tabsMode?.listBorder) {
+    vars["--luna-tabs-list-border"] = resolveTokenValue(theme, tabsMode.listBorder);
+  }
+  if (tabsMode?.tabFg) {
+    vars["--luna-tabs-tab-fg"] = resolveTokenValue(theme, tabsMode.tabFg);
+  }
+  if (tabsMode?.tabMutedFg) {
+    vars["--luna-tabs-tab-muted-fg"] = resolveTokenValue(theme, tabsMode.tabMutedFg);
+  }
+  if (tabsMode?.tabHoverBg) {
+    vars["--luna-tabs-tab-hover-bg"] = resolveTokenValue(theme, tabsMode.tabHoverBg);
+  }
+  if (tabsMode?.tabActiveBg) {
+    vars["--luna-tabs-tab-active-bg"] = resolveTokenValue(theme, tabsMode.tabActiveBg);
+  }
+  if (tabsMode?.tabActiveFg) {
+    vars["--luna-tabs-tab-active-fg"] = resolveTokenValue(theme, tabsMode.tabActiveFg);
+  }
+  if (tabsMode?.tabActiveBorder) {
+    vars["--luna-tabs-tab-active-border"] = resolveTokenValue(theme, tabsMode.tabActiveBorder);
+  }
+  if (tabsMode?.panelBg) {
+    vars["--luna-tabs-panel-bg"] = resolveTokenValue(theme, tabsMode.panelBg);
+  }
+  if (tabsMode?.panelBorder) {
+    vars["--luna-tabs-panel-border"] = resolveTokenValue(theme, tabsMode.panelBorder);
+  }
+  if (tabsMode?.focusRing) {
+    vars["--luna-tabs-focus-ring"] = tabsMode.focusRing;
+  }
+  if (tabs?.sizes) {
+    for (const [name, profile] of Object.entries(tabs.sizes)) {
+      if (profile.minHeight) {
+        vars[`--luna-tabs-size-${name}-min-height`] =
+          resolveScaleValue(theme.spacing, profile.minHeight) ?? profile.minHeight;
+      }
+      if (profile.paddingX) {
+        vars[`--luna-tabs-size-${name}-padding-x`] =
+          resolveScaleValue(theme.spacing, profile.paddingX) ?? profile.paddingX;
+      }
+      if (profile.paddingY) {
+        vars[`--luna-tabs-size-${name}-padding-y`] =
+          resolveScaleValue(theme.spacing, profile.paddingY) ?? profile.paddingY;
+      }
+      if (profile.fontSize) {
+        vars[`--luna-tabs-size-${name}-font-size`] =
+          resolveScaleValue(theme.typography.sizes, profile.fontSize) ?? profile.fontSize;
+      }
+      if (profile.gap) {
+        vars[`--luna-tabs-size-${name}-gap`] =
+          resolveScaleValue(theme.spacing, profile.gap) ?? profile.gap;
+      }
+    }
+  }
+
   const checkbox = theme.components.checkbox;
   if (checkbox?.radius) {
     vars["--luna-checkbox-radius"] =

@@ -1202,6 +1202,63 @@ export const lunarTheme: Theme = {
         }
       }
     },
+    tabs: {
+      defaultSize: "medium",
+      radius: "pill",
+      panelRadius: "lg",
+      gap: "4",
+      sizes: {
+        small: {
+          minHeight: "2rem",
+          paddingX: "3",
+          paddingY: "1",
+          fontSize: "xs",
+          gap: "1"
+        },
+        medium: {
+          minHeight: "2.5rem",
+          paddingX: "4",
+          paddingY: "2",
+          fontSize: "sm",
+          gap: "2"
+        },
+        large: {
+          minHeight: "3rem",
+          paddingX: "5",
+          paddingY: "2",
+          fontSize: "md",
+          gap: "2"
+        }
+      },
+      modes: {
+        light: {
+          listBg: "neutral.100",
+          listBorder: "neutral.200",
+          tabFg: "neutral.700",
+          tabMutedFg: "neutral.400",
+          tabHoverBg: "neutral.50",
+          tabActiveBg: "neutral.50",
+          tabActiveFg: "neutral.900",
+          tabActiveBorder: "primary.300",
+          panelBg: "neutral.50",
+          panelBorder: "neutral.200",
+          focusRing: "rgba(99, 102, 241, 0.18)"
+        },
+        dark: {
+          listBg: "neutral.800",
+          listBorder: "neutral.700",
+          tabFg: "neutral.100",
+          tabMutedFg: "neutral.500",
+          tabHoverBg: "neutral.700",
+          tabActiveBg: "neutral.900",
+          tabActiveFg: "neutral.50",
+          tabActiveBorder: "primary.500",
+          panelBg: "neutral.900",
+          panelBorder: "neutral.700",
+          focusRing: "rgba(129, 140, 248, 0.24)"
+        }
+      }
+    },
     divider: {
       defaultSpacing: "4",
       defaultInset: "4",

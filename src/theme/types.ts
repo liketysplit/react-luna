@@ -234,6 +234,28 @@ export type ThemeInputModeTokens = {
   labelFg?: string;
 };
 
+export type ThemeTabsSizeProfile = {
+  minHeight?: string;
+  paddingX?: string;
+  paddingY?: string;
+  fontSize?: string;
+  gap?: string;
+};
+
+export type ThemeTabsModeTokens = {
+  listBg?: string;
+  listBorder?: string;
+  tabFg?: string;
+  tabMutedFg?: string;
+  tabHoverBg?: string;
+  tabActiveBg?: string;
+  tabActiveFg?: string;
+  tabActiveBorder?: string;
+  panelBg?: string;
+  panelBorder?: string;
+  focusRing?: string;
+};
+
 export type ThemeCheckboxModeTokens = {
   bg?: string;
   border?: string;
@@ -397,6 +419,14 @@ export type ThemeComponents = {
     radius?: string;
     sizes?: Record<string, ThemeInputSizeProfile>;
     modes?: Partial<Record<ThemeMode, ThemeInputModeTokens>>;
+  };
+  tabs?: {
+    defaultSize?: string;
+    radius?: string;
+    panelRadius?: string;
+    gap?: string;
+    sizes?: Record<string, ThemeTabsSizeProfile>;
+    modes?: Partial<Record<ThemeMode, ThemeTabsModeTokens>>;
   };
   checkbox?: {
     radius?: string;
