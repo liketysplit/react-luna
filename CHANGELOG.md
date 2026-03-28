@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.0
+
+### Minor Changes
+
+- ff2d437: Add the `LunaNotification` primitive with theme support, tests, Storybook coverage, and documentation.
+
 ## 0.8.0
 
 ### Minor Changes
