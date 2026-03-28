@@ -611,6 +611,65 @@ export const lunarTheme: Theme = {
         }
       }
     },
+    progress: {
+      defaultSize: "medium",
+      defaultTone: "primary",
+      radius: "pill",
+      indeterminateDuration: "1.4s",
+      sizes: {
+        "x-small": {
+          height: "0.25rem"
+        },
+        small: {
+          height: "0.375rem"
+        },
+        medium: {
+          height: "0.5rem"
+        },
+        large: {
+          height: "0.75rem"
+        },
+        "x-large": {
+          height: "1rem"
+        }
+      },
+      modes: {
+        light: {
+          trackBg: "neutral.200",
+          labelFg: "neutral.800",
+          descriptionFg: "neutral.500",
+          valueFg: "neutral.600"
+        },
+        dark: {
+          trackBg: "neutral.700",
+          labelFg: "neutral.100",
+          descriptionFg: "neutral.400",
+          valueFg: "neutral.300"
+        }
+      },
+      tones: {
+        primary: {
+          fill: "primary.600",
+          glow: "rgba(99, 102, 241, 0.32)"
+        },
+        success: {
+          fill: "success.500",
+          glow: "rgba(16, 185, 129, 0.28)"
+        },
+        warning: {
+          fill: "warning.500",
+          glow: "rgba(249, 115, 22, 0.28)"
+        },
+        danger: {
+          fill: "danger.500",
+          glow: "rgba(239, 68, 68, 0.28)"
+        },
+        neutral: {
+          fill: "neutral.500",
+          glow: "rgba(100, 116, 139, 0.28)"
+        }
+      }
+    },
     input: {
       defaultSize: "md",
       radius: "md",

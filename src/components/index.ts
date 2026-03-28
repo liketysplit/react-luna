@@ -9,6 +9,7 @@ export * from "./luna-radio";
 export * from "./luna-divider";
 export * from "./luna-header";
 export * from "./luna-input";
+export * from "./luna-progress";
 export * from "./luna-slider";
 export * from "./luna-textarea";
 export * from "./luna-select";
