@@ -247,6 +247,66 @@ export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<str
     }
   }
 
+  const toast = theme.components.toast;
+  if (toast?.defaultPadding) {
+    vars["--luna-toast-padding-default"] =
+      resolveScaleValue(theme.spacing, toast.defaultPadding) ?? toast.defaultPadding;
+  }
+  if (toast?.defaultGap) {
+    vars["--luna-toast-gap-default"] =
+      resolveScaleValue(theme.spacing, toast.defaultGap) ?? toast.defaultGap;
+  }
+  if (toast?.defaultInset) {
+    vars["--luna-toast-inset-default"] =
+      resolveScaleValue(theme.spacing, toast.defaultInset) ?? toast.defaultInset;
+  }
+  if (toast?.defaultPlacement) {
+    vars["--luna-toast-placement-default"] = toast.defaultPlacement;
+  }
+  if (toast?.radius) {
+    vars["--luna-toast-radius"] = resolveScaleValue(theme.radii, toast.radius) ?? toast.radius;
+  }
+  if (toast?.maxWidth) {
+    vars["--luna-toast-max-width"] = resolveScaleValue(theme.spacing, toast.maxWidth) ?? toast.maxWidth;
+  }
+  if (toast?.shadow) {
+    vars["--luna-toast-shadow"] =
+      resolveScaleValue(theme.shadows, toast.shadow) ?? resolveTokenValue(theme, toast.shadow);
+  }
+  const toastMode = toast?.tones?.[mode];
+  if (toastMode) {
+    for (const [toneName, emphasisMap] of Object.entries(toastMode)) {
+      if (!emphasisMap) {
+        continue;
+      }
+
+      for (const [emphasisName, surface] of Object.entries(emphasisMap)) {
+        if (!surface) {
+          continue;
+        }
+
+        if (surface.bg) {
+          vars[`--luna-toast-${toneName}-${emphasisName}-bg`] = resolveTokenValue(
+            theme,
+            surface.bg
+          );
+        }
+        if (surface.border) {
+          vars[`--luna-toast-${toneName}-${emphasisName}-border`] = resolveTokenValue(
+            theme,
+            surface.border
+          );
+        }
+        if (surface.fg) {
+          vars[`--luna-toast-${toneName}-${emphasisName}-fg`] = resolveTokenValue(
+            theme,
+            surface.fg
+          );
+        }
+      }
+    }
+  }
+
   const divider = theme.components.divider;
   if (divider?.defaultSpacing) {
     vars["--luna-divider-spacing-default"] =
