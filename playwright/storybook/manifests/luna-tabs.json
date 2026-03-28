@@ -1,0 +1,22 @@
+[
+  {
+    "storyId": "components-lunatabs--playground",
+    "fileName": "luna-tabs-playground",
+    "backgrounds": ["light", "dark"]
+  },
+  {
+    "storyId": "components-lunatabs--full-width",
+    "fileName": "luna-tabs-full-width",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunatabs--manual-activation",
+    "fileName": "luna-tabs-manual-activation",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunatabs--vertical",
+    "fileName": "luna-tabs-vertical",
+    "backgrounds": ["light"]
+  }
+]
