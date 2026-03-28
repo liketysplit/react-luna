@@ -1,5 +1,6 @@
 export * from "./luna-avatar";
 export * from "./luna-alert";
+export * from "./luna-badge";
 export * from "./luna-button";
 export * from "./luna-card";
 export * from "./luna-checkbox";
@@ -20,8 +21,6 @@ export * from "./luna-spinner";
 export * from "./luna-switch";
 export * from "./luna-tag";
 export * from "./luna-text";
-export * from "./luna-tooltip";
 export * from "./luna-row";
 export * from "./luna-column";
 export * from "./luna-grid";
-export * from "./luna-toast";
