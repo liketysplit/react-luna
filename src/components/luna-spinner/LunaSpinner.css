@@ -1,0 +1,46 @@
+.luna-spinner {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: var(--luna-spinner-current-size, var(--luna-spinner-size-medium, 1.25rem));
+  block-size: var(--luna-spinner-current-size, var(--luna-spinner-size-medium, 1.25rem));
+  color: var(--luna-spinner-current-color, var(--luna-spinner-color, var(--luna-foreground)));
+  flex: 0 0 auto;
+  vertical-align: middle;
+}
+
+.luna-spinner__track,
+.luna-spinner__indicator {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  border-style: solid;
+  border-width: var(
+    --luna-spinner-current-stroke-width,
+    var(--luna-spinner-size-medium-stroke-width, 0.1875rem)
+  );
+}
+
+.luna-spinner__track {
+  border-color: var(--luna-spinner-current-track, var(--luna-spinner-track, var(--luna-border)));
+}
+
+.luna-spinner__indicator {
+  border-color: transparent;
+  border-top-color: currentColor;
+  border-right-color: color-mix(in srgb, currentColor 72%, transparent);
+  animation: luna-spinner-rotate
+    var(--luna-spinner-current-duration, var(--luna-spinner-duration, 900ms)) linear infinite;
+  will-change: transform;
+}
+
+@keyframes luna-spinner-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
