@@ -10,6 +10,7 @@ export * from "./luna-radio";
 export * from "./luna-divider";
 export * from "./luna-empty-state";
 export * from "./luna-header";
+export * from "./luna-hover-text";
 export * from "./luna-input";
 export * from "./luna-progress";
 export * from "./luna-slider";
