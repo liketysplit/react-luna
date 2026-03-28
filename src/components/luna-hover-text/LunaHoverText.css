@@ -1,0 +1,50 @@
+.luna-hover-text {
+  display: inline-grid;
+  grid-template-areas: "content";
+  align-items: center;
+  color: var(--luna-hover-text-color, currentColor);
+  font-family: var(--luna-font-family, inherit);
+  line-height: inherit;
+  vertical-align: middle;
+  cursor: default;
+}
+
+.luna-hover-text[data-focusable="true"] {
+  cursor: pointer;
+}
+
+.luna-hover-text__default,
+.luna-hover-text__hover {
+  grid-area: content;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    color 180ms ease;
+}
+
+.luna-hover-text__default {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.luna-hover-text__hover {
+  opacity: 0;
+  transform: translateY(0.2em);
+  color: var(--luna-hover-text-hover-color, var(--luna-hover-text-color, currentColor));
+}
+
+.luna-hover-text[data-active="true"] .luna-hover-text__default {
+  opacity: 0;
+  transform: translateY(-0.2em);
+}
+
+.luna-hover-text[data-active="true"] .luna-hover-text__hover {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.luna-hover-text:focus-visible {
+  outline: 2px solid var(--luna-focus-ring, rgba(96, 165, 250, 0.45));
+  outline-offset: 0.2em;
+  border-radius: 0.2em;
+}
