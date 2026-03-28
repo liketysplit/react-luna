@@ -19,7 +19,7 @@ const preview: Preview = {
   decorators: [
     (Story, context) => {
       const canvasBackground = context.globals.backgrounds?.value;
-      const mode = canvasBackground === DARK_CANVAS ? "dark" : "light";
+      const mode = canvasBackground === DARK_CANVAS || canvasBackground === "dark" ? "dark" : "light";
 
       return (
         <ThemeProvider mode={mode}>

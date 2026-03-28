@@ -25,9 +25,9 @@ export default defineConfig({
     }
   ],
   webServer: {
-    command: "node scripts/serve-static.mjs storybook-static 6006",
-    url: "http://127.0.0.1:6006",
-    reuseExistingServer: !process.env.CI,
+    command: "node scripts/serve-static.mjs storybook-static 6106",
+    url: "http://127.0.0.1:6106",
+    reuseExistingServer: false,
     stdout: "ignore",
     stderr: "pipe"
   }
