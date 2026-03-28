@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.14.0
+
+### Minor Changes
+
+- dd9fdcc: Add the LunaMenu composite with keyboard navigation, Storybook coverage, tests, and public docs.
+
 ## 0.13.0
 
 ### Minor Changes
