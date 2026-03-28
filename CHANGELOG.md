@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.17.0
+
+### Minor Changes
+
+- 3500655: Add the new `LunaModal` composite with theme support, Storybook coverage, tests, and public documentation.
+
 ## 0.16.0
 
 ### Minor Changes
