@@ -1,0 +1,103 @@
+.luna-table {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--luna-table-border, var(--luna-border));
+  border-radius: var(--luna-table-radius, var(--luna-radius-lg));
+  background: var(--luna-table-bg, var(--luna-surface));
+  box-shadow: var(--luna-table-shadow, var(--luna-shadow-sm));
+}
+
+.luna-table__table {
+  width: 100%;
+  min-width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  color: var(--luna-table-fg, var(--luna-foreground));
+}
+
+.luna-table__caption {
+  padding: var(--luna-space-4) var(--luna-space-4) var(--luna-space-3);
+  color: var(--luna-table-caption-fg, var(--luna-muted));
+  font-size: var(--luna-font-size-sm, 0.875rem);
+  text-align: left;
+  caption-side: top;
+}
+
+.luna-table__header,
+.luna-table__cell,
+.luna-table__empty {
+  padding: var(--luna-table-cell-padding-y, var(--luna-space-3))
+    var(--luna-table-cell-padding-x, var(--luna-space-4));
+  text-align: left;
+}
+
+.luna-table__header {
+  position: relative;
+  z-index: 1;
+  border-bottom: 1px solid var(--luna-table-divider, var(--luna-border));
+  background: var(
+    --luna-table-header-bg,
+    color-mix(in srgb, var(--luna-table-bg, var(--luna-surface)) 82%, var(--luna-background))
+  );
+  color: var(--luna-table-header-fg, var(--luna-foreground));
+  font-size: var(--luna-font-size-xs, 0.75rem);
+  font-weight: var(--luna-font-weight-semibold, 600);
+  letter-spacing: 0.04em;
+  line-height: var(--luna-line-height-normal, 1.4);
+  text-transform: uppercase;
+}
+
+.luna-table__cell,
+.luna-table__empty {
+  border-bottom: 1px solid var(--luna-table-divider, var(--luna-border));
+  font-size: var(--luna-font-size-sm, 0.875rem);
+  line-height: var(--luna-line-height-relaxed, 1.6);
+  vertical-align: middle;
+}
+
+.luna-table__body .luna-table__row:last-child .luna-table__cell,
+.luna-table__body .luna-table__row:last-child .luna-table__empty {
+  border-bottom: 0;
+}
+
+.luna-table__header[data-align="center"],
+.luna-table__cell[data-align="center"] {
+  text-align: center;
+}
+
+.luna-table__header[data-align="right"],
+.luna-table__cell[data-align="right"] {
+  text-align: right;
+}
+
+.luna-table--striped .luna-table__body .luna-table__row:nth-child(even) .luna-table__cell {
+  background: color-mix(in srgb, var(--luna-table-bg, var(--luna-surface)) 88%, var(--luna-foreground) 4%);
+}
+
+.luna-table--hoverable .luna-table__body .luna-table__row:hover .luna-table__cell {
+  background: color-mix(in srgb, var(--luna-table-bg, var(--luna-surface)) 76%, var(--luna-color-primary-500) 10%);
+}
+
+.luna-table--sticky-header .luna-table__header {
+  position: sticky;
+  top: 0;
+}
+
+.luna-table__empty {
+  color: var(--luna-table-empty-fg, var(--luna-muted));
+  text-align: center;
+}
+
+.luna-table[data-density="compact"] .luna-table__header,
+.luna-table[data-density="compact"] .luna-table__cell,
+.luna-table[data-density="compact"] .luna-table__empty {
+  --luna-table-cell-padding-y: var(--luna-space-2);
+  --luna-table-cell-padding-x: var(--luna-space-3);
+}
+
+.luna-table[data-density="comfortable"] .luna-table__header,
+.luna-table[data-density="comfortable"] .luna-table__cell,
+.luna-table[data-density="comfortable"] .luna-table__empty {
+  --luna-table-cell-padding-y: var(--luna-space-4);
+  --luna-table-cell-padding-x: var(--luna-space-5);
+}
