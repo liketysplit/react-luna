@@ -24,6 +24,70 @@ This phase is about:
 - shaping durable component contracts
 - getting Storybook, tests, and docs in place as components land
 
+## Base Inventory Direction
+
+The base should include the components the library actually needs for real application work.
+
+Existing ideas should stay valid unless there is a strong reason to move them later. The goal is to add clarity, not cut ideas by default.
+
+### Built Base Today
+
+The current shipped base already includes:
+
+- `LunaAutocomplete`
+- `LunaButton`
+- `LunaCard`
+- `LunaCheckbox`
+- `LunaColumn`
+- `LunaDateInput`
+- `LunaDatePicker`
+- `LunaDivider`
+- `LunaGrid`
+- `LunaHeader`
+- `LunaInput`
+- `LunaMultiselect`
+- `LunaRadio`
+- `LunaRow`
+- `LunaSelect`
+- `LunaSlider`
+- `LunaSwitch`
+- `LunaText`
+- `LunaTextarea`
+
+### Tracked Base Gaps
+
+The roadmap already includes these valid component ideas and they should stay in play:
+
+- `LunaBadge`
+- `LunaTag`
+- `LunaTooltip`
+- `LunaToast`
+- `LunaNotification`
+- `LunaHoverText`
+- `LunaForm`
+- `LunaPopover`
+- `LunaCheckboxGroup`
+- `LunaRadioGroup`
+- `LunaNotificationGroup`
+- the larger composite wave such as `LunaModal`, `LunaDrawer`, `LunaTabs`, `LunaAccordion`, `LunaTable`, `LunaPagination`, `LunaBreadcrumb`, `LunaSidebar`, `LunaTopbar`, and `LunaMenu`
+
+### Additive Missing Pieces
+
+The following still appear missing from the base roadmap and should be added without removing existing ideas:
+
+- `LunaAvatar`
+- `LunaSkeleton`
+- `LunaProgress`
+- `LunaSpinner`
+- `LunaEmptyState`
+- `LunaAlert`
+
+### How To Read This
+
+- primitives and utility surfaces should land during the base-build period
+- composites should stay valid and continue to be built as part of the same broader base
+- hardening should tighten contracts without shrinking the intended component surface by accident
+
 ### `0.x.x` Hardening Pass
 
 The broader `0.x.x` period is for hardening.
@@ -62,6 +126,7 @@ This phase is about correcting the library based on real consumer experience, no
 - Consumers should be able to make the library feel like their own.
 - Storybook, tests, and docs should stay aligned with meaningful component changes.
 - The library should become stable by surviving real application use, not just isolated component work.
+- Existing valid component ideas should be preserved unless there is a strong reason to move them, not silently cut during planning.
 
 ## Relationship To Issues
 
