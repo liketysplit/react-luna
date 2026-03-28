@@ -46,6 +46,7 @@ body:
         - implementation
         - Storybook coverage
         - screenshot-ready story states
+        - note any motion-critical stories that should use clip capture later
         - tests
         - docs
     validations:

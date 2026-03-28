@@ -97,6 +97,11 @@ The issue should already answer:
 - what outputs are required
 - what done looks like
 
+For component issues that are expected to use the Storybook visual workflow, the issue should also make clear whether the component needs:
+
+- screenshot-ready story states only
+- or motion-critical story states that should later be captured as clips
+
 If an issue does not answer those cleanly, it is usually not ready for `codex-ready`.
 
 ## Root Issue Pattern
@@ -230,6 +235,11 @@ To make automation reliable, issues should say:
 - important contract or non-goal notes
 
 For `react-luna`, this means the issue body should usually be good enough that Codex does not need a second manual translation pass before starting.
+
+When visual review matters, the issue should also say whether:
+
+- still screenshots are sufficient
+- or the component includes motion that deserves clip capture
 
 ## Initial Scope Recommendation
 
