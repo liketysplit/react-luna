@@ -606,6 +606,207 @@ export const lunarTheme: Theme = {
         }
       }
     },
+    badge: {
+      defaultSize: "medium",
+      radius: "md",
+      fontWeight: "semibold",
+      sizes: {
+        small: {
+          paddingX: "2",
+          paddingY: "1",
+          fontSize: "xs",
+          minHeight: "1.25rem"
+        },
+        medium: {
+          paddingX: "3",
+          paddingY: "1",
+          fontSize: "sm",
+          minHeight: "1.5rem"
+        },
+        large: {
+          paddingX: "4",
+          paddingY: "2",
+          fontSize: "sm",
+          minHeight: "1.875rem"
+        }
+      },
+      tones: {
+        light: {
+          neutral: {
+            soft: {
+              bg: "neutral.100",
+              border: "neutral.200",
+              fg: "neutral.700"
+            },
+            solid: {
+              bg: "neutral.800",
+              border: "neutral.800",
+              fg: "neutral.50"
+            },
+            outline: {
+              bg: "neutral.50",
+              border: "neutral.300",
+              fg: "neutral.800"
+            }
+          },
+          info: {
+            soft: {
+              bg: "primary.50",
+              border: "primary.200",
+              fg: "primary.700"
+            },
+            solid: {
+              bg: "primary.600",
+              border: "primary.600",
+              fg: "#ffffff"
+            },
+            outline: {
+              bg: "neutral.50",
+              border: "primary.300",
+              fg: "primary.700"
+            }
+          },
+          success: {
+            soft: {
+              bg: "success.50",
+              border: "success.200",
+              fg: "success.700"
+            },
+            solid: {
+              bg: "success.600",
+              border: "success.600",
+              fg: "#ffffff"
+            },
+            outline: {
+              bg: "neutral.50",
+              border: "success.300",
+              fg: "success.700"
+            }
+          },
+          warning: {
+            soft: {
+              bg: "warning.50",
+              border: "warning.200",
+              fg: "warning.800"
+            },
+            solid: {
+              bg: "warning.600",
+              border: "warning.600",
+              fg: "#ffffff"
+            },
+            outline: {
+              bg: "neutral.50",
+              border: "warning.300",
+              fg: "warning.800"
+            }
+          },
+          danger: {
+            soft: {
+              bg: "danger.50",
+              border: "danger.200",
+              fg: "danger.700"
+            },
+            solid: {
+              bg: "danger.600",
+              border: "danger.600",
+              fg: "#ffffff"
+            },
+            outline: {
+              bg: "neutral.50",
+              border: "danger.300",
+              fg: "danger.700"
+            }
+          }
+        },
+        dark: {
+          neutral: {
+            soft: {
+              bg: "neutral.800",
+              border: "neutral.700",
+              fg: "neutral.100"
+            },
+            solid: {
+              bg: "neutral.50",
+              border: "neutral.50",
+              fg: "neutral.900"
+            },
+            outline: {
+              bg: "neutral.900",
+              border: "neutral.600",
+              fg: "neutral.100"
+            }
+          },
+          info: {
+            soft: {
+              bg: "primary.900",
+              border: "primary.700",
+              fg: "primary.100"
+            },
+            solid: {
+              bg: "primary.300",
+              border: "primary.300",
+              fg: "neutral.900"
+            },
+            outline: {
+              bg: "neutral.900",
+              border: "primary.500",
+              fg: "primary.100"
+            }
+          },
+          success: {
+            soft: {
+              bg: "success.900",
+              border: "success.700",
+              fg: "success.100"
+            },
+            solid: {
+              bg: "success.300",
+              border: "success.300",
+              fg: "neutral.900"
+            },
+            outline: {
+              bg: "neutral.900",
+              border: "success.500",
+              fg: "success.100"
+            }
+          },
+          warning: {
+            soft: {
+              bg: "warning.900",
+              border: "warning.700",
+              fg: "warning.100"
+            },
+            solid: {
+              bg: "warning.300",
+              border: "warning.300",
+              fg: "neutral.900"
+            },
+            outline: {
+              bg: "neutral.900",
+              border: "warning.500",
+              fg: "warning.100"
+            }
+          },
+          danger: {
+            soft: {
+              bg: "danger.900",
+              border: "danger.700",
+              fg: "danger.100"
+            },
+            solid: {
+              bg: "danger.300",
+              border: "danger.300",
+              fg: "neutral.900"
+            },
+            outline: {
+              bg: "neutral.900",
+              border: "danger.500",
+              fg: "danger.100"
+            }
+          }
+        }
+      }
+    },
     toast: {
       defaultPadding: "4",
       defaultGap: "3",

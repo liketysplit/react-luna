@@ -247,6 +247,51 @@ export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<str
     }
   }
 
+  const badge = theme.components.badge;
+  if (badge?.defaultSize) {
+    vars["--luna-badge-size-default"] = badge.defaultSize;
+  }
+  if (badge?.radius) {
+    vars["--luna-badge-radius"] = resolveScaleValue(theme.radii, badge.radius) ?? badge.radius;
+  }
+  if (badge?.fontWeight !== undefined) {
+    vars["--luna-badge-font-weight"] =
+      resolveFontWeightValue(theme, badge.fontWeight) ?? String(badge.fontWeight);
+  }
+  const badgeMode = badge?.tones?.[mode];
+  if (badgeMode) {
+    for (const [toneName, variantMap] of Object.entries(badgeMode)) {
+      if (!variantMap) {
+        continue;
+      }
+
+      for (const [variantName, surface] of Object.entries(variantMap)) {
+        if (!surface) {
+          continue;
+        }
+
+        if (surface.bg) {
+          vars[`--luna-badge-${toneName}-${variantName}-bg`] = resolveTokenValue(
+            theme,
+            surface.bg
+          );
+        }
+        if (surface.border) {
+          vars[`--luna-badge-${toneName}-${variantName}-border`] = resolveTokenValue(
+            theme,
+            surface.border
+          );
+        }
+        if (surface.fg) {
+          vars[`--luna-badge-${toneName}-${variantName}-fg`] = resolveTokenValue(
+            theme,
+            surface.fg
+          );
+        }
+      }
+    }
+  }
+
   const toast = theme.components.toast;
   if (toast?.defaultPadding) {
     vars["--luna-toast-padding-default"] =

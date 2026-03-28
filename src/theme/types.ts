@@ -114,8 +114,23 @@ export type ThemeCardModeTokens = {
 
 export type ThemeAlertTone = "neutral" | "info" | "success" | "warning" | "danger";
 export type ThemeAlertEmphasis = "soft" | "solid" | "outline";
+export type ThemeBadgeTone = "neutral" | "info" | "success" | "warning" | "danger";
+export type ThemeBadgeVariant = "soft" | "solid" | "outline";
 
 export type ThemeAlertSurfaceTokens = {
+  bg?: string;
+  border?: string;
+  fg?: string;
+};
+
+export type ThemeBadgeSizeProfile = {
+  paddingX?: string;
+  paddingY?: string;
+  fontSize?: string;
+  minHeight?: string;
+};
+
+export type ThemeBadgeSurfaceTokens = {
   bg?: string;
   border?: string;
   fg?: string;
@@ -275,6 +290,18 @@ export type ThemeComponents = {
       Record<
         ThemeMode,
         Partial<Record<ThemeAlertTone, Partial<Record<ThemeAlertEmphasis, ThemeAlertSurfaceTokens>>>>
+      >
+    >;
+  };
+  badge?: {
+    defaultSize?: string;
+    radius?: string;
+    fontWeight?: string | number;
+    sizes?: Record<string, ThemeBadgeSizeProfile>;
+    tones?: Partial<
+      Record<
+        ThemeMode,
+        Partial<Record<ThemeBadgeTone, Partial<Record<ThemeBadgeVariant, ThemeBadgeSurfaceTokens>>>>
       >
     >;
   };

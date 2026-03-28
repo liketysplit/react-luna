@@ -1,0 +1,121 @@
+.luna-badge {
+  --luna-badge-current-bg: var(--luna-badge-neutral-soft-bg, var(--luna-surface));
+  --luna-badge-current-border: var(--luna-badge-neutral-soft-border, var(--luna-border));
+  --luna-badge-current-fg: var(--luna-badge-neutral-soft-fg, var(--luna-foreground));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--luna-badge-min-height, 1.5rem);
+  padding: var(--luna-badge-padding-y, var(--luna-space-1))
+    var(--luna-badge-padding-x, var(--luna-space-3));
+  border: 1px solid var(--luna-badge-current-border);
+  border-radius: var(--luna-badge-radius, var(--luna-radius-md));
+  background: var(--luna-badge-current-bg);
+  color: var(--luna-badge-current-fg);
+  font-family: var(--luna-font-family);
+  font-size: var(--luna-badge-font-size, var(--luna-font-size-sm, 0.875rem));
+  font-weight: var(--luna-badge-font-weight, 600);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.luna-badge--rounded {
+  border-radius: var(--luna-radius-pill);
+}
+
+.luna-badge__label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.luna-badge[data-tone="neutral"][data-variant="soft"] {
+  --luna-badge-current-bg: var(--luna-badge-neutral-soft-bg);
+  --luna-badge-current-border: var(--luna-badge-neutral-soft-border);
+  --luna-badge-current-fg: var(--luna-badge-neutral-soft-fg);
+}
+
+.luna-badge[data-tone="neutral"][data-variant="solid"] {
+  --luna-badge-current-bg: var(--luna-badge-neutral-solid-bg);
+  --luna-badge-current-border: var(--luna-badge-neutral-solid-border);
+  --luna-badge-current-fg: var(--luna-badge-neutral-solid-fg);
+}
+
+.luna-badge[data-tone="neutral"][data-variant="outline"] {
+  --luna-badge-current-bg: var(--luna-badge-neutral-outline-bg);
+  --luna-badge-current-border: var(--luna-badge-neutral-outline-border);
+  --luna-badge-current-fg: var(--luna-badge-neutral-outline-fg);
+}
+
+.luna-badge[data-tone="info"][data-variant="soft"] {
+  --luna-badge-current-bg: var(--luna-badge-info-soft-bg);
+  --luna-badge-current-border: var(--luna-badge-info-soft-border);
+  --luna-badge-current-fg: var(--luna-badge-info-soft-fg);
+}
+
+.luna-badge[data-tone="info"][data-variant="solid"] {
+  --luna-badge-current-bg: var(--luna-badge-info-solid-bg);
+  --luna-badge-current-border: var(--luna-badge-info-solid-border);
+  --luna-badge-current-fg: var(--luna-badge-info-solid-fg);
+}
+
+.luna-badge[data-tone="info"][data-variant="outline"] {
+  --luna-badge-current-bg: var(--luna-badge-info-outline-bg);
+  --luna-badge-current-border: var(--luna-badge-info-outline-border);
+  --luna-badge-current-fg: var(--luna-badge-info-outline-fg);
+}
+
+.luna-badge[data-tone="success"][data-variant="soft"] {
+  --luna-badge-current-bg: var(--luna-badge-success-soft-bg);
+  --luna-badge-current-border: var(--luna-badge-success-soft-border);
+  --luna-badge-current-fg: var(--luna-badge-success-soft-fg);
+}
+
+.luna-badge[data-tone="success"][data-variant="solid"] {
+  --luna-badge-current-bg: var(--luna-badge-success-solid-bg);
+  --luna-badge-current-border: var(--luna-badge-success-solid-border);
+  --luna-badge-current-fg: var(--luna-badge-success-solid-fg);
+}
+
+.luna-badge[data-tone="success"][data-variant="outline"] {
+  --luna-badge-current-bg: var(--luna-badge-success-outline-bg);
+  --luna-badge-current-border: var(--luna-badge-success-outline-border);
+  --luna-badge-current-fg: var(--luna-badge-success-outline-fg);
+}
+
+.luna-badge[data-tone="warning"][data-variant="soft"] {
+  --luna-badge-current-bg: var(--luna-badge-warning-soft-bg);
+  --luna-badge-current-border: var(--luna-badge-warning-soft-border);
+  --luna-badge-current-fg: var(--luna-badge-warning-soft-fg);
+}
+
+.luna-badge[data-tone="warning"][data-variant="solid"] {
+  --luna-badge-current-bg: var(--luna-badge-warning-solid-bg);
+  --luna-badge-current-border: var(--luna-badge-warning-solid-border);
+  --luna-badge-current-fg: var(--luna-badge-warning-solid-fg);
+}
+
+.luna-badge[data-tone="warning"][data-variant="outline"] {
+  --luna-badge-current-bg: var(--luna-badge-warning-outline-bg);
+  --luna-badge-current-border: var(--luna-badge-warning-outline-border);
+  --luna-badge-current-fg: var(--luna-badge-warning-outline-fg);
+}
+
+.luna-badge[data-tone="danger"][data-variant="soft"] {
+  --luna-badge-current-bg: var(--luna-badge-danger-soft-bg);
+  --luna-badge-current-border: var(--luna-badge-danger-soft-border);
+  --luna-badge-current-fg: var(--luna-badge-danger-soft-fg);
+}
+
+.luna-badge[data-tone="danger"][data-variant="solid"] {
+  --luna-badge-current-bg: var(--luna-badge-danger-solid-bg);
+  --luna-badge-current-border: var(--luna-badge-danger-solid-border);
+  --luna-badge-current-fg: var(--luna-badge-danger-solid-fg);
+}
+
+.luna-badge[data-tone="danger"][data-variant="outline"] {
+  --luna-badge-current-bg: var(--luna-badge-danger-outline-bg);
+  --luna-badge-current-border: var(--luna-badge-danger-outline-border);
+  --luna-badge-current-fg: var(--luna-badge-danger-outline-fg);
+}
