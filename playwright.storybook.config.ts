@@ -9,7 +9,7 @@ export default defineConfig({
   workers: 1,
   reporter: [["list"]],
   use: {
-    baseURL: "http://127.0.0.1:6006",
+    baseURL: "http://127.0.0.1:6106",
     trace: "off",
     video: "off",
     screenshot: "off"
