@@ -1,0 +1,22 @@
+[
+  {
+    "storyId": "components-lunahovertext--playground",
+    "fileName": "luna-hover-text-playground",
+    "backgrounds": ["light", "dark"]
+  },
+  {
+    "storyId": "components-lunahovertext--focusable-inline-copy",
+    "fileName": "luna-hover-text-focusable-inline-copy",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunahovertext--themed-color-shift",
+    "fileName": "luna-hover-text-themed-color-shift",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunahovertext--disabled-state",
+    "fileName": "luna-hover-text-disabled-state",
+    "backgrounds": ["light"]
+  }
+]
