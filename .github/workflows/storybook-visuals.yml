@@ -12,7 +12,7 @@ jobs:
   storybook-visuals:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       pull-requests: write
     steps:
       - name: Checkout
@@ -36,28 +36,68 @@ jobs:
       - name: Capture Storybook screenshots
         run: npm run screenshots:storybook
 
-      - name: Upload Storybook screenshots
-        id: upload
-        uses: actions/upload-artifact@v4
-        with:
-          name: storybook-screenshots-pr-${{ github.event.pull_request.number }}
-          path: artifacts/storybook-screenshots
-          if-no-files-found: error
+      - name: Publish screenshots to preview branch
+        env:
+          PREVIEW_BRANCH: storybook-visuals
+          PREVIEW_DIR: pr-${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Comment on PR with screenshot artifact
+          temp_dir="$(mktemp -d)"
+          cp -R artifacts/storybook-screenshots "$temp_dir/screenshots"
+          rm -f "$temp_dir/screenshots/.last-run.json"
+
+          if git ls-remote --exit-code --heads origin "$PREVIEW_BRANCH" >/dev/null 2>&1; then
+            git fetch origin "$PREVIEW_BRANCH":"$PREVIEW_BRANCH"
+            git checkout "$PREVIEW_BRANCH"
+          else
+            git checkout --orphan "$PREVIEW_BRANCH"
+            git rm -rf . >/dev/null 2>&1 || true
+          fi
+
+          mkdir -p "$PREVIEW_DIR"
+          rm -rf "$PREVIEW_DIR"/*
+          cp -R "$temp_dir/screenshots"/. "$PREVIEW_DIR"/
+
+          git add "$PREVIEW_DIR"
+          if git diff --cached --quiet; then
+            echo "No preview changes to commit."
+          else
+            git commit -m "Update Storybook visuals for PR #${{ github.event.pull_request.number }}"
+            git push origin "$PREVIEW_BRANCH"
+          fi
+
+          git checkout -
+
+      - name: Comment on PR with inline screenshot links
         uses: actions/github-script@v7
         env:
-          ARTIFACT_URL: ${{ steps.upload.outputs.artifact-url }}
-          ARTIFACT_NAME: storybook-screenshots-pr-${{ github.event.pull_request.number }}
+          PREVIEW_BRANCH: storybook-visuals
+          PREVIEW_DIR: pr-${{ github.event.pull_request.number }}
         with:
           script: |
             const marker = '<!-- storybook-visuals-artifact -->';
+            const base = `https://raw.githubusercontent.com/${context.repo.owner}/${context.repo.repo}/${process.env.PREVIEW_BRANCH}/${process.env.PREVIEW_DIR}`;
+            const images = [
+              { alt: 'LunaToast playground light', file: 'luna-toast-playground--light.png' },
+              { alt: 'LunaToast playground dark', file: 'luna-toast-playground--dark.png' },
+              { alt: 'LunaToast tone and emphasis matrix', file: 'luna-toast-tone-and-emphasis-matrix--light.png' },
+              { alt: 'LunaToast controlled visibility', file: 'luna-toast-controlled-visibility--light.png' },
+            ];
             const body = [
               marker,
               'Storybook screenshots are ready for review.',
               '',
-              `- Artifact: [${process.env.ARTIFACT_NAME}](${process.env.ARTIFACT_URL})`,
               `- Run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+              `- Preview directory: [${process.env.PREVIEW_DIR}](${base}/)`,
+              '',
+              ...images.flatMap((image) => [
+                `### ${image.alt}`,
+                `![${image.alt}](${base}/${image.file})`,
+                '',
+              ]),
             ].join('\n');
 
             const { data: comments } = await github.rest.issues.listComments({
