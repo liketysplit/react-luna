@@ -62,6 +62,17 @@ export type ThemeButtonModeTokens = {
   infoHoverFg?: string;
 };
 
+export type ThemeAvatarSizeProfile = {
+  size?: string;
+  fontSize?: string;
+};
+
+export type ThemeAvatarModeTokens = {
+  bg?: string;
+  fg?: string;
+  border?: string;
+};
+
 export type ThemeTextVariantProfile = {
   fontSize?: string;
   fontWeight?: string | number;
@@ -150,6 +161,13 @@ export type ThemeComponents = {
     sizes?: Record<string, ThemeButtonSizeProfile>;
     modes?: Partial<Record<ThemeMode, ThemeButtonModeTokens>>;
     colors?: Record<string, { bg?: string; fg?: string; border?: string }>;
+  };
+  avatar?: {
+    defaultSize?: string;
+    radius?: string;
+    fontWeight?: string | number;
+    sizes?: Record<string, ThemeAvatarSizeProfile>;
+    modes?: Partial<Record<ThemeMode, ThemeAvatarModeTokens>>;
   };
   text?: {
     defaultVariant?: string;

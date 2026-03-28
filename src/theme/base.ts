@@ -224,6 +224,45 @@ export const lunarTheme: Theme = {
         }
       }
     },
+    avatar: {
+      defaultSize: "medium",
+      radius: "pill",
+      fontWeight: 600,
+      modes: {
+        light: {
+          bg: "neutral.100",
+          fg: "neutral.700",
+          border: "neutral.200"
+        },
+        dark: {
+          bg: "neutral.800",
+          fg: "neutral.100",
+          border: "neutral.700"
+        }
+      },
+      sizes: {
+        "x-small": {
+          size: "1.5rem",
+          fontSize: "0.625rem"
+        },
+        small: {
+          size: "2rem",
+          fontSize: "0.75rem"
+        },
+        medium: {
+          size: "2.5rem",
+          fontSize: "0.875rem"
+        },
+        large: {
+          size: "3rem",
+          fontSize: "1rem"
+        },
+        "x-large": {
+          size: "3.5rem",
+          fontSize: "1.125rem"
+        }
+      }
+    },
     text: {
       defaultVariant: "body",
       modes: {
