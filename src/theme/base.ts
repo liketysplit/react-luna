@@ -964,6 +964,27 @@ export const lunarTheme: Theme = {
           disabledLabelFg: "neutral.500"
         }
       }
+    },
+    tooltip: {
+      radius: "md",
+      maxWidth: "18rem",
+      offset: "2",
+      paddingX: "3",
+      paddingY: "2",
+      modes: {
+        light: {
+          bg: "neutral.900",
+          fg: "neutral.50",
+          border: "neutral.700",
+          shadow: "md"
+        },
+        dark: {
+          bg: "neutral.100",
+          fg: "neutral.900",
+          border: "neutral.300",
+          shadow: "md"
+        }
+      }
     }
   }
 };
