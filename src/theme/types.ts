@@ -294,6 +294,15 @@ export type ThemeAccordionModeTokens = {
   panelFg?: string;
 };
 
+export type ThemeDrawerPlacement = "left" | "right" | "top" | "bottom";
+
+export type ThemeDrawerModeTokens = {
+  bg?: string;
+  fg?: string;
+  border?: string;
+  backdrop?: string;
+};
+
 export type ThemeComponents = {
   button?: {
     defaultSize?: string;
@@ -395,6 +404,16 @@ export type ThemeComponents = {
         >
       >
     >;
+  };
+  drawer?: {
+    defaultPadding?: string;
+    defaultGap?: string;
+    defaultInset?: string;
+    defaultSize?: string;
+    defaultPlacement?: ThemeDrawerPlacement;
+    radius?: string;
+    shadow?: string;
+    modes?: Partial<Record<ThemeMode, ThemeDrawerModeTokens>>;
   };
   divider?: {
     defaultSpacing?: string;

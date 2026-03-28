@@ -62,4 +62,14 @@ describe("theme size contract", () => {
       "danger"
     ]);
   });
+
+  it("defines drawer defaults for the composite overlay surface", () => {
+    const drawer = lunarTheme.components.drawer;
+
+    expect(drawer?.defaultPlacement).toBe("right");
+    expect(drawer?.defaultPadding).toBe("5");
+    expect(drawer?.defaultGap).toBe("4");
+    expect(drawer?.defaultInset).toBe("4");
+    expect(drawer?.defaultSize).toBe("28rem");
+  });
 });
