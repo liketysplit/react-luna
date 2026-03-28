@@ -19,6 +19,7 @@ export * from "./luna-skeleton";
 export * from "./luna-spinner";
 export * from "./luna-switch";
 export * from "./luna-text";
+export * from "./luna-tooltip";
 export * from "./luna-row";
 export * from "./luna-column";
 export * from "./luna-grid";

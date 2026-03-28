@@ -210,6 +210,13 @@ export type ThemeCheckboxModeTokens = {
   disabledLabelFg?: string;
 };
 
+export type ThemeTooltipModeTokens = {
+  bg?: string;
+  fg?: string;
+  border?: string;
+  shadow?: string;
+};
+
 export type ThemeComponents = {
   button?: {
     defaultSize?: string;
@@ -306,6 +313,14 @@ export type ThemeComponents = {
     gap?: string;
     offsetY?: string;
     modes?: Partial<Record<ThemeMode, ThemeCheckboxModeTokens>>;
+  };
+  tooltip?: {
+    radius?: string;
+    maxWidth?: string;
+    offset?: string;
+    paddingX?: string;
+    paddingY?: string;
+    modes?: Partial<Record<ThemeMode, ThemeTooltipModeTokens>>;
   };
 };
 
