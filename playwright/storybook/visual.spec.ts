@@ -1,11 +1,40 @@
 import { expect, test } from "@playwright/test";
-import { mkdirSync } from "node:fs";
+import { mkdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { storybookCaptures } from "./manifest";
 
 const screenshotDir = join(process.cwd(), "artifacts", "storybook-screenshots");
+const requestedComponent = process.env.STORYBOOK_COMPONENT?.trim();
 
-for (const capture of storybookCaptures) {
+type StoryCapture = (typeof storybookCaptures)[number];
+
+function buildCapturesFromStorybookIndex(componentSlug: string): StoryCapture[] {
+  const normalizedComponent = componentSlug.replace(/-/g, "");
+  const storybookIndexPath = join(process.cwd(), "storybook-static", "index.json");
+  const storybookIndex = JSON.parse(readFileSync(storybookIndexPath, "utf8")) as {
+    entries: Record<string, { id: string }>;
+  };
+
+  return Object.keys(storybookIndex.entries)
+    .filter((storyId) => storyId.startsWith(`components-${normalizedComponent}--`))
+    .filter((storyId) => !storyId.endsWith("--docs"))
+    .sort()
+    .map((storyId) => {
+      const storyName = storyId.split("--")[1] ?? "story";
+      return {
+        storyId,
+        fileName: `${componentSlug}-${storyName}`,
+        backgrounds: storyName === "playground" ? ["light", "dark"] : ["light"]
+      };
+    });
+}
+
+const captures =
+  requestedComponent && requestedComponent.length > 0
+    ? buildCapturesFromStorybookIndex(requestedComponent)
+    : storybookCaptures;
+
+for (const capture of captures) {
   const backgrounds = capture.backgrounds ?? ["light"];
 
   for (const background of backgrounds) {
