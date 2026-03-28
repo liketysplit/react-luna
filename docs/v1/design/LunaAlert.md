@@ -6,6 +6,16 @@
 
 It should be usable anywhere an interface needs a visible inline message that remains part of the normal document flow.
 
+## Distinction From Other Feedback Surfaces
+
+The intended split is:
+
+- `LunaAlert` handles inline page-flow messaging
+- `LunaNotification` can grow into a broader application-level notification surface
+- `LunaToast` remains the transient overlay channel
+
+That keeps inline status blocks from being overloaded with global or ephemeral notification concerns.
+
 ## Design Rules
 
 - keep the contract smaller than a full notification system

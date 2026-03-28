@@ -15,6 +15,16 @@ It does not own:
 - toast or notification orchestration
 - application-specific message formatting
 
+## Position In The Feedback Stack
+
+The intended split is:
+
+- `LunaAlert`: inline, persistent feedback inside normal content flow
+- `LunaNotification`: broader application-level notification surface
+- `LunaToast`: transient overlay feedback
+
+`LunaAlert` should stay focused on durable inline messaging instead of growing into toast or notification-center behavior.
+
 ## Props
 
 - `as?: React.ElementType`
