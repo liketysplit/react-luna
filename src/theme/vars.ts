@@ -201,6 +201,52 @@ export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<str
       resolveTokenValue(theme, cardMode.hoverShadow);
   }
 
+  const alert = theme.components.alert;
+  if (alert?.defaultPadding) {
+    vars["--luna-alert-padding-default"] =
+      resolveScaleValue(theme.spacing, alert.defaultPadding) ?? alert.defaultPadding;
+  }
+  if (alert?.defaultGap) {
+    vars["--luna-alert-gap-default"] =
+      resolveScaleValue(theme.spacing, alert.defaultGap) ?? alert.defaultGap;
+  }
+  if (alert?.radius) {
+    vars["--luna-alert-radius"] = resolveScaleValue(theme.radii, alert.radius) ?? alert.radius;
+  }
+  const alertMode = alert?.tones?.[mode];
+  if (alertMode) {
+    for (const [toneName, emphasisMap] of Object.entries(alertMode)) {
+      if (!emphasisMap) {
+        continue;
+      }
+
+      for (const [emphasisName, surface] of Object.entries(emphasisMap)) {
+        if (!surface) {
+          continue;
+        }
+
+        if (surface.bg) {
+          vars[`--luna-alert-${toneName}-${emphasisName}-bg`] = resolveTokenValue(
+            theme,
+            surface.bg
+          );
+        }
+        if (surface.border) {
+          vars[`--luna-alert-${toneName}-${emphasisName}-border`] = resolveTokenValue(
+            theme,
+            surface.border
+          );
+        }
+        if (surface.fg) {
+          vars[`--luna-alert-${toneName}-${emphasisName}-fg`] = resolveTokenValue(
+            theme,
+            surface.fg
+          );
+        }
+      }
+    }
+  }
+
   const divider = theme.components.divider;
   if (divider?.defaultSpacing) {
     vars["--luna-divider-spacing-default"] =

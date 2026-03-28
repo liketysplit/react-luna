@@ -98,6 +98,15 @@ export type ThemeCardModeTokens = {
   hoverShadow?: string;
 };
 
+export type ThemeAlertTone = "neutral" | "info" | "success" | "warning" | "danger";
+export type ThemeAlertEmphasis = "soft" | "solid" | "outline";
+
+export type ThemeAlertSurfaceTokens = {
+  bg?: string;
+  border?: string;
+  fg?: string;
+};
+
 export type ThemeDividerModeTokens = {
   default?: string;
   muted?: string;
@@ -188,6 +197,17 @@ export type ThemeComponents = {
     defaultGap?: string;
     radius?: string;
     modes?: Partial<Record<ThemeMode, ThemeCardModeTokens>>;
+  };
+  alert?: {
+    defaultPadding?: string;
+    defaultGap?: string;
+    radius?: string;
+    tones?: Partial<
+      Record<
+        ThemeMode,
+        Partial<Record<ThemeAlertTone, Partial<Record<ThemeAlertEmphasis, ThemeAlertSurfaceTokens>>>>
+      >
+    >;
   };
   divider?: {
     defaultSpacing?: string;
