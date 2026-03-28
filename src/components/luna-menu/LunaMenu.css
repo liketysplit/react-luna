@@ -1,0 +1,100 @@
+.luna-menu {
+  position: relative;
+  display: inline-flex;
+  max-width: 100%;
+}
+
+.luna-menu__surface {
+  position: absolute;
+  z-index: 30;
+  top: calc(100% + var(--luna-menu-offset, var(--luna-space-2)));
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: max(12rem, 100%);
+  padding: 0.375rem;
+  border: 1px solid var(--luna-menu-border, var(--luna-border));
+  border-radius: var(--luna-menu-radius, var(--luna-radius-lg));
+  background: var(--luna-menu-bg, var(--luna-surface));
+  box-shadow: var(--luna-menu-shadow, var(--luna-shadow-lg));
+}
+
+.luna-menu[data-placement="bottom-end"] .luna-menu__surface {
+  left: auto;
+  right: 0;
+}
+
+.luna-menu__item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--luna-space-3);
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  border: 0;
+  border-radius: var(--luna-radius-md);
+  background: transparent;
+  color: var(--luna-menu-item-fg, var(--luna-foreground));
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color var(--luna-motion-fast),
+    color var(--luna-motion-fast);
+}
+
+.luna-menu__item:hover,
+.luna-menu__item[data-highlighted="true"] {
+  background: var(
+    --luna-menu-item-hover-bg,
+    color-mix(in srgb, var(--luna-menu-bg, var(--luna-surface)) 86%, var(--luna-color-primary-500))
+  );
+}
+
+.luna-menu__item:focus-visible {
+  outline: 2px solid var(--luna-color-accent-400);
+  outline-offset: 2px;
+}
+
+.luna-menu__item:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.luna-menu__item--destructive {
+  color: var(--luna-menu-item-destructive-fg, var(--luna-color-danger-600, #dc2626));
+}
+
+.luna-menu__body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.luna-menu__label {
+  font-family: var(--luna-font-family);
+  font-size: var(--luna-font-size-sm, 0.875rem);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.luna-menu__description {
+  color: var(--luna-menu-description-fg, var(--luna-muted));
+  font-family: var(--luna-font-family);
+  font-size: var(--luna-text-variant-caption-font-size, 0.75rem);
+  font-weight: var(--luna-text-variant-caption-font-weight, 500);
+  line-height: var(--luna-text-variant-caption-line-height, 1.4);
+}
+
+.luna-menu__shortcut {
+  flex: 0 0 auto;
+  color: var(--luna-menu-shortcut-fg, var(--luna-muted));
+  font-family: var(--luna-font-family);
+  font-size: var(--luna-text-variant-caption-font-size, 0.75rem);
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+}

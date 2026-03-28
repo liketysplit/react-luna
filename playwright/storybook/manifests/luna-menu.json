@@ -1,0 +1,22 @@
+[
+  {
+    "storyId": "components-lunamenu--basic",
+    "fileName": "luna-menu-basic",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunamenu--controlled",
+    "fileName": "luna-menu-controlled",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunamenu--dark-mode",
+    "fileName": "luna-menu-dark-mode",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunamenu--placements",
+    "fileName": "luna-menu-placements",
+    "backgrounds": ["light"]
+  }
+]
