@@ -1,0 +1,276 @@
+.luna-notification {
+  --luna-notification-current-bg: var(--luna-notification-neutral-soft-bg, var(--luna-surface));
+  --luna-notification-current-border: var(
+    --luna-notification-neutral-soft-border,
+    var(--luna-border)
+  );
+  --luna-notification-current-accent: var(
+    --luna-notification-neutral-soft-border,
+    var(--luna-border)
+  );
+  --luna-notification-current-fg: var(
+    --luna-notification-neutral-soft-fg,
+    var(--luna-foreground)
+  );
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(
+    --luna-notification-gap,
+    var(--luna-notification-gap-default, var(--luna-space-3))
+  );
+  width: 100%;
+  padding: var(
+    --luna-notification-padding,
+    var(--luna-notification-padding-default, var(--luna-space-4))
+  );
+  border: 1px solid var(--luna-notification-current-border);
+  border-radius: var(--luna-notification-radius, var(--luna-radius-lg));
+  background: var(--luna-notification-current-bg);
+  color: var(--luna-notification-current-fg);
+  box-shadow: var(--luna-notification-shadow, var(--luna-shadow-sm));
+  overflow: hidden;
+}
+
+.luna-notification::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: 0.375rem;
+  background: var(--luna-notification-current-accent);
+}
+
+.luna-notification--rounded {
+  border-radius: calc(var(--luna-notification-radius, var(--luna-radius-lg)) * 1.5);
+}
+
+.luna-notification__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-width: 1.25rem;
+  min-height: 1.25rem;
+  color: inherit;
+}
+
+.luna-notification__content {
+  display: grid;
+  gap: calc(
+    var(--luna-notification-gap, var(--luna-notification-gap-default, var(--luna-space-3))) * 0.5
+  );
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.luna-notification--title-only .luna-notification__content {
+  gap: 0;
+}
+
+.luna-notification__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--luna-space-3);
+  min-width: 0;
+}
+
+.luna-notification__title {
+  margin: 0;
+  min-width: 0;
+  font-size: var(--luna-text-variant-label-font-size, 0.875rem);
+  font-weight: var(--luna-text-variant-label-font-weight, 600);
+  line-height: var(--luna-text-variant-label-line-height, 1.4);
+  letter-spacing: var(--luna-text-variant-label-letter-spacing, 0.01em);
+}
+
+.luna-notification__meta {
+  margin: 0;
+  flex: 0 0 auto;
+  color: color-mix(in srgb, currentColor 72%, transparent);
+  font-size: var(--luna-text-variant-caption-font-size, 0.75rem);
+  font-weight: var(--luna-text-variant-caption-font-weight, 500);
+  line-height: var(--luna-text-variant-caption-line-height, 1.4);
+  letter-spacing: var(--luna-text-variant-caption-letter-spacing, 0.01em);
+  text-align: right;
+}
+
+.luna-notification__body,
+.luna-notification__action {
+  margin: 0;
+  font-size: var(--luna-text-variant-body-small-font-size, 0.875rem);
+  line-height: var(--luna-text-variant-body-small-line-height, 1.6);
+}
+
+.luna-notification__body > :first-child,
+.luna-notification__title > :first-child,
+.luna-notification__action > :first-child {
+  margin-top: 0;
+}
+
+.luna-notification__body > :last-child,
+.luna-notification__title > :last-child,
+.luna-notification__action > :last-child {
+  margin-bottom: 0;
+}
+
+.luna-notification__dismiss {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 1.875rem;
+  height: 1.875rem;
+  padding: 0;
+  border: 0;
+  border-radius: var(--luna-radius-pill);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.luna-notification__dismiss:hover {
+  background: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.luna-notification__dismiss:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.luna-notification[data-tone="neutral"][data-emphasis="soft"] {
+  --luna-notification-current-bg: var(--luna-notification-neutral-soft-bg);
+  --luna-notification-current-border: var(--luna-notification-neutral-soft-border);
+  --luna-notification-current-accent: var(--luna-notification-neutral-soft-border);
+  --luna-notification-current-fg: var(--luna-notification-neutral-soft-fg);
+}
+
+.luna-notification[data-tone="neutral"][data-emphasis="solid"] {
+  --luna-notification-current-bg: var(--luna-notification-neutral-solid-bg);
+  --luna-notification-current-border: var(--luna-notification-neutral-solid-border);
+  --luna-notification-current-accent: color-mix(
+    in srgb,
+    var(--luna-notification-neutral-solid-fg) 16%,
+    transparent
+  );
+  --luna-notification-current-fg: var(--luna-notification-neutral-solid-fg);
+}
+
+.luna-notification[data-tone="neutral"][data-emphasis="outline"] {
+  --luna-notification-current-bg: var(--luna-notification-neutral-outline-bg);
+  --luna-notification-current-border: var(--luna-notification-neutral-outline-border);
+  --luna-notification-current-accent: var(--luna-notification-neutral-outline-border);
+  --luna-notification-current-fg: var(--luna-notification-neutral-outline-fg);
+}
+
+.luna-notification[data-tone="info"][data-emphasis="soft"] {
+  --luna-notification-current-bg: var(--luna-notification-info-soft-bg);
+  --luna-notification-current-border: var(--luna-notification-info-soft-border);
+  --luna-notification-current-accent: var(--luna-notification-info-soft-border);
+  --luna-notification-current-fg: var(--luna-notification-info-soft-fg);
+}
+
+.luna-notification[data-tone="info"][data-emphasis="solid"] {
+  --luna-notification-current-bg: var(--luna-notification-info-solid-bg);
+  --luna-notification-current-border: var(--luna-notification-info-solid-border);
+  --luna-notification-current-accent: color-mix(
+    in srgb,
+    var(--luna-notification-info-solid-fg) 18%,
+    transparent
+  );
+  --luna-notification-current-fg: var(--luna-notification-info-solid-fg);
+}
+
+.luna-notification[data-tone="info"][data-emphasis="outline"] {
+  --luna-notification-current-bg: var(--luna-notification-info-outline-bg);
+  --luna-notification-current-border: var(--luna-notification-info-outline-border);
+  --luna-notification-current-accent: var(--luna-notification-info-outline-border);
+  --luna-notification-current-fg: var(--luna-notification-info-outline-fg);
+}
+
+.luna-notification[data-tone="success"][data-emphasis="soft"] {
+  --luna-notification-current-bg: var(--luna-notification-success-soft-bg);
+  --luna-notification-current-border: var(--luna-notification-success-soft-border);
+  --luna-notification-current-accent: var(--luna-notification-success-soft-border);
+  --luna-notification-current-fg: var(--luna-notification-success-soft-fg);
+}
+
+.luna-notification[data-tone="success"][data-emphasis="solid"] {
+  --luna-notification-current-bg: var(--luna-notification-success-solid-bg);
+  --luna-notification-current-border: var(--luna-notification-success-solid-border);
+  --luna-notification-current-accent: color-mix(
+    in srgb,
+    var(--luna-notification-success-solid-fg) 18%,
+    transparent
+  );
+  --luna-notification-current-fg: var(--luna-notification-success-solid-fg);
+}
+
+.luna-notification[data-tone="success"][data-emphasis="outline"] {
+  --luna-notification-current-bg: var(--luna-notification-success-outline-bg);
+  --luna-notification-current-border: var(--luna-notification-success-outline-border);
+  --luna-notification-current-accent: var(--luna-notification-success-outline-border);
+  --luna-notification-current-fg: var(--luna-notification-success-outline-fg);
+}
+
+.luna-notification[data-tone="warning"][data-emphasis="soft"] {
+  --luna-notification-current-bg: var(--luna-notification-warning-soft-bg);
+  --luna-notification-current-border: var(--luna-notification-warning-soft-border);
+  --luna-notification-current-accent: var(--luna-notification-warning-soft-border);
+  --luna-notification-current-fg: var(--luna-notification-warning-soft-fg);
+}
+
+.luna-notification[data-tone="warning"][data-emphasis="solid"] {
+  --luna-notification-current-bg: var(--luna-notification-warning-solid-bg);
+  --luna-notification-current-border: var(--luna-notification-warning-solid-border);
+  --luna-notification-current-accent: color-mix(
+    in srgb,
+    var(--luna-notification-warning-solid-fg) 18%,
+    transparent
+  );
+  --luna-notification-current-fg: var(--luna-notification-warning-solid-fg);
+}
+
+.luna-notification[data-tone="warning"][data-emphasis="outline"] {
+  --luna-notification-current-bg: var(--luna-notification-warning-outline-bg);
+  --luna-notification-current-border: var(--luna-notification-warning-outline-border);
+  --luna-notification-current-accent: var(--luna-notification-warning-outline-border);
+  --luna-notification-current-fg: var(--luna-notification-warning-outline-fg);
+}
+
+.luna-notification[data-tone="danger"][data-emphasis="soft"] {
+  --luna-notification-current-bg: var(--luna-notification-danger-soft-bg);
+  --luna-notification-current-border: var(--luna-notification-danger-soft-border);
+  --luna-notification-current-accent: var(--luna-notification-danger-soft-border);
+  --luna-notification-current-fg: var(--luna-notification-danger-soft-fg);
+}
+
+.luna-notification[data-tone="danger"][data-emphasis="solid"] {
+  --luna-notification-current-bg: var(--luna-notification-danger-solid-bg);
+  --luna-notification-current-border: var(--luna-notification-danger-solid-border);
+  --luna-notification-current-accent: color-mix(
+    in srgb,
+    var(--luna-notification-danger-solid-fg) 18%,
+    transparent
+  );
+  --luna-notification-current-fg: var(--luna-notification-danger-solid-fg);
+}
+
+.luna-notification[data-tone="danger"][data-emphasis="outline"] {
+  --luna-notification-current-bg: var(--luna-notification-danger-outline-bg);
+  --luna-notification-current-border: var(--luna-notification-danger-outline-border);
+  --luna-notification-current-accent: var(--luna-notification-danger-outline-border);
+  --luna-notification-current-fg: var(--luna-notification-danger-outline-fg);
+}
+
+@media (max-width: 640px) {
+  .luna-notification__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .luna-notification__meta {
+    text-align: left;
+  }
+}

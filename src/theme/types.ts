@@ -159,6 +159,12 @@ export type ThemeToastSurfaceTokens = {
   fg?: string;
 };
 
+export type ThemeNotificationSurfaceTokens = {
+  bg?: string;
+  border?: string;
+  fg?: string;
+};
+
 export type ThemeDividerModeTokens = {
   default?: string;
   muted?: string;
@@ -337,6 +343,23 @@ export type ThemeComponents = {
       Record<
         ThemeMode,
         Partial<Record<ThemeAlertTone, Partial<Record<ThemeAlertEmphasis, ThemeToastSurfaceTokens>>>>
+      >
+    >;
+  };
+  notification?: {
+    defaultPadding?: string;
+    defaultGap?: string;
+    radius?: string;
+    shadow?: string;
+    tones?: Partial<
+      Record<
+        ThemeMode,
+        Partial<
+          Record<
+            ThemeAlertTone,
+            Partial<Record<ThemeAlertEmphasis, ThemeNotificationSurfaceTokens>>
+          >
+        >
       >
     >;
   };
