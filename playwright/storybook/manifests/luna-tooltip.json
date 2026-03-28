@@ -1,0 +1,31 @@
+[
+  {
+    "storyId": "components-lunatooltip--disabled-tooltip",
+    "fileName": "luna-tooltip-disabled-tooltip",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunatooltip--placement-matrix",
+    "fileName": "luna-tooltip-placement-matrix",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunatooltip--playground",
+    "fileName": "luna-tooltip-playground",
+    "backgrounds": [
+      "light",
+      "dark"
+    ]
+  },
+  {
+    "storyId": "components-lunatooltip--rich-content-and-sizing",
+    "fileName": "luna-tooltip-rich-content-and-sizing",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]

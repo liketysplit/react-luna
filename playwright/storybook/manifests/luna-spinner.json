@@ -1,0 +1,38 @@
+[
+  {
+    "storyId": "components-lunaspinner--playground",
+    "fileName": "luna-spinner-playground",
+    "backgrounds": [
+      "light",
+      "dark"
+    ]
+  },
+  {
+    "storyId": "components-lunaspinner--semantic-usage",
+    "fileName": "luna-spinner-semantic-usage",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaspinner--size-scale",
+    "fileName": "luna-spinner-size-scale",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaspinner--surface-modes",
+    "fileName": "luna-spinner-surface-modes",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaspinner--theme-override",
+    "fileName": "luna-spinner-theme-override",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "storyId": "components-lunatextarea--auto-grow",
+    "fileName": "luna-textarea-auto-grow",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunatextarea--basic",
+    "fileName": "luna-textarea-basic",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunatextarea--dark-mode",
+    "fileName": "luna-textarea-dark-mode",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunatextarea--label-modes",
+    "fileName": "luna-textarea-label-modes",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunatextarea--resize-modes",
+    "fileName": "luna-textarea-resize-modes",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunatextarea--size-parity",
+    "fileName": "luna-textarea-size-parity",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunatextarea--states",
+    "fileName": "luna-textarea-states",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunatextarea--supporting-text",
+    "fileName": "luna-textarea-supporting-text",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]

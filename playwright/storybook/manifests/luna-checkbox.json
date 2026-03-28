@@ -1,0 +1,30 @@
+[
+  {
+    "storyId": "components-lunacheckbox--basic",
+    "fileName": "luna-checkbox-basic",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunacheckbox--dark-mode",
+    "fileName": "luna-checkbox-dark-mode",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunacheckbox--states",
+    "fileName": "luna-checkbox-states",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunacheckbox--support-text",
+    "fileName": "luna-checkbox-support-text",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]

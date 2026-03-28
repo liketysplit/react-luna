@@ -1,0 +1,30 @@
+[
+  {
+    "storyId": "components-lunatext--color-and-alignment",
+    "fileName": "luna-text-color-and-alignment",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunatext--decoration-and-overflow",
+    "fileName": "luna-text-decoration-and-overflow",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunatext--semantics",
+    "fileName": "luna-text-semantics",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunatext--variants",
+    "fileName": "luna-text-variants",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]

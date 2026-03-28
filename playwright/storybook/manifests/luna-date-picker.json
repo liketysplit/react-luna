@@ -1,0 +1,44 @@
+[
+  {
+    "storyId": "components-lunadatepicker--action-regions",
+    "fileName": "luna-date-picker-action-regions",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunadatepicker--dark-mode",
+    "fileName": "luna-date-picker-dark-mode",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunadatepicker--picker",
+    "fileName": "luna-date-picker-picker",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunadatepicker--range",
+    "fileName": "luna-date-picker-range",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunadatepicker--simple",
+    "fileName": "luna-date-picker-simple",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunadatepicker--states",
+    "fileName": "luna-date-picker-states",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "storyId": "components-lunaslider--basic",
+    "fileName": "luna-slider-basic",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaslider--dark-mode",
+    "fileName": "luna-slider-dark-mode",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaslider--states",
+    "fileName": "luna-slider-states",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaslider--without-value",
+    "fileName": "luna-slider-without-value",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]

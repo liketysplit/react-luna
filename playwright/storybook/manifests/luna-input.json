@@ -1,0 +1,58 @@
+[
+  {
+    "storyId": "components-lunainput--basic",
+    "fileName": "luna-input-basic",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunainput--dark-mode",
+    "fileName": "luna-input-dark-mode",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunainput--label-modes",
+    "fileName": "luna-input-label-modes",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunainput--leading-and-trailing",
+    "fileName": "luna-input-leading-and-trailing",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunainput--native-states",
+    "fileName": "luna-input-native-states",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunainput--size-parity",
+    "fileName": "luna-input-size-parity",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunainput--sizes",
+    "fileName": "luna-input-sizes",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunainput--supporting-text",
+    "fileName": "luna-input-supporting-text",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]

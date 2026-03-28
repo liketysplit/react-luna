@@ -1,0 +1,38 @@
+[
+  {
+    "storyId": "components-lunaprogress--custom-value-label",
+    "fileName": "luna-progress-custom-value-label",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaprogress--indeterminate",
+    "fileName": "luna-progress-indeterminate",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaprogress--playground",
+    "fileName": "luna-progress-playground",
+    "backgrounds": [
+      "light",
+      "dark"
+    ]
+  },
+  {
+    "storyId": "components-lunaprogress--size-scale",
+    "fileName": "luna-progress-size-scale",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaprogress--tone-matrix",
+    "fileName": "luna-progress-tone-matrix",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]
