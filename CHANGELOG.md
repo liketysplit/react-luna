@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.15.0
+
+### Minor Changes
+
+- 7ec12e8: Add the `LunaHoverText` primitive with inline hover and focus copy swapping, Storybook coverage, tests, and docs.
+
 ## 0.14.0
 
 ### Minor Changes
