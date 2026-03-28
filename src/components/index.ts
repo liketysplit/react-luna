@@ -22,6 +22,7 @@ export * from "./luna-autocomplete";
 export * from "./luna-skeleton";
 export * from "./luna-spinner";
 export * from "./luna-switch";
+export * from "./luna-table";
 export * from "./luna-tag";
 export * from "./luna-tabs";
 export * from "./luna-text";

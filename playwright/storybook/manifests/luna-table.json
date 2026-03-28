@@ -1,0 +1,22 @@
+[
+  {
+    "storyId": "components-lunatable--basic",
+    "fileName": "luna-table-basic",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunatable--density",
+    "fileName": "luna-table-density",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunatable--empty-state",
+    "fileName": "luna-table-empty-state",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunatable--sticky-header",
+    "fileName": "luna-table-sticky-header",
+    "backgrounds": ["light"]
+  }
+]
