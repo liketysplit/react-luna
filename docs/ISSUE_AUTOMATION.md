@@ -54,6 +54,24 @@ Use labels like:
 
 These labels are operational labels. They do not replace the existing domain and phase labels.
 
+## Issue Templates
+
+Automation works better when issues are shaped consistently.
+
+Use the repository issue templates for:
+
+- Codex-ready component work
+- Codex-ready hardening or docs work
+
+The issue should already answer:
+
+- why this exists
+- what the contract or scope is
+- what outputs are required
+- what done looks like
+
+If an issue does not answer those cleanly, it is usually not ready for `codex-ready`.
+
 ## Trigger Model
 
 Preferred trigger model:

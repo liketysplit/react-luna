@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: React-Luna Automation Guide
+    url: ./docs/ISSUE_AUTOMATION.md
+    about: Read this before marking work as Codex-ready.

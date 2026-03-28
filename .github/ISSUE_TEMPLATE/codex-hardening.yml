@@ -1,0 +1,59 @@
+name: Codex-Ready Hardening Or Docs Work
+description: Create a hardening, documentation, or maintenance issue that is ready for Codex to turn into a draft pull request.
+title: "Harden ... "
+labels:
+  - maintenance
+body:
+  - type: textarea
+    id: why
+    attributes:
+      label: Why This Exists
+      description: Describe the gap, drift, or risk this issue is addressing.
+      placeholder: Explain the quality, docs, workflow, or release problem.
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: Define the boundaries so the work is safe to automate.
+      placeholder: |
+        - files or areas likely involved
+        - what should change
+        - what must not change
+    validations:
+      required: true
+
+  - type: textarea
+    id: outputs
+    attributes:
+      label: Required Outputs
+      description: State what should be included in the completed change.
+      value: |
+        - implementation or docs update
+        - tests where needed
+        - Storybook update when relevant
+        - summary of verification
+    validations:
+      required: true
+
+  - type: textarea
+    id: done
+    attributes:
+      label: Done Looks Like
+      description: State the observable acceptance criteria.
+      placeholder: What should be true when this issue is ready for review?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: automation
+    attributes:
+      label: Automation Readiness
+      description: Decide whether this issue should be eligible for Codex automation.
+      options:
+        - Not ready yet
+        - Ready for codex-ready label
+    validations:
+      required: true
