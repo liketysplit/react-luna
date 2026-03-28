@@ -51,6 +51,7 @@ The current shipped base already includes:
 - `LunaRow`
 - `LunaSelect`
 - `LunaSlider`
+- `LunaSpinner`
 - `LunaSwitch`
 - `LunaText`
 - `LunaTextarea`
@@ -78,7 +79,6 @@ The following still appear missing from the base roadmap and should be added wit
 
 - `LunaSkeleton`
 - `LunaProgress`
-- `LunaSpinner`
 - `LunaEmptyState`
 - `LunaAlert`
 

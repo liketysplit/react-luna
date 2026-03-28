@@ -393,6 +393,43 @@ export const lunarTheme: Theme = {
         }
       }
     },
+    spinner: {
+      defaultSize: "medium",
+      duration: "900ms",
+      defaultLabel: "Loading",
+      sizes: {
+        "x-small": {
+          size: "3",
+          strokeWidth: "0.125rem"
+        },
+        small: {
+          size: "4",
+          strokeWidth: "0.125rem"
+        },
+        medium: {
+          size: "5",
+          strokeWidth: "0.1875rem"
+        },
+        large: {
+          size: "6",
+          strokeWidth: "0.1875rem"
+        },
+        "x-large": {
+          size: "8",
+          strokeWidth: "0.25rem"
+        }
+      },
+      modes: {
+        light: {
+          color: "primary.600",
+          track: "rgba(148, 163, 184, 0.24)"
+        },
+        dark: {
+          color: "primary.300",
+          track: "rgba(226, 232, 240, 0.22)"
+        }
+      }
+    },
     input: {
       defaultSize: "md",
       radius: "md",

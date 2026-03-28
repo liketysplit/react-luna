@@ -115,6 +115,16 @@ export type ThemeSkeletonModeTokens = {
   highlight?: string;
 };
 
+export type ThemeSpinnerSizeProfile = {
+  size?: string;
+  strokeWidth?: string;
+};
+
+export type ThemeSpinnerModeTokens = {
+  color?: string;
+  track?: string;
+};
+
 export type ThemeInputSizeProfile = {
   minHeight?: string;
   paddingX?: string;
@@ -201,6 +211,13 @@ export type ThemeComponents = {
     textRadius?: string;
     sizes?: Record<string, ThemeSkeletonSizeProfile>;
     modes?: Partial<Record<ThemeMode, ThemeSkeletonModeTokens>>;
+  };
+  spinner?: {
+    defaultSize?: string;
+    duration?: string;
+    defaultLabel?: string;
+    sizes?: Record<string, ThemeSpinnerSizeProfile>;
+    modes?: Partial<Record<ThemeMode, ThemeSpinnerModeTokens>>;
   };
   input?: {
     defaultSize?: string;

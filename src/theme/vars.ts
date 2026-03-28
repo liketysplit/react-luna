@@ -258,6 +258,37 @@ export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<str
     }
   }
 
+  const spinner = theme.components.spinner;
+  if (spinner?.defaultSize) {
+    vars["--luna-spinner-size-default"] = spinner.defaultSize;
+  }
+  if (spinner?.duration) {
+    vars["--luna-spinner-duration"] =
+      resolveScaleValue(theme.motion, spinner.duration) ?? spinner.duration;
+  }
+  if (spinner?.defaultLabel) {
+    vars["--luna-spinner-label-default"] = spinner.defaultLabel;
+  }
+  const spinnerMode = spinner?.modes?.[mode];
+  if (spinnerMode?.color) {
+    vars["--luna-spinner-color"] = resolveTokenValue(theme, spinnerMode.color);
+  }
+  if (spinnerMode?.track) {
+    vars["--luna-spinner-track"] = resolveTokenValue(theme, spinnerMode.track);
+  }
+  if (spinner?.sizes) {
+    for (const [name, profile] of Object.entries(spinner.sizes)) {
+      if (profile.size) {
+        vars[`--luna-spinner-size-${name}`] =
+          resolveScaleValue(theme.spacing, profile.size) ?? profile.size;
+      }
+      if (profile.strokeWidth) {
+        vars[`--luna-spinner-size-${name}-stroke-width`] =
+          resolveScaleValue(theme.spacing, profile.strokeWidth) ?? profile.strokeWidth;
+      }
+    }
+  }
+
   const input = theme.components.input;
   if (input?.defaultSize) {
     vars["--luna-input-size-default"] = input.defaultSize;

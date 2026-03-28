@@ -14,6 +14,7 @@ export * from "./luna-select";
 export * from "./luna-multiselect";
 export * from "./luna-autocomplete";
 export * from "./luna-skeleton";
+export * from "./luna-spinner";
 export * from "./luna-switch";
 export * from "./luna-text";
 export * from "./luna-row";
