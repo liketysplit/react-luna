@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.0
+
+### Minor Changes
+
+- 4fad198: Add the new `LunaTabs` composite with controlled and uncontrolled selection, keyboard navigation, Storybook coverage, tests, and public docs.
+
 ## 0.9.0
 
 ### Minor Changes
