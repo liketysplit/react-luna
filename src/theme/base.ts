@@ -360,6 +360,39 @@ export const lunarTheme: Theme = {
         }
       }
     },
+    skeleton: {
+      defaultSize: "medium",
+      defaultAnimation: "wave",
+      radius: "md",
+      textRadius: "pill",
+      sizes: {
+        "x-small": {
+          height: "0.375rem"
+        },
+        small: {
+          height: "0.5rem"
+        },
+        medium: {
+          height: "0.75rem"
+        },
+        large: {
+          height: "1rem"
+        },
+        "x-large": {
+          height: "1.25rem"
+        }
+      },
+      modes: {
+        light: {
+          bg: "neutral.200",
+          highlight: "rgba(255, 255, 255, 0.55)"
+        },
+        dark: {
+          bg: "neutral.700",
+          highlight: "rgba(248, 250, 252, 0.16)"
+        }
+      }
+    },
     input: {
       defaultSize: "md",
       radius: "md",

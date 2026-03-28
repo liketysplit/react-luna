@@ -227,6 +227,37 @@ export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<str
     vars["--luna-divider-label-fg"] = resolveTokenValue(theme, dividerMode.labelFg);
   }
 
+  const skeleton = theme.components.skeleton;
+  if (skeleton?.defaultSize) {
+    vars["--luna-skeleton-size-default"] = skeleton.defaultSize;
+  }
+  if (skeleton?.defaultAnimation) {
+    vars["--luna-skeleton-animation-default"] = skeleton.defaultAnimation;
+  }
+  if (skeleton?.radius) {
+    vars["--luna-skeleton-radius"] =
+      resolveScaleValue(theme.radii, skeleton.radius) ?? skeleton.radius;
+  }
+  if (skeleton?.textRadius) {
+    vars["--luna-skeleton-text-radius"] =
+      resolveScaleValue(theme.radii, skeleton.textRadius) ?? skeleton.textRadius;
+  }
+  const skeletonMode = skeleton?.modes?.[mode];
+  if (skeletonMode?.bg) {
+    vars["--luna-skeleton-bg"] = resolveTokenValue(theme, skeletonMode.bg);
+  }
+  if (skeletonMode?.highlight) {
+    vars["--luna-skeleton-highlight"] = resolveTokenValue(theme, skeletonMode.highlight);
+  }
+  if (skeleton?.sizes) {
+    for (const [name, profile] of Object.entries(skeleton.sizes)) {
+      if (profile.height) {
+        vars[`--luna-skeleton-size-${name}-height`] =
+          resolveScaleValue(theme.spacing, profile.height) ?? profile.height;
+      }
+    }
+  }
+
   const input = theme.components.input;
   if (input?.defaultSize) {
     vars["--luna-input-size-default"] = input.defaultSize;

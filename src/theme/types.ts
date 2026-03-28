@@ -106,6 +106,15 @@ export type ThemeDividerModeTokens = {
   labelFg?: string;
 };
 
+export type ThemeSkeletonSizeProfile = {
+  height?: string;
+};
+
+export type ThemeSkeletonModeTokens = {
+  bg?: string;
+  highlight?: string;
+};
+
 export type ThemeInputSizeProfile = {
   minHeight?: string;
   paddingX?: string;
@@ -184,6 +193,14 @@ export type ThemeComponents = {
     defaultSpacing?: string;
     defaultInset?: string;
     modes?: Partial<Record<ThemeMode, ThemeDividerModeTokens>>;
+  };
+  skeleton?: {
+    defaultSize?: string;
+    defaultAnimation?: "pulse" | "wave" | "none";
+    radius?: string;
+    textRadius?: string;
+    sizes?: Record<string, ThemeSkeletonSizeProfile>;
+    modes?: Partial<Record<ThemeMode, ThemeSkeletonModeTokens>>;
   };
   input?: {
     defaultSize?: string;
