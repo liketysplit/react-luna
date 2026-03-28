@@ -1,0 +1,80 @@
+.luna-empty-state {
+  display: grid;
+  justify-items: var(--luna-empty-state-align, center);
+  gap: var(--luna-empty-state-gap, var(--luna-empty-state-gap-default, var(--luna-space-4)));
+  width: min(100%, var(--luna-empty-state-max-width, 32rem));
+  padding: var(
+    --luna-empty-state-padding,
+    var(--luna-empty-state-padding-default, var(--luna-space-6))
+  );
+  border: 1px solid transparent;
+  border-radius: var(--luna-empty-state-radius, var(--luna-radius-lg));
+  background: transparent;
+  color: var(--luna-empty-state-fg, var(--luna-foreground));
+  text-align: var(--luna-empty-state-text-align, center);
+}
+
+.luna-empty-state--framed {
+  border-color: var(--luna-empty-state-border, var(--luna-border));
+  background: var(--luna-empty-state-bg, var(--luna-surface));
+}
+
+.luna-empty-state--rounded {
+  border-radius: calc(var(--luna-empty-state-radius, var(--luna-radius-lg)) * 1.5);
+}
+
+.luna-empty-state__media {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--luna-empty-state-media-size, 5rem);
+  min-width: var(--luna-empty-state-media-size, 5rem);
+  height: var(--luna-empty-state-media-size, 5rem);
+  min-height: var(--luna-empty-state-media-size, 5rem);
+  padding: calc(var(--luna-empty-state-media-size, 5rem) * 0.2);
+  border: 1px solid var(--luna-empty-state-media-border, var(--luna-border));
+  border-radius: var(--luna-empty-state-media-radius, var(--luna-radius-pill));
+  background: var(--luna-empty-state-media-bg, var(--luna-surface));
+  color: inherit;
+}
+
+.luna-empty-state__media > * {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.luna-empty-state__content {
+  display: grid;
+  gap: calc(
+    var(--luna-empty-state-gap, var(--luna-empty-state-gap-default, var(--luna-space-4))) * 0.5
+  );
+  min-width: 0;
+  width: 100%;
+}
+
+.luna-empty-state--title-only .luna-empty-state__content {
+  gap: 0;
+}
+
+.luna-empty-state__title,
+.luna-empty-state__description {
+  margin: 0;
+}
+
+.luna-empty-state__description {
+  color: var(--luna-empty-state-muted-fg, var(--luna-muted));
+}
+
+.luna-empty-state__title > :first-child,
+.luna-empty-state__description > :first-child {
+  margin-top: 0;
+}
+
+.luna-empty-state__title > :last-child,
+.luna-empty-state__description > :last-child {
+  margin-bottom: 0;
+}
+
+.luna-empty-state__actions {
+  width: 100%;
+}

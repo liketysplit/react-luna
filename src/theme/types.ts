@@ -112,6 +112,15 @@ export type ThemeCardModeTokens = {
   hoverShadow?: string;
 };
 
+export type ThemeEmptyStateModeTokens = {
+  bg?: string;
+  fg?: string;
+  border?: string;
+  mutedFg?: string;
+  mediaBg?: string;
+  mediaBorder?: string;
+};
+
 export type ThemeAlertTone = "neutral" | "info" | "success" | "warning" | "danger";
 export type ThemeAlertEmphasis = "soft" | "solid" | "outline";
 export type ThemeBadgeTone = "neutral" | "info" | "success" | "warning" | "danger";
@@ -281,6 +290,16 @@ export type ThemeComponents = {
     defaultGap?: string;
     radius?: string;
     modes?: Partial<Record<ThemeMode, ThemeCardModeTokens>>;
+  };
+  emptyState?: {
+    defaultPadding?: string;
+    defaultGap?: string;
+    defaultActionsGap?: string;
+    maxWidth?: string;
+    mediaSize?: string;
+    radius?: string;
+    mediaRadius?: string;
+    modes?: Partial<Record<ThemeMode, ThemeEmptyStateModeTokens>>;
   };
   alert?: {
     defaultPadding?: string;

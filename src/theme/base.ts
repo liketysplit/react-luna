@@ -425,6 +425,33 @@ export const lunarTheme: Theme = {
         }
       }
     },
+    emptyState: {
+      defaultPadding: "6",
+      defaultGap: "4",
+      defaultActionsGap: "3",
+      maxWidth: "32rem",
+      mediaSize: "5rem",
+      radius: "lg",
+      mediaRadius: "pill",
+      modes: {
+        light: {
+          bg: "neutral.100",
+          fg: "neutral.900",
+          border: "neutral.200",
+          mutedFg: "neutral.600",
+          mediaBg: "primary.50",
+          mediaBorder: "primary.100"
+        },
+        dark: {
+          bg: "neutral.800",
+          fg: "neutral.50",
+          border: "neutral.700",
+          mutedFg: "neutral.300",
+          mediaBg: "neutral.700",
+          mediaBorder: "neutral.600"
+        }
+      }
+    },
     alert: {
       defaultPadding: "4",
       defaultGap: "3",

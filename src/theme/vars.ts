@@ -201,6 +201,55 @@ export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<str
       resolveTokenValue(theme, cardMode.hoverShadow);
   }
 
+  const emptyState = theme.components.emptyState;
+  if (emptyState?.defaultPadding) {
+    vars["--luna-empty-state-padding-default"] =
+      resolveScaleValue(theme.spacing, emptyState.defaultPadding) ?? emptyState.defaultPadding;
+  }
+  if (emptyState?.defaultGap) {
+    vars["--luna-empty-state-gap-default"] =
+      resolveScaleValue(theme.spacing, emptyState.defaultGap) ?? emptyState.defaultGap;
+  }
+  if (emptyState?.defaultActionsGap) {
+    vars["--luna-empty-state-actions-gap-default"] =
+      resolveScaleValue(theme.spacing, emptyState.defaultActionsGap) ?? emptyState.defaultActionsGap;
+  }
+  if (emptyState?.maxWidth) {
+    vars["--luna-empty-state-max-width"] =
+      resolveScaleValue(theme.spacing, emptyState.maxWidth) ?? emptyState.maxWidth;
+  }
+  if (emptyState?.mediaSize) {
+    vars["--luna-empty-state-media-size"] =
+      resolveScaleValue(theme.spacing, emptyState.mediaSize) ?? emptyState.mediaSize;
+  }
+  if (emptyState?.radius) {
+    vars["--luna-empty-state-radius"] =
+      resolveScaleValue(theme.radii, emptyState.radius) ?? emptyState.radius;
+  }
+  if (emptyState?.mediaRadius) {
+    vars["--luna-empty-state-media-radius"] =
+      resolveScaleValue(theme.radii, emptyState.mediaRadius) ?? emptyState.mediaRadius;
+  }
+  const emptyStateMode = emptyState?.modes?.[mode];
+  if (emptyStateMode?.bg) {
+    vars["--luna-empty-state-bg"] = resolveTokenValue(theme, emptyStateMode.bg);
+  }
+  if (emptyStateMode?.fg) {
+    vars["--luna-empty-state-fg"] = resolveTokenValue(theme, emptyStateMode.fg);
+  }
+  if (emptyStateMode?.border) {
+    vars["--luna-empty-state-border"] = resolveTokenValue(theme, emptyStateMode.border);
+  }
+  if (emptyStateMode?.mutedFg) {
+    vars["--luna-empty-state-muted-fg"] = resolveTokenValue(theme, emptyStateMode.mutedFg);
+  }
+  if (emptyStateMode?.mediaBg) {
+    vars["--luna-empty-state-media-bg"] = resolveTokenValue(theme, emptyStateMode.mediaBg);
+  }
+  if (emptyStateMode?.mediaBorder) {
+    vars["--luna-empty-state-media-border"] = resolveTokenValue(theme, emptyStateMode.mediaBorder);
+  }
+
   const alert = theme.components.alert;
   if (alert?.defaultPadding) {
     vars["--luna-alert-padding-default"] =
