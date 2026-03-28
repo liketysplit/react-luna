@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.0
+
+### Minor Changes
+
+- 863cb12: Add the new `LunaTooltip` primitive with theme support, Storybook coverage, tests, and docs.
+
 ## 0.4.0
 
 ### Minor Changes
