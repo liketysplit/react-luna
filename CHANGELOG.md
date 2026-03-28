@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.13.0
+
+### Minor Changes
+
+- 4acdedf: Add the `LunaPagination` composite with Storybook coverage, tests, and public documentation.
+
 ## 0.12.0
 
 ### Minor Changes
