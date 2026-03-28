@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.7.0
+
+### Minor Changes
+
+- c2e2d29: Add the LunaBadge primitive with theme-aware tone and variant styling, Storybook coverage, tests, and docs.
+
 ## 0.6.0
 
 ### Minor Changes
