@@ -73,6 +73,15 @@ describe("theme size contract", () => {
     expect(drawer?.defaultSize).toBe("28rem");
   });
 
+  it("defines sidebar defaults for the persistent side surface", () => {
+    const sidebar = lunarTheme.components.sidebar;
+
+    expect(sidebar?.defaultWidth).toBe("18rem");
+    expect(sidebar?.defaultPadding).toBe("5");
+    expect(sidebar?.defaultGap).toBe("4");
+    expect(sidebar?.defaultStickyOffset).toBe("4");
+  });
+
   it("defines modal defaults and supported size tiers", () => {
     const modal = lunarTheme.components.modal;
 

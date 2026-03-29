@@ -1287,6 +1287,28 @@ export const lunarTheme: Theme = {
         }
       }
     },
+    sidebar: {
+      defaultWidth: "18rem",
+      defaultPadding: "5",
+      defaultGap: "4",
+      defaultStickyOffset: "4",
+      radius: "lg",
+      shadow: "sm",
+      modes: {
+        light: {
+          bg: "neutral.50",
+          fg: "neutral.900",
+          border: "neutral.200",
+          shadow: "0 10px 28px rgba(15, 23, 42, 0.08)"
+        },
+        dark: {
+          bg: "neutral.800",
+          fg: "neutral.50",
+          border: "neutral.700",
+          shadow: "0 14px 32px rgba(2, 6, 23, 0.28)"
+        }
+      }
+    },
     drawer: {
       defaultPadding: "5",
       defaultGap: "4",

@@ -17,6 +17,7 @@ export * from "./luna-input";
 export * from "./luna-menu";
 export * from "./luna-progress";
 export * from "./luna-slider";
+export * from "./luna-sidebar";
 export * from "./luna-textarea";
 export * from "./luna-select";
 export * from "./luna-multiselect";

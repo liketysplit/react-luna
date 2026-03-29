@@ -1,0 +1,12 @@
+[
+  {
+    "storyId": "components-lunasidebar--playground",
+    "fileName": "luna-sidebar-playground",
+    "backgrounds": ["light", "dark"]
+  },
+  {
+    "storyId": "components-lunasidebar--layout-preview",
+    "fileName": "luna-sidebar-layout-preview",
+    "backgrounds": ["light"]
+  }
+]

@@ -201,6 +201,47 @@ export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<str
       resolveTokenValue(theme, cardMode.hoverShadow);
   }
 
+  const sidebar = theme.components.sidebar;
+  if (sidebar?.defaultWidth) {
+    vars["--luna-sidebar-width-default"] =
+      resolveScaleValue(theme.spacing, sidebar.defaultWidth) ?? sidebar.defaultWidth;
+  }
+  if (sidebar?.defaultPadding) {
+    vars["--luna-sidebar-padding-default"] =
+      resolveScaleValue(theme.spacing, sidebar.defaultPadding) ?? sidebar.defaultPadding;
+  }
+  if (sidebar?.defaultGap) {
+    vars["--luna-sidebar-gap-default"] =
+      resolveScaleValue(theme.spacing, sidebar.defaultGap) ?? sidebar.defaultGap;
+  }
+  if (sidebar?.defaultStickyOffset) {
+    vars["--luna-sidebar-sticky-offset-default"] =
+      resolveScaleValue(theme.spacing, sidebar.defaultStickyOffset) ?? sidebar.defaultStickyOffset;
+  }
+  if (sidebar?.radius) {
+    vars["--luna-sidebar-radius"] =
+      resolveScaleValue(theme.radii, sidebar.radius) ?? sidebar.radius;
+  }
+  if (sidebar?.shadow) {
+    vars["--luna-sidebar-shadow"] =
+      resolveScaleValue(theme.shadows, sidebar.shadow) ?? resolveTokenValue(theme, sidebar.shadow);
+  }
+  const sidebarMode = sidebar?.modes?.[mode];
+  if (sidebarMode?.bg) {
+    vars["--luna-sidebar-bg"] = resolveTokenValue(theme, sidebarMode.bg);
+  }
+  if (sidebarMode?.fg) {
+    vars["--luna-sidebar-fg"] = resolveTokenValue(theme, sidebarMode.fg);
+  }
+  if (sidebarMode?.border) {
+    vars["--luna-sidebar-border"] = resolveTokenValue(theme, sidebarMode.border);
+  }
+  if (sidebarMode?.shadow) {
+    vars["--luna-sidebar-shadow"] =
+      resolveScaleValue(theme.shadows, sidebarMode.shadow) ??
+      resolveTokenValue(theme, sidebarMode.shadow);
+  }
+
   const accordion = theme.components.accordion;
   if (accordion?.defaultGap) {
     vars["--luna-accordion-gap-default"] =

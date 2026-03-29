@@ -294,6 +294,13 @@ export type ThemeAccordionModeTokens = {
   panelFg?: string;
 };
 
+export type ThemeSidebarModeTokens = {
+  bg?: string;
+  fg?: string;
+  border?: string;
+  shadow?: string;
+};
+
 export type ThemeDrawerPlacement = "left" | "right" | "top" | "bottom";
 
 export type ThemeDrawerModeTokens = {
@@ -416,6 +423,15 @@ export type ThemeComponents = {
         >
       >
     >;
+  };
+  sidebar?: {
+    defaultWidth?: string;
+    defaultPadding?: string;
+    defaultGap?: string;
+    defaultStickyOffset?: string;
+    radius?: string;
+    shadow?: string;
+    modes?: Partial<Record<ThemeMode, ThemeSidebarModeTokens>>;
   };
   drawer?: {
     defaultPadding?: string;
