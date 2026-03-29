@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.18.0
+
+### Minor Changes
+
+- 8eebb12: Add the `LunaBreadcrumb` composite with Storybook coverage, theme support, tests, and docs.
+
 ## 0.17.0
 
 ### Minor Changes
