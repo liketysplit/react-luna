@@ -1,0 +1,59 @@
+.luna-notification-group {
+  width: min(100%, var(--luna-notification-group-max-width, 100%));
+}
+
+.luna-notification-group--framed {
+  padding: var(--luna-notification-group-padding, var(--luna-space-4));
+  border: 1px solid color-mix(in srgb, var(--luna-border) 88%, transparent);
+  border-radius: var(--luna-radius-xl);
+  background: color-mix(in srgb, var(--luna-surface-alt) 80%, transparent);
+}
+
+.luna-notification-group--rounded {
+  border-radius: calc(var(--luna-radius-xl) * 1.25);
+}
+
+.luna-notification-group__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--luna-space-3);
+}
+
+.luna-notification-group__header-copy {
+  display: grid;
+  gap: calc(var(--luna-notification-group-gap, var(--luna-space-4)) * 0.3334);
+  min-width: 0;
+}
+
+.luna-notification-group__title {
+  margin: 0;
+}
+
+.luna-notification-group__description {
+  margin: 0;
+}
+
+.luna-notification-group__actions {
+  flex: 0 0 auto;
+}
+
+.luna-notification-group__items {
+  display: grid;
+  gap: var(--luna-notification-group-gap, var(--luna-space-4));
+  margin-top: var(--luna-space-4);
+}
+
+.luna-notification-group--header-only .luna-notification-group__header {
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .luna-notification-group__header {
+    flex-direction: column;
+  }
+
+  .luna-notification-group__actions {
+    width: 100%;
+  }
+}
