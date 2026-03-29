@@ -43,12 +43,14 @@ jobs:
             core.exportVariable('STORYBOOK_COMPONENT', component);
             core.info(component
               ? `Resolved Storybook component target: ${component}`
-              : 'No storybook-component marker found in PR body; using manifest fallback.');
+              : 'No storybook-component marker found in PR body; skipping screenshot capture.');
 
       - name: Capture Storybook screenshots
+        if: env.STORYBOOK_COMPONENT != ''
         run: npm run screenshots:storybook
 
       - name: Publish screenshots to preview branch
+        if: env.STORYBOOK_COMPONENT != ''
         continue-on-error: true
         env:
           PREVIEW_BRANCH: storybook-visuals
@@ -83,7 +85,7 @@ jobs:
           fi
 
       - name: Comment on PR with inline screenshot links
-        if: always()
+        if: env.STORYBOOK_COMPONENT != ''
         continue-on-error: true
         uses: actions/github-script@v7
         env:

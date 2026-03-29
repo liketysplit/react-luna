@@ -48,7 +48,7 @@ function buildCapturesFromStorybookIndex(componentSlug: string): StoryCapture[] 
 const captures =
   requestedComponent && requestedComponent.length > 0
     ? loadBranchManifest(requestedComponent) ?? buildCapturesFromStorybookIndex(requestedComponent)
-    : storybookCaptures;
+    : [];
 
 for (const capture of captures) {
   const backgrounds = capture.backgrounds ?? ["light"];
