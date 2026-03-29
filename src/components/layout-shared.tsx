@@ -125,10 +125,10 @@ export function stripLayoutChildProps(child: React.ReactNode) {
     return child;
   }
 
-  const nextProps = { ...props };
-  delete nextProps.colSpan;
-  delete nextProps["data-col-span"];
-  return React.cloneElement(child, nextProps);
+  return React.cloneElement(child, {
+    colSpan: undefined,
+    ["data-col-span"]: undefined
+  });
 }
 
 export function buildSpanStyle(span: LunaLayoutSpan): React.CSSProperties {
