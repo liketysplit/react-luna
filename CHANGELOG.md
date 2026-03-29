@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.19.0
+
+### Minor Changes
+
+- e9182fc: Add the new `LunaRadioGroup` composite for grouped single-choice selection on top of `LunaRadio`.
+- b212974: Add the new `LunaCheckboxGroup` composite for grouped checkbox selection on top of `LunaCheckbox`.
+
 ## 0.18.0
 
 ### Minor Changes
