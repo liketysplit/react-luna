@@ -1,0 +1,117 @@
+.luna-breadcrumb {
+  display: block;
+}
+
+.luna-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--luna-breadcrumb-current-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.luna-breadcrumb__entry {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--luna-breadcrumb-current-separator-gap);
+  min-width: 0;
+}
+
+.luna-breadcrumb__item,
+.luna-breadcrumb__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--luna-breadcrumb-current-min-height);
+  padding: var(--luna-breadcrumb-current-padding-y) var(--luna-breadcrumb-current-padding-x);
+  border-radius: var(--luna-breadcrumb-radius, var(--luna-radius-sm, 0.375rem));
+  font: inherit;
+  font-size: var(--luna-breadcrumb-current-font-size);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.luna-breadcrumb__item {
+  color: var(--luna-breadcrumb-link-fg, var(--luna-foreground));
+  text-decoration: none;
+  background: transparent;
+  border: none;
+}
+
+a.luna-breadcrumb__item,
+button.luna-breadcrumb__item {
+  cursor: pointer;
+  transition:
+    background-color var(--luna-motion-fast, 120ms) ease,
+    color var(--luna-motion-fast, 120ms) ease,
+    box-shadow var(--luna-motion-fast, 120ms) ease;
+}
+
+a.luna-breadcrumb__item:hover,
+button.luna-breadcrumb__item:hover {
+  background: var(--luna-breadcrumb-hover-bg, color-mix(in srgb, var(--luna-surface) 72%, transparent));
+}
+
+a.luna-breadcrumb__item:focus-visible,
+button.luna-breadcrumb__item:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--luna-breadcrumb-focus-ring, rgba(99, 102, 241, 0.18));
+}
+
+.luna-breadcrumb__item--current {
+  color: var(--luna-breadcrumb-current-fg, var(--luna-foreground));
+  font-weight: 600;
+}
+
+.luna-breadcrumb__item--disabled {
+  color: var(--luna-breadcrumb-muted-fg, var(--luna-muted));
+  opacity: 0.72;
+}
+
+.luna-breadcrumb__separator,
+.luna-breadcrumb__ellipsis {
+  color: var(--luna-breadcrumb-separator-fg, var(--luna-muted));
+}
+
+.luna-breadcrumb__separator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--luna-breadcrumb-current-min-height);
+  font-size: var(--luna-breadcrumb-current-font-size);
+  line-height: 1;
+  user-select: none;
+}
+
+.luna-breadcrumb__ellipsis {
+  color: var(--luna-breadcrumb-muted-fg, var(--luna-muted));
+}
+
+.luna-breadcrumb[data-size="sm"] {
+  --luna-breadcrumb-current-gap: var(--luna-breadcrumb-size-sm-gap, var(--luna-space-1, 0.25rem));
+  --luna-breadcrumb-current-separator-gap: var(--luna-breadcrumb-size-sm-separator-gap, var(--luna-space-1, 0.25rem));
+  --luna-breadcrumb-current-font-size: var(--luna-breadcrumb-size-sm-font-size, 0.75rem);
+  --luna-breadcrumb-current-min-height: var(--luna-breadcrumb-size-sm-min-height, 1.5rem);
+  --luna-breadcrumb-current-padding-x: var(--luna-breadcrumb-size-sm-padding-x, var(--luna-space-1, 0.25rem));
+  --luna-breadcrumb-current-padding-y: var(--luna-breadcrumb-size-sm-padding-y, 0);
+}
+
+.luna-breadcrumb[data-size="md"] {
+  --luna-breadcrumb-current-gap: var(--luna-breadcrumb-size-md-gap, var(--luna-space-2, 0.5rem));
+  --luna-breadcrumb-current-separator-gap: var(--luna-breadcrumb-size-md-separator-gap, var(--luna-space-2, 0.5rem));
+  --luna-breadcrumb-current-font-size: var(--luna-breadcrumb-size-md-font-size, 0.875rem);
+  --luna-breadcrumb-current-min-height: var(--luna-breadcrumb-size-md-min-height, 2rem);
+  --luna-breadcrumb-current-padding-x: var(--luna-breadcrumb-size-md-padding-x, var(--luna-space-2, 0.5rem));
+  --luna-breadcrumb-current-padding-y: var(--luna-breadcrumb-size-md-padding-y, 0);
+}
+
+.luna-breadcrumb[data-size="lg"] {
+  --luna-breadcrumb-current-gap: var(--luna-breadcrumb-size-lg-gap, var(--luna-space-2, 0.5rem));
+  --luna-breadcrumb-current-separator-gap: var(--luna-breadcrumb-size-lg-separator-gap, var(--luna-space-2, 0.5rem));
+  --luna-breadcrumb-current-font-size: var(--luna-breadcrumb-size-lg-font-size, 1rem);
+  --luna-breadcrumb-current-min-height: var(--luna-breadcrumb-size-lg-min-height, 2.5rem);
+  --luna-breadcrumb-current-padding-x: var(--luna-breadcrumb-size-lg-padding-x, var(--luna-space-2, 0.5rem));
+  --luna-breadcrumb-current-padding-y: var(--luna-breadcrumb-size-lg-padding-y, 0);
+}

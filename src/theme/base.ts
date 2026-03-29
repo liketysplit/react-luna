@@ -1310,6 +1310,54 @@ export const lunarTheme: Theme = {
         }
       }
     },
+    breadcrumb: {
+      defaultSize: "md",
+      radius: "sm",
+      sizes: {
+        sm: {
+          gap: "1",
+          separatorGap: "1",
+          fontSize: "xs",
+          minHeight: "6",
+          paddingX: "1",
+          paddingY: "0"
+        },
+        md: {
+          gap: "2",
+          separatorGap: "2",
+          fontSize: "sm",
+          minHeight: "8",
+          paddingX: "2",
+          paddingY: "0"
+        },
+        lg: {
+          gap: "2",
+          separatorGap: "2",
+          fontSize: "md",
+          minHeight: "10",
+          paddingX: "2",
+          paddingY: "0"
+        }
+      },
+      modes: {
+        light: {
+          linkFg: "neutral.700",
+          currentFg: "neutral.900",
+          mutedFg: "neutral.500",
+          separatorFg: "neutral.400",
+          hoverBg: "neutral.100",
+          focusRing: "rgba(99, 102, 241, 0.18)"
+        },
+        dark: {
+          linkFg: "neutral.200",
+          currentFg: "neutral.50",
+          mutedFg: "neutral.400",
+          separatorFg: "neutral.500",
+          hoverBg: "neutral.800",
+          focusRing: "rgba(129, 140, 248, 0.24)"
+        }
+      }
+    },
     modal: {
       defaultSize: "medium",
       defaultPadding: "5",

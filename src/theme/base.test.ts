@@ -73,6 +73,14 @@ describe("theme size contract", () => {
     expect(drawer?.defaultSize).toBe("28rem");
   });
 
+  it("defines breadcrumb defaults and size tiers", () => {
+    const breadcrumb = lunarTheme.components.breadcrumb;
+
+    expect(breadcrumb?.defaultSize).toBe("md");
+    expect(breadcrumb?.radius).toBe("sm");
+    expect(Object.keys(breadcrumb?.sizes ?? {})).toEqual(["sm", "md", "lg"]);
+  });
+
   it("defines modal defaults and supported size tiers", () => {
     const modal = lunarTheme.components.modal;
 

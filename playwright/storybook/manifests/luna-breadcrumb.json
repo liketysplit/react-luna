@@ -1,0 +1,22 @@
+[
+  {
+    "storyId": "components-lunabreadcrumb--basic",
+    "fileName": "luna-breadcrumb-basic",
+    "backgrounds": ["light", "dark"]
+  },
+  {
+    "storyId": "components-lunabreadcrumb--collapsed-trail",
+    "fileName": "luna-breadcrumb-collapsed-trail",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunabreadcrumb--custom-separator",
+    "fileName": "luna-breadcrumb-custom-separator",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunabreadcrumb--action-trail",
+    "fileName": "luna-breadcrumb-action-trail",
+    "backgrounds": ["light"]
+  }
+]

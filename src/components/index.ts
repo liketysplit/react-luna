@@ -3,6 +3,7 @@ export * from "./luna-alert";
 export * from "./luna-accordion";
 export * from "./luna-badge";
 export * from "./luna-button";
+export * from "./luna-breadcrumb";
 export * from "./luna-card";
 export * from "./luna-checkbox";
 export * from "./luna-date-input";
