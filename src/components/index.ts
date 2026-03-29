@@ -35,6 +35,7 @@ export * from "./luna-table";
 export * from "./luna-tag";
 export * from "./luna-tabs";
 export * from "./luna-text";
+export * from "./luna-topbar";
 export * from "./luna-row";
 export * from "./luna-column";
 export * from "./luna-grid";
