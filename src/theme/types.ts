@@ -303,6 +303,24 @@ export type ThemeDrawerModeTokens = {
   backdrop?: string;
 };
 
+export type ThemeBreadcrumbSizeProfile = {
+  gap?: string;
+  separatorGap?: string;
+  fontSize?: string;
+  minHeight?: string;
+  paddingX?: string;
+  paddingY?: string;
+};
+
+export type ThemeBreadcrumbModeTokens = {
+  linkFg?: string;
+  currentFg?: string;
+  mutedFg?: string;
+  separatorFg?: string;
+  hoverBg?: string;
+  focusRing?: string;
+};
+
 export type ThemeModalSizeProfile = {
   maxWidth?: string;
 };
@@ -426,6 +444,12 @@ export type ThemeComponents = {
     radius?: string;
     shadow?: string;
     modes?: Partial<Record<ThemeMode, ThemeDrawerModeTokens>>;
+  };
+  breadcrumb?: {
+    defaultSize?: "sm" | "md" | "lg";
+    radius?: string;
+    sizes?: Record<string, ThemeBreadcrumbSizeProfile>;
+    modes?: Partial<Record<ThemeMode, ThemeBreadcrumbModeTokens>>;
   };
 
   modal?: {

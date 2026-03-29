@@ -541,6 +541,62 @@ export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<str
     vars["--luna-drawer-backdrop"] = resolveTokenValue(theme, drawerMode.backdrop);
   }
 
+  const breadcrumb = theme.components.breadcrumb;
+  if (breadcrumb?.defaultSize) {
+    vars["--luna-breadcrumb-size-default"] = breadcrumb.defaultSize;
+  }
+  if (breadcrumb?.radius) {
+    vars["--luna-breadcrumb-radius"] =
+      resolveScaleValue(theme.radii, breadcrumb.radius) ?? breadcrumb.radius;
+  }
+  const breadcrumbMode = breadcrumb?.modes?.[mode];
+  if (breadcrumbMode?.linkFg) {
+    vars["--luna-breadcrumb-link-fg"] = resolveTokenValue(theme, breadcrumbMode.linkFg);
+  }
+  if (breadcrumbMode?.currentFg) {
+    vars["--luna-breadcrumb-current-fg"] = resolveTokenValue(theme, breadcrumbMode.currentFg);
+  }
+  if (breadcrumbMode?.mutedFg) {
+    vars["--luna-breadcrumb-muted-fg"] = resolveTokenValue(theme, breadcrumbMode.mutedFg);
+  }
+  if (breadcrumbMode?.separatorFg) {
+    vars["--luna-breadcrumb-separator-fg"] = resolveTokenValue(theme, breadcrumbMode.separatorFg);
+  }
+  if (breadcrumbMode?.hoverBg) {
+    vars["--luna-breadcrumb-hover-bg"] = resolveTokenValue(theme, breadcrumbMode.hoverBg);
+  }
+  if (breadcrumbMode?.focusRing) {
+    vars["--luna-breadcrumb-focus-ring"] = breadcrumbMode.focusRing;
+  }
+  if (breadcrumb?.sizes) {
+    for (const [name, profile] of Object.entries(breadcrumb.sizes)) {
+      if (profile.gap) {
+        vars[`--luna-breadcrumb-size-${name}-gap`] =
+          resolveScaleValue(theme.spacing, profile.gap) ?? profile.gap;
+      }
+      if (profile.separatorGap) {
+        vars[`--luna-breadcrumb-size-${name}-separator-gap`] =
+          resolveScaleValue(theme.spacing, profile.separatorGap) ?? profile.separatorGap;
+      }
+      if (profile.fontSize) {
+        vars[`--luna-breadcrumb-size-${name}-font-size`] =
+          resolveScaleValue(theme.typography.sizes, profile.fontSize) ?? profile.fontSize;
+      }
+      if (profile.minHeight) {
+        vars[`--luna-breadcrumb-size-${name}-min-height`] =
+          resolveScaleValue(theme.spacing, profile.minHeight) ?? profile.minHeight;
+      }
+      if (profile.paddingX) {
+        vars[`--luna-breadcrumb-size-${name}-padding-x`] =
+          resolveScaleValue(theme.spacing, profile.paddingX) ?? profile.paddingX;
+      }
+      if (profile.paddingY) {
+        vars[`--luna-breadcrumb-size-${name}-padding-y`] =
+          resolveScaleValue(theme.spacing, profile.paddingY) ?? profile.paddingY;
+      }
+    }
+  }
+
   const modal = theme.components.modal;
   if (modal?.defaultSize) {
     vars["--luna-modal-size-default"] = modal.defaultSize;
