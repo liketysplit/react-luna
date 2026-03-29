@@ -1,0 +1,23 @@
+[
+  {
+    "storyId": "components-lunaform--playground",
+    "fileName": "luna-form-playground",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaform--action-alignment",
+    "fileName": "luna-form-action-alignment",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaform--compact-spacing",
+    "fileName": "luna-form-compact-spacing",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]

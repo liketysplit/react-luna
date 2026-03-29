@@ -1,0 +1,16 @@
+.luna-form {
+  display: grid;
+  gap: var(--luna-form-gap, var(--luna-space-5, 1.25rem));
+  width: 100%;
+  min-width: 0;
+}
+
+.luna-form__header,
+.luna-form__body,
+.luna-form__actions {
+  min-width: 0;
+}
+
+.luna-form__actions {
+  width: 100%;
+}

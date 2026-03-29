@@ -11,6 +11,7 @@ export * from "./luna-radio";
 export * from "./luna-divider";
 export * from "./luna-drawer";
 export * from "./luna-empty-state";
+export * from "./luna-form";
 export * from "./luna-header";
 export * from "./luna-hover-text";
 export * from "./luna-input";
