@@ -1,0 +1,31 @@
+[
+  {
+    "storyId": "components-lunapopover--controlled",
+    "fileName": "luna-popover-controlled",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunapopover--interactive-content",
+    "fileName": "luna-popover-interactive-content",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunapopover--placement-matrix",
+    "fileName": "luna-popover-placement-matrix",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunapopover--playground",
+    "fileName": "luna-popover-playground",
+    "backgrounds": [
+      "light",
+      "dark"
+    ]
+  }
+]

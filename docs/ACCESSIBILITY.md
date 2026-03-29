@@ -31,6 +31,7 @@ It is a library-level guide, not a replacement for component docs. Component-spe
 - `LunaButton` keeps native button semantics; icon-only, floating action, or otherwise textless buttons still need an explicit accessible name
 - `LunaButton` loading should only be used when leaving the control interactive is intentional
 - `LunaMenu` keeps focus on menu actions, restores focus to the trigger on close, and depends on `menuLabel` for the menu surface name
+- `LunaPopover` is the anchored non-modal surface for richer trigger-adjacent content; give the trigger and `surfaceLabel` clear names and keep the interaction scope small
 - `LunaTooltip` should only add short descriptive context to a single trigger and should not hold actions, links, or form controls
 - `LunaHoverText` should only be used for inline copy swaps where changing visible text is the whole interaction
 
@@ -46,6 +47,7 @@ It is a library-level guide, not a replacement for component docs. Component-spe
 ### Overlays And Structured Navigation
 
 - `LunaModal` is the most fully managed dialog surface in the library today: it labels the dialog, moves focus into the panel, and restores focus after close
+- `LunaPopover` moves focus into its anchored surface and restores focus on keyboard dismissal, but it does not trap focus, block the page, or manage viewport collisions
 - `LunaDrawer` should be treated as a lighter-weight panel primitive unless the consuming product adds its own focus management
 - `LunaTabs` supports automatic and manual keyboard activation; choose manual activation when tab changes trigger expensive content updates or disruptive context shifts
 - `LunaAccordion` and `LunaMenu` already wire the expected disclosure and menu semantics; keep heading, section, and trigger copy clear so screen reader navigation stays understandable

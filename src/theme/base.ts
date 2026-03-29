@@ -1625,6 +1625,27 @@ export const lunarTheme: Theme = {
           shadow: "md"
         }
       }
+    },
+    popover: {
+      radius: "lg",
+      minWidth: "14rem",
+      maxWidth: "20rem",
+      offset: "2",
+      padding: "4",
+      modes: {
+        light: {
+          bg: "neutral.100",
+          fg: "neutral.900",
+          border: "neutral.200",
+          shadow: "lg"
+        },
+        dark: {
+          bg: "neutral.800",
+          fg: "neutral.50",
+          border: "neutral.700",
+          shadow: "lg"
+        }
+      }
     }
   }
 };
