@@ -42,6 +42,7 @@ Core rules:
 - `placement?: "top-start" | "top-end" | "bottom-start" | "bottom-end"`
 - `disabled?: boolean`
 - `surfaceLabel?: string`
+- `showArrow?: boolean`
 - `offset?: string`
 - `padding?: string`
 - `minWidth?: string`
@@ -60,6 +61,8 @@ Native `HTMLAttributes<HTMLSpanElement>` continue to pass through to the root wr
 
 `LunaPopover` consumes the theme system for:
 - surface background, foreground, border, radius, and shadow
-- default offset, padding, minimum width, and maximum width
+- default offset, padding, minimum width, maximum width, and optional arrow size/inset
 
 `offset`, `padding`, `minWidth`, and `maxWidth` resolve through theme spacing first, then raw CSS values.
+
+`showArrow` is a contract-level choice. Theme tokens style the shaped arrow when enabled, but the component does not force arrows on by default.

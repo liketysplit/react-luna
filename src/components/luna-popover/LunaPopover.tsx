@@ -77,6 +77,7 @@ export const LunaPopover = React.forwardRef<HTMLSpanElement, LunaPopoverProps>(f
     open,
     padding,
     placement = "bottom-start",
+    showArrow = false,
     style,
     surfaceLabel = "Popover",
     ...props
@@ -235,6 +236,7 @@ export const LunaPopover = React.forwardRef<HTMLSpanElement, LunaPopoverProps>(f
       }}
       className={toClassName(["luna-popover", className])}
       data-open={isOpen ? "true" : "false"}
+      data-arrow={showArrow ? "true" : "false"}
       data-placement={placement}
       style={resolvedStyle}
     >
@@ -256,6 +258,7 @@ export const LunaPopover = React.forwardRef<HTMLSpanElement, LunaPopoverProps>(f
             }
           }}
         >
+          {showArrow ? <span className="luna-popover__arrow" aria-hidden="true" /> : null}
           <div className="luna-popover__content">{content}</div>
         </div>
       ) : null}

@@ -508,6 +508,8 @@ export type ThemeComponents = {
     maxWidth?: string;
     offset?: string;
     padding?: string;
+    arrowSize?: string;
+    arrowInset?: string;
     modes?: Partial<Record<ThemeMode, ThemePopoverModeTokens>>;
   };
   accordion?: {

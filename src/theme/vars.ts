@@ -737,6 +737,14 @@ export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<str
     vars["--luna-popover-padding-default"] =
       resolveScaleValue(theme.spacing, popover.padding) ?? popover.padding;
   }
+  if (popover?.arrowSize) {
+    vars["--luna-popover-arrow-size"] =
+      resolveScaleValue(theme.spacing, popover.arrowSize) ?? popover.arrowSize;
+  }
+  if (popover?.arrowInset) {
+    vars["--luna-popover-arrow-inset"] =
+      resolveScaleValue(theme.spacing, popover.arrowInset) ?? popover.arrowInset;
+  }
   const popoverMode = popover?.modes?.[mode];
   if (popoverMode?.bg) {
     vars["--luna-popover-bg"] = resolveTokenValue(theme, popoverMode.bg);

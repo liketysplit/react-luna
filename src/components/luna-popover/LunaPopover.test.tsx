@@ -130,6 +130,8 @@ describe("LunaPopover", () => {
               maxWidth: "22rem",
               offset: "4",
               padding: "5",
+              arrowSize: "2",
+              arrowInset: "6",
               modes: {
                 light: {
                   bg: "accent.500",
@@ -153,6 +155,8 @@ describe("LunaPopover", () => {
       "--luna-popover-max-width": "22rem",
       "--luna-popover-offset-default": "1rem",
       "--luna-popover-padding-default": "1.25rem",
+      "--luna-popover-arrow-size": "0.5rem",
+      "--luna-popover-arrow-inset": "1.5rem",
       "--luna-popover-bg": "#8b5cf6",
       "--luna-popover-border": "#7c3aed"
     });
@@ -162,5 +166,20 @@ describe("LunaPopover", () => {
       "--luna-popover-min-width": "4rem",
       "--luna-popover-max-width": "24rem"
     });
+  });
+
+  it("renders an optional shaped arrow when requested", async () => {
+    const user = userEvent.setup();
+
+    const { container } = renderWithTheme(
+      <LunaPopover content="Anchored detail" showArrow>
+        <LunaButton>Open popover</LunaButton>
+      </LunaPopover>
+    );
+
+    await user.click(screen.getByRole("button", { name: "Open popover" }));
+
+    expect(container.querySelector(".luna-popover__arrow")).toBeInTheDocument();
+    expect(container.querySelector(".luna-popover")).toHaveAttribute("data-arrow", "true");
   });
 });

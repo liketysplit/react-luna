@@ -1630,8 +1630,10 @@ export const lunarTheme: Theme = {
       radius: "lg",
       minWidth: "14rem",
       maxWidth: "20rem",
-      offset: "2",
+      offset: "3",
       padding: "4",
+      arrowSize: "3",
+      arrowInset: "4",
       modes: {
         light: {
           bg: "neutral.100",

@@ -10,6 +10,7 @@ const meta = {
     layout: "centered"
   },
   args: {
+    showArrow: false,
     surfaceLabel: "Quick actions",
     content: (
       <div style={{ display: "grid", gap: "0.75rem" }}>
@@ -21,6 +22,16 @@ const meta = {
       </div>
     ),
     children: <LunaButton>Open popover</LunaButton>
+  },
+  argTypes: {
+    showArrow: {
+      control: "boolean",
+      description: "Show the shaped anchor arrow between the trigger and the surface."
+    },
+    offset: {
+      control: "text",
+      description: "Override the trigger-to-surface spacing using a theme scale key or raw CSS value."
+    }
   }
 } satisfies Meta<typeof LunaPopover>;
 
@@ -29,6 +40,37 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {};
+
+export const AnchoredArrow: Story = {
+  args: {
+    showArrow: true,
+    children: <LunaButton>Open anchored popover</LunaButton>,
+    content: (
+      <div style={{ display: "grid", gap: "0.75rem" }}>
+        <strong style={{ fontSize: "0.95rem" }}>Anchored surface</strong>
+        <p style={{ margin: 0 }}>
+          Use the arrow when the surface should read as tightly attached to its trigger rather than
+          as a free-floating card.
+        </p>
+      </div>
+    )
+  }
+};
+
+export const CustomOffset: Story = {
+  args: {
+    offset: "5",
+    children: <LunaButton>Open relaxed popover</LunaButton>,
+    content: (
+      <div style={{ display: "grid", gap: "0.75rem" }}>
+        <strong style={{ fontSize: "0.95rem" }}>Relaxed spacing</strong>
+        <p style={{ margin: 0 }}>
+          Offset can be pushed further out when the surface should feel less attached to the trigger.
+        </p>
+      </div>
+    )
+  }
+};
 
 export const PlacementMatrix: Story = {
   render: () => {
@@ -40,7 +82,9 @@ export const PlacementMatrix: Story = {
           display: "grid",
           gridTemplateColumns: "repeat(2, minmax(0, auto))",
           gap: "5rem",
-          placeItems: "center"
+          placeItems: "center",
+          paddingTop: "8rem",
+          paddingBottom: "4rem"
         }}
       >
         {placements.map((placement) => (

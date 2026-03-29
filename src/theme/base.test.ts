@@ -86,7 +86,9 @@ describe("theme size contract", () => {
 
     expect(popover?.minWidth).toBe("14rem");
     expect(popover?.maxWidth).toBe("20rem");
-    expect(popover?.offset).toBe("2");
+    expect(popover?.offset).toBe("3");
     expect(popover?.padding).toBe("4");
+    expect(popover?.arrowSize).toBe("3");
+    expect(popover?.arrowInset).toBe("4");
   });
 });

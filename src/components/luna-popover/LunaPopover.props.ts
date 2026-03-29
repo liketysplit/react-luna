@@ -18,6 +18,7 @@ export type LunaPopoverProps = Omit<
   placement?: LunaPopoverPlacement;
   disabled?: boolean;
   surfaceLabel?: string;
+  showArrow?: boolean;
   offset?: string;
   padding?: string;
   minWidth?: string;
