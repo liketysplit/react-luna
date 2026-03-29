@@ -1,0 +1,30 @@
+[
+  {
+    "storyId": "components-lunacheckboxgroup--basic",
+    "fileName": "luna-checkbox-group-basic",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunacheckboxgroup--dark-mode",
+    "fileName": "luna-checkbox-group-dark-mode",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunacheckboxgroup--states",
+    "fileName": "luna-checkbox-group-states",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunacheckboxgroup--support-text",
+    "fileName": "luna-checkbox-group-support-text",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]

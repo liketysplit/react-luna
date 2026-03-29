@@ -1,0 +1,41 @@
+.luna-checkbox-group {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  border: 0;
+  display: grid;
+  gap: var(--luna-space-3, 0.75rem);
+}
+
+.luna-checkbox-group__legend {
+  margin: 0;
+  padding: 0;
+  color: var(--luna-checkbox-label-fg, var(--luna-input-label-fg, var(--luna-foreground)));
+}
+
+.luna-checkbox-group__description {
+  margin: 0;
+  color: var(--luna-checkbox-description-fg, var(--luna-input-help-fg, var(--luna-muted)));
+}
+
+.luna-checkbox-group__options {
+  display: grid;
+  gap: var(--luna-space-3, 0.75rem);
+}
+
+.luna-checkbox-group--disabled .luna-checkbox-group__legend,
+.luna-checkbox-group--disabled .luna-checkbox-group__description {
+  color: var(--luna-checkbox-disabled-label-fg, var(--luna-input-disabled-fg, var(--luna-muted)));
+}
+
+.luna-checkbox-group__message {
+  margin: 0;
+}
+
+.luna-checkbox-group__message--help {
+  color: var(--luna-checkbox-help-fg, var(--luna-input-help-fg, var(--luna-muted)));
+}
+
+.luna-checkbox-group__message--error {
+  color: var(--luna-checkbox-error-fg, var(--luna-input-error-fg, var(--luna-color-danger-600)));
+}
