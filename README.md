@@ -36,6 +36,9 @@ Working Model
 - Keep repository docs aligned with the actual issue and milestone direction.
 - Treat implementation, Storybook, tests, and docs as one delivery slice when behavior changes.
 
+Documentation
+- [Theme Guide](docs/THEME.md) covers the theme system, token structure, overrides, and consumer usage patterns.
+
 Roadmap Shape
 - `docs/ROADMAP.md` records the release-shape north star.
 - `0.0.x` is for building the needed component base.
