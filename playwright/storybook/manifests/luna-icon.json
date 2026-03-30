@@ -19,5 +19,12 @@
     "backgrounds": [
       "light"
     ]
+  },
+  {
+    "storyId": "foundations-lunaicon--luna-only",
+    "fileName": "luna-icon-luna-only",
+    "backgrounds": [
+      "light"
+    ]
   }
 ]

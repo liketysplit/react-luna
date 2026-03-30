@@ -1,4 +1,6 @@
 import React from "react";
+import { LunaIcon } from "../../icons/LunaIcon";
+import type { IconName } from "../../icons/internal";
 import { useTheme } from "../../theme";
 import { resolveTokenValue } from "../../theme/resolve";
 import type { LunaButtonProps } from "./LunaButton.props";
@@ -136,8 +138,17 @@ export const LunaButton = React.forwardRef<HTMLButtonElement, LunaButtonProps>(
       warnOnce("LunaButton: `fab` overrides `rounded` when both are provided.");
     }
 
-    const resolvedIcon = icon ?? (iconName ? <span>{iconName}</span> : null);
     const content = children ?? value;
+    const resolvedIcon =
+      icon ??
+      (iconName ? (
+        <LunaIcon
+          name={iconName as IconName}
+          size="md"
+          label={typeof content === "string" ? `${content} icon` : `${iconName} icon`}
+        />
+      ) : null);
+    const hasContent = content !== undefined && content !== null && content !== false;
     const renderLeadingIcon = resolvedIcon && resolvedIconDirection === "left";
     const renderTrailingIcon = resolvedIcon && resolvedIconDirection === "right";
     const rootClassName = toClassName([
@@ -181,7 +192,7 @@ export const LunaButton = React.forwardRef<HTMLButtonElement, LunaButtonProps>(
         style={resolvedStyle}
       >
         {renderLeadingIcon ? <span className="luna-button__icon">{resolvedIcon}</span> : null}
-        <span className="luna-button__content">{content}</span>
+        {hasContent ? <span className="luna-button__content">{content}</span> : null}
         {loading ? (
           <span aria-hidden="true" className="luna-button__loader">
             {loadingAnimation === "loading-star" ? (

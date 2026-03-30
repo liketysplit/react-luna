@@ -55,7 +55,21 @@ export type IconName =
   | "pause"
   | "stop"
   | "volume"
-  | "mute";
+  | "mute"
+  | "luna-moon"
+  | "luna-crescent"
+  | "luna-star"
+  | "luna-satellite"
+  | "luna-rover"
+  | "luna-buggy"
+  | "luna-phase-new"
+  | "luna-phase-waxing-crescent"
+  | "luna-phase-first-quarter"
+  | "luna-phase-waxing-gibbous"
+  | "luna-phase-full"
+  | "luna-phase-waning-gibbous"
+  | "luna-phase-last-quarter"
+  | "luna-phase-waning-crescent";
 
 export const CORE_ICON_NAMES: IconName[] = [
   "menu",
@@ -113,7 +127,24 @@ export const CORE_ICON_NAMES: IconName[] = [
   "mute"
 ];
 
-export const ICON_NAMES: IconName[] = [...CORE_ICON_NAMES];
+export const LUNA_ICON_NAMES: IconName[] = [
+  "luna-moon",
+  "luna-crescent",
+  "luna-star",
+  "luna-satellite",
+  "luna-rover",
+  "luna-buggy",
+  "luna-phase-new",
+  "luna-phase-waxing-crescent",
+  "luna-phase-first-quarter",
+  "luna-phase-waxing-gibbous",
+  "luna-phase-full",
+  "luna-phase-waning-gibbous",
+  "luna-phase-last-quarter",
+  "luna-phase-waning-crescent"
+];
+
+export const ICON_NAMES: IconName[] = [...CORE_ICON_NAMES, ...LUNA_ICON_NAMES];
 
 export type LunaIconSize = "xs" | "sm" | "md" | "lg" | "xl";
 

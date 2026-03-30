@@ -1,6 +1,6 @@
 import type { LunaIconSvgProps } from "../types";
 
-export function LunaMoonOutline({ title, decorative = true, ...props }: LunaIconSvgProps) {
+export function LunaPhaseFullOutline({ title, decorative = true, ...props }: LunaIconSvgProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -15,7 +15,7 @@ export function LunaMoonOutline({ title, decorative = true, ...props }: LunaIcon
   );
 }
 
-export function LunaMoonFilled({ title, decorative = true, ...props }: LunaIconSvgProps) {
+export function LunaPhaseFullFilled({ title, decorative = true, ...props }: LunaIconSvgProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -30,4 +30,4 @@ export function LunaMoonFilled({ title, decorative = true, ...props }: LunaIconS
   );
 }
 
-export default LunaMoonOutline;
+export default LunaPhaseFullOutline;

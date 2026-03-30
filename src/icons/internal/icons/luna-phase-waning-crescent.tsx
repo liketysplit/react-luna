@@ -1,7 +1,7 @@
 import React from "react";
 import type { LunaIconSvgProps } from "../types";
 
-function LunaCrescentBase({
+function LunaPhaseWaningCrescentBase({
   title,
   decorative = true,
   children,
@@ -18,38 +18,34 @@ function LunaCrescentBase({
       {...props}
     >
       {title ? <title>{title}</title> : null}
+      <circle cx="12" cy="12" r="7.5" fill="currentColor" opacity="0.18" />
       <defs>
         <mask id={maskId}>
           <rect width="24" height="24" fill="black" />
           <circle cx="12" cy="12" r="7.5" fill="white" />
-          <circle cx="15.5" cy="10.5" r="6.25" fill="black" />
+          <circle cx="8.1" cy="12" r="6.5" fill="black" />
         </mask>
       </defs>
       <g mask={`url(#${maskId})`}>{children}</g>
+      <circle cx="12" cy="12" r="7.5" stroke="currentColor" strokeWidth="1.2" opacity="0.22" />
     </svg>
   );
 }
 
-export function LunaCrescentOutline(props: LunaIconSvgProps) {
+export function LunaPhaseWaningCrescentOutline(props: LunaIconSvgProps) {
   return (
-    <LunaCrescentBase {...props}>
-      <circle
-        cx="12"
-        cy="12"
-        r="7.5"
-        fill="currentColor"
-        opacity="0.92"
-      />
-    </LunaCrescentBase>
+    <LunaPhaseWaningCrescentBase {...props}>
+      <circle cx="12" cy="12" r="7.5" fill="currentColor" opacity="0.92" />
+    </LunaPhaseWaningCrescentBase>
   );
 }
 
-export function LunaCrescentFilled(props: LunaIconSvgProps) {
+export function LunaPhaseWaningCrescentFilled(props: LunaIconSvgProps) {
   return (
-    <LunaCrescentBase {...props}>
+    <LunaPhaseWaningCrescentBase {...props}>
       <circle cx="12" cy="12" r="7.5" fill="currentColor" />
-    </LunaCrescentBase>
+    </LunaPhaseWaningCrescentBase>
   );
 }
 
-export default LunaCrescentOutline;
+export default LunaPhaseWaningCrescentOutline;

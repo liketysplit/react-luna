@@ -54,6 +54,38 @@ import { PauseOutline, PauseFilled } from "./icons/pause";
 import { StopOutline, StopFilled } from "./icons/stop";
 import { VolumeOutline, VolumeFilled } from "./icons/volume";
 import { MuteOutline, MuteFilled } from "./icons/mute";
+import { LunaMoonOutline, LunaMoonFilled } from "./icons/luna-moon";
+import { LunaCrescentOutline, LunaCrescentFilled } from "./icons/luna-crescent";
+import { LunaStarOutline, LunaStarFilled } from "./icons/luna-star";
+import { LunaSatelliteOutline, LunaSatelliteFilled } from "./icons/luna-satellite";
+import { LunaRoverOutline, LunaRoverFilled } from "./icons/luna-rover";
+import { LunaBuggyOutline, LunaBuggyFilled } from "./icons/luna-buggy";
+import { LunaPhaseNewOutline, LunaPhaseNewFilled } from "./icons/luna-phase-new";
+import {
+  LunaPhaseWaxingCrescentOutline,
+  LunaPhaseWaxingCrescentFilled
+} from "./icons/luna-phase-waxing-crescent";
+import {
+  LunaPhaseFirstQuarterOutline,
+  LunaPhaseFirstQuarterFilled
+} from "./icons/luna-phase-first-quarter";
+import {
+  LunaPhaseWaxingGibbousOutline,
+  LunaPhaseWaxingGibbousFilled
+} from "./icons/luna-phase-waxing-gibbous";
+import { LunaPhaseFullOutline, LunaPhaseFullFilled } from "./icons/luna-phase-full";
+import {
+  LunaPhaseWaningGibbousOutline,
+  LunaPhaseWaningGibbousFilled
+} from "./icons/luna-phase-waning-gibbous";
+import {
+  LunaPhaseLastQuarterOutline,
+  LunaPhaseLastQuarterFilled
+} from "./icons/luna-phase-last-quarter";
+import {
+  LunaPhaseWaningCrescentOutline,
+  LunaPhaseWaningCrescentFilled
+} from "./icons/luna-phase-waning-crescent";
 
 export const lunaIconRegistry: Record<LunaIconName, { outline: React.ComponentType<any>; filled: React.ComponentType<any> }> = {
 
@@ -110,4 +142,36 @@ export const lunaIconRegistry: Record<LunaIconName, { outline: React.ComponentTy
   "stop": { outline: StopOutline, filled: StopFilled },
   "volume": { outline: VolumeOutline, filled: VolumeFilled },
   "mute": { outline: MuteOutline, filled: MuteFilled },
+  "luna-moon": { outline: LunaMoonOutline, filled: LunaMoonFilled },
+  "luna-crescent": { outline: LunaCrescentOutline, filled: LunaCrescentFilled },
+  "luna-star": { outline: LunaStarOutline, filled: LunaStarFilled },
+  "luna-satellite": { outline: LunaSatelliteOutline, filled: LunaSatelliteFilled },
+  "luna-rover": { outline: LunaRoverOutline, filled: LunaRoverFilled },
+  "luna-buggy": { outline: LunaBuggyOutline, filled: LunaBuggyFilled },
+  "luna-phase-new": { outline: LunaPhaseNewOutline, filled: LunaPhaseNewFilled },
+  "luna-phase-waxing-crescent": {
+    outline: LunaPhaseWaxingCrescentOutline,
+    filled: LunaPhaseWaxingCrescentFilled
+  },
+  "luna-phase-first-quarter": {
+    outline: LunaPhaseFirstQuarterOutline,
+    filled: LunaPhaseFirstQuarterFilled
+  },
+  "luna-phase-waxing-gibbous": {
+    outline: LunaPhaseWaxingGibbousOutline,
+    filled: LunaPhaseWaxingGibbousFilled
+  },
+  "luna-phase-full": { outline: LunaPhaseFullOutline, filled: LunaPhaseFullFilled },
+  "luna-phase-waning-gibbous": {
+    outline: LunaPhaseWaningGibbousOutline,
+    filled: LunaPhaseWaningGibbousFilled
+  },
+  "luna-phase-last-quarter": {
+    outline: LunaPhaseLastQuarterOutline,
+    filled: LunaPhaseLastQuarterFilled
+  },
+  "luna-phase-waning-crescent": {
+    outline: LunaPhaseWaningCrescentOutline,
+    filled: LunaPhaseWaningCrescentFilled
+  },
 };

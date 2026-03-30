@@ -4,16 +4,15 @@ export const LunaBuggyOutline = ({ title, decorative = true, ...props }: LunaIco
   <svg
     viewBox="0 0 24 24"
     fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
     aria-hidden={decorative ? true : undefined}
     role={decorative ? undefined : "img"}
     {...props}
   >
     {title ? <title>{title}</title> : null}
-    <circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/><path d="M5 17V11h8l3 3v3"/><path d="M10 11V8h3"/>
+    <path d="M5.4 11.4h8.2l2.5 2.1h2v3.3H5.4v-5.4Z" fill="currentColor" opacity="0.92" />
+    <path d="M13.2 11.4v2.1h2.2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <circle cx="8.3" cy="18" r="1.6" fill="currentColor" />
+    <circle cx="15.9" cy="18" r="1.6" fill="currentColor" />
   </svg>
 );
 
@@ -26,7 +25,10 @@ export const LunaBuggyFilled = ({ title, decorative = true, ...props }: LunaIcon
     {...props}
   >
     {title ? <title>{title}</title> : null}
-    <circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/><path d="M5 17V11h8l3 3v3z"/><path d="M10 11V8h3v3z"/>
+    <path d="M5.4 11.4h8.2l2.5 2.1h2v3.3H5.4v-5.4Z" />
+    <path d="M13.2 11.4v2.1h2.2" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+    <circle cx="8.3" cy="18" r="1.6" />
+    <circle cx="15.9" cy="18" r="1.6" />
   </svg>
 );
 

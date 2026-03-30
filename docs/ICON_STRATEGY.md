@@ -206,8 +206,8 @@ That means the system should keep the core UI set as the production baseline for
 Current implementation status:
 
 - core UI icons are implemented and in use
-- Luna-specific icons are planned and documented
-- the current Luna implementation has been intentionally pulled back until the underlying art is stronger
+- a small Luna brand subset is now surfaced for inspection in Storybook
+- the Luna set is still intentionally curated and incomplete while the artwork hardens
 
 ## Luna Brand Layer
 
@@ -245,8 +245,30 @@ The Luna set should be reviewed with dedicated stories and brand-focused inspect
 That means:
 
 - keep the Luna brand rules documented
-- keep the Luna icon list planned
-- do not surface Luna icons in the shipped internal icon set until the artwork is ready
+- keep the broader Luna icon list planned
+- only surface Luna icons that are strong enough to survive review at icon size
+
+Current surfaced Luna set:
+
+- `luna-moon`
+- `luna-crescent`
+- `luna-star`
+- `luna-satellite`
+- `luna-rover`
+- `luna-buggy`
+- `luna-phase-new`
+- `luna-phase-waxing-crescent`
+- `luna-phase-first-quarter`
+- `luna-phase-waxing-gibbous`
+- `luna-phase-full`
+- `luna-phase-waning-gibbous`
+- `luna-phase-last-quarter`
+- `luna-phase-waning-crescent`
+
+Explicitly not surfaced right now:
+
+- `luna-shooting-star`
+- `luna-rocket`
 
 ## Internal Core Icon Set
 

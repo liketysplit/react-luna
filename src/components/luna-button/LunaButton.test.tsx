@@ -148,6 +148,25 @@ describe("LunaButton", () => {
     expect(button).not.toHaveTextContent("star");
   });
 
+  it("renders internal icons when iconName is provided", () => {
+    renderWithTheme(<LunaButton iconName="luna-crescent">Orbit</LunaButton>);
+
+    const button = screen.getByRole("button", { name: /Orbit/i });
+    const svg = button.querySelector("svg");
+
+    expect(svg).toBeInTheDocument();
+    expect(button).not.toHaveTextContent("luna-crescent");
+  });
+
+  it("does not render an empty content slot for icon-only buttons", () => {
+    renderWithTheme(<LunaButton fab iconName="luna-crescent" aria-label="Open moon actions" />);
+
+    const button = screen.getByRole("button", { name: "Open moon actions" });
+
+    expect(button.querySelector(".luna-button__content")).not.toBeInTheDocument();
+    expect(button.querySelector("svg")).toBeInTheDocument();
+  });
+
   it("warns and lets fab win over rounded", () => {
     const warnSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
 

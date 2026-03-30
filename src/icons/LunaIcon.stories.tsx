@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { LunaIcon } from "./LunaIcon";
-import { CORE_ICON_NAMES, ICON_NAMES } from "./internal/types";
+import { CORE_ICON_NAMES, ICON_NAMES, LUNA_ICON_NAMES } from "./internal/types";
 
 const meta = {
   title: "Foundations/LunaIcon",
@@ -91,6 +91,17 @@ export const GalleryOutline: Story = {
           ))}
         </div>
       </div>
+      <div style={sectionStyle}>
+        <span style={sectionTitleStyle}>Luna Brand Icons</span>
+        <div style={galleryGridStyle}>
+          {LUNA_ICON_NAMES.map((name) => (
+            <div key={`outline-luna-${name}`} style={galleryCardStyle}>
+              <LunaIcon name={name} variant="outline" size="lg" label={`${name} icon`} />
+              <span style={galleryLabelStyle}>{name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   )
 };
@@ -103,6 +114,46 @@ export const GalleryFilled: Story = {
         <div style={galleryGridStyle}>
           {CORE_ICON_NAMES.map((name) => (
             <div key={`filled-core-${name}`} style={galleryCardStyle}>
+              <LunaIcon name={name} variant="filled" size="lg" label={`${name} icon`} />
+              <span style={galleryLabelStyle}>{name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div style={sectionStyle}>
+        <span style={sectionTitleStyle}>Luna Brand Icons</span>
+        <div style={galleryGridStyle}>
+          {LUNA_ICON_NAMES.map((name) => (
+            <div key={`filled-luna-${name}`} style={galleryCardStyle}>
+              <LunaIcon name={name} variant="filled" size="lg" label={`${name} icon`} />
+              <span style={galleryLabelStyle}>{name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+};
+
+export const LunaOnly: Story = {
+  render: () => (
+    <div style={galleryFrameStyle}>
+      <div style={sectionStyle}>
+        <span style={sectionTitleStyle}>Luna Outline</span>
+        <div style={galleryGridStyle}>
+          {LUNA_ICON_NAMES.map((name) => (
+            <div key={`luna-only-outline-${name}`} style={galleryCardStyle}>
+              <LunaIcon name={name} variant="outline" size="lg" label={`${name} icon`} />
+              <span style={galleryLabelStyle}>{name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div style={sectionStyle}>
+        <span style={sectionTitleStyle}>Luna Filled</span>
+        <div style={galleryGridStyle}>
+          {LUNA_ICON_NAMES.map((name) => (
+            <div key={`luna-only-filled-${name}`} style={galleryCardStyle}>
               <LunaIcon name={name} variant="filled" size="lg" label={`${name} icon`} />
               <span style={galleryLabelStyle}>{name}</span>
             </div>
