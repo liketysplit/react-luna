@@ -41,6 +41,122 @@ The preferred architecture is:
 
 Components should not know about Font Awesome classes, Lucide imports, or third-party icon naming schemes directly.
 
+## Provider Support Checklist
+
+The provider system should explicitly support evaluation and normalization of the following icon libraries.
+
+### Core Libraries
+
+#### Font Awesome
+
+Must evaluate:
+
+- free vs pro separation
+- solid / regular / brands variants
+- React wrapper usage through `@fortawesome/react-fontawesome`
+- icon lookup through definition objects, not only loose strings
+- tree-shaking limitations
+- CSS vs SVG usage modes
+
+#### Lucide
+
+Must evaluate:
+
+- SVG-based rendering
+- tree-shakable imports
+- support for `size`, `color`, and `strokeWidth`
+- naming cleanliness
+
+#### Heroicons
+
+Must evaluate:
+
+- outline + solid variants
+- React package support through `@heroicons/react`
+- naming differences vs other providers
+
+#### Tabler Icons
+
+Must evaluate:
+
+- broad icon coverage
+- consistent `24x24` grid and stroke behavior
+- React package support
+
+#### Phosphor Icons
+
+Must evaluate:
+
+- multiple weights: thin, light, regular, bold, fill
+- variant mapping support
+- flexible styling
+
+#### Material Symbols
+
+Must evaluate:
+
+- font vs SVG usage
+- fill / weight / grade / optical size controls
+- mapping to the shared `react-luna` API
+
+#### Iconify
+
+Must evaluate:
+
+- support for multiple icon sets
+- dynamic loading behavior
+- `prefix:name` naming format
+- performance considerations
+
+### Secondary Libraries
+
+These are optional, but still worth tracking:
+
+#### Feather
+
+Evaluate:
+
+- compatibility with Lucide naming
+- usefulness as a simple SVG set
+
+#### Remix Icons
+
+Evaluate:
+
+- filled + outline styles
+- broader UI coverage
+- CSS + SVG usage
+
+#### Bootstrap Icons
+
+Evaluate:
+
+- SVG-based integration
+- simple React wrapping path
+- common UI coverage
+
+## Provider Validation Criteria
+
+Every provider should be judged against the same baseline:
+
+- resolves icons by string name
+- works as a React component or can be wrapped as one
+- accepts `size`
+- accepts `color` or inherits `currentColor`
+- supports a consistent `viewBox`, ideally `24x24`
+- can be normalized to the shared `react-luna` icon API
+- supports accessibility needs such as `aria-hidden` and titles
+- can map from semantic names to provider-specific names
+- does not force direct provider usage inside shared components
+
+## Integration Rules
+
+- never import provider icons directly inside shared components
+- always go through the shared icon abstraction
+- must support provider swapping without breaking component APIs
+- must support fallback behavior when an icon is not found
+- must support a semantic mapping layer from `react-luna` names to provider names
+
 ## Contract Guidance
 
 - Components should continue to support explicit icon nodes such as `icon?: React.ReactNode`.
@@ -60,6 +176,92 @@ That means:
 
 Whether the implementation ships as a transitive dependency or an internal package is a packaging detail. The consumer experience should still feel first-class.
 
+## Internal Core Icon Set
+
+The first-party set should stay intentionally small at the start and focus on icons used directly by components.
+
+### Navigation
+
+- `menu`
+- `close`
+- `back`
+- `forward`
+- `chevron-up`
+- `chevron-down`
+- `chevron-left`
+- `chevron-right`
+
+### Actions
+
+- `add`
+- `remove`
+- `edit`
+- `delete`
+- `save`
+- `download`
+- `upload`
+- `refresh`
+- `search`
+- `filter`
+
+### Status / Feedback
+
+- `success`
+- `warning`
+- `error`
+- `info`
+- `loading`
+
+### UI Controls
+
+- `check`
+- `checkbox-checked`
+- `checkbox-unchecked`
+- `radio-checked`
+- `radio-unchecked`
+- `toggle-on`
+- `toggle-off`
+
+### Visibility / State
+
+- `show`
+- `hide`
+- `expand`
+- `collapse`
+
+### User / Content
+
+- `user`
+- `users`
+- `settings`
+- `home`
+- `folder`
+- `file`
+
+### Layout / Misc
+
+- `grid`
+- `list`
+- `more`
+- `more-horizontal`
+- `more-vertical`
+
+### Media
+
+- `play`
+- `pause`
+- `stop`
+- `volume`
+- `mute`
+
+### Core Set Rules
+
+- only include icons used directly by components
+- keep the first-party set small, roughly `20` to `40` to start
+- prefer semantic names such as `success` instead of literal shapes such as `check-circle`
+- avoid duplicating full external libraries
+- treat the first-party set as part of the visual identity
+
 ## Authoring Guidance
 
 The project should maintain a deliberate icon asset pipeline instead of hand-managing random SVG files over time.
@@ -71,6 +273,13 @@ At minimum:
 - generated icon-name/types metadata
 - preview stories for review
 - consistency checks for grid, stroke, and sizing
+
+The issue should also preserve room for icon work to be split in two ways later:
+
+- library/provider integration work
+- first-party icon creation/refinement work
+
+That makes it easier to hand off provider compatibility or single-icon drafting work separately when needed.
 
 AI can help draft icons and automation can scaffold one icon issue at a time, but icon quality should still be curated by human review.
 
