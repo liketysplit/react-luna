@@ -42,6 +42,13 @@
     ]
   },
   {
+    "storyId": "components-lunanotificationgroup--both-controls-hidden",
+    "fileName": "luna-notification-group-both-controls-hidden",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
     "storyId": "components-lunanotificationgroup--expand-hidden",
     "fileName": "luna-notification-group-expand-hidden",
     "backgrounds": [

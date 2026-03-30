@@ -11,10 +11,11 @@
   --luna-notification-group-item-min-height: 4.5rem;
   --luna-notification-group-top-item-height: var(--luna-notification-group-item-min-height);
   --luna-notification-group-control-size: 1.875rem;
-  --luna-notification-group-rail-width: 10%;
-  --luna-notification-group-content-width: 80%;
-  --luna-notification-group-inline-start: 10%;
-  --luna-notification-group-inline-end: 10%;
+  --luna-notification-group-leading-width: 7.5%;
+  --luna-notification-group-trailing-width: 7.5%;
+  --luna-notification-group-content-width: calc(
+    100% - var(--luna-notification-group-leading-width) - var(--luna-notification-group-trailing-width)
+  );
 }
 
 .luna-notification-group[data-size="sm"] {
@@ -49,9 +50,9 @@
 .luna-notification-group__top-row {
   display: grid;
   grid-template-columns:
-    minmax(0, var(--luna-notification-group-rail-width))
+    minmax(0, var(--luna-notification-group-leading-width))
     minmax(0, var(--luna-notification-group-content-width))
-    minmax(0, var(--luna-notification-group-rail-width));
+    minmax(0, var(--luna-notification-group-trailing-width));
   grid-column: 1 / -1;
   align-items: start;
   min-height: var(--luna-notification-group-item-min-height);
@@ -61,9 +62,9 @@
 .luna-notification-group__item-row {
   display: grid;
   grid-template-columns:
-    minmax(0, var(--luna-notification-group-rail-width))
+    minmax(0, var(--luna-notification-group-leading-width))
     minmax(0, var(--luna-notification-group-content-width))
-    minmax(0, var(--luna-notification-group-rail-width));
+    minmax(0, var(--luna-notification-group-trailing-width));
   grid-column: 1 / -1;
   align-items: start;
   min-width: 0;
@@ -118,6 +119,8 @@
   border: 0;
   background: transparent;
   color: inherit;
+  font: inherit;
+  line-height: 1;
   cursor: pointer;
 }
 
@@ -126,6 +129,9 @@
   align-items: center;
   justify-content: center;
   width: 1rem;
+  height: 1rem;
+  line-height: 1;
+  transform: translateY(5px);
 }
 
 .luna-notification-group__header-copy {
@@ -228,7 +234,16 @@
   border-radius: var(--luna-radius-pill);
   background: transparent;
   color: inherit;
+  font: inherit;
+  line-height: 1;
   cursor: pointer;
+}
+
+.luna-notification-group__dismiss > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
 .luna-notification-group__dismiss:hover {

@@ -442,6 +442,9 @@ export type ThemeComponents = {
       >
     >;
   };
+  notificationGroup?: {
+    defaultControlRailWidth?: string;
+  };
   drawer?: {
     defaultPadding?: string;
     defaultGap?: string;

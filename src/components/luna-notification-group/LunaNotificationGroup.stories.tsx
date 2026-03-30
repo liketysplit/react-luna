@@ -19,137 +19,180 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+const storyFrameStyle = {
+  width: "100%",
+  padding: "1.5rem 2rem",
+  boxSizing: "border-box"
+} satisfies React.CSSProperties;
+
 export const CollapsedTopRow: Story = {
   render: (args) => (
-    <LunaNotificationGroup
-      {...args}
-      defaultOpen={false}
-      items={[
-        {
-          title: "Launch checklist updated",
-          meta: "2m ago",
-          tone: "info",
-          body: "Crew readiness notes were updated after the final review pass."
-        },
-        {
-          title: "Approval required",
-          meta: "Queue",
-          tone: "warning",
-          emphasis: "outline",
-          body: "A manual sign-off is still required before continuing the deployment lane."
-        },
-        {
-          title: "Escalated signal",
-          meta: "Urgent",
-          tone: "danger",
-          body: "One active incident has been promoted into the response workflow."
-        }
-      ]}
-    />
+    <div style={storyFrameStyle}>
+      <LunaNotificationGroup
+        {...args}
+        defaultOpen={false}
+        items={[
+          {
+            title: "Launch checklist updated",
+            meta: "2m ago",
+            tone: "info",
+            body: "Crew readiness notes were updated after the final review pass."
+          },
+          {
+            title: "Approval required",
+            meta: "Queue",
+            tone: "warning",
+            emphasis: "outline",
+            body: "A manual sign-off is still required before continuing the deployment lane."
+          },
+          {
+            title: "Escalated signal",
+            meta: "Urgent",
+            tone: "danger",
+            body: "One active incident has been promoted into the response workflow."
+          }
+        ]}
+      />
+    </div>
   )
 };
 
 export const ExpandedTopRow: Story = {
   render: (args) => (
-    <LunaNotificationGroup
-      {...args}
-      items={[
-        {
-          title: "Pinned reminder",
-          meta: "Pinned",
-          tone: "neutral",
-          body: "Keep release notes aligned before publishing the next package."
-        },
-        {
-          title: "Review requested",
-          tone: "info",
-          emphasis: "outline",
-          body: "One new documentation change is ready for a visual pass."
-        },
-        {
-          title: "Deployment complete",
-          meta: "Now",
-          tone: "success",
-          body: "The latest service build is live across the fleet."
-        }
-      ]}
-    />
+    <div style={storyFrameStyle}>
+      <LunaNotificationGroup
+        {...args}
+        items={[
+          {
+            title: "Pinned reminder",
+            meta: "Pinned",
+            tone: "neutral",
+            body: "Keep release notes aligned before publishing the next package."
+          },
+          {
+            title: "Review requested",
+            tone: "info",
+            emphasis: "outline",
+            body: "One new documentation change is ready for a visual pass."
+          },
+          {
+            title: "Deployment complete",
+            meta: "Now",
+            tone: "success",
+            body: "The latest service build is live across the fleet."
+          }
+        ]}
+      />
+    </div>
   )
 };
 
 export const ExpandHidden: Story = {
   render: (args) => (
-    <LunaNotificationGroup
-      {...args}
-      defaultOpen={false}
-      showExpand={false}
-      items={[
-        {
-          title: "Queued release note",
-          meta: "Pinned",
-          tone: "neutral",
-          body: "Keep the feed visible without exposing an expand affordance."
-        },
-        {
-          title: "Escalated signal",
-          meta: "Urgent",
-          tone: "danger",
-          body: "One active incident has been promoted into the response workflow."
-        }
-      ]}
-    />
+    <div style={storyFrameStyle}>
+      <LunaNotificationGroup
+        {...args}
+        defaultOpen={false}
+        showExpand={false}
+        items={[
+          {
+            title: "Queued release note",
+            meta: "Pinned",
+            tone: "neutral",
+            body: "Keep the feed visible without exposing an expand affordance."
+          },
+          {
+            title: "Escalated signal",
+            meta: "Urgent",
+            tone: "danger",
+            body: "One active incident has been promoted into the response workflow."
+          }
+        ]}
+      />
+    </div>
   )
 };
 
 export const DismissHidden: Story = {
   render: (args) => (
-    <LunaNotificationGroup
-      {...args}
-      showDismissAll={false}
-      items={[
-        {
-          title: "Review requested",
-          tone: "info",
-          emphasis: "outline",
-          body: "The group keeps its left toggle but does not show the dismiss-all affordance."
-        },
-        {
-          title: "Deployment complete",
-          meta: "Now",
-          tone: "success",
-          body: "The latest service build is live across the fleet."
-        }
-      ]}
-    />
+    <div style={storyFrameStyle}>
+      <LunaNotificationGroup
+        {...args}
+        showDismissAll={false}
+        items={[
+          {
+            title: "Review requested",
+            tone: "info",
+            emphasis: "outline",
+            body: "The group keeps its left toggle but does not show the dismiss-all affordance."
+          },
+          {
+            title: "Deployment complete",
+            meta: "Now",
+            tone: "success",
+            body: "The latest service build is live across the fleet."
+          }
+        ]}
+      />
+    </div>
+  )
+};
+
+export const BothControlsHidden: Story = {
+  render: (args) => (
+    <div style={storyFrameStyle}>
+      <LunaNotificationGroup
+        {...args}
+        defaultOpen={false}
+        showExpand={false}
+        showDismissAll={false}
+        items={[
+          {
+            title: "Review requested",
+            tone: "info",
+            emphasis: "outline",
+            body: "The group should expand to the full content lane when both outer controls are hidden."
+          },
+          {
+            title: "Deployment complete",
+            meta: "Now",
+            tone: "success",
+            body: "This makes the 100 percent middle contract obvious in Storybook."
+          }
+        ]}
+      />
+    </div>
   )
 };
 
 export const ItemDismissContract: Story = {
   render: (args) => (
-    <LunaNotificationGroup
-      {...args}
-      defaultOpen={false}
-      items={[
-        {
-          title: "Escalated signal",
-          meta: "Urgent",
-          tone: "danger",
-          body: "Dismiss single items from the group without collapsing the whole surface."
-        },
-        {
-          title: "Queued follow-up",
-          meta: "2m ago",
-          tone: "info",
-          body: "Each internal notification owns its own dismiss control on the far right."
-        }
-      ]}
-    />
+    <div style={storyFrameStyle}>
+      <LunaNotificationGroup
+        {...args}
+        defaultOpen={false}
+        items={[
+          {
+            title: "Escalated signal",
+            meta: "Urgent",
+            tone: "danger",
+            body: "Dismiss single items from the group without collapsing the whole surface."
+          },
+          {
+            title: "Queued follow-up",
+            meta: "2m ago",
+            tone: "info",
+            body: "Each internal notification owns its own dismiss control on the far right."
+          }
+        ]}
+      />
+    </div>
   )
 };
 
 export const SizeContract: Story = {
   render: (args) => (
-    <LunaColumn gap="6" style={{ width: "100%" }}>
+    <LunaColumn gap="6" style={storyFrameStyle}>
       <LunaNotificationGroup
         {...args}
         defaultOpen={false}
@@ -231,7 +274,7 @@ export const SizeContract: Story = {
 
 export const ExpandedSizeContract: Story = {
   render: (args) => (
-    <LunaColumn gap="6" style={{ width: "100%" }}>
+    <LunaColumn gap="6" style={storyFrameStyle}>
       <LunaNotificationGroup
         {...args}
         size="sm"

@@ -65,6 +65,8 @@ export const LunaNotificationGroup = React.forwardRef<HTMLElement, LunaNotificat
     const resolvedGap = resolveSpacingValue(gap, theme);
     const resolvedPadding = resolveSpacingValue(padding, theme);
     const resolvedMaxWidth = resolveSpacingValue(maxWidth, theme);
+    const resolvedControlRailWidth =
+      theme.components.notificationGroup?.defaultControlRailWidth ?? "7.5%";
     const visibleItems = items
       .map((item, index) => ({ item, index }))
       .filter(({ index }) => !dismissedItems.has(index));
@@ -82,6 +84,10 @@ export const LunaNotificationGroup = React.forwardRef<HTMLElement, LunaNotificat
       ...(resolvedMaxWidth
         ? { ["--luna-notification-group-max-width" as const]: resolvedMaxWidth }
         : {}),
+      ["--luna-notification-group-leading-width" as const]:
+        canExpand ? resolvedControlRailWidth : "0%",
+      ["--luna-notification-group-trailing-width" as const]:
+        hasRightRail ? resolvedControlRailWidth : "0%",
       ...(topItemHeight
         ? { ["--luna-notification-group-top-item-height" as const]: `${topItemHeight}px` }
         : {}),
