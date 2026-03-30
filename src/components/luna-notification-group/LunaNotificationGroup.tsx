@@ -232,6 +232,7 @@ export const LunaNotificationGroup = React.forwardRef<HTMLElement, LunaNotificat
                     <div className="luna-notification-group__stack-preview" id={itemsId}>
                       {previewItems[0] ? (
                         <LunaNotification
+                          key={`preview-front-${previewItems[0].index}`}
                           action={previewItems[0].item.action}
                           className="luna-notification-group__stack-front"
                           dismissible
@@ -327,6 +328,7 @@ export const LunaNotificationGroup = React.forwardRef<HTMLElement, LunaNotificat
                       </div>
                       <div className="luna-notification-group__top-content">
                         <LunaNotification
+                          key={`top-${topItem.index}`}
                           action={topItem.item.action}
                           dismissible
                           emphasis={topItem.item.emphasis}
@@ -368,11 +370,12 @@ export const LunaNotificationGroup = React.forwardRef<HTMLElement, LunaNotificat
                   ) : null}
                   {remainingItems.length > 0 ? (
                     <div className="luna-notification-group__remaining-items">
-                      {remainingItems.map(({ item, index }) => (
-                        <div className="luna-notification-group__item-row" key={`item-${index}`}>
+                      {remainingItems.map(({ item, index: itemIndex }) => (
+                        <div className="luna-notification-group__item-row" key={`item-${itemIndex}`}>
                           <div className="luna-notification-group__leading-slot" aria-hidden="true" />
                           <div className="luna-notification-group__top-content">
                             <LunaNotification
+                              key={`item-${itemIndex}`}
                               action={item.action}
                               dismissible
                               emphasis={item.emphasis}
@@ -380,7 +383,7 @@ export const LunaNotificationGroup = React.forwardRef<HTMLElement, LunaNotificat
                               meta={item.meta}
                               onOpenChange={(nextOpen, reason) => {
                                 if (!nextOpen && reason === "dismiss") {
-                                  dismissItem(index);
+                                  dismissItem(itemIndex);
                                 }
                               }}
                               size={size}

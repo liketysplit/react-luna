@@ -87,3 +87,9 @@ Use explicit native semantics when the notification should be announced:
 - `role="alert"` for urgent interruptions
 
 That keeps persistent notifications reusable both for passive inbox-style surfaces and for actively announced application feedback.
+
+## Current Hardening Gaps
+
+- narrow-width behavior for grouped notification layouts is still under active hardening and should be solved at the system level, not per-story
+- notification sizing is now standardized, but responsive composition with group rails and stacked surfaces still needs a shared breakpoint contract
+- icon placeholders are still temporary and should be replaced once the icon system lands

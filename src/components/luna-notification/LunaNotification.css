@@ -14,6 +14,7 @@
   );
   --luna-notification-body-lines: 2;
   --luna-notification-min-height: 4.5rem;
+  box-sizing: border-box;
   position: relative;
   display: flex;
   align-items: flex-start;

@@ -55,6 +55,7 @@ Native `HTMLAttributes<HTMLElement>` continue to pass through to the root, inclu
 - `collapsible` defaults to `true` so grouped notifications can collapse into a stacked preview
 - `showExpand` controls whether the expand/collapse affordance is visible when collapse behavior is enabled
 - collapsed groups should preview multiple items like a paper stack, with the most recent item on top
+- the group renders at most three visual items at a time, even when more items are supplied
 - collapsed previews still render internal notifications, so single-item dismiss remains available there
 - `open` makes the group controlled
 - `defaultOpen` seeds uncontrolled expansion and defaults to `true`
@@ -69,3 +70,9 @@ Native `HTMLAttributes<HTMLElement>` continue to pass through to the root, inclu
 - use `aria-label` or `aria-labelledby` when the group needs an explicit accessible name
 - keep announcement behavior on individual `LunaNotification` items rather than assigning one live region to the full group
 - prefer `framed={false}` when the surrounding layout already provides the needed visual container
+
+## Current Hardening Gaps
+
+- narrow-width responsive behavior is not finalized yet; gutter collapse, rail visibility, and stacked-preview degradation should be handled in a dedicated hardening pass
+- collapsed-stack behavior is tuned for desktop-first review right now and still needs a project-wide breakpoint policy
+- control-lane sizing and alignment should eventually be normalized alongside the rest of the feedback-system responsive contracts
