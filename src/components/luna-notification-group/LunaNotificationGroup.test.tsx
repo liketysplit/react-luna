@@ -1,10 +1,9 @@
 import React from "react";
-import { cleanup, render, screen } from "@testing-library/react";
+import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
 import { ThemeProvider } from "../../theme";
 import type { ThemeProviderProps } from "../../theme/provider";
 import { LunaButton } from "../luna-button";
-import { LunaNotification } from "../luna-notification";
 import { LunaNotificationGroup } from "./LunaNotificationGroup";
 
 function renderWithTheme(
@@ -21,9 +20,11 @@ afterEach(() => {
 describe("LunaNotificationGroup", () => {
   it("renders a framed section by default and labels it from the title", () => {
     renderWithTheme(
-      <LunaNotificationGroup title="Operations feed" description="Current persistent updates.">
-        <LunaNotification title="Mission sync">All systems nominal.</LunaNotification>
-      </LunaNotificationGroup>
+      <LunaNotificationGroup
+        title="Operations feed"
+        description="Current persistent updates."
+        items={[{ title: "Mission sync", body: "All systems nominal." }]}
+      />
     );
 
     const group = screen.getByText("Operations feed").closest("section");
@@ -43,9 +44,9 @@ describe("LunaNotificationGroup", () => {
         aria-label="Pinned notifications"
         framed={false}
         actions={<LunaButton size="small">Review all</LunaButton>}
-      >
-        <LunaNotification title="Signal drift">Review required.</LunaNotification>
-      </LunaNotificationGroup>
+        showExpand={false}
+        items={[{ title: "Signal drift", body: "Review required." }]}
+      />
     );
 
     const group = screen.getByRole("region", { name: "Pinned notifications" });
@@ -53,22 +54,130 @@ describe("LunaNotificationGroup", () => {
     expect(group.tagName).toBe("ASIDE");
     expect(group).not.toHaveClass("luna-notification-group--framed");
     expect(screen.getByRole("button", { name: "Review all" })).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Expand notification group" })).not.toBeInTheDocument();
   });
 
-  it("renders multiple notification children inside the items region", () => {
+  it("supports collapsed stack preview and toggle expansion", async () => {
+    const { default: userEvent } = await import("@testing-library/user-event");
+    const user = userEvent.setup();
+
     renderWithTheme(
-      <LunaNotificationGroup title="Mission activity">
-        <LunaNotification title="Queued">Relay sync is waiting.</LunaNotification>
-        <LunaNotification title="Warning" tone="warning">
-          Manual approval is still needed.
-        </LunaNotification>
-      </LunaNotificationGroup>
+      <LunaNotificationGroup
+        title="Mission activity"
+        defaultOpen={false}
+        items={[
+          { title: "Queued", body: "Relay sync is waiting." },
+          { title: "Warning", tone: "warning", body: "Manual approval is still needed." }
+        ]}
+      />
+    );
+
+    const toggle = screen.getByRole("button", { name: "Expand notification group" });
+
+    expect(toggle).toHaveAttribute("aria-expanded", "false");
+    expect(document.querySelector(".luna-notification-group__stack-preview")).toBeInTheDocument();
+    expect(document.querySelector(".luna-notification-group__items")).not.toBeInTheDocument();
+
+    await user.click(toggle);
+
+    expect(screen.getByRole("button", { name: "Collapse notification group" })).toHaveAttribute(
+      "aria-expanded",
+      "true"
+    );
+    expect(document.querySelector(".luna-notification-group__items")).toBeInTheDocument();
+  });
+
+  it("supports group-level dismissal", async () => {
+    const { default: userEvent } = await import("@testing-library/user-event");
+    const user = userEvent.setup();
+
+    renderWithTheme(
+      <LunaNotificationGroup
+        title="Mission activity"
+        dismissible
+        items={[{ title: "Queued", body: "Relay sync is waiting." }]}
+      />
+    );
+
+    await user.click(screen.getByRole("button", { name: "Dismiss notification group" }));
+
+    expect(screen.queryByText("Mission activity")).not.toBeInTheDocument();
+  });
+
+  it("lets dismiss-all visibility be controlled explicitly", () => {
+    renderWithTheme(
+      <LunaNotificationGroup
+        title="Mission activity"
+        dismissible
+        showDismissAll={false}
+        items={[{ title: "Queued", body: "Relay sync is waiting." }]}
+      />
+    );
+
+    expect(screen.queryByRole("button", { name: "Dismiss notification group" })).not.toBeInTheDocument();
+  });
+
+  it("renders multiple internal notification items inside the items region", () => {
+    renderWithTheme(
+      <LunaNotificationGroup
+        title="Mission activity"
+        items={[
+          { title: "Queued", body: "Relay sync is waiting." },
+          { title: "Warning", tone: "warning", body: "Manual approval is still needed." }
+        ]}
+      />
     );
 
     const items = document.querySelector(".luna-notification-group__items");
 
     expect(items?.querySelectorAll(".luna-notification")).toHaveLength(2);
     expect(screen.getByText("Manual approval is still needed.")).toBeInTheDocument();
+  });
+
+  it("always allows single internal notifications to be dismissed", async () => {
+    const { default: userEvent } = await import("@testing-library/user-event");
+    const user = userEvent.setup();
+
+    renderWithTheme(
+      <LunaNotificationGroup
+        title="Mission activity"
+        items={[
+          { title: "Queued", body: "Relay sync is waiting." },
+          { title: "Warning", tone: "warning", body: "Manual approval is still needed." }
+        ]}
+      />
+    );
+
+    const dismissButtons = screen.getAllByRole("button", { name: "Dismiss notification" });
+
+    expect(dismissButtons).toHaveLength(2);
+
+    await user.click(dismissButtons[0]!);
+
+    await waitFor(() => {
+      expect(document.querySelectorAll(".luna-notification").length).toBeLessThanOrEqual(1);
+    });
+  });
+
+  it("keeps single-item dismissal available in the collapsed stack preview", async () => {
+    const { default: userEvent } = await import("@testing-library/user-event");
+    const user = userEvent.setup();
+
+    renderWithTheme(
+      <LunaNotificationGroup
+        title="Mission activity"
+        defaultOpen={false}
+        items={[
+          { title: "Queued", body: "Relay sync is waiting." },
+          { title: "Warning", tone: "warning", body: "Manual approval is still needed." }
+        ]}
+      />
+    );
+
+    await user.click(screen.getAllByRole("button", { name: "Dismiss notification" })[0]!);
+
+    expect(screen.queryByText("Manual approval is still needed.")).not.toBeInTheDocument();
+    expect(screen.getByText("Relay sync is waiting.")).toBeInTheDocument();
   });
 
   it("resolves spacing tokens through the theme system", () => {
@@ -79,9 +188,8 @@ describe("LunaNotificationGroup", () => {
         padding="6"
         maxWidth="24rem"
         rounded
-      >
-        <LunaNotification title="Update">Custom spacing.</LunaNotification>
-      </LunaNotificationGroup>
+        items={[{ title: "Update", body: "Custom spacing." }]}
+      />
     );
 
     const group = document.querySelector(".luna-notification-group");

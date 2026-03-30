@@ -2,9 +2,11 @@ import type React from "react";
 import type { LunaAlertEmphasis, LunaAlertTone } from "../luna-alert";
 
 export type LunaNotificationDismissReason = "dismiss";
+export type LunaNotificationSize = "sm" | "md" | "lg";
 
 export type LunaNotificationProps = Omit<React.HTMLAttributes<HTMLElement>, "title" | "color"> & {
   as?: React.ElementType;
+  size?: LunaNotificationSize;
   tone?: LunaAlertTone;
   emphasis?: LunaAlertEmphasis;
   title?: React.ReactNode;

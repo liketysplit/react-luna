@@ -1,29 +1,42 @@
 [
   {
-    "storyId": "components-lunanotificationgroup--custom-header-content",
-    "fileName": "luna-notification-group-custom-header-content",
+    "storyId": "components-lunanotificationgroup--collapsed-top-row",
+    "fileName": "luna-notification-group-collapsed-top-row",
     "backgrounds": [
       "light"
     ]
   },
   {
-    "storyId": "components-lunanotificationgroup--framed-feed",
-    "fileName": "luna-notification-group-framed-feed",
+    "storyId": "components-lunanotificationgroup--expanded-top-row",
+    "fileName": "luna-notification-group-expanded-top-row",
     "backgrounds": [
       "light"
     ]
   },
   {
-    "storyId": "components-lunanotificationgroup--playground",
-    "fileName": "luna-notification-group-playground",
+    "storyId": "components-lunanotificationgroup--item-dismiss-contract",
+    "fileName": "luna-notification-group-item-dismiss-contract",
     "backgrounds": [
-      "light",
-      "dark"
+      "light"
     ]
   },
   {
-    "storyId": "components-lunanotificationgroup--unframed-rail",
-    "fileName": "luna-notification-group-unframed-rail",
+    "storyId": "components-lunanotificationgroup--size-contract",
+    "fileName": "luna-notification-group-size-contract",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunanotificationgroup--dismiss-hidden",
+    "fileName": "luna-notification-group-dismiss-hidden",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunanotificationgroup--expand-hidden",
+    "fileName": "luna-notification-group-expand-hidden",
     "backgrounds": [
       "light"
     ]

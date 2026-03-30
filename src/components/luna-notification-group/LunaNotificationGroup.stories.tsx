@@ -1,18 +1,17 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { LunaButton } from "../luna-button";
-import { LunaNotification } from "../luna-notification";
+import { LunaColumn } from "../luna-column";
 import { LunaNotificationGroup } from "./LunaNotificationGroup";
 
 const meta = {
   title: "Components/LunaNotificationGroup",
   component: LunaNotificationGroup,
   parameters: {
-    layout: "padded"
+    layout: "fullscreen"
   },
   args: {
-    title: "Operations feed",
-    description: "A grouped presentation for durable application notifications."
+    framed: false,
+    dismissible: true
   }
 } satisfies Meta<typeof LunaNotificationGroup>;
 
@@ -20,92 +19,212 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Playground: Story = {
+export const CollapsedTopRow: Story = {
   render: (args) => (
     <LunaNotificationGroup
       {...args}
-      actions={<LunaButton size="small">Review all</LunaButton>}
-    >
-      <LunaNotification title="Mission sync" meta="Now" tone="success">
-        Orbital alignment completed without intervention.
-      </LunaNotification>
-      <LunaNotification title="Pending approval" meta="Queue" tone="warning" emphasis="outline">
-        The next relay update still needs a manual review.
-      </LunaNotification>
-    </LunaNotificationGroup>
+      defaultOpen={false}
+      items={[
+        {
+          title: "Launch checklist updated",
+          meta: "2m ago",
+          tone: "info",
+          body: "Crew readiness notes were updated after the final review pass."
+        },
+        {
+          title: "Approval required",
+          meta: "Queue",
+          tone: "warning",
+          emphasis: "outline",
+          body: "A manual sign-off is still required before continuing the deployment lane."
+        },
+        {
+          title: "Escalated signal",
+          meta: "Urgent",
+          tone: "danger",
+          body: "One active incident has been promoted into the response workflow."
+        }
+      ]}
+    />
   )
 };
 
-export const FramedFeed: Story = {
-  render: () => (
+export const ExpandedTopRow: Story = {
+  render: (args) => (
     <LunaNotificationGroup
-      title="Team notifications"
-      description="Use a framed group when the notifications need one shared surface."
-      actions={<LunaButton size="small">Open inbox</LunaButton>}
-      maxWidth="42rem"
-    >
-      <LunaNotification title="Deploy completed" meta="2 minutes ago" tone="success">
-        The latest service build is live across the fleet.
-      </LunaNotification>
-      <LunaNotification title="Usage threshold reached" meta="Needs review" tone="info">
-        Storage consumption has crossed the team review threshold.
-      </LunaNotification>
-      <LunaNotification title="Escalation requested" meta="Action needed" tone="danger">
-        One unresolved alert now requires the incident workflow.
-      </LunaNotification>
-    </LunaNotificationGroup>
+      {...args}
+      items={[
+        {
+          title: "Pinned reminder",
+          meta: "Pinned",
+          tone: "neutral",
+          body: "Keep release notes aligned before publishing the next package."
+        },
+        {
+          title: "Review requested",
+          tone: "info",
+          emphasis: "outline",
+          body: "One new documentation change is ready for a visual pass."
+        },
+        {
+          title: "Deployment complete",
+          meta: "Now",
+          tone: "success",
+          body: "The latest service build is live across the fleet."
+        }
+      ]}
+    />
   )
 };
 
-export const UnframedRail: Story = {
-  render: () => (
+export const ExpandHidden: Story = {
+  render: (args) => (
     <LunaNotificationGroup
-      title="Sidebar feed"
-      description="Unframed groups fit existing layouts that already provide their own chrome."
-      framed={false}
-      gap="3"
-      maxWidth="24rem"
-    >
-      <LunaNotification title="Pinned reminder" meta="Pinned">
-        Keep release notes aligned before publishing the next package.
-      </LunaNotification>
-      <LunaNotification title="Review requested" tone="info" emphasis="outline">
-        One new documentation change is ready for a visual pass.
-      </LunaNotification>
-    </LunaNotificationGroup>
+      {...args}
+      defaultOpen={false}
+      showExpand={false}
+      items={[
+        {
+          title: "Queued release note",
+          meta: "Pinned",
+          tone: "neutral",
+          body: "Keep the feed visible without exposing an expand affordance."
+        },
+        {
+          title: "Escalated signal",
+          meta: "Urgent",
+          tone: "danger",
+          body: "One active incident has been promoted into the response workflow."
+        }
+      ]}
+    />
   )
 };
 
-export const CustomHeaderContent: Story = {
-  render: () => (
+export const DismissHidden: Story = {
+  render: (args) => (
     <LunaNotificationGroup
-      title={
-        <div>
-          <strong>Release feed</strong>
-        </div>
-      }
-      description={
-        <div>
-          Mixed header content stays slot-based so consumers can choose their own markup.
-        </div>
-      }
-      actions={
-        <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
-          <LunaButton size="small">Review</LunaButton>
-          <LunaButton size="small" flat>
-            Later
-          </LunaButton>
-        </div>
-      }
-      rounded
-      maxWidth="42rem"
-    >
-      <LunaNotification title="Visual checks ready" tone="info">
-        Storybook screenshots are ready for the current component branch.
-      </LunaNotification>
-      <LunaNotification title="Two open follow-ups" tone="warning" emphasis="outline">
-        Keep the group focused on presentation instead of history management.
-      </LunaNotification>
-    </LunaNotificationGroup>
+      {...args}
+      showDismissAll={false}
+      items={[
+        {
+          title: "Review requested",
+          tone: "info",
+          emphasis: "outline",
+          body: "The group keeps its left toggle but does not show the dismiss-all affordance."
+        },
+        {
+          title: "Deployment complete",
+          meta: "Now",
+          tone: "success",
+          body: "The latest service build is live across the fleet."
+        }
+      ]}
+    />
+  )
+};
+
+export const ItemDismissContract: Story = {
+  render: (args) => (
+    <LunaNotificationGroup
+      {...args}
+      defaultOpen={false}
+      items={[
+        {
+          title: "Escalated signal",
+          meta: "Urgent",
+          tone: "danger",
+          body: "Dismiss single items from the group without collapsing the whole surface."
+        },
+        {
+          title: "Queued follow-up",
+          meta: "2m ago",
+          tone: "info",
+          body: "Each internal notification owns its own dismiss control on the far right."
+        }
+      ]}
+    />
+  )
+};
+
+export const SizeContract: Story = {
+  render: (args) => (
+    <LunaColumn gap="6" style={{ width: "100%" }}>
+      <LunaNotificationGroup
+        {...args}
+        defaultOpen={false}
+        size="sm"
+        items={[
+          {
+            title: "Compact update",
+            meta: "Now",
+            tone: "info",
+            body: "Small notifications keep the stack tight."
+          },
+          {
+            title: "Queued review",
+            meta: "Queue",
+            tone: "warning",
+            body: "Small notifications stay at a single-line body in the stack."
+          },
+          {
+            title: "Pinned alert",
+            meta: "Pinned",
+            tone: "danger",
+            body: "The small stack stays dense but still dismissible item by item."
+          }
+        ]}
+      />
+      <LunaNotificationGroup
+        {...args}
+        defaultOpen={false}
+        size="md"
+        items={[
+          {
+            title: "Standard update",
+            meta: "Now",
+            tone: "info",
+            body: "Medium notifications allow a second line before truncating body content in the group."
+          },
+          {
+            title: "Queued review",
+            meta: "Queue",
+            tone: "warning",
+            body: "The medium stack gives the body more room while keeping the same grouped behavior."
+          },
+          {
+            title: "Pinned alert",
+            meta: "Pinned",
+            tone: "danger",
+            body: "This shows the default notification size contract when the group is collapsed."
+          }
+        ]}
+      />
+      <LunaNotificationGroup
+        {...args}
+        defaultOpen={false}
+        size="lg"
+        items={[
+          {
+            title: "Expanded update",
+            meta: "Now",
+            tone: "info",
+            body: "Large notifications allow a third line before truncating body content so dense grouped surfaces can still preserve hierarchy."
+          },
+          {
+            title: "Queued review",
+            meta: "Queue",
+            tone: "warning",
+            body: "The large stack should read as the most spacious version of the same grouped-notification contract."
+          },
+          {
+            title: "Pinned alert",
+            meta: "Pinned",
+            tone: "danger",
+            body: "Even at the largest size, each item should still dismiss cleanly inside the collapsed stack."
+          }
+        ]}
+      />
+    </LunaColumn>
   )
 };
