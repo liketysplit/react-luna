@@ -49,6 +49,19 @@ describe("LunaNotification", () => {
     expect(screen.getByRole("button", { name: "Review" })).toBeInTheDocument();
   });
 
+  it("resolves internal icon names through LunaIcon", () => {
+    renderWithTheme(
+      <LunaNotification title="Signal drift" iconName="warning">
+        Check the latest telemetry.
+      </LunaNotification>
+    );
+
+    const icon = document.querySelector(".luna-notification__icon svg");
+
+    expect(icon).toBeInTheDocument();
+    expect(icon).toHaveAttribute("viewBox", "0 0 24 24");
+  });
+
   it("supports dismiss buttons and reports dismiss events", () => {
     const onOpenChange = vi.fn();
 

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { LunaIcon } from "./LunaIcon";
-import { ICON_NAMES } from "./internal/types";
+import { CORE_ICON_NAMES, ICON_NAMES, LUNA_ICON_NAMES } from "./internal/types";
 
 const meta = {
   title: "Foundations/LunaIcon",
@@ -63,18 +63,44 @@ const galleryLabelStyle: React.CSSProperties = {
   wordBreak: "break-word"
 };
 
+const sectionStyle: React.CSSProperties = {
+  display: "grid",
+  gap: "1rem"
+};
+
+const sectionTitleStyle: React.CSSProperties = {
+  fontSize: "0.875rem",
+  fontWeight: 700,
+  letterSpacing: "0.04em",
+  textTransform: "uppercase"
+};
+
 export const Playground: Story = {};
 
 export const GalleryOutline: Story = {
   render: () => (
     <div style={galleryFrameStyle}>
-      <div style={galleryGridStyle}>
-        {ICON_NAMES.map((name) => (
-          <div key={`outline-${name}`} style={galleryCardStyle}>
-            <LunaIcon name={name} variant="outline" size="lg" label={`${name} icon`} />
-            <span style={galleryLabelStyle}>{name}</span>
-          </div>
-        ))}
+      <div style={sectionStyle}>
+        <span style={sectionTitleStyle}>Core UI Icons</span>
+        <div style={galleryGridStyle}>
+          {CORE_ICON_NAMES.map((name) => (
+            <div key={`outline-core-${name}`} style={galleryCardStyle}>
+              <LunaIcon name={name} variant="outline" size="lg" label={`${name} icon`} />
+              <span style={galleryLabelStyle}>{name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div style={sectionStyle}>
+        <span style={sectionTitleStyle}>Luna Icons</span>
+        <div style={galleryGridStyle}>
+          {LUNA_ICON_NAMES.map((name) => (
+            <div key={`outline-luna-${name}`} style={galleryCardStyle}>
+              <LunaIcon name={name} variant="outline" size="lg" label={`${name} icon`} />
+              <span style={galleryLabelStyle}>{name}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )
@@ -83,13 +109,27 @@ export const GalleryOutline: Story = {
 export const GalleryFilled: Story = {
   render: () => (
     <div style={galleryFrameStyle}>
-      <div style={galleryGridStyle}>
-        {ICON_NAMES.map((name) => (
-          <div key={`filled-${name}`} style={galleryCardStyle}>
-            <LunaIcon name={name} variant="filled" size="lg" label={`${name} icon`} />
-            <span style={galleryLabelStyle}>{name}</span>
-          </div>
-        ))}
+      <div style={sectionStyle}>
+        <span style={sectionTitleStyle}>Core UI Icons</span>
+        <div style={galleryGridStyle}>
+          {CORE_ICON_NAMES.map((name) => (
+            <div key={`filled-core-${name}`} style={galleryCardStyle}>
+              <LunaIcon name={name} variant="filled" size="lg" label={`${name} icon`} />
+              <span style={galleryLabelStyle}>{name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div style={sectionStyle}>
+        <span style={sectionTitleStyle}>Luna Icons</span>
+        <div style={galleryGridStyle}>
+          {LUNA_ICON_NAMES.map((name) => (
+            <div key={`filled-luna-${name}`} style={galleryCardStyle}>
+              <LunaIcon name={name} variant="filled" size="lg" label={`${name} icon`} />
+              <span style={galleryLabelStyle}>{name}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )

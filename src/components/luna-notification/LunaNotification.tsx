@@ -1,4 +1,5 @@
 import React from "react";
+import { LunaIcon } from "../../icons";
 import { useTheme } from "../../theme";
 import { resolveScaleValue } from "../../theme/resolve";
 import type {
@@ -35,6 +36,7 @@ export const LunaNotification = React.forwardRef<HTMLElement, LunaNotificationPr
       emphasis = "soft",
       gap,
       icon,
+      iconName,
       meta,
       onOpenChange,
       open,
@@ -56,6 +58,8 @@ export const LunaNotification = React.forwardRef<HTMLElement, LunaNotificationPr
     const resolvedPadding = resolveSpacingValue(padding, theme);
     const resolvedGap = resolveSpacingValue(gap, theme);
     const hasBody = children !== undefined && children !== null;
+    const resolvedIcon =
+      icon ?? (iconName ? <LunaIcon name={iconName} variant="outline" aria-hidden="true" /> : null);
 
     const resolvedStyle = {
       ...(resolvedPadding ? { ["--luna-notification-padding" as const]: resolvedPadding } : {}),
@@ -93,9 +97,9 @@ export const LunaNotification = React.forwardRef<HTMLElement, LunaNotificationPr
         data-emphasis={emphasis}
         style={resolvedStyle}
       >
-        {icon ? (
+        {resolvedIcon ? (
           <div aria-hidden="true" className="luna-notification__icon">
-            {icon}
+            {resolvedIcon}
           </div>
         ) : null}
         <div className="luna-notification__content">
@@ -117,7 +121,7 @@ export const LunaNotification = React.forwardRef<HTMLElement, LunaNotificationPr
               closeNotification("dismiss");
             }}
           >
-            <span aria-hidden="true">x</span>
+            <LunaIcon name="close" variant="outline" aria-hidden="true" />
           </button>
         ) : null}
       </Component>

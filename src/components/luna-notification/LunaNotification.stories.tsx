@@ -75,7 +75,7 @@ export const WithActionAndMetadata: Story = {
         tone="info"
         title="Scheduled maintenance"
         meta="12 minutes ago"
-        icon={<span>i</span>}
+        iconName="info"
         action={
           <LunaRow gap="3" wrap>
             <LunaButton size="small">Review</LunaButton>
@@ -92,7 +92,7 @@ export const WithActionAndMetadata: Story = {
         emphasis="outline"
         title="Signal drift detected"
         meta="Needs review"
-        icon={<span>!</span>}
+        iconName="warning"
         role="status"
         aria-live="polite"
       >
@@ -109,7 +109,7 @@ export const EdgeVarieties: Story = {
         tone="info"
         title="Review requested"
         meta="Queue"
-        icon={<span>i</span>}
+        iconName="info"
       >
         Soft notifications keep the left edge subtle while still signaling the tone.
       </LunaNotification>
@@ -118,7 +118,7 @@ export const EdgeVarieties: Story = {
         emphasis="outline"
         title="Deployment completed"
         meta="2 minutes ago"
-        icon={<span>*</span>}
+        iconName="success"
       >
         Outline notifications let the accent edge do more of the visual work.
       </LunaNotification>
@@ -127,7 +127,7 @@ export const EdgeVarieties: Story = {
         emphasis="solid"
         title="Pager escalation"
         meta="Action needed"
-        icon={<span>!</span>}
+        iconName="error"
         action={
           <LunaRow gap="3" wrap>
             <LunaButton size="small">Open incident</LunaButton>

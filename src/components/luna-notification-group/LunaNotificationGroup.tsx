@@ -1,4 +1,5 @@
 import React from "react";
+import { LunaIcon } from "../../icons";
 import { useTheme } from "../../theme";
 import { resolveScaleValue } from "../../theme/resolve";
 import { LunaNotification } from "../luna-notification";
@@ -67,6 +68,7 @@ export const LunaNotificationGroup = React.forwardRef<HTMLElement, LunaNotificat
     const resolvedMaxWidth = resolveSpacingValue(maxWidth, theme);
     const resolvedControlRailWidth =
       theme.components.notificationGroup?.defaultControlRailWidth ?? "7.5%";
+    const resolvedLeadingRailWidth = "12.5%";
     const visibleItems = items
       .map((item, index) => ({ item, index }))
       .filter(({ index }) => !dismissedItems.has(index));
@@ -85,7 +87,7 @@ export const LunaNotificationGroup = React.forwardRef<HTMLElement, LunaNotificat
         ? { ["--luna-notification-group-max-width" as const]: resolvedMaxWidth }
         : {}),
       ["--luna-notification-group-leading-width" as const]:
-        canExpand ? resolvedControlRailWidth : "0%",
+        canExpand ? resolvedLeadingRailWidth : "0%",
       ["--luna-notification-group-trailing-width" as const]:
         hasRightRail ? resolvedControlRailWidth : "0%",
       ...(topItemHeight
@@ -220,10 +222,12 @@ export const LunaNotificationGroup = React.forwardRef<HTMLElement, LunaNotificat
                           aria-label={isOpen ? "Collapse notification group" : "Expand notification group"}
                           onClick={toggleGroup}
                         >
-                          <span aria-hidden="true" className="luna-notification-group__toggle-glyph">
-                            {/* TODO: Replace placeholder glyphs with real icons once the icon system lands. */}
-                            {isOpen ? "v" : ">"}
-                          </span>
+                          <LunaIcon
+                            aria-hidden="true"
+                            className="luna-notification-group__toggle-glyph"
+                            name={isOpen ? "chevron-down" : "chevron-right"}
+                            variant="outline"
+                          />
                         </button>
                       ) : null}
                     </div>
@@ -238,6 +242,7 @@ export const LunaNotificationGroup = React.forwardRef<HTMLElement, LunaNotificat
                           dismissible
                           emphasis={previewItems[0].item.emphasis}
                           icon={previewItems[0].item.icon}
+                          iconName={previewItems[0].item.iconName}
                           meta={previewItems[0].item.meta}
                           onOpenChange={(nextOpen, reason) => {
                             if (!nextOpen && reason === "dismiss") {
@@ -260,6 +265,7 @@ export const LunaNotificationGroup = React.forwardRef<HTMLElement, LunaNotificat
                           dismissible
                           emphasis={item.emphasis}
                           icon={item.icon}
+                          iconName={item.iconName}
                           meta={item.meta}
                           onOpenChange={(nextOpen, reason) => {
                             if (!nextOpen && reason === "dismiss") {
@@ -294,7 +300,7 @@ export const LunaNotificationGroup = React.forwardRef<HTMLElement, LunaNotificat
                               aria-label={dismissLabel}
                               onClick={dismissGroup}
                             >
-                              <span aria-hidden="true">x</span>
+                              <LunaIcon name="close" variant="outline" aria-hidden="true" />
                             </button>
                           ) : null}
                         </div>
@@ -318,10 +324,12 @@ export const LunaNotificationGroup = React.forwardRef<HTMLElement, LunaNotificat
                               aria-label={isOpen ? "Collapse notification group" : "Expand notification group"}
                               onClick={toggleGroup}
                             >
-                              <span aria-hidden="true" className="luna-notification-group__toggle-glyph">
-                                {/* TODO: Replace placeholder glyphs with real icons once the icon system lands. */}
-                                {isOpen ? "v" : ">"}
-                              </span>
+                              <LunaIcon
+                                aria-hidden="true"
+                                className="luna-notification-group__toggle-glyph"
+                                name={isOpen ? "chevron-down" : "chevron-right"}
+                                variant="outline"
+                              />
                             </button>
                           ) : null}
                         </div>
@@ -333,6 +341,7 @@ export const LunaNotificationGroup = React.forwardRef<HTMLElement, LunaNotificat
                           dismissible
                           emphasis={topItem.item.emphasis}
                           icon={topItem.item.icon}
+                          iconName={topItem.item.iconName}
                           meta={topItem.item.meta}
                           onOpenChange={(nextOpen, reason) => {
                             if (!nextOpen && reason === "dismiss") {
@@ -359,7 +368,7 @@ export const LunaNotificationGroup = React.forwardRef<HTMLElement, LunaNotificat
                                   aria-label={dismissLabel}
                                   onClick={dismissGroup}
                                 >
-                                  <span aria-hidden="true">x</span>
+                                  <LunaIcon name="close" variant="outline" aria-hidden="true" />
                                 </button>
                               ) : null}
                             </div>
@@ -380,6 +389,7 @@ export const LunaNotificationGroup = React.forwardRef<HTMLElement, LunaNotificat
                               dismissible
                               emphasis={item.emphasis}
                               icon={item.icon}
+                              iconName={item.iconName}
                               meta={item.meta}
                               onOpenChange={(nextOpen, reason) => {
                                 if (!nextOpen && reason === "dismiss") {

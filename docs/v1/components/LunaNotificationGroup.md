@@ -47,6 +47,7 @@ Native `HTMLAttributes<HTMLElement>` continue to pass through to the root, inclu
 - `description` provides supporting copy above the grouped notifications
 - `actions` renders an optional trailing header region
 - `items` is the public data/slot contract for grouped notification content
+- grouped items may supply either explicit `icon` nodes or first-party `iconName` values
 - `size` is a group-level contract applied uniformly to the internal notifications rendered by the group
 - notification items are rendered internally by the group instead of being nested as public children
 - internal notification items are always individually dismissible inside the group
@@ -54,6 +55,7 @@ Native `HTMLAttributes<HTMLElement>` continue to pass through to the root, inclu
 - framed groups should read as one durable feed surface, not just a box around unrelated cards
 - `collapsible` defaults to `true` so grouped notifications can collapse into a stacked preview
 - `showExpand` controls whether the expand/collapse affordance is visible when collapse behavior is enabled
+- expand/collapse and dismiss-all controls now use the shared first-party icon surface instead of placeholder glyphs
 - collapsed groups should preview multiple items like a paper stack, with the most recent item on top
 - the group renders at most three visual items at a time, even when more items are supplied
 - collapsed previews still render internal notifications, so single-item dismiss remains available there

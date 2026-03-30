@@ -122,7 +122,7 @@ describe("LunaNotificationGroup", () => {
       <LunaNotificationGroup
         title="Mission activity"
         items={[
-          { title: "Queued", body: "Relay sync is waiting." },
+          { title: "Queued", body: "Relay sync is waiting.", iconName: "info" },
           { title: "Warning", tone: "warning", body: "Manual approval is still needed." }
         ]}
       />
@@ -132,6 +132,7 @@ describe("LunaNotificationGroup", () => {
 
     expect(items?.querySelectorAll(".luna-notification")).toHaveLength(2);
     expect(screen.getByText("Manual approval is still needed.")).toBeInTheDocument();
+    expect(items?.querySelector(".luna-notification__icon svg")).toBeInTheDocument();
   });
 
   it("renders at most three visual items from the group", async () => {

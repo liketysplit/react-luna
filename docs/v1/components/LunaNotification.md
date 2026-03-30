@@ -33,6 +33,7 @@ The intended split is:
 - `emphasis?: "soft" | "solid" | "outline"`
 - `title?: React.ReactNode`
 - `icon?: React.ReactNode`
+- `iconName?: IconName`
 - `meta?: React.ReactNode`
 - `action?: React.ReactNode`
 - `open?: boolean`
@@ -60,6 +61,8 @@ Native `HTMLAttributes<HTMLElement>` continue to pass through to the root, inclu
 - `children` render the supporting body content
 - `action` renders an optional follow-up region below the body
 - `icon` is decorative by default and stays out of the accessibility tree
+- `iconName` resolves a first-party internal icon through the shared icon surface
+- if both `icon` and `iconName` are provided, the explicit `icon` node should win
 - `open` makes the component controlled
 - `defaultOpen` seeds uncontrolled visibility and defaults to `true`
 - `dismissible` adds a close button for local persistence control
@@ -92,4 +95,3 @@ That keeps persistent notifications reusable both for passive inbox-style surfac
 
 - narrow-width behavior for grouped notification layouts is still under active hardening and should be solved at the system level, not per-story
 - notification sizing is now standardized, but responsive composition with group rails and stacked surfaces still needs a shared breakpoint contract
-- icon placeholders are still temporary and should be replaced once the icon system lands

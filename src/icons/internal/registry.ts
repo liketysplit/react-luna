@@ -1,0 +1,137 @@
+import * as React from "react";
+export type LunaIconName = "menu" | "close" | "back" | "forward" | "chevron-up" | "chevron-down" | "chevron-left" | "chevron-right" | "add" | "remove" | "edit" | "delete" | "save" | "download" | "upload" | "refresh" | "search" | "filter" | "sort" | "success" | "warning" | "error" | "info" | "loading" | "check" | "checkbox-checked" | "checkbox-unchecked" | "checkbox-indeterminate" | "radio-checked" | "radio-unchecked" | "toggle-on" | "toggle-off" | "show" | "hide" | "expand" | "collapse" | "user" | "users" | "settings" | "home" | "folder" | "file" | "calendar" | "grid" | "list" | "more" | "more-horizontal" | "more-vertical" | "play" | "pause" | "stop" | "volume" | "mute" | "luna-moon" | "luna-crescent" | "luna-moon-star" | "luna-orbit" | "luna-orbit-ring" | "luna-eclipse" | "luna-phases" | "luna-loader" | "luna-comet" | "luna-buggy" | "luna-rover" | "luna-rocket";
+export type LunaIconVariant = "outline" | "filled";
+import { MenuOutline, MenuFilled } from "./icons/menu";
+import { CloseOutline, CloseFilled } from "./icons/close";
+import { BackOutline, BackFilled } from "./icons/back";
+import { ForwardOutline, ForwardFilled } from "./icons/forward";
+import { ChevronUpOutline, ChevronUpFilled } from "./icons/chevron-up";
+import { ChevronDownOutline, ChevronDownFilled } from "./icons/chevron-down";
+import { ChevronLeftOutline, ChevronLeftFilled } from "./icons/chevron-left";
+import { ChevronRightOutline, ChevronRightFilled } from "./icons/chevron-right";
+import { AddOutline, AddFilled } from "./icons/add";
+import { RemoveOutline, RemoveFilled } from "./icons/remove";
+import { EditOutline, EditFilled } from "./icons/edit";
+import { DeleteOutline, DeleteFilled } from "./icons/delete";
+import { SaveOutline, SaveFilled } from "./icons/save";
+import { DownloadOutline, DownloadFilled } from "./icons/download";
+import { UploadOutline, UploadFilled } from "./icons/upload";
+import { RefreshOutline, RefreshFilled } from "./icons/refresh";
+import { SearchOutline, SearchFilled } from "./icons/search";
+import { FilterOutline, FilterFilled } from "./icons/filter";
+import { SortOutline, SortFilled } from "./icons/sort";
+import { SuccessOutline, SuccessFilled } from "./icons/success";
+import { WarningOutline, WarningFilled } from "./icons/warning";
+import { ErrorOutline, ErrorFilled } from "./icons/error";
+import { InfoOutline, InfoFilled } from "./icons/info";
+import { LoadingOutline, LoadingFilled } from "./icons/loading";
+import { CheckOutline, CheckFilled } from "./icons/check";
+import { CheckboxCheckedOutline, CheckboxCheckedFilled } from "./icons/checkbox-checked";
+import { CheckboxUncheckedOutline, CheckboxUncheckedFilled } from "./icons/checkbox-unchecked";
+import { CheckboxIndeterminateOutline, CheckboxIndeterminateFilled } from "./icons/checkbox-indeterminate";
+import { RadioCheckedOutline, RadioCheckedFilled } from "./icons/radio-checked";
+import { RadioUncheckedOutline, RadioUncheckedFilled } from "./icons/radio-unchecked";
+import { ToggleOnOutline, ToggleOnFilled } from "./icons/toggle-on";
+import { ToggleOffOutline, ToggleOffFilled } from "./icons/toggle-off";
+import { ShowOutline, ShowFilled } from "./icons/show";
+import { HideOutline, HideFilled } from "./icons/hide";
+import { ExpandOutline, ExpandFilled } from "./icons/expand";
+import { CollapseOutline, CollapseFilled } from "./icons/collapse";
+import { UserOutline, UserFilled } from "./icons/user";
+import { UsersOutline, UsersFilled } from "./icons/users";
+import { SettingsOutline, SettingsFilled } from "./icons/settings";
+import { HomeOutline, HomeFilled } from "./icons/home";
+import { FolderOutline, FolderFilled } from "./icons/folder";
+import { FileOutline, FileFilled } from "./icons/file";
+import { CalendarOutline, CalendarFilled } from "./icons/calendar";
+import { GridOutline, GridFilled } from "./icons/grid";
+import { ListOutline, ListFilled } from "./icons/list";
+import { MoreOutline, MoreFilled } from "./icons/more";
+import { MoreHorizontalOutline, MoreHorizontalFilled } from "./icons/more-horizontal";
+import { MoreVerticalOutline, MoreVerticalFilled } from "./icons/more-vertical";
+import { PlayOutline, PlayFilled } from "./icons/play";
+import { PauseOutline, PauseFilled } from "./icons/pause";
+import { StopOutline, StopFilled } from "./icons/stop";
+import { VolumeOutline, VolumeFilled } from "./icons/volume";
+import { MuteOutline, MuteFilled } from "./icons/mute";
+import { LunaMoonOutline, LunaMoonFilled } from "./icons/luna-moon";
+import { LunaCrescentOutline, LunaCrescentFilled } from "./icons/luna-crescent";
+import { LunaMoonStarOutline, LunaMoonStarFilled } from "./icons/luna-moon-star";
+import { LunaOrbitOutline, LunaOrbitFilled } from "./icons/luna-orbit";
+import { LunaOrbitRingOutline, LunaOrbitRingFilled } from "./icons/luna-orbit-ring";
+import { LunaEclipseOutline, LunaEclipseFilled } from "./icons/luna-eclipse";
+import { LunaPhasesOutline, LunaPhasesFilled } from "./icons/luna-phases";
+import { LunaLoaderOutline, LunaLoaderFilled } from "./icons/luna-loader";
+import { LunaCometOutline, LunaCometFilled } from "./icons/luna-comet";
+import { LunaBuggyOutline, LunaBuggyFilled } from "./icons/luna-buggy";
+import { LunaRoverOutline, LunaRoverFilled } from "./icons/luna-rover";
+import { LunaRocketOutline, LunaRocketFilled } from "./icons/luna-rocket";
+
+export const lunaIconRegistry: Record<LunaIconName, { outline: React.ComponentType<any>; filled: React.ComponentType<any> }> = {
+
+  "menu": { outline: MenuOutline, filled: MenuFilled },
+  "close": { outline: CloseOutline, filled: CloseFilled },
+  "back": { outline: BackOutline, filled: BackFilled },
+  "forward": { outline: ForwardOutline, filled: ForwardFilled },
+  "chevron-up": { outline: ChevronUpOutline, filled: ChevronUpFilled },
+  "chevron-down": { outline: ChevronDownOutline, filled: ChevronDownFilled },
+  "chevron-left": { outline: ChevronLeftOutline, filled: ChevronLeftFilled },
+  "chevron-right": { outline: ChevronRightOutline, filled: ChevronRightFilled },
+  "add": { outline: AddOutline, filled: AddFilled },
+  "remove": { outline: RemoveOutline, filled: RemoveFilled },
+  "edit": { outline: EditOutline, filled: EditFilled },
+  "delete": { outline: DeleteOutline, filled: DeleteFilled },
+  "save": { outline: SaveOutline, filled: SaveFilled },
+  "download": { outline: DownloadOutline, filled: DownloadFilled },
+  "upload": { outline: UploadOutline, filled: UploadFilled },
+  "refresh": { outline: RefreshOutline, filled: RefreshFilled },
+  "search": { outline: SearchOutline, filled: SearchFilled },
+  "filter": { outline: FilterOutline, filled: FilterFilled },
+  "sort": { outline: SortOutline, filled: SortFilled },
+  "success": { outline: SuccessOutline, filled: SuccessFilled },
+  "warning": { outline: WarningOutline, filled: WarningFilled },
+  "error": { outline: ErrorOutline, filled: ErrorFilled },
+  "info": { outline: InfoOutline, filled: InfoFilled },
+  "loading": { outline: LoadingOutline, filled: LoadingFilled },
+  "check": { outline: CheckOutline, filled: CheckFilled },
+  "checkbox-checked": { outline: CheckboxCheckedOutline, filled: CheckboxCheckedFilled },
+  "checkbox-unchecked": { outline: CheckboxUncheckedOutline, filled: CheckboxUncheckedFilled },
+  "checkbox-indeterminate": { outline: CheckboxIndeterminateOutline, filled: CheckboxIndeterminateFilled },
+  "radio-checked": { outline: RadioCheckedOutline, filled: RadioCheckedFilled },
+  "radio-unchecked": { outline: RadioUncheckedOutline, filled: RadioUncheckedFilled },
+  "toggle-on": { outline: ToggleOnOutline, filled: ToggleOnFilled },
+  "toggle-off": { outline: ToggleOffOutline, filled: ToggleOffFilled },
+  "show": { outline: ShowOutline, filled: ShowFilled },
+  "hide": { outline: HideOutline, filled: HideFilled },
+  "expand": { outline: ExpandOutline, filled: ExpandFilled },
+  "collapse": { outline: CollapseOutline, filled: CollapseFilled },
+  "user": { outline: UserOutline, filled: UserFilled },
+  "users": { outline: UsersOutline, filled: UsersFilled },
+  "settings": { outline: SettingsOutline, filled: SettingsFilled },
+  "home": { outline: HomeOutline, filled: HomeFilled },
+  "folder": { outline: FolderOutline, filled: FolderFilled },
+  "file": { outline: FileOutline, filled: FileFilled },
+  "calendar": { outline: CalendarOutline, filled: CalendarFilled },
+  "grid": { outline: GridOutline, filled: GridFilled },
+  "list": { outline: ListOutline, filled: ListFilled },
+  "more": { outline: MoreOutline, filled: MoreFilled },
+  "more-horizontal": { outline: MoreHorizontalOutline, filled: MoreHorizontalFilled },
+  "more-vertical": { outline: MoreVerticalOutline, filled: MoreVerticalFilled },
+  "play": { outline: PlayOutline, filled: PlayFilled },
+  "pause": { outline: PauseOutline, filled: PauseFilled },
+  "stop": { outline: StopOutline, filled: StopFilled },
+  "volume": { outline: VolumeOutline, filled: VolumeFilled },
+  "mute": { outline: MuteOutline, filled: MuteFilled },
+  "luna-moon": { outline: LunaMoonOutline, filled: LunaMoonFilled },
+  "luna-crescent": { outline: LunaCrescentOutline, filled: LunaCrescentFilled },
+  "luna-moon-star": { outline: LunaMoonStarOutline, filled: LunaMoonStarFilled },
+  "luna-orbit": { outline: LunaOrbitOutline, filled: LunaOrbitFilled },
+  "luna-orbit-ring": { outline: LunaOrbitRingOutline, filled: LunaOrbitRingFilled },
+  "luna-eclipse": { outline: LunaEclipseOutline, filled: LunaEclipseFilled },
+  "luna-phases": { outline: LunaPhasesOutline, filled: LunaPhasesFilled },
+  "luna-loader": { outline: LunaLoaderOutline, filled: LunaLoaderFilled },
+  "luna-comet": { outline: LunaCometOutline, filled: LunaCometFilled },
+  "luna-buggy": { outline: LunaBuggyOutline, filled: LunaBuggyFilled },
+  "luna-rover": { outline: LunaRoverOutline, filled: LunaRoverFilled },
+  "luna-rocket": { outline: LunaRocketOutline, filled: LunaRocketFilled },
+};

@@ -5,7 +5,7 @@ export type LunaNotificationGroupOpenChangeReason = "toggle" | "dismiss";
 
 export type LunaNotificationGroupItem = Pick<
   LunaNotificationProps,
-  "action" | "emphasis" | "icon" | "meta" | "title" | "tone"
+  "action" | "emphasis" | "icon" | "iconName" | "meta" | "title" | "tone"
 > & {
   body?: React.ReactNode;
 };

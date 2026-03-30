@@ -25,6 +25,18 @@ The contract should be designed so these paths coexist instead of forcing the pr
 - Keep direct user-supplied icon content supported everywhere a component reasonably allows iconography.
 - Support user-installed icon packs through adapters instead of teaching components about specific third-party libraries.
 
+## Current Status
+
+The library now has a working internal icon surface:
+
+- `LunaIcon` is the first-party icon entry point
+- internal icons support `name` + `variant` instead of separate public outline/filled names
+- Storybook exposes a playground and gallery coverage for the internal set
+- Playwright manifest coverage exists for the icon stories
+- `LunaNotification` and `LunaNotificationGroup` are already using the internal icon surface
+
+The current internal registry is still repo-local and not yet exposed as a provider package. The next step remains extracting this into a durable provider architecture instead of treating the internal registry as the final public backend.
+
 ## Provider Model
 
 The preferred architecture is:
@@ -40,6 +52,14 @@ The preferred architecture is:
   - other user-installed packs later
 
 Components should not know about Font Awesome classes, Lucide imports, or third-party icon naming schemes directly.
+
+The current implementation should be treated as the first-party baseline that future providers must match:
+
+- named resolution by semantic icon name
+- `outline` / `filled` variant support
+- size mapping through one shared contract
+- accessibility support through decorative vs labeled rendering
+- Storybook discoverability for the full available set
 
 ## Provider Support Checklist
 
@@ -175,6 +195,13 @@ That means:
 - first-party icons should still live behind the same provider contract used for adapters
 
 Whether the implementation ships as a transitive dependency or an internal package is a packaging detail. The consumer experience should still feel first-class.
+
+The current first-party work is intentionally split into two buckets:
+
+- core UI icons that are acceptable for immediate component use
+- Luna-specific icons that are still exploratory and should not be treated as production-grade art by default
+
+That means the system should keep the Luna-specific set available for research and experimentation, while the core UI set remains the real production baseline.
 
 ## Internal Core Icon Set
 

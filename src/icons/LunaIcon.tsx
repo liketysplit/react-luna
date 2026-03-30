@@ -1,14 +1,23 @@
 import React from "react";
 import { iconRegistry } from "./internal/iconRegistry";
-import type { BaseIconProps, IconVariant } from "./internal/BaseIcon";
-import type { IconName } from "./internal/types";
+import { lunaIconSizeMap } from "./internal/types";
+import type { IconName, IconVariant, LunaIconSize, LunaIconSvgProps } from "./internal/types";
 
-export type LunaIconProps = BaseIconProps & {
+export type LunaIconProps = LunaIconSvgProps & {
   name: IconName;
   variant?: IconVariant;
   fallback?: React.ReactNode;
   label?: string;
+  size?: LunaIconSize | number;
 };
+
+function resolveSize(size: LunaIconSize | number | undefined) {
+  if (typeof size === "number") {
+    return size;
+  }
+
+  return lunaIconSizeMap[size ?? "md"];
+}
 
 export function LunaIcon({
   fallback = null,
@@ -16,6 +25,7 @@ export function LunaIcon({
   name,
   variant = "outline",
   decorative,
+  size,
   title,
   ...props
 }: LunaIconProps) {
@@ -28,6 +38,15 @@ export function LunaIcon({
   const IconComponent = entry[variant];
   const resolvedTitle = title ?? label;
   const resolvedDecorative = decorative ?? (resolvedTitle ? false : true);
+  const resolvedSize = resolveSize(size);
 
-  return <IconComponent {...props} decorative={resolvedDecorative} title={resolvedTitle} />;
+  return (
+    <IconComponent
+      {...props}
+      decorative={resolvedDecorative}
+      height={resolvedSize}
+      title={resolvedTitle}
+      width={resolvedSize}
+    />
+  );
 }
