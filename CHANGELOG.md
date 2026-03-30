@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.20.0
+
+### Minor Changes
+
+- 52969c4: Add the new `LunaPopover` primitive for anchored floating content.
+
 ## 0.19.0
 
 ### Minor Changes
