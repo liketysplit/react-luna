@@ -28,6 +28,13 @@
     ]
   },
   {
+    "storyId": "components-lunanotificationgroup--expanded-size-contract",
+    "fileName": "luna-notification-group-expanded-size-contract",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
     "storyId": "components-lunanotificationgroup--dismiss-hidden",
     "fileName": "luna-notification-group-dismiss-hidden",
     "backgrounds": [

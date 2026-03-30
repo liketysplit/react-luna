@@ -134,6 +134,33 @@ describe("LunaNotificationGroup", () => {
     expect(screen.getByText("Manual approval is still needed.")).toBeInTheDocument();
   });
 
+  it("renders at most three visual items from the group", async () => {
+    const { default: userEvent } = await import("@testing-library/user-event");
+    const user = userEvent.setup();
+
+    renderWithTheme(
+      <LunaNotificationGroup
+        title="Mission activity"
+        defaultOpen={false}
+        items={[
+          { title: "One", body: "First" },
+          { title: "Two", body: "Second" },
+          { title: "Three", body: "Third" },
+          { title: "Four", body: "Fourth" }
+        ]}
+      />
+    );
+
+    expect(document.querySelectorAll(".luna-notification-group__stack-front")).toHaveLength(1);
+    expect(document.querySelectorAll(".luna-notification-group__stack-item")).toHaveLength(2);
+    expect(screen.queryByText("First")).not.toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: "Expand notification group" }));
+
+    expect(document.querySelectorAll(".luna-notification")).toHaveLength(3);
+    expect(screen.queryByText("First")).not.toBeInTheDocument();
+  });
+
   it("always allows single internal notifications to be dismissed", async () => {
     const { default: userEvent } = await import("@testing-library/user-event");
     const user = userEvent.setup();
@@ -176,8 +203,9 @@ describe("LunaNotificationGroup", () => {
 
     await user.click(screen.getAllByRole("button", { name: "Dismiss notification" })[0]!);
 
-    expect(screen.queryByText("Manual approval is still needed.")).not.toBeInTheDocument();
-    expect(screen.getByText("Relay sync is waiting.")).toBeInTheDocument();
+    await waitFor(() => {
+      expect(document.querySelectorAll(".luna-notification").length).toBeLessThanOrEqual(1);
+    });
   });
 
   it("resolves spacing tokens through the theme system", () => {

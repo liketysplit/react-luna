@@ -12,6 +12,7 @@
   --luna-notification-group-top-item-height: var(--luna-notification-group-item-min-height);
   --luna-notification-group-control-size: 1.875rem;
   --luna-notification-group-rail-width: 10%;
+  --luna-notification-group-content-width: 80%;
   --luna-notification-group-inline-start: 10%;
   --luna-notification-group-inline-end: 10%;
 }
@@ -47,9 +48,24 @@
 
 .luna-notification-group__top-row {
   display: grid;
-  grid-template-columns: 10% minmax(0, 80%) 10%;
-  align-items: stretch;
+  grid-template-columns:
+    minmax(0, var(--luna-notification-group-rail-width))
+    minmax(0, var(--luna-notification-group-content-width))
+    minmax(0, var(--luna-notification-group-rail-width));
+  grid-column: 1 / -1;
+  align-items: start;
   min-height: var(--luna-notification-group-item-min-height);
+  min-width: 0;
+}
+
+.luna-notification-group__item-row {
+  display: grid;
+  grid-template-columns:
+    minmax(0, var(--luna-notification-group-rail-width))
+    minmax(0, var(--luna-notification-group-content-width))
+    minmax(0, var(--luna-notification-group-rail-width));
+  grid-column: 1 / -1;
+  align-items: start;
   min-width: 0;
 }
 
@@ -58,15 +74,15 @@
   align-items: center;
   justify-content: center;
   block-size: var(--luna-notification-group-top-item-height);
+  inline-size: 100%;
 }
 
 .luna-notification-group__leading-slot,
 .luna-notification-group__trailing-slot {
   display: flex;
-  align-items: flex-start;
+  align-items: start;
   justify-content: center;
   min-width: 0;
-  block-size: 100%;
 }
 
 .luna-notification-group__leading-slot .luna-notification-group__control-rail {
@@ -80,12 +96,14 @@
 }
 
 .luna-notification-group__remaining-items {
+  display: grid;
+  gap: var(--luna-notification-group-gap, var(--luna-space-3));
   min-width: 0;
-  padding-inline-start: var(--luna-notification-group-inline-start);
-  padding-inline-end: var(--luna-notification-group-inline-end);
+  grid-column: 1 / -1;
 }
 
 .luna-notification-group__top-content {
+  grid-column: 2;
   min-width: 0;
 }
 
@@ -141,6 +159,10 @@
 .luna-notification-group__items {
   display: grid;
   gap: var(--luna-notification-group-gap, var(--luna-space-3));
+  grid-template-columns:
+    minmax(0, var(--luna-notification-group-rail-width))
+    minmax(0, var(--luna-notification-group-content-width))
+    minmax(0, var(--luna-notification-group-rail-width));
   min-width: 0;
 }
 
@@ -156,15 +178,15 @@
   box-shadow: none;
 }
 
-.luna-notification-group__remaining-items {
-  display: grid;
-  gap: var(--luna-notification-group-gap, var(--luna-space-3));
-}
-
 .luna-notification-group__stack-preview {
   position: relative;
   min-height: 10rem;
-  padding-inline-start: var(--luna-notification-group-stack-offset-max);
+  inline-size: 100%;
+}
+
+.luna-notification-group__stack-front {
+  position: relative;
+  z-index: 10;
 }
 
 .luna-notification-group--framed .luna-notification-group__stack-preview {
@@ -174,12 +196,9 @@
 
 .luna-notification-group__stack-item {
   position: absolute;
-  inset-inline: 0 0;
+  inset-inline-start: 0;
   top: 0;
-  width: calc(
-    100% - var(--luna-notification-group-stack-offset-max) -
-      (var(--luna-notification-group-stack-index, 0) * 0.875rem)
-  );
+  width: calc(100% - var(--luna-notification-group-stack-shrink, 0rem));
   min-width: 0;
   transform: translate(
     calc(var(--luna-notification-group-stack-index, 0) * -0.875rem),
@@ -233,7 +252,7 @@
   }
 
   .luna-notification-group__stack-item {
-    width: calc(100% - var(--luna-space-4) - (var(--luna-notification-group-stack-index, 0) * 0.5rem));
+    width: calc(100% - var(--luna-notification-group-stack-shrink, 0rem));
     transform: translate(
       calc(var(--luna-notification-group-stack-index, 0) * -0.5rem),
       calc(var(--luna-notification-group-stack-index, 0) * 0.625rem)

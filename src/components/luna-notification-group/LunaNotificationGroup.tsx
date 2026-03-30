@@ -72,7 +72,7 @@ export const LunaNotificationGroup = React.forwardRef<HTMLElement, LunaNotificat
     const canExpand = (showExpand ?? collapsible) && collapsible && hasBody;
     const canDismissAll = (showDismissAll ?? dismissible) && dismissible;
     const hasRightRail = Boolean(actions) || canDismissAll;
-    const orderedItems = visibleItems.slice().reverse();
+    const orderedItems = visibleItems.slice().reverse().slice(0, 3);
     const previewItems = orderedItems.slice(0, 3);
     const topItem = orderedItems[0];
     const remainingItems = orderedItems.slice(1);
@@ -224,7 +224,28 @@ export const LunaNotificationGroup = React.forwardRef<HTMLElement, LunaNotificat
                   </div>
                   <div className="luna-notification-group__top-content">
                     <div className="luna-notification-group__stack-preview" id={itemsId}>
-                      {previewItems.map(({ item, index: itemIndex }, index) => (
+                      {previewItems[0] ? (
+                        <LunaNotification
+                          action={previewItems[0].item.action}
+                          className="luna-notification-group__stack-front"
+                          dismissible
+                          emphasis={previewItems[0].item.emphasis}
+                          icon={previewItems[0].item.icon}
+                          meta={previewItems[0].item.meta}
+                          onOpenChange={(nextOpen, reason) => {
+                            if (!nextOpen && reason === "dismiss") {
+                              dismissItem(previewItems[0].index);
+                            }
+                          }}
+                          ref={topItemRef}
+                          size={size}
+                          title={previewItems[0].item.title}
+                          tone={previewItems[0].item.tone}
+                        >
+                          {previewItems[0].item.body}
+                        </LunaNotification>
+                      ) : null}
+                      {previewItems.slice(1).map(({ item, index: itemIndex }, index) => (
                         <LunaNotification
                           key={`preview-${itemIndex}`}
                           action={item.action}
@@ -238,11 +259,12 @@ export const LunaNotificationGroup = React.forwardRef<HTMLElement, LunaNotificat
                               dismissItem(itemIndex);
                             }
                           }}
-                          ref={index === 0 ? topItemRef : undefined}
                           size={size}
                           style={
                             {
-                              ["--luna-notification-group-stack-index" as const]: String(index)
+                              ["--luna-notification-group-stack-index" as const]: String(index + 1),
+                              ["--luna-notification-group-stack-shrink" as const]:
+                                `${(index + 1) * 0.875}rem`
                             } as React.CSSProperties
                           }
                           title={item.title}
@@ -341,24 +363,29 @@ export const LunaNotificationGroup = React.forwardRef<HTMLElement, LunaNotificat
                   {remainingItems.length > 0 ? (
                     <div className="luna-notification-group__remaining-items">
                       {remainingItems.map(({ item, index }) => (
-                        <LunaNotification
-                          key={`item-${index}`}
-                          action={item.action}
-                          dismissible
-                          emphasis={item.emphasis}
-                          icon={item.icon}
-                          meta={item.meta}
-                          onOpenChange={(nextOpen, reason) => {
-                            if (!nextOpen && reason === "dismiss") {
-                              dismissItem(index);
-                            }
-                          }}
-                          size={size}
-                          title={item.title}
-                          tone={item.tone}
-                        >
-                          {item.body}
-                        </LunaNotification>
+                        <div className="luna-notification-group__item-row" key={`item-${index}`}>
+                          <div className="luna-notification-group__leading-slot" aria-hidden="true" />
+                          <div className="luna-notification-group__top-content">
+                            <LunaNotification
+                              action={item.action}
+                              dismissible
+                              emphasis={item.emphasis}
+                              icon={item.icon}
+                              meta={item.meta}
+                              onOpenChange={(nextOpen, reason) => {
+                                if (!nextOpen && reason === "dismiss") {
+                                  dismissItem(index);
+                                }
+                              }}
+                              size={size}
+                              title={item.title}
+                              tone={item.tone}
+                            >
+                              {item.body}
+                            </LunaNotification>
+                          </div>
+                          <div className="luna-notification-group__trailing-slot" aria-hidden="true" />
+                        </div>
                       ))}
                     </div>
                   ) : null}
