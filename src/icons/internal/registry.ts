@@ -1,5 +1,5 @@
 import * as React from "react";
-export type LunaIconName = "menu" | "close" | "back" | "forward" | "chevron-up" | "chevron-down" | "chevron-left" | "chevron-right" | "add" | "remove" | "edit" | "delete" | "save" | "download" | "upload" | "refresh" | "search" | "filter" | "sort" | "success" | "warning" | "error" | "info" | "loading" | "check" | "checkbox-checked" | "checkbox-unchecked" | "checkbox-indeterminate" | "radio-checked" | "radio-unchecked" | "toggle-on" | "toggle-off" | "show" | "hide" | "expand" | "collapse" | "user" | "users" | "settings" | "home" | "folder" | "file" | "calendar" | "grid" | "list" | "more" | "more-horizontal" | "more-vertical" | "play" | "pause" | "stop" | "volume" | "mute" | "luna-moon" | "luna-crescent" | "luna-moon-star" | "luna-orbit" | "luna-orbit-ring" | "luna-eclipse" | "luna-phases" | "luna-loader" | "luna-comet" | "luna-buggy" | "luna-rover" | "luna-rocket";
+import type { IconName as LunaIconName } from "./types";
 export type LunaIconVariant = "outline" | "filled";
 import { MenuOutline, MenuFilled } from "./icons/menu";
 import { CloseOutline, CloseFilled } from "./icons/close";
@@ -54,18 +54,6 @@ import { PauseOutline, PauseFilled } from "./icons/pause";
 import { StopOutline, StopFilled } from "./icons/stop";
 import { VolumeOutline, VolumeFilled } from "./icons/volume";
 import { MuteOutline, MuteFilled } from "./icons/mute";
-import { LunaMoonOutline, LunaMoonFilled } from "./icons/luna-moon";
-import { LunaCrescentOutline, LunaCrescentFilled } from "./icons/luna-crescent";
-import { LunaMoonStarOutline, LunaMoonStarFilled } from "./icons/luna-moon-star";
-import { LunaOrbitOutline, LunaOrbitFilled } from "./icons/luna-orbit";
-import { LunaOrbitRingOutline, LunaOrbitRingFilled } from "./icons/luna-orbit-ring";
-import { LunaEclipseOutline, LunaEclipseFilled } from "./icons/luna-eclipse";
-import { LunaPhasesOutline, LunaPhasesFilled } from "./icons/luna-phases";
-import { LunaLoaderOutline, LunaLoaderFilled } from "./icons/luna-loader";
-import { LunaCometOutline, LunaCometFilled } from "./icons/luna-comet";
-import { LunaBuggyOutline, LunaBuggyFilled } from "./icons/luna-buggy";
-import { LunaRoverOutline, LunaRoverFilled } from "./icons/luna-rover";
-import { LunaRocketOutline, LunaRocketFilled } from "./icons/luna-rocket";
 
 export const lunaIconRegistry: Record<LunaIconName, { outline: React.ComponentType<any>; filled: React.ComponentType<any> }> = {
 
@@ -122,16 +110,4 @@ export const lunaIconRegistry: Record<LunaIconName, { outline: React.ComponentTy
   "stop": { outline: StopOutline, filled: StopFilled },
   "volume": { outline: VolumeOutline, filled: VolumeFilled },
   "mute": { outline: MuteOutline, filled: MuteFilled },
-  "luna-moon": { outline: LunaMoonOutline, filled: LunaMoonFilled },
-  "luna-crescent": { outline: LunaCrescentOutline, filled: LunaCrescentFilled },
-  "luna-moon-star": { outline: LunaMoonStarOutline, filled: LunaMoonStarFilled },
-  "luna-orbit": { outline: LunaOrbitOutline, filled: LunaOrbitFilled },
-  "luna-orbit-ring": { outline: LunaOrbitRingOutline, filled: LunaOrbitRingFilled },
-  "luna-eclipse": { outline: LunaEclipseOutline, filled: LunaEclipseFilled },
-  "luna-phases": { outline: LunaPhasesOutline, filled: LunaPhasesFilled },
-  "luna-loader": { outline: LunaLoaderOutline, filled: LunaLoaderFilled },
-  "luna-comet": { outline: LunaCometOutline, filled: LunaCometFilled },
-  "luna-buggy": { outline: LunaBuggyOutline, filled: LunaBuggyFilled },
-  "luna-rover": { outline: LunaRoverOutline, filled: LunaRoverFilled },
-  "luna-rocket": { outline: LunaRocketOutline, filled: LunaRocketFilled },
 };

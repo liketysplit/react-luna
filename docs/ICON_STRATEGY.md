@@ -31,7 +31,7 @@ The library now has a working internal icon surface:
 
 - `LunaIcon` is the first-party icon entry point
 - internal icons support `name` + `variant` instead of separate public outline/filled names
-- Storybook exposes a playground and gallery coverage for the internal set
+- Storybook exposes a playground and gallery coverage for the implemented core internal set
 - Playwright manifest coverage exists for the icon stories
 - `LunaNotification` and `LunaNotificationGroup` are already using the internal icon surface
 
@@ -199,9 +199,54 @@ Whether the implementation ships as a transitive dependency or an internal packa
 The current first-party work is intentionally split into two buckets:
 
 - core UI icons that are acceptable for immediate component use
-- Luna-specific icons that are still exploratory and should not be treated as production-grade art by default
+- Luna-specific icons that form a separate brand layer and should not be judged by the same treatment as the core utility set
 
-That means the system should keep the Luna-specific set available for research and experimentation, while the core UI set remains the real production baseline.
+That means the system should keep the core UI set as the production baseline for general components, while the Luna-specific set follows its own brand-icon rules.
+
+Current implementation status:
+
+- core UI icons are implemented and in use
+- Luna-specific icons are planned and documented
+- the current Luna implementation has been intentionally pulled back until the underlying art is stronger
+
+## Luna Brand Layer
+
+The `luna-*` icons are not generic utility icons. They are a brand layer.
+
+They should feel:
+
+- quiet
+- lunar
+- geometric
+- intentional
+
+They should not feel:
+
+- flashy
+- overly detailed
+- generic sci-fi
+- cartoonish
+
+### Luna Brand Rules
+
+- use a `24x24` canvas
+- keep a minimum `2px` padding around the usable shape
+- prioritize filled shape readability
+- keep edges rounded
+- avoid micro-detail smaller than `1px`
+- stay readable at `16px`
+- avoid gradients, pure white, and multi-color rendering
+- keep the visual language calm, geometric, and slightly organic
+
+### Luna Brand Presentation
+
+The Luna set should be reviewed with dedicated stories and brand-focused inspection, but it should not force a special runtime wrapper into the shared icon component before the art is ready.
+
+That means:
+
+- keep the Luna brand rules documented
+- keep the Luna icon list planned
+- do not surface Luna icons in the shipped internal icon set until the artwork is ready
 
 ## Internal Core Icon Set
 
