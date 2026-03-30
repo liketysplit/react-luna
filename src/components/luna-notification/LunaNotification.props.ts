@@ -1,4 +1,5 @@
 import type React from "react";
+import type { IconName } from "../../icons/internal/types";
 import type { LunaAlertEmphasis, LunaAlertTone } from "../luna-alert";
 
 export type LunaNotificationDismissReason = "dismiss";
@@ -11,6 +12,7 @@ export type LunaNotificationProps = Omit<React.HTMLAttributes<HTMLElement>, "tit
   emphasis?: LunaAlertEmphasis;
   title?: React.ReactNode;
   icon?: React.ReactNode;
+  iconName?: IconName;
   meta?: React.ReactNode;
   action?: React.ReactNode;
   open?: boolean;

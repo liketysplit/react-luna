@@ -72,11 +72,11 @@ export const InfoAndIconography: Story = {
         </LunaButton>
       </div>
       <div className="luna-button-story-row">
-        <LunaButton icon={<span aria-hidden="true">☾</span>}>Orbit</LunaButton>
-        <LunaButton icon={<span aria-hidden="true">☾</span>} iconDirection="left">
+        <LunaButton iconName="luna-crescent">Orbit</LunaButton>
+        <LunaButton iconName="luna-crescent" iconDirection="left">
           Dock
         </LunaButton>
-        <LunaButton fab icon={<span aria-hidden="true">☾</span>} aria-label="Open moon actions" />
+        <LunaButton fab iconName="luna-crescent" aria-label="Open moon actions" />
       </div>
     </div>
   )

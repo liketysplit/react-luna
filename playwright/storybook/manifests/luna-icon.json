@@ -1,0 +1,30 @@
+[
+  {
+    "storyId": "foundations-lunaicon--playground",
+    "fileName": "luna-icon-playground",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "foundations-lunaicon--gallery-outline",
+    "fileName": "luna-icon-gallery-outline",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "foundations-lunaicon--gallery-filled",
+    "fileName": "luna-icon-gallery-filled",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "foundations-lunaicon--luna-only",
+    "fileName": "luna-icon-luna-only",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]
