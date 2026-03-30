@@ -772,6 +772,51 @@ export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<str
       resolveTokenValue(theme, tooltipMode.shadow);
   }
 
+  const popover = theme.components.popover;
+  if (popover?.radius) {
+    vars["--luna-popover-radius"] =
+      resolveScaleValue(theme.radii, popover.radius) ?? popover.radius;
+  }
+  if (popover?.minWidth) {
+    vars["--luna-popover-min-width"] =
+      resolveScaleValue(theme.spacing, popover.minWidth) ?? popover.minWidth;
+  }
+  if (popover?.maxWidth) {
+    vars["--luna-popover-max-width"] =
+      resolveScaleValue(theme.spacing, popover.maxWidth) ?? popover.maxWidth;
+  }
+  if (popover?.offset) {
+    vars["--luna-popover-offset-default"] =
+      resolveScaleValue(theme.spacing, popover.offset) ?? popover.offset;
+  }
+  if (popover?.padding) {
+    vars["--luna-popover-padding-default"] =
+      resolveScaleValue(theme.spacing, popover.padding) ?? popover.padding;
+  }
+  if (popover?.arrowSize) {
+    vars["--luna-popover-arrow-size"] =
+      resolveScaleValue(theme.spacing, popover.arrowSize) ?? popover.arrowSize;
+  }
+  if (popover?.arrowInset) {
+    vars["--luna-popover-arrow-inset"] =
+      resolveScaleValue(theme.spacing, popover.arrowInset) ?? popover.arrowInset;
+  }
+  const popoverMode = popover?.modes?.[mode];
+  if (popoverMode?.bg) {
+    vars["--luna-popover-bg"] = resolveTokenValue(theme, popoverMode.bg);
+  }
+  if (popoverMode?.fg) {
+    vars["--luna-popover-fg"] = resolveTokenValue(theme, popoverMode.fg);
+  }
+  if (popoverMode?.border) {
+    vars["--luna-popover-border"] = resolveTokenValue(theme, popoverMode.border);
+  }
+  if (popoverMode?.shadow) {
+    vars["--luna-popover-shadow"] =
+      resolveScaleValue(theme.shadows, popoverMode.shadow) ??
+      resolveTokenValue(theme, popoverMode.shadow);
+  }
+
   const input = theme.components.input;
   if (input?.defaultSize) {
     vars["--luna-input-size-default"] = input.defaultSize;

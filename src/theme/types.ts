@@ -283,6 +283,13 @@ export type ThemeTooltipModeTokens = {
   shadow?: string;
 };
 
+export type ThemePopoverModeTokens = {
+  bg?: string;
+  fg?: string;
+  border?: string;
+  shadow?: string;
+};
+
 export type ThemeAccordionModeTokens = {
   itemBg?: string;
   itemBorder?: string;
@@ -518,6 +525,16 @@ export type ThemeComponents = {
     paddingX?: string;
     paddingY?: string;
     modes?: Partial<Record<ThemeMode, ThemeTooltipModeTokens>>;
+  };
+  popover?: {
+    radius?: string;
+    minWidth?: string;
+    maxWidth?: string;
+    offset?: string;
+    padding?: string;
+    arrowSize?: string;
+    arrowInset?: string;
+    modes?: Partial<Record<ThemeMode, ThemePopoverModeTokens>>;
   };
   accordion?: {
     defaultGap?: string;

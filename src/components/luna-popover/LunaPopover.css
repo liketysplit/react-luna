@@ -1,0 +1,90 @@
+.luna-popover {
+  position: relative;
+  display: inline-flex;
+  max-width: 100%;
+}
+
+.luna-popover__surface {
+  position: absolute;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  gap: var(--luna-space-3);
+  min-width: max(var(--luna-popover-min-width, 14rem), 100%);
+  max-width: min(var(--luna-popover-max-width, 20rem), calc(100vw - var(--luna-space-6)));
+  padding: var(--luna-popover-padding, var(--luna-popover-padding-default, 1rem));
+  border: 1px solid var(--luna-popover-border, var(--luna-border));
+  border-radius: var(--luna-popover-radius, var(--luna-radius-lg));
+  background: var(--luna-popover-bg, var(--luna-surface));
+  color: var(--luna-popover-fg, var(--luna-foreground));
+  box-shadow: var(--luna-popover-shadow, var(--luna-shadow-lg));
+  outline: none;
+}
+
+.luna-popover__arrow {
+  position: absolute;
+  width: var(--luna-popover-arrow-size, 0.75rem);
+  height: var(--luna-popover-arrow-size, 0.75rem);
+  border-top: 1px solid var(--luna-popover-border, var(--luna-border));
+  border-left: 1px solid var(--luna-popover-border, var(--luna-border));
+  background: var(--luna-popover-bg, var(--luna-surface));
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.luna-popover__surface:focus-visible {
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--luna-color-primary-500) 22%, transparent),
+    var(--luna-popover-shadow, var(--luna-shadow-lg));
+}
+
+.luna-popover__content {
+  display: grid;
+  gap: var(--luna-space-3);
+  min-width: 0;
+  font-family: var(--luna-font-family);
+  font-size: var(--luna-font-size-sm, 0.875rem);
+  line-height: 1.5;
+}
+
+.luna-popover[data-placement="bottom-start"] .luna-popover__surface {
+  top: calc(100% + var(--luna-popover-offset, var(--luna-popover-offset-default, 0.5rem)));
+  left: 0;
+}
+
+.luna-popover[data-arrow="true"][data-placement="bottom-start"] .luna-popover__arrow {
+  top: calc(var(--luna-popover-arrow-size, 0.75rem) * -0.5);
+  left: var(--luna-popover-arrow-inset, 1rem);
+}
+
+.luna-popover[data-placement="bottom-end"] .luna-popover__surface {
+  top: calc(100% + var(--luna-popover-offset, var(--luna-popover-offset-default, 0.5rem)));
+  right: 0;
+}
+
+.luna-popover[data-arrow="true"][data-placement="bottom-end"] .luna-popover__arrow {
+  top: calc(var(--luna-popover-arrow-size, 0.75rem) * -0.5);
+  right: var(--luna-popover-arrow-inset, 1rem);
+}
+
+.luna-popover[data-placement="top-start"] .luna-popover__surface {
+  bottom: calc(100% + var(--luna-popover-offset, var(--luna-popover-offset-default, 0.5rem)));
+  left: 0;
+}
+
+.luna-popover[data-arrow="true"][data-placement="top-start"] .luna-popover__arrow {
+  bottom: calc(var(--luna-popover-arrow-size, 0.75rem) * -0.5);
+  left: var(--luna-popover-arrow-inset, 1rem);
+  transform: rotate(225deg);
+}
+
+.luna-popover[data-placement="top-end"] .luna-popover__surface {
+  right: 0;
+  bottom: calc(100% + var(--luna-popover-offset, var(--luna-popover-offset-default, 0.5rem)));
+}
+
+.luna-popover[data-arrow="true"][data-placement="top-end"] .luna-popover__arrow {
+  right: var(--luna-popover-arrow-inset, 1rem);
+  bottom: calc(var(--luna-popover-arrow-size, 0.75rem) * -0.5);
+  transform: rotate(225deg);
+}

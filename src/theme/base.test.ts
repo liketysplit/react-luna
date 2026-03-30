@@ -88,4 +88,15 @@ describe("theme size contract", () => {
     expect(modal?.defaultPadding).toBe("5");
     expect(Object.keys(modal?.sizes ?? {})).toEqual(["small", "medium", "large", "full"]);
   });
+
+  it("defines popover defaults for anchored floating content", () => {
+    const popover = lunarTheme.components.popover;
+
+    expect(popover?.minWidth).toBe("14rem");
+    expect(popover?.maxWidth).toBe("20rem");
+    expect(popover?.offset).toBe("3");
+    expect(popover?.padding).toBe("4");
+    expect(popover?.arrowSize).toBe("3");
+    expect(popover?.arrowInset).toBe("4");
+  });
 });
