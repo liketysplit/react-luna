@@ -262,6 +262,86 @@ The first-party set should stay intentionally small at the start and focus on ic
 - avoid duplicating full external libraries
 - treat the first-party set as part of the visual identity
 
+## Internal Icon System Spec
+
+The internal icon set should be a small, UI-first system built for pure React, HTML, and CSS usage.
+
+### Goal
+
+The first-party icon system should:
+
+- support `outline` and `filled` variants
+- work in light and dark themes without separate theme-specific assets
+- remain easy to style with CSS
+- avoid requiring separate icon files for theme colors
+
+### Variant Contract
+
+Every internal icon should support:
+
+- `outline`
+- `filled`
+
+These are visual variants of the same semantic icon.
+
+Public API should use:
+
+- `name="check"`
+- `variant="outline" | "filled"`
+
+Do not expose separate public names such as:
+
+- `check-outline`
+- `check-filled`
+
+### Theme Handling
+
+Icons should not use separate light-mode and dark-mode SVG files unless absolutely necessary.
+
+Preferred rendering contract:
+
+- use `fill="currentColor"` and/or `stroke="currentColor"`
+- CSS or theme tokens control the rendered color
+- icons inherit color from parent or explicit classes/tokens
+
+That allows one icon asset to work across light and dark themes.
+
+### Geometry Contract
+
+- default `viewBox` should be `24x24`
+- outline icons should use a consistent stroke width
+- line cap and line join rules should stay consistent across the set
+- icons should be optically centered and aligned to the same grid
+- shapes should remain legible at small sizes
+
+### Rendering Contract
+
+- outline variants should be stroke-first
+- filled variants should be fill-first
+- both variants should still follow the `currentColor` rule
+- avoid creating separate colorized variants of the same icon
+
+### Accessibility Contract
+
+- icons should be decorative by default when used as visual affordances only
+- when an icon conveys meaningful standalone content, the API must allow a title/label path
+- provider normalization should preserve accessibility support such as `aria-hidden` and titles
+
+### Authoring Constraints
+
+- use only SVG paths/shapes
+- no hardcoded theme colors
+- no gradients
+- no shadows or filters
+- no raster assets
+- avoid ornamental complexity that reduces small-size clarity
+
+### Export / Component Contract
+
+- one semantic public icon name per concept
+- variant should be a prop, not a separate public icon name
+- internal icons must work both as React components and through the shared provider system
+
 ## Authoring Guidance
 
 The project should maintain a deliberate icon asset pipeline instead of hand-managing random SVG files over time.
