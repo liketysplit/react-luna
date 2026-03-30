@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.21.0
+
+### Minor Changes
+
+- d5d7deb: Add the `LunaNotificationGroup` composite for grouped notification presentation, with Storybook coverage, tests, screenshot metadata, and public documentation.
+
 ## 0.20.0
 
 ### Minor Changes
