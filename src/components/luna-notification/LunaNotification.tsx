@@ -40,6 +40,7 @@ export const LunaNotification = React.forwardRef<HTMLElement, LunaNotificationPr
       open,
       padding,
       rounded,
+      size = "md",
       style,
       title,
       tone = "neutral",
@@ -87,6 +88,7 @@ export const LunaNotification = React.forwardRef<HTMLElement, LunaNotificationPr
           !hasBody && "luna-notification--title-only",
           className
         ])}
+        data-size={size}
         data-tone={tone}
         data-emphasis={emphasis}
         style={resolvedStyle}

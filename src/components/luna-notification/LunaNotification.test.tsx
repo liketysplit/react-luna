@@ -97,6 +97,28 @@ describe("LunaNotification", () => {
     expect(notification).toHaveClass("luna-notification--title-only");
   });
 
+  it("supports size variants for standard notification density", () => {
+    renderWithTheme(
+      <>
+        <LunaNotification size="sm" title="Small">
+          Small body
+        </LunaNotification>
+        <LunaNotification size="md" title="Medium">
+          Medium body
+        </LunaNotification>
+        <LunaNotification size="lg" title="Large">
+          Large body
+        </LunaNotification>
+      </>
+    );
+
+    const notifications = document.querySelectorAll(".luna-notification");
+
+    expect(notifications[0]).toHaveAttribute("data-size", "sm");
+    expect(notifications[1]).toHaveAttribute("data-size", "md");
+    expect(notifications[2]).toHaveAttribute("data-size", "lg");
+  });
+
   it("resolves spacing and notification theme tokens through the theme system", () => {
     const { container } = renderWithTheme(
       <LunaNotification

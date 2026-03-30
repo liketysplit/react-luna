@@ -28,6 +28,7 @@ The intended split is:
 ## Props
 
 - `as?: React.ElementType`
+- `size?: "sm" | "md" | "lg"`
 - `tone?: "neutral" | "info" | "success" | "warning" | "danger"`
 - `emphasis?: "soft" | "solid" | "outline"`
 - `title?: React.ReactNode`
@@ -49,6 +50,10 @@ Native `HTMLAttributes<HTMLElement>` continue to pass through to the root, inclu
 
 - default element is `section`
 - `tone` controls the semantic color family
+- `size` controls the standard notification density
+- `sm` keeps the body to one visible line
+- `md` allows two visible body lines
+- `lg` allows three visible body lines
 - `emphasis` controls surface strength without changing the message structure
 - `title` renders the stronger heading line
 - `meta` renders a compact trailing metadata slot in the header
@@ -68,6 +73,7 @@ Native `HTMLAttributes<HTMLElement>` continue to pass through to the root, inclu
 - default gap
 - radius
 - shadow
+- density defaults through the size contract
 - per-tone surface colors for each emphasis level
 
 Spacing overrides resolve through theme spacing first, then raw CSS values.
@@ -81,3 +87,9 @@ Use explicit native semantics when the notification should be announced:
 - `role="alert"` for urgent interruptions
 
 That keeps persistent notifications reusable both for passive inbox-style surfaces and for actively announced application feedback.
+
+## Current Hardening Gaps
+
+- narrow-width behavior for grouped notification layouts is still under active hardening and should be solved at the system level, not per-story
+- notification sizing is now standardized, but responsive composition with group rails and stacked surfaces still needs a shared breakpoint contract
+- icon placeholders are still temporary and should be replaced once the icon system lands

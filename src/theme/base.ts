@@ -1287,6 +1287,9 @@ export const lunarTheme: Theme = {
         }
       }
     },
+    notificationGroup: {
+      defaultControlRailWidth: "7.5%"
+    },
     drawer: {
       defaultPadding: "5",
       defaultGap: "4",

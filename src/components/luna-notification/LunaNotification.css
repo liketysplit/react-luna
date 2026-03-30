@@ -12,6 +12,9 @@
     --luna-notification-neutral-soft-fg,
     var(--luna-foreground)
   );
+  --luna-notification-body-lines: 2;
+  --luna-notification-min-height: 4.5rem;
+  box-sizing: border-box;
   position: relative;
   display: flex;
   align-items: flex-start;
@@ -20,6 +23,7 @@
     var(--luna-notification-gap-default, var(--luna-space-3))
   );
   width: 100%;
+  min-height: var(--luna-notification-min-height);
   padding: var(
     --luna-notification-padding,
     var(--luna-notification-padding-default, var(--luna-space-4))
@@ -43,6 +47,24 @@
 
 .luna-notification--rounded {
   border-radius: calc(var(--luna-notification-radius, var(--luna-radius-lg)) * 1.5);
+}
+
+.luna-notification[data-size="sm"] {
+  --luna-notification-body-lines: 1;
+  --luna-notification-min-height: 3.5rem;
+  --luna-notification-padding: var(--luna-space-3);
+  --luna-notification-gap: var(--luna-space-2);
+}
+
+.luna-notification[data-size="md"] {
+  --luna-notification-body-lines: 2;
+}
+
+.luna-notification[data-size="lg"] {
+  --luna-notification-body-lines: 3;
+  --luna-notification-min-height: 5.5rem;
+  --luna-notification-padding: var(--luna-space-5);
+  --luna-notification-gap: var(--luna-space-4);
 }
 
 .luna-notification__icon {
@@ -83,6 +105,9 @@
   font-weight: var(--luna-text-variant-label-font-weight, 600);
   line-height: var(--luna-text-variant-label-line-height, 1.4);
   letter-spacing: var(--luna-text-variant-label-letter-spacing, 0.01em);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .luna-notification__meta {
@@ -103,6 +128,13 @@
   line-height: var(--luna-text-variant-body-small-line-height, 1.6);
 }
 
+.luna-notification__body {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--luna-notification-body-lines);
+}
+
 .luna-notification__body > :first-child,
 .luna-notification__title > :first-child,
 .luna-notification__action > :first-child {
@@ -119,6 +151,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  align-self: center;
   flex: 0 0 auto;
   width: 1.875rem;
   height: 1.875rem;

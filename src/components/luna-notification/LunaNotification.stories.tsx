@@ -18,7 +18,8 @@ const meta = {
     title: "Mission update",
     children: "The orbital sync finished successfully.",
     meta: "Now",
-    dismissible: true
+    dismissible: true,
+    size: "md"
   }
 } satisfies Meta<typeof LunaNotification>;
 
@@ -27,6 +28,23 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {};
+
+export const SizeContract: Story = {
+  render: () => (
+    <LunaColumn gap="4" style={{ width: "min(100%, 42rem)" }}>
+      <LunaNotification size="sm" title="Compact status" meta="Now" dismissible>
+        Small notifications keep the body to one line.
+      </LunaNotification>
+      <LunaNotification size="md" title="Standard status" meta="Queue" dismissible>
+        Medium notifications allow a second line before truncating the body content.
+      </LunaNotification>
+      <LunaNotification size="lg" title="Expanded status" meta="Pinned" dismissible>
+        Large notifications allow a third line before truncating the body content for denser but
+        still controlled previews.
+      </LunaNotification>
+    </LunaColumn>
+  )
+};
 
 export const ToneAndEmphasisMatrix: Story = {
   render: () => (

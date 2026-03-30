@@ -26,6 +26,7 @@ export * from "./luna-select";
 export * from "./luna-multiselect";
 export * from "./luna-modal";
 export * from "./luna-notification";
+export * from "./luna-notification-group";
 export * from "./luna-autocomplete";
 export * from "./luna-skeleton";
 export * from "./luna-spinner";
