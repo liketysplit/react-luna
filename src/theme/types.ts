@@ -371,6 +371,21 @@ export type ThemeModalModeTokens = {
   shadow?: string;
 };
 
+export type ThemeScatterChartModeTokens = {
+  bg?: string;
+  border?: string;
+  shadow?: string;
+  plotBg?: string;
+  titleFg?: string;
+  descriptionFg?: string;
+  axisText?: string;
+  axisLine?: string;
+  grid?: string;
+  legendText?: string;
+  legendMetaText?: string;
+  stateText?: string;
+};
+
 export type ThemeComponents = {
   button?: {
     defaultSize?: string;
@@ -588,6 +603,17 @@ export type ThemeComponents = {
     descriptionFontSize?: string;
     descriptionLineHeight?: string;
     modes?: Partial<Record<ThemeMode, ThemePanelModeTokens>>;
+  };
+  scatterChart?: {
+    radius?: string;
+    padding?: string;
+    gap?: string;
+    headerGap?: string;
+    legendGap?: string;
+    chartHeight?: string;
+    pointSize?: string;
+    palette?: string[];
+    modes?: Partial<Record<ThemeMode, ThemeScatterChartModeTokens>>;
   };
   wireframe?: {
     gap?: string;

@@ -1,0 +1,37 @@
+[
+  {
+    "storyId": "components-lunascatterchart--basic",
+    "fileName": "luna-scatter-chart-basic",
+    "backgrounds": ["light", "dark"]
+  },
+  {
+    "storyId": "components-lunascatterchart--clustered",
+    "fileName": "luna-scatter-chart-clustered",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunascatterchart--sparse",
+    "fileName": "luna-scatter-chart-sparse",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunascatterchart--narrow-width",
+    "fileName": "luna-scatter-chart-narrow-width",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunascatterchart--empty",
+    "fileName": "luna-scatter-chart-empty",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunascatterchart--loading",
+    "fileName": "luna-scatter-chart-loading",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunascatterchart--panel-embedding",
+    "fileName": "luna-scatter-chart-panel-embedding",
+    "backgrounds": ["light"]
+  }
+]

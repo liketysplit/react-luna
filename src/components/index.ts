@@ -23,6 +23,7 @@ export * from "./luna-progress";
 export * from "./luna-slider";
 export * from "./luna-textarea";
 export * from "./luna-select";
+export * from "./luna-scatter-chart";
 export * from "./luna-multiselect";
 export * from "./luna-modal";
 export * from "./luna-notification";
