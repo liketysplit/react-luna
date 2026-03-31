@@ -1,0 +1,37 @@
+[
+  {
+    "storyId": "components-lunapane--playground",
+    "fileName": "luna-pane-playground",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunapane--edge-directions",
+    "fileName": "luna-pane-edge-directions",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunapane--thickness-and-style",
+    "fileName": "luna-pane-thickness-and-style",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunapane--inside-wireframe",
+    "fileName": "luna-pane-inside-wireframe",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunapane--inside-app",
+    "fileName": "luna-pane-inside-app",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]

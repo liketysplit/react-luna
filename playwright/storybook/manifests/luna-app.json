@@ -1,0 +1,72 @@
+[
+  {
+    "storyId": "components-lunaapp--playground",
+    "fileName": "luna-app-playground",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaapp--gutters",
+    "fileName": "luna-app-gutters",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaapp--with-text-route",
+    "fileName": "luna-app-with-text-route",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaapp--extreme-left-gutter",
+    "fileName": "luna-app-extreme-left-gutter",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaapp--extreme-top-gutter",
+    "fileName": "luna-app-extreme-top-gutter",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaapp--extreme-right-gutter",
+    "fileName": "luna-app-extreme-right-gutter",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaapp--extreme-all-gutters",
+    "fileName": "luna-app-extreme-all-gutters",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaapp--background-color-shift",
+    "fileName": "luna-app-background-color-shift",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaapp--background-image-layer",
+    "fileName": "luna-app-background-image-layer",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunaapp--background-css-star-field",
+    "fileName": "luna-app-background-css-star-field",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]
