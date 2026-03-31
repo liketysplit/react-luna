@@ -1,0 +1,118 @@
+.luna-app-shell-wireframe-story {
+  min-height: 100vh;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  background:
+    radial-gradient(circle at top left, rgba(160, 176, 220, 0.18), transparent 28rem),
+    linear-gradient(180deg, rgba(10, 14, 28, 0.04), rgba(10, 14, 28, 0));
+}
+
+.luna-app-shell-wireframe-demo__chip-row,
+.luna-app-shell-wireframe-demo__hero-band,
+.luna-app-shell-wireframe-demo__footer-band,
+.luna-app-shell-wireframe-demo__canvas-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.luna-app-shell-wireframe-demo__chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(108, 122, 171, 0.22);
+  background: rgba(233, 238, 252, 0.8);
+  color: #43507a;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.luna-app-shell-wireframe-demo__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.luna-app-shell-wireframe-demo__hero-panel,
+.luna-app-shell-wireframe-demo__mini-block,
+.luna-app-shell-wireframe-demo__canvas-card {
+  min-height: 4.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem;
+  box-sizing: border-box;
+  border-radius: 0.95rem;
+  border: 1px dashed rgba(107, 121, 169, 0.35);
+  background: rgba(247, 249, 255, 0.88);
+  color: #5a668d;
+  text-align: center;
+}
+
+.luna-app-shell-wireframe-demo__hero-panel {
+  flex: 1 1 14rem;
+  min-height: 5rem;
+}
+
+.luna-app-shell-wireframe-demo__hero-band[data-density="thin"] {
+  flex-wrap: nowrap;
+}
+
+.luna-app-shell-wireframe-demo__hero-panel[data-density="thin"] {
+  min-height: 2.25rem;
+  flex-basis: 10rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.luna-app-shell-wireframe-demo__canvas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  min-height: 0;
+}
+
+.luna-app-shell-wireframe-demo__canvas-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.luna-app-shell-wireframe-demo__canvas-card {
+  flex: 1 1 16rem;
+  min-height: 11rem;
+  border-style: solid;
+}
+
+.luna-app-shell-wireframe-demo__canvas[data-mode="stretched"] {
+  min-height: 100%;
+}
+
+.luna-app-shell-wireframe-demo__canvas-body[data-mode="stretched"] {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.luna-app-shell-wireframe-demo__canvas-card[data-mode="stretched"] {
+  min-height: 12rem;
+}
+
+.luna-app-shell-wireframe-demo__footer-band[data-density="thin"] {
+  flex-wrap: nowrap;
+}
+
+.luna-app-shell-wireframe-demo__mini-block[data-density="thin"] {
+  min-height: 2.25rem;
+  flex: 1 1 10rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.luna-app-shell-wireframe--narrow .luna-app-shell-wireframe-demo__hero-band,
+.luna-app-shell-wireframe--narrow .luna-app-shell-wireframe-demo__footer-band,
+.luna-app-shell-wireframe--narrow .luna-app-shell-wireframe-demo__canvas-body {
+  flex-direction: column;
+}

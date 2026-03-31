@@ -40,3 +40,4 @@ export * from "./luna-column";
 export * from "./luna-grid";
 export * from "./luna-pagination";
 export * from "./luna-popover";
+export * from "./luna-panel";
