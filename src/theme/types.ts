@@ -192,6 +192,18 @@ export type ThemeSpinnerModeTokens = {
   track?: string;
 };
 
+export type ThemeLineChartModeTokens = {
+  bg?: string;
+  border?: string;
+  axisText?: string;
+  axisLine?: string;
+  grid?: string;
+  line?: string;
+  markerFill?: string;
+  markerStroke?: string;
+  emptyBg?: string;
+};
+
 export type ThemeProgressSizeProfile = {
   height?: string;
 };
@@ -521,6 +533,17 @@ export type ThemeComponents = {
     defaultLabel?: string;
     sizes?: Record<string, ThemeSpinnerSizeProfile>;
     modes?: Partial<Record<ThemeMode, ThemeSpinnerModeTokens>>;
+  };
+  lineChart?: {
+    height?: string;
+    radius?: string;
+    padding?: string;
+    axisFontSize?: string;
+    labelGap?: string;
+    strokeWidth?: string;
+    markerSize?: string;
+    gridStrokeWidth?: string;
+    modes?: Partial<Record<ThemeMode, ThemeLineChartModeTokens>>;
   };
   progress?: {
     defaultSize?: string;

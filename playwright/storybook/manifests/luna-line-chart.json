@@ -1,0 +1,32 @@
+[
+  {
+    "storyId": "components-lunalinechart--basic",
+    "fileName": "luna-line-chart-basic",
+    "backgrounds": ["light", "dark"]
+  },
+  {
+    "storyId": "components-lunalinechart--sparse-data",
+    "fileName": "luna-line-chart-sparse-data",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunalinechart--dense-data",
+    "fileName": "luna-line-chart-dense-data",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunalinechart--empty-state",
+    "fileName": "luna-line-chart-empty-state",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunalinechart--loading-state",
+    "fileName": "luna-line-chart-loading-state",
+    "backgrounds": ["light"]
+  },
+  {
+    "storyId": "components-lunalinechart--dashboard-embed",
+    "fileName": "luna-line-chart-dashboard-embed",
+    "backgrounds": ["light"]
+  }
+]

@@ -1488,6 +1488,40 @@ export const lunarTheme: Theme = {
         }
       }
     },
+    lineChart: {
+      height: "16rem",
+      radius: "lg",
+      padding: "4",
+      axisFontSize: "0.75rem",
+      labelGap: "3",
+      strokeWidth: "3",
+      markerSize: "4.5",
+      gridStrokeWidth: "1",
+      modes: {
+        light: {
+          bg: "linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(244, 247, 255, 0.94))",
+          border: "rgba(108, 122, 171, 0.2)",
+          axisText: "#5f6b91",
+          axisLine: "rgba(108, 122, 171, 0.35)",
+          grid: "rgba(120, 133, 181, 0.18)",
+          line: "#5b63f6",
+          markerFill: "#ffffff",
+          markerStroke: "#5b63f6",
+          emptyBg: "rgba(247, 249, 255, 0.8)"
+        },
+        dark: {
+          bg: "linear-gradient(180deg, rgba(22, 29, 48, 0.9), rgba(14, 20, 36, 0.96))",
+          border: "rgba(120, 138, 194, 0.28)",
+          axisText: "#cbd6ff",
+          axisLine: "rgba(150, 166, 220, 0.45)",
+          grid: "rgba(129, 145, 198, 0.24)",
+          line: "#8da2ff",
+          markerFill: "#161d30",
+          markerStroke: "#8da2ff",
+          emptyBg: "rgba(22, 29, 48, 0.76)"
+        }
+      }
+    },
     progress: {
       defaultSize: "medium",
       defaultTone: "primary",

@@ -735,6 +735,68 @@ export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<str
     }
   }
 
+  const lineChart = theme.components.lineChart;
+  if (lineChart?.height) {
+    vars["--luna-line-chart-height"] =
+      resolveScaleValue(theme.spacing, lineChart.height) ?? lineChart.height;
+  }
+  if (lineChart?.radius) {
+    vars["--luna-line-chart-radius"] =
+      resolveScaleValue(theme.radii, lineChart.radius) ?? lineChart.radius;
+  }
+  if (lineChart?.padding) {
+    vars["--luna-line-chart-padding"] =
+      resolveScaleValue(theme.spacing, lineChart.padding) ?? lineChart.padding;
+  }
+  if (lineChart?.axisFontSize) {
+    vars["--luna-line-chart-axis-font-size"] =
+      resolveScaleValue(theme.typography.sizes, lineChart.axisFontSize) ?? lineChart.axisFontSize;
+  }
+  if (lineChart?.labelGap) {
+    vars["--luna-line-chart-label-gap"] =
+      resolveScaleValue(theme.spacing, lineChart.labelGap) ?? lineChart.labelGap;
+  }
+  if (lineChart?.strokeWidth) {
+    vars["--luna-line-chart-stroke-width"] =
+      resolveScaleValue(theme.spacing, lineChart.strokeWidth) ?? lineChart.strokeWidth;
+  }
+  if (lineChart?.markerSize) {
+    vars["--luna-line-chart-marker-size"] =
+      resolveScaleValue(theme.spacing, lineChart.markerSize) ?? lineChart.markerSize;
+  }
+  if (lineChart?.gridStrokeWidth) {
+    vars["--luna-line-chart-grid-stroke-width"] =
+      resolveScaleValue(theme.spacing, lineChart.gridStrokeWidth) ?? lineChart.gridStrokeWidth;
+  }
+  const lineChartMode = lineChart?.modes?.[mode];
+  if (lineChartMode?.bg) {
+    vars["--luna-line-chart-bg"] = resolveTokenValue(theme, lineChartMode.bg);
+  }
+  if (lineChartMode?.border) {
+    vars["--luna-line-chart-border"] = resolveTokenValue(theme, lineChartMode.border);
+  }
+  if (lineChartMode?.axisText) {
+    vars["--luna-line-chart-axis-text"] = resolveTokenValue(theme, lineChartMode.axisText);
+  }
+  if (lineChartMode?.axisLine) {
+    vars["--luna-line-chart-axis-line"] = resolveTokenValue(theme, lineChartMode.axisLine);
+  }
+  if (lineChartMode?.grid) {
+    vars["--luna-line-chart-grid"] = resolveTokenValue(theme, lineChartMode.grid);
+  }
+  if (lineChartMode?.line) {
+    vars["--luna-line-chart-line"] = resolveTokenValue(theme, lineChartMode.line);
+  }
+  if (lineChartMode?.markerFill) {
+    vars["--luna-line-chart-marker-fill"] = resolveTokenValue(theme, lineChartMode.markerFill);
+  }
+  if (lineChartMode?.markerStroke) {
+    vars["--luna-line-chart-marker-stroke"] = resolveTokenValue(theme, lineChartMode.markerStroke);
+  }
+  if (lineChartMode?.emptyBg) {
+    vars["--luna-line-chart-empty-bg"] = resolveTokenValue(theme, lineChartMode.emptyBg);
+  }
+
   const tooltip = theme.components.tooltip;
   if (tooltip?.radius) {
     vars["--luna-tooltip-radius"] =
