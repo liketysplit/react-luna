@@ -40,3 +40,4 @@ It is intentionally neutral:
 - `LunaWireframe` does not use `LunaGrid`, `LunaRow`, or `LunaColumn`
 - story/demo surfaces for shell examples live outside the component itself
 - this component is useful as a structural wireframe and layout study, not as the final themed page-layout contract
+- when a page wants directional separators or quiet framed regions inside a slot, prefer composing `LunaPane` inside the slot content instead of expanding `LunaWireframe` into a per-edge border API

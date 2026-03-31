@@ -60,3 +60,9 @@ Use `LunaApp` as the application host:
 - router host
 
 Use `LunaWireframe` inside routed pages when those pages need the named shell regions.
+
+Use `LunaPane` inside those pages when the page needs:
+
+- directional separators
+- quiet framed regions
+- edge control without turning everything into `LunaPanel`
