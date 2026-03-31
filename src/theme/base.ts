@@ -1547,6 +1547,42 @@ export const lunarTheme: Theme = {
         }
       }
     },
+    barChart: {
+      radius: "lg",
+      padding: "5",
+      headerGap: "4",
+      legendGap: "2",
+      chartHeight: "14rem",
+      barGap: "3",
+      barMinWidth: "5.25rem",
+      palette: [
+        "primary.500",
+        "accent.500",
+        "success.500",
+        "warning.500",
+        "danger.500"
+      ],
+      modes: {
+        light: {
+          bg: "neutral.100",
+          border: "neutral.200",
+          axisText: "neutral.600",
+          axisGrid: "neutral.300",
+          legendText: "neutral.700",
+          valueText: "neutral.900",
+          stateText: "neutral.600"
+        },
+        dark: {
+          bg: "neutral.800",
+          border: "neutral.700",
+          axisText: "neutral.400",
+          axisGrid: "neutral.600",
+          legendText: "neutral.200",
+          valueText: "neutral.50",
+          stateText: "neutral.300"
+        }
+      }
+    },
     input: {
       defaultSize: "md",
       radius: "md",
