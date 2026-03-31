@@ -208,6 +208,19 @@ export type ThemeProgressToneTokens = {
   glow?: string;
 };
 
+export type ThemeSparklineSizeProfile = {
+  width?: string;
+  height?: string;
+};
+
+export type ThemeSparklineModeTokens = {
+  emptyStroke?: string;
+};
+
+export type ThemeSparklineToneTokens = {
+  stroke?: string;
+};
+
 export type ThemeInputSizeProfile = {
   minHeight?: string;
   paddingX?: string;
@@ -530,6 +543,14 @@ export type ThemeComponents = {
     sizes?: Record<string, ThemeProgressSizeProfile>;
     modes?: Partial<Record<ThemeMode, ThemeProgressModeTokens>>;
     tones?: Record<string, ThemeProgressToneTokens>;
+  };
+  sparkline?: {
+    defaultSize?: string;
+    defaultTone?: string;
+    strokeWidth?: string;
+    sizes?: Record<string, ThemeSparklineSizeProfile>;
+    modes?: Partial<Record<ThemeMode, ThemeSparklineModeTokens>>;
+    tones?: Record<string, ThemeSparklineToneTokens>;
   };
   input?: {
     defaultSize?: string;

@@ -1547,6 +1547,44 @@ export const lunarTheme: Theme = {
         }
       }
     },
+    sparkline: {
+      defaultSize: "medium",
+      defaultTone: "neutral",
+      strokeWidth: "0.1875rem",
+      sizes: {
+        small: {
+          width: "12",
+          height: "6"
+        },
+        medium: {
+          width: "16",
+          height: "8"
+        },
+        large: {
+          width: "20",
+          height: "10"
+        }
+      },
+      modes: {
+        light: {
+          emptyStroke: "neutral.300"
+        },
+        dark: {
+          emptyStroke: "neutral.600"
+        }
+      },
+      tones: {
+        neutral: {
+          stroke: "neutral.500"
+        },
+        positive: {
+          stroke: "success.500"
+        },
+        negative: {
+          stroke: "danger.500"
+        }
+      }
+    },
     input: {
       defaultSize: "md",
       radius: "md",

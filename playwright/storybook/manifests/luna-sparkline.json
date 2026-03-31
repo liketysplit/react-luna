@@ -1,0 +1,52 @@
+[
+  {
+    "storyId": "components-lunasparkline--playground",
+    "fileName": "luna-sparkline-playground",
+    "backgrounds": [
+      "light",
+      "dark"
+    ]
+  },
+  {
+    "storyId": "components-lunasparkline--upward-trend",
+    "fileName": "luna-sparkline-upward-trend",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunasparkline--downward-trend",
+    "fileName": "luna-sparkline-downward-trend",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunasparkline--flat-low-variance-trend",
+    "fileName": "luna-sparkline-flat-low-variance-trend",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunasparkline--very-short-series",
+    "fileName": "luna-sparkline-very-short-series",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunasparkline--empty-state",
+    "fileName": "luna-sparkline-empty-state",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunasparkline--embedded-metric-card",
+    "fileName": "luna-sparkline-embedded-metric-card",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]

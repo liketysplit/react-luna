@@ -1,0 +1,19 @@
+.luna-sparkline {
+  display: block;
+  width: var(--luna-sparkline-current-width, 4rem);
+  height: var(--luna-sparkline-current-height, 2rem);
+  overflow: visible;
+}
+
+.luna-sparkline__line {
+  stroke: var(--luna-sparkline-current-stroke, var(--luna-muted));
+  stroke-width: var(--luna-sparkline-current-stroke-width, 0.1875rem);
+  transition:
+    stroke var(--luna-motion-base, 180ms) ease,
+    opacity var(--luna-motion-base, 180ms) ease;
+}
+
+.luna-sparkline[data-empty="true"] .luna-sparkline__line {
+  stroke: var(--luna-sparkline-current-empty-stroke, var(--luna-border));
+  opacity: 0.8;
+}

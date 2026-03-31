@@ -43,3 +43,4 @@ export * from "./luna-popover";
 export * from "./luna-app";
 export * from "./luna-pane";
 export * from "./luna-panel";
+export * from "./luna-sparkline";
