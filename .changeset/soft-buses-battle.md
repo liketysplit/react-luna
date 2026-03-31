@@ -2,7 +2,7 @@
 "@liketysplit/react-luna": minor
 ---
 
-Add the first Luna app-shell primitives and expand the internal icon surface.
+Add all public component work merged after `v0.21.0`.
 
 This release adds:
 
@@ -10,6 +10,8 @@ This release adds:
 - `LunaWireframe` as the structural shell primitive with named regions
 - `LunaPanel` as a labeled surfaced content wrapper
 - `LunaPane` as a quiet boundary and separator helper
+- `LunaIcon` as the first-party icon surface
+- root package exports for `LunaWireframe`, `LunaToast`, and `LunaTooltip`
 - component-specific theme tokens for the new app-shell slice
 - Storybook stories, tests, docs, and screenshot manifests for the new app-shell components
 - expanded internal icon coverage and icon manifests
