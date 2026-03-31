@@ -1,0 +1,13 @@
+.luna-app {
+  min-height: var(--luna-app-min-height, 100vh);
+  width: 100%;
+  box-sizing: border-box;
+  color: var(--luna-app-fg, inherit);
+  background: var(--luna-app-bg, transparent);
+}
+
+.luna-app__content {
+  min-height: var(--luna-app-content-min-height, 100vh);
+  width: 100%;
+  box-sizing: border-box;
+}

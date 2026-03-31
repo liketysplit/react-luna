@@ -817,6 +817,142 @@ export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<str
       resolveTokenValue(theme, popoverMode.shadow);
   }
 
+  const app = theme.components.app;
+  if (app?.minHeight) {
+    vars["--luna-app-min-height"] =
+      resolveScaleValue(theme.spacing, app.minHeight) ?? app.minHeight;
+  }
+  if (app?.contentMinHeight) {
+    vars["--luna-app-content-min-height"] =
+      resolveScaleValue(theme.spacing, app.contentMinHeight) ?? app.contentMinHeight;
+  }
+  const appMode = app?.modes?.[mode];
+  if (appMode?.bg) {
+    vars["--luna-app-bg"] = resolveTokenValue(theme, appMode.bg);
+  }
+  if (appMode?.fg) {
+    vars["--luna-app-fg"] = resolveTokenValue(theme, appMode.fg);
+  }
+
+  const pane = theme.components.pane;
+  const paneMode = pane?.modes?.[mode];
+  if (paneMode?.borderColor) {
+    vars["--luna-pane-border-color"] = resolveTokenValue(theme, paneMode.borderColor);
+  }
+
+  const panel = theme.components.panel;
+  if (panel?.padding) {
+    vars["--luna-panel-padding"] =
+      resolveScaleValue(theme.spacing, panel.padding) ?? panel.padding;
+  }
+  if (panel?.gap) {
+    vars["--luna-panel-gap"] =
+      resolveScaleValue(theme.spacing, panel.gap) ?? panel.gap;
+  }
+  if (panel?.radius) {
+    vars["--luna-panel-radius"] =
+      resolveScaleValue(theme.radii, panel.radius) ?? panel.radius;
+  }
+  if (panel?.headerGap) {
+    vars["--luna-panel-header-gap"] =
+      resolveScaleValue(theme.spacing, panel.headerGap) ?? panel.headerGap;
+  }
+  if (panel?.titleFontSize) {
+    vars["--luna-panel-title-font-size"] =
+      resolveScaleValue(theme.typography.sizes, panel.titleFontSize) ?? panel.titleFontSize;
+  }
+  if (panel?.titleLetterSpacing) {
+    vars["--luna-panel-title-letter-spacing"] = panel.titleLetterSpacing;
+  }
+  if (panel?.descriptionFontSize) {
+    vars["--luna-panel-description-font-size"] =
+      resolveScaleValue(theme.typography.sizes, panel.descriptionFontSize) ??
+      panel.descriptionFontSize;
+  }
+  if (panel?.descriptionLineHeight) {
+    vars["--luna-panel-description-line-height"] =
+      resolveScaleValue(theme.typography.lineHeights, panel.descriptionLineHeight) ??
+      panel.descriptionLineHeight;
+  }
+  const panelMode = panel?.modes?.[mode];
+  if (panelMode?.bg) {
+    vars["--luna-panel-bg"] = resolveTokenValue(theme, panelMode.bg);
+  }
+  if (panelMode?.fg) {
+    vars["--luna-panel-fg"] = resolveTokenValue(theme, panelMode.fg);
+  }
+  if (panelMode?.border) {
+    vars["--luna-panel-border"] = resolveTokenValue(theme, panelMode.border);
+  }
+  if (panelMode?.shadow) {
+    vars["--luna-panel-shadow"] =
+      resolveScaleValue(theme.shadows, panelMode.shadow) ??
+      resolveTokenValue(theme, panelMode.shadow);
+  }
+  if (panelMode?.chromeBg) {
+    vars["--luna-panel-chrome-bg"] = resolveTokenValue(theme, panelMode.chromeBg);
+  }
+  if (panelMode?.emphasisBg) {
+    vars["--luna-panel-emphasis-bg"] = resolveTokenValue(theme, panelMode.emphasisBg);
+  }
+  if (panelMode?.titleFg) {
+    vars["--luna-panel-title-fg"] = resolveTokenValue(theme, panelMode.titleFg);
+  }
+  if (panelMode?.descriptionFg) {
+    vars["--luna-panel-description-fg"] = resolveTokenValue(theme, panelMode.descriptionFg);
+  }
+
+  const wireframe = theme.components.wireframe;
+  if (wireframe?.gap) {
+    vars["--luna-wireframe-gap"] =
+      resolveScaleValue(theme.spacing, wireframe.gap) ?? wireframe.gap;
+  }
+  if (wireframe?.padding) {
+    vars["--luna-wireframe-padding"] =
+      resolveScaleValue(theme.spacing, wireframe.padding) ?? wireframe.padding;
+  }
+  if (wireframe?.railMin) {
+    vars["--luna-wireframe-rail-min"] =
+      resolveScaleValue(theme.spacing, wireframe.railMin) ?? wireframe.railMin;
+  }
+  if (wireframe?.railMax) {
+    vars["--luna-wireframe-rail-max"] =
+      resolveScaleValue(theme.spacing, wireframe.railMax) ?? wireframe.railMax;
+  }
+  if (wireframe?.narrowMaxWidth) {
+    vars["--luna-wireframe-narrow-max-width"] =
+      resolveScaleValue(theme.spacing, wireframe.narrowMaxWidth) ?? wireframe.narrowMaxWidth;
+  }
+  if (wireframe?.slotRadius) {
+    vars["--luna-wireframe-slot-radius"] =
+      resolveScaleValue(theme.radii, wireframe.slotRadius) ?? wireframe.slotRadius;
+  }
+  if (wireframe?.borderedPadding) {
+    vars["--luna-wireframe-bordered-padding"] =
+      resolveScaleValue(theme.spacing, wireframe.borderedPadding) ?? wireframe.borderedPadding;
+  }
+  const wireframeMode = wireframe?.modes?.[mode];
+  if (wireframeMode?.slotBorder) {
+    vars["--luna-wireframe-slot-border"] = resolveTokenValue(theme, wireframeMode.slotBorder);
+  }
+  if (wireframeMode?.slotBg) {
+    vars["--luna-wireframe-slot-bg"] = resolveTokenValue(theme, wireframeMode.slotBg);
+  }
+  if (wireframeMode?.slotFg) {
+    vars["--luna-wireframe-slot-fg"] = resolveTokenValue(theme, wireframeMode.slotFg);
+  }
+  if (wireframeMode?.slotShadow) {
+    vars["--luna-wireframe-slot-shadow"] =
+      resolveScaleValue(theme.shadows, wireframeMode.slotShadow) ??
+      resolveTokenValue(theme, wireframeMode.slotShadow);
+  }
+  if (wireframeMode?.appBarBg) {
+    vars["--luna-wireframe-app-bar-bg"] = resolveTokenValue(theme, wireframeMode.appBarBg);
+  }
+  if (wireframeMode?.centerTopBg) {
+    vars["--luna-wireframe-center-top-bg"] = resolveTokenValue(theme, wireframeMode.centerTopBg);
+  }
+
   const input = theme.components.input;
   if (input?.defaultSize) {
     vars["--luna-input-size-default"] = input.defaultSize;

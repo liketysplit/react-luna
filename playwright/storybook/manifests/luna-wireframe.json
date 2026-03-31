@@ -1,0 +1,58 @@
+[
+  {
+    "storyId": "components-lunawireframe--playground",
+    "fileName": "luna-wireframe-playground",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunawireframe--text-only",
+    "fileName": "luna-wireframe-text-only",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunawireframe--text-only-border-comparison",
+    "fileName": "luna-wireframe-text-only-border-comparison",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunawireframe--full-shell",
+    "fileName": "luna-wireframe-full-shell",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunawireframe--narrow-wireframe",
+    "fileName": "luna-wireframe-narrow-wireframe",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunawireframe--thin-center-top",
+    "fileName": "luna-wireframe-thin-center-top",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunawireframe--thin-center-bottom",
+    "fileName": "luna-wireframe-thin-center-bottom",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunawireframe--center-middle-only-with-side-rails",
+    "fileName": "luna-wireframe-center-middle-only-with-side-rails",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]

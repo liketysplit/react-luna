@@ -1,0 +1,16 @@
+[
+  {
+    "storyId": "components-lunapanel--playground",
+    "fileName": "luna-panel-playground",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunapanel--tones",
+    "fileName": "luna-panel-tones",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]
