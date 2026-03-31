@@ -19,6 +19,7 @@ export * from "./luna-header";
 export * from "./luna-hover-text";
 export * from "./luna-input";
 export * from "./luna-menu";
+export * from "./luna-metric-card";
 export * from "./luna-progress";
 export * from "./luna-slider";
 export * from "./luna-textarea";

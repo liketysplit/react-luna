@@ -99,4 +99,26 @@ describe("theme size contract", () => {
     expect(popover?.arrowSize).toBe("3");
     expect(popover?.arrowInset).toBe("4");
   });
+
+  it("defines metric card defaults and status colors", () => {
+    const metricCard = lunarTheme.components.metricCard;
+
+    expect(metricCard?.padding).toBe("4");
+    expect(metricCard?.valueFontSize).toBe("xxl");
+    expect(metricCard?.visualMinWidth).toBe("6rem");
+    expect(Object.keys(metricCard?.modes?.light?.tones ?? {})).toEqual([
+      "default",
+      "info",
+      "success",
+      "warning",
+      "danger"
+    ]);
+    expect(Object.keys(metricCard?.modes?.dark?.tones ?? {})).toEqual([
+      "default",
+      "info",
+      "success",
+      "warning",
+      "danger"
+    ]);
+  });
 });

@@ -902,6 +902,108 @@ export function buildThemeVars(theme: Theme, mode: "light" | "dark"): Record<str
     vars["--luna-panel-description-fg"] = resolveTokenValue(theme, panelMode.descriptionFg);
   }
 
+  const metricCard = theme.components.metricCard;
+  if (metricCard?.padding) {
+    vars["--luna-metric-card-padding"] =
+      resolveScaleValue(theme.spacing, metricCard.padding) ?? metricCard.padding;
+  }
+  if (metricCard?.gap) {
+    vars["--luna-metric-card-gap"] =
+      resolveScaleValue(theme.spacing, metricCard.gap) ?? metricCard.gap;
+  }
+  if (metricCard?.radius) {
+    vars["--luna-metric-card-radius"] =
+      resolveScaleValue(theme.radii, metricCard.radius) ?? metricCard.radius;
+  }
+  if (metricCard?.headerGap) {
+    vars["--luna-metric-card-header-gap"] =
+      resolveScaleValue(theme.spacing, metricCard.headerGap) ?? metricCard.headerGap;
+  }
+  if (metricCard?.footerGap) {
+    vars["--luna-metric-card-footer-gap"] =
+      resolveScaleValue(theme.spacing, metricCard.footerGap) ?? metricCard.footerGap;
+  }
+  if (metricCard?.labelFontSize) {
+    vars["--luna-metric-card-label-font-size"] =
+      resolveScaleValue(theme.typography.sizes, metricCard.labelFontSize) ??
+      metricCard.labelFontSize;
+  }
+  if (metricCard?.labelLetterSpacing) {
+    vars["--luna-metric-card-label-letter-spacing"] = metricCard.labelLetterSpacing;
+  }
+  if (metricCard?.valueFontSize) {
+    vars["--luna-metric-card-value-font-size"] =
+      resolveScaleValue(theme.typography.sizes, metricCard.valueFontSize) ??
+      metricCard.valueFontSize;
+  }
+  if (metricCard?.valueLineHeight) {
+    vars["--luna-metric-card-value-line-height"] =
+      resolveScaleValue(theme.typography.lineHeights, metricCard.valueLineHeight) ??
+      metricCard.valueLineHeight;
+  }
+  if (metricCard?.deltaFontSize) {
+    vars["--luna-metric-card-delta-font-size"] =
+      resolveScaleValue(theme.typography.sizes, metricCard.deltaFontSize) ??
+      metricCard.deltaFontSize;
+  }
+  if (metricCard?.metaFontSize) {
+    vars["--luna-metric-card-meta-font-size"] =
+      resolveScaleValue(theme.typography.sizes, metricCard.metaFontSize) ??
+      metricCard.metaFontSize;
+  }
+  if (metricCard?.visualMinWidth) {
+    vars["--luna-metric-card-visual-min-width"] =
+      resolveScaleValue(theme.spacing, metricCard.visualMinWidth) ?? metricCard.visualMinWidth;
+  }
+  if (metricCard?.accentHeight) {
+    vars["--luna-metric-card-accent-height"] =
+      resolveScaleValue(theme.spacing, metricCard.accentHeight) ?? metricCard.accentHeight;
+  }
+  const metricCardMode = metricCard?.modes?.[mode];
+  if (metricCardMode?.bg) {
+    vars["--luna-metric-card-bg"] = resolveTokenValue(theme, metricCardMode.bg);
+  }
+  if (metricCardMode?.fg) {
+    vars["--luna-metric-card-fg"] = resolveTokenValue(theme, metricCardMode.fg);
+  }
+  if (metricCardMode?.border) {
+    vars["--luna-metric-card-border"] = resolveTokenValue(theme, metricCardMode.border);
+  }
+  if (metricCardMode?.shadow) {
+    vars["--luna-metric-card-shadow"] =
+      resolveScaleValue(theme.shadows, metricCardMode.shadow) ??
+      resolveTokenValue(theme, metricCardMode.shadow);
+  }
+  if (metricCardMode?.labelFg) {
+    vars["--luna-metric-card-label-fg"] = resolveTokenValue(theme, metricCardMode.labelFg);
+  }
+  if (metricCardMode?.valueFg) {
+    vars["--luna-metric-card-value-fg"] = resolveTokenValue(theme, metricCardMode.valueFg);
+  }
+  if (metricCardMode?.metaFg) {
+    vars["--luna-metric-card-meta-fg"] = resolveTokenValue(theme, metricCardMode.metaFg);
+  }
+  if (metricCardMode?.visualBg) {
+    vars["--luna-metric-card-visual-bg"] = resolveTokenValue(theme, metricCardMode.visualBg);
+  }
+  if (metricCardMode?.trendUpFg) {
+    vars["--luna-metric-card-trend-up-fg"] = resolveTokenValue(theme, metricCardMode.trendUpFg);
+  }
+  if (metricCardMode?.trendDownFg) {
+    vars["--luna-metric-card-trend-down-fg"] =
+      resolveTokenValue(theme, metricCardMode.trendDownFg);
+  }
+  if (metricCardMode?.trendNeutralFg) {
+    vars["--luna-metric-card-trend-neutral-fg"] =
+      resolveTokenValue(theme, metricCardMode.trendNeutralFg);
+  }
+  for (const tone of ["default", "info", "success", "warning", "danger"] as const) {
+    const toneValue = metricCardMode?.tones?.[tone];
+    if (toneValue) {
+      vars[`--luna-metric-card-tone-${tone}`] = resolveTokenValue(theme, toneValue);
+    }
+  }
+
   const wireframe = theme.components.wireframe;
   if (wireframe?.gap) {
     vars["--luna-wireframe-gap"] =

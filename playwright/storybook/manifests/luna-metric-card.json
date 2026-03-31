@@ -1,0 +1,44 @@
+[
+  {
+    "storyId": "components-lunametriccard--basic-kpi-card",
+    "fileName": "luna-metric-card-basic-kpi-card",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunametriccard--positive-delta",
+    "fileName": "luna-metric-card-positive-delta",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunametriccard--negative-delta",
+    "fileName": "luna-metric-card-negative-delta",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunametriccard--neutral-no-delta",
+    "fileName": "luna-metric-card-neutral-no-delta",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunametriccard--with-compact-trend-content",
+    "fileName": "luna-metric-card-with-compact-trend-content",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunametriccard--narrow-width-dense-layout",
+    "fileName": "luna-metric-card-narrow-width-dense-layout",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]

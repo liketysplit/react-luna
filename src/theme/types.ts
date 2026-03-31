@@ -312,6 +312,24 @@ export type ThemePanelModeTokens = {
   descriptionFg?: string;
 };
 
+export type ThemeMetricCardTone = "default" | "info" | "success" | "warning" | "danger";
+export type ThemeMetricCardTrend = "up" | "down" | "neutral";
+
+export type ThemeMetricCardModeTokens = {
+  bg?: string;
+  fg?: string;
+  border?: string;
+  shadow?: string;
+  labelFg?: string;
+  valueFg?: string;
+  metaFg?: string;
+  visualBg?: string;
+  trendUpFg?: string;
+  trendDownFg?: string;
+  trendNeutralFg?: string;
+  tones?: Partial<Record<ThemeMetricCardTone, string>>;
+};
+
 export type ThemeWireframeModeTokens = {
   slotBorder?: string;
   slotBg?: string;
@@ -588,6 +606,22 @@ export type ThemeComponents = {
     descriptionFontSize?: string;
     descriptionLineHeight?: string;
     modes?: Partial<Record<ThemeMode, ThemePanelModeTokens>>;
+  };
+  metricCard?: {
+    padding?: string;
+    gap?: string;
+    radius?: string;
+    headerGap?: string;
+    footerGap?: string;
+    labelFontSize?: string;
+    labelLetterSpacing?: string;
+    valueFontSize?: string;
+    valueLineHeight?: string;
+    deltaFontSize?: string;
+    metaFontSize?: string;
+    visualMinWidth?: string;
+    accentHeight?: string;
+    modes?: Partial<Record<ThemeMode, ThemeMetricCardModeTokens>>;
   };
   wireframe?: {
     gap?: string;

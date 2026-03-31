@@ -1756,6 +1756,63 @@ export const lunarTheme: Theme = {
         }
       }
     },
+    metricCard: {
+      padding: "4",
+      gap: "4",
+      radius: "lg",
+      headerGap: "2",
+      footerGap: "2",
+      labelFontSize: "xs",
+      labelLetterSpacing: "0.08em",
+      valueFontSize: "xxl",
+      valueLineHeight: "tight",
+      deltaFontSize: "sm",
+      metaFontSize: "sm",
+      visualMinWidth: "6rem",
+      accentHeight: "0.25rem",
+      modes: {
+        light: {
+          bg: "neutral.50",
+          fg: "neutral.900",
+          border: "neutral.200",
+          shadow: "sm",
+          labelFg: "neutral.500",
+          valueFg: "neutral.950",
+          metaFg: "neutral.500",
+          visualBg: "neutral.100",
+          trendUpFg: "success.700",
+          trendDownFg: "danger.700",
+          trendNeutralFg: "neutral.500",
+          tones: {
+            default: "neutral.300",
+            info: "primary.500",
+            success: "success.500",
+            warning: "warning.500",
+            danger: "danger.500"
+          }
+        },
+        dark: {
+          bg: "neutral.800",
+          fg: "neutral.50",
+          border: "neutral.700",
+          shadow: "sm",
+          labelFg: "neutral.400",
+          valueFg: "neutral.50",
+          metaFg: "neutral.300",
+          visualBg: "neutral.900",
+          trendUpFg: "success.300",
+          trendDownFg: "danger.300",
+          trendNeutralFg: "neutral.300",
+          tones: {
+            default: "neutral.600",
+            info: "primary.300",
+            success: "success.300",
+            warning: "warning.300",
+            danger: "danger.300"
+          }
+        }
+      }
+    },
     wireframe: {
       gap: "4",
       padding: "4",
