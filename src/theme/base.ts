@@ -1547,6 +1547,50 @@ export const lunarTheme: Theme = {
         }
       }
     },
+    lineChart: {
+      height: "16",
+      padding: "4",
+      radius: "lg",
+      lineWidth: "3",
+      markerSize: "4.5",
+      maxXTicks: 6,
+      yTickCount: 4,
+      markerThreshold: 12,
+      modes: {
+        light: {
+          bg: "neutral.50",
+          border: "neutral.200",
+          titleFg: "neutral.900",
+          descriptionFg: "neutral.500",
+          axisFg: "neutral.700",
+          axisMutedFg: "neutral.500",
+          grid: "neutral.200",
+          line: "primary.600",
+          markerFill: "neutral.50",
+          markerStroke: "primary.600",
+          legendFg: "neutral.800",
+          stateBg: "neutral.100",
+          stateBorder: "neutral.200",
+          stateFg: "neutral.800"
+        },
+        dark: {
+          bg: "neutral.800",
+          border: "neutral.700",
+          titleFg: "neutral.50",
+          descriptionFg: "neutral.400",
+          axisFg: "neutral.200",
+          axisMutedFg: "neutral.400",
+          grid: "neutral.700",
+          line: "primary.300",
+          markerFill: "neutral.800",
+          markerStroke: "primary.300",
+          legendFg: "neutral.100",
+          stateBg: "neutral.800",
+          stateBorder: "neutral.700",
+          stateFg: "neutral.100"
+        }
+      }
+    },
     input: {
       defaultSize: "md",
       radius: "md",
