@@ -40,6 +40,31 @@ It also accepts normal HTML attributes for the chosen element.
 - `chrome`: stronger chrome/header treatment
 - `emphasis`: slightly more prominent surface
 
+## Theme
+
+`LunaPanel` now uses component-specific theme variables for its spacing and surface treatment.
+
+The important defaults currently surfaced are:
+
+- `--luna-panel-padding`
+- `--luna-panel-gap`
+- `--luna-panel-radius`
+- `--luna-panel-header-gap`
+- `--luna-panel-title-font-size`
+- `--luna-panel-title-letter-spacing`
+- `--luna-panel-description-font-size`
+- `--luna-panel-description-line-height`
+- `--luna-panel-bg`
+- `--luna-panel-fg`
+- `--luna-panel-border`
+- `--luna-panel-shadow`
+- `--luna-panel-chrome-bg`
+- `--luna-panel-emphasis-bg`
+- `--luna-panel-title-fg`
+- `--luna-panel-description-fg`
+
+These theme defaults keep the current rendered look unchanged while allowing consumers to tune `LunaPanel` through `ThemeProvider`.
+
 ## Notes
 
 - `LunaPanel` is intentionally broader than the old wireframe region wrapper concept

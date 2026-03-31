@@ -1699,6 +1699,89 @@ export const lunarTheme: Theme = {
           shadow: "lg"
         }
       }
+    },
+    app: {
+      minHeight: "100vh",
+      contentMinHeight: "100vh",
+      modes: {
+        light: {
+          bg: "transparent",
+          fg: "neutral.900"
+        },
+        dark: {
+          bg: "transparent",
+          fg: "neutral.50"
+        }
+      }
+    },
+    pane: {
+      modes: {
+        light: {
+          borderColor: "rgba(108, 122, 171, 0.28)"
+        },
+        dark: {
+          borderColor: "rgba(108, 122, 171, 0.28)"
+        }
+      }
+    },
+    panel: {
+      padding: "4",
+      gap: "0.875rem",
+      radius: "1.125rem",
+      headerGap: "0.35rem",
+      titleFontSize: "0.8rem",
+      titleLetterSpacing: "0.08em",
+      descriptionFontSize: "0.95rem",
+      descriptionLineHeight: "1.4",
+      modes: {
+        light: {
+          bg: "rgba(255, 255, 255, 0.9)",
+          fg: "neutral.900",
+          border: "rgba(108, 122, 171, 0.22)",
+          shadow: "inset 0 1px 0 rgba(255, 255, 255, 0.7)",
+          chromeBg: "linear-gradient(180deg, rgba(234, 239, 255, 0.95), rgba(248, 250, 255, 0.95))",
+          emphasisBg: "linear-gradient(180deg, rgba(242, 245, 255, 0.98), rgba(255, 255, 255, 0.94))",
+          titleFg: "#46537e",
+          descriptionFg: "#5b688f"
+        },
+        dark: {
+          bg: "rgba(255, 255, 255, 0.9)",
+          fg: "neutral.900",
+          border: "rgba(108, 122, 171, 0.22)",
+          shadow: "inset 0 1px 0 rgba(255, 255, 255, 0.7)",
+          chromeBg: "linear-gradient(180deg, rgba(234, 239, 255, 0.95), rgba(248, 250, 255, 0.95))",
+          emphasisBg: "linear-gradient(180deg, rgba(242, 245, 255, 0.98), rgba(255, 255, 255, 0.94))",
+          titleFg: "#46537e",
+          descriptionFg: "#5b688f"
+        }
+      }
+    },
+    wireframe: {
+      gap: "4",
+      padding: "4",
+      railMin: "14rem",
+      railMax: "18rem",
+      narrowMaxWidth: "28rem",
+      slotRadius: "1.125rem",
+      borderedPadding: "4",
+      modes: {
+        light: {
+          slotBorder: "rgba(108, 122, 171, 0.22)",
+          slotBg: "rgba(255, 255, 255, 0.9)",
+          slotFg: "neutral.900",
+          slotShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.7)",
+          appBarBg: "linear-gradient(180deg, rgba(234, 239, 255, 0.95), rgba(248, 250, 255, 0.95))",
+          centerTopBg: "linear-gradient(180deg, rgba(242, 245, 255, 0.98), rgba(255, 255, 255, 0.94))"
+        },
+        dark: {
+          slotBorder: "rgba(108, 122, 171, 0.22)",
+          slotBg: "rgba(255, 255, 255, 0.9)",
+          slotFg: "neutral.900",
+          slotShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.7)",
+          appBarBg: "linear-gradient(180deg, rgba(234, 239, 255, 0.95), rgba(248, 250, 255, 0.95))",
+          centerTopBg: "linear-gradient(180deg, rgba(242, 245, 255, 0.98), rgba(255, 255, 255, 0.94))"
+        }
+      }
     }
   }
 };

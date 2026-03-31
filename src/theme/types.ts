@@ -290,6 +290,37 @@ export type ThemePopoverModeTokens = {
   shadow?: string;
 };
 
+export type ThemeAppTokens = {
+  minHeight?: string;
+  contentMinHeight?: string;
+  bg?: string;
+  fg?: string;
+};
+
+export type ThemePaneTokens = {
+  borderColor?: string;
+};
+
+export type ThemePanelModeTokens = {
+  bg?: string;
+  fg?: string;
+  border?: string;
+  shadow?: string;
+  chromeBg?: string;
+  emphasisBg?: string;
+  titleFg?: string;
+  descriptionFg?: string;
+};
+
+export type ThemeWireframeModeTokens = {
+  slotBorder?: string;
+  slotBg?: string;
+  slotFg?: string;
+  slotShadow?: string;
+  appBarBg?: string;
+  centerTopBg?: string;
+};
+
 export type ThemeAccordionModeTokens = {
   itemBg?: string;
   itemBorder?: string;
@@ -538,6 +569,35 @@ export type ThemeComponents = {
     arrowSize?: string;
     arrowInset?: string;
     modes?: Partial<Record<ThemeMode, ThemePopoverModeTokens>>;
+  };
+  app?: {
+    minHeight?: string;
+    contentMinHeight?: string;
+    modes?: Partial<Record<ThemeMode, ThemeAppTokens>>;
+  };
+  pane?: {
+    modes?: Partial<Record<ThemeMode, ThemePaneTokens>>;
+  };
+  panel?: {
+    padding?: string;
+    gap?: string;
+    radius?: string;
+    headerGap?: string;
+    titleFontSize?: string;
+    titleLetterSpacing?: string;
+    descriptionFontSize?: string;
+    descriptionLineHeight?: string;
+    modes?: Partial<Record<ThemeMode, ThemePanelModeTokens>>;
+  };
+  wireframe?: {
+    gap?: string;
+    padding?: string;
+    railMin?: string;
+    railMax?: string;
+    narrowMaxWidth?: string;
+    slotRadius?: string;
+    borderedPadding?: string;
+    modes?: Partial<Record<ThemeMode, ThemeWireframeModeTokens>>;
   };
   accordion?: {
     defaultGap?: string;

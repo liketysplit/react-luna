@@ -27,7 +27,21 @@ It also accepts normal HTML attributes for the root element.
 - router and page content are expected to live inside `children`
 - page-level gutter props apply to the inner content wrapper
 - color and background props apply to the app host
+- the current default look is now sourced from component-specific theme tokens in the default theme, so consumers can override app host sizing through `ThemeProvider` without changing the component contract
 - when a child page already uses surfaced components such as `LunaPanel`, `LunaApp` stories should not also turn on `LunaWireframe` slot borders unless the comparison is specifically about wireframe borders
+
+## Theme
+
+`LunaApp` now reads its baseline CSS from component-scoped theme variables.
+
+The important defaults currently surfaced are:
+
+- `--luna-app-min-height`
+- `--luna-app-content-min-height`
+- `--luna-app-bg`
+- `--luna-app-fg`
+
+These default values preserve the current appearance. Consumers can override them through the theme instead of patching component CSS directly.
 
 ## Storybook Coverage
 

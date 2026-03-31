@@ -42,6 +42,16 @@ It also accepts normal HTML attributes for the chosen element.
 - side-specific border props apply only those edges
 - `borderStyle`, `borderWidth`, and `radius` are passed through directly as CSS values
 
+## Theme
+
+`LunaPane` remains intentionally minimal, but its default border color is now surfaced through the theme.
+
+The important default currently surfaced is:
+
+- `--luna-pane-border-color`
+
+That keeps the current default appearance intact while allowing users to align pane separators with their themed surface language through `ThemeProvider`.
+
 ## Notes
 
 - `LunaPane` is not a panel

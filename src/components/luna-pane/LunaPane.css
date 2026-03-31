@@ -1,7 +1,7 @@
 .luna-pane {
   min-width: 0;
   box-sizing: border-box;
-  border-color: rgba(108, 122, 171, 0.28);
+  border-color: var(--luna-pane-border-color, rgba(108, 122, 171, 0.28));
   border-style: solid;
   border-width: 0;
 }
