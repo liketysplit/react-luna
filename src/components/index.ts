@@ -46,3 +46,4 @@ export * from "./luna-app";
 export * from "./luna-app-shell-wireframe";
 export * from "./luna-pane";
 export * from "./luna-panel";
+export * from "./luna-pie-chart";

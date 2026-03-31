@@ -1547,6 +1547,73 @@ export const lunarTheme: Theme = {
         }
       }
     },
+    pieChart: {
+      defaultSize: "medium",
+      radius: "lg",
+      palette: [
+        "primary.500",
+        "accent.500",
+        "success.500",
+        "warning.500",
+        "danger.500",
+        "neutral.500",
+        "primary.300",
+        "accent.300"
+      ],
+      sizes: {
+        small: {
+          chartSize: "10rem",
+          gap: "4",
+          legendGap: "2",
+          legendSwatchSize: "3",
+          minHeight: "14rem"
+        },
+        medium: {
+          chartSize: "12rem",
+          gap: "5",
+          legendGap: "3",
+          legendSwatchSize: "3",
+          minHeight: "16rem"
+        },
+        large: {
+          chartSize: "14rem",
+          gap: "6",
+          legendGap: "3",
+          legendSwatchSize: "4",
+          minHeight: "18rem"
+        }
+      },
+      modes: {
+        light: {
+          bg: "neutral.50",
+          border: "neutral.200",
+          shadow: "sm",
+          chartBg: "neutral.100",
+          separator: "neutral.50",
+          titleFg: "neutral.900",
+          descriptionFg: "neutral.600",
+          legendFg: "neutral.900",
+          legendValueFg: "neutral.600",
+          emptyFg: "neutral.500",
+          loadingFg: "neutral.600",
+          errorFg: "danger.700"
+        },
+        dark: {
+          bg: "neutral.800",
+          border: "neutral.700",
+          shadow: "md",
+          chartBg: "neutral.900",
+          separator: "neutral.800",
+          titleFg: "neutral.50",
+          descriptionFg: "neutral.300",
+          legendFg: "neutral.50",
+          legendValueFg: "neutral.300",
+          emptyFg: "neutral.400",
+          loadingFg: "neutral.300",
+          errorFg: "danger.300"
+        }
+      }
+    },
     input: {
       defaultSize: "md",
       radius: "md",

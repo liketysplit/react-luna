@@ -208,6 +208,29 @@ export type ThemeProgressToneTokens = {
   glow?: string;
 };
 
+export type ThemePieChartSizeProfile = {
+  chartSize?: string;
+  gap?: string;
+  legendGap?: string;
+  legendSwatchSize?: string;
+  minHeight?: string;
+};
+
+export type ThemePieChartModeTokens = {
+  bg?: string;
+  border?: string;
+  shadow?: string;
+  chartBg?: string;
+  separator?: string;
+  titleFg?: string;
+  descriptionFg?: string;
+  legendFg?: string;
+  legendValueFg?: string;
+  emptyFg?: string;
+  loadingFg?: string;
+  errorFg?: string;
+};
+
 export type ThemeInputSizeProfile = {
   minHeight?: string;
   paddingX?: string;
@@ -530,6 +553,13 @@ export type ThemeComponents = {
     sizes?: Record<string, ThemeProgressSizeProfile>;
     modes?: Partial<Record<ThemeMode, ThemeProgressModeTokens>>;
     tones?: Record<string, ThemeProgressToneTokens>;
+  };
+  pieChart?: {
+    defaultSize?: string;
+    radius?: string;
+    palette?: string[];
+    sizes?: Record<string, ThemePieChartSizeProfile>;
+    modes?: Partial<Record<ThemeMode, ThemePieChartModeTokens>>;
   };
   input?: {
     defaultSize?: string;

@@ -1,0 +1,199 @@
+.luna-pie-chart {
+  --luna-pie-chart-current-radius: var(--luna-radius-lg);
+  --luna-pie-chart-current-chart-size: 12rem;
+  --luna-pie-chart-current-gap: var(--luna-space-5, 1.25rem);
+  --luna-pie-chart-current-legend-gap: var(--luna-space-3, 0.75rem);
+  --luna-pie-chart-current-legend-swatch-size: 0.75rem;
+  --luna-pie-chart-current-min-height: 16rem;
+  position: relative;
+  display: grid;
+  gap: var(--luna-space-4, 1rem);
+  min-height: var(--luna-pie-chart-current-min-height);
+  padding: var(--luna-space-5, 1.25rem);
+  border: 1px solid var(--luna-pie-chart-current-border, var(--luna-border));
+  border-radius: var(--luna-pie-chart-current-radius);
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.18), transparent 58%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 45%),
+    var(--luna-pie-chart-current-bg, var(--luna-surface));
+  box-shadow: var(--luna-pie-chart-current-shadow, none);
+}
+
+.luna-pie-chart__header {
+  display: grid;
+  gap: var(--luna-space-2, 0.5rem);
+}
+
+.luna-pie-chart__title {
+  color: var(--luna-pie-chart-title-fg, var(--luna-foreground));
+}
+
+.luna-pie-chart__description {
+  color: var(--luna-pie-chart-description-fg, var(--luna-muted));
+}
+
+.luna-pie-chart__content {
+  display: grid;
+  grid-template-columns: minmax(0, var(--luna-pie-chart-current-chart-size)) minmax(0, 1fr);
+  gap: var(--luna-pie-chart-current-gap);
+  align-items: center;
+}
+
+.luna-pie-chart__visual-shell {
+  display: grid;
+  place-items: center;
+  min-height: var(--luna-pie-chart-current-chart-size);
+}
+
+.luna-pie-chart__svg {
+  width: var(--luna-pie-chart-current-chart-size);
+  height: var(--luna-pie-chart-current-chart-size);
+  overflow: visible;
+  filter: drop-shadow(0 12px 22px rgba(15, 23, 42, 0.14));
+}
+
+.luna-pie-chart__track {
+  fill: var(--luna-pie-chart-current-chart-bg, color-mix(in srgb, var(--luna-surface) 80%, transparent));
+}
+
+.luna-pie-chart__slice {
+  stroke: var(--luna-pie-chart-current-separator, var(--luna-surface));
+  stroke-width: 3;
+  stroke-linejoin: round;
+}
+
+.luna-pie-chart__legend {
+  display: grid;
+  gap: var(--luna-pie-chart-current-legend-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.luna-pie-chart__legend--hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.luna-pie-chart__legend-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--luna-space-3, 0.75rem);
+  align-items: start;
+}
+
+.luna-pie-chart__legend-swatch {
+  width: var(--luna-pie-chart-current-legend-swatch-size);
+  height: var(--luna-pie-chart-current-legend-swatch-size);
+  margin-top: 0.375rem;
+  border-radius: 999px;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--luna-pie-chart-current-bg, var(--luna-surface)) 82%, transparent);
+}
+
+.luna-pie-chart__legend-copy {
+  display: grid;
+  gap: 0.125rem;
+  min-width: 0;
+}
+
+.luna-pie-chart__legend-label {
+  color: var(--luna-pie-chart-legend-fg, var(--luna-foreground));
+}
+
+.luna-pie-chart__legend-value {
+  color: var(--luna-pie-chart-legend-value-fg, var(--luna-muted));
+}
+
+.luna-pie-chart__placeholder,
+.luna-pie-chart__state {
+  display: grid;
+  gap: var(--luna-space-3, 0.75rem);
+  justify-items: center;
+  text-align: center;
+  width: min(100%, var(--luna-pie-chart-current-chart-size));
+}
+
+.luna-pie-chart__loading-chart {
+  filter: drop-shadow(0 12px 22px rgba(15, 23, 42, 0.08));
+}
+
+.luna-pie-chart__loading-copy {
+  display: grid;
+  gap: var(--luna-space-2, 0.5rem);
+  justify-items: center;
+}
+
+.luna-pie-chart__state {
+  color: var(--luna-pie-chart-empty-fg, var(--luna-muted));
+}
+
+.luna-pie-chart__state-title {
+  color: currentColor;
+}
+
+.luna-pie-chart__state-copy {
+  color: currentColor;
+}
+
+.luna-pie-chart__state-slot {
+  width: 100%;
+}
+
+.luna-pie-chart__empty-orbit {
+  width: calc(var(--luna-pie-chart-current-chart-size) * 0.72);
+  aspect-ratio: 1;
+  border: 2px dashed color-mix(in srgb, var(--luna-pie-chart-empty-fg, var(--luna-muted)) 52%, transparent);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 30% 30%, color-mix(in srgb, var(--luna-pie-chart-empty-fg, var(--luna-muted)) 18%, transparent), transparent 28%),
+    radial-gradient(circle at 70% 65%, color-mix(in srgb, var(--luna-pie-chart-empty-fg, var(--luna-muted)) 10%, transparent), transparent 22%);
+}
+
+.luna-pie-chart__error-badge {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--luna-pie-chart-error-fg, #b91c1c) 14%, transparent);
+  color: var(--luna-pie-chart-error-fg, #b91c1c);
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.luna-pie-chart[data-state="loading"] .luna-pie-chart__state {
+  color: var(--luna-pie-chart-loading-fg, var(--luna-muted));
+}
+
+.luna-pie-chart[data-state="error"] .luna-pie-chart__state {
+  color: var(--luna-pie-chart-error-fg, #b91c1c);
+}
+
+.luna-pie-chart__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 42rem) {
+  .luna-pie-chart__content {
+    grid-template-columns: 1fr;
+  }
+
+  .luna-pie-chart__legend-item {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+}
