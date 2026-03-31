@@ -208,6 +208,23 @@ export type ThemeProgressToneTokens = {
   glow?: string;
 };
 
+export type ThemeLineChartModeTokens = {
+  bg?: string;
+  border?: string;
+  titleFg?: string;
+  descriptionFg?: string;
+  axisFg?: string;
+  axisMutedFg?: string;
+  grid?: string;
+  line?: string;
+  markerFill?: string;
+  markerStroke?: string;
+  legendFg?: string;
+  stateBg?: string;
+  stateBorder?: string;
+  stateFg?: string;
+};
+
 export type ThemeInputSizeProfile = {
   minHeight?: string;
   paddingX?: string;
@@ -530,6 +547,17 @@ export type ThemeComponents = {
     sizes?: Record<string, ThemeProgressSizeProfile>;
     modes?: Partial<Record<ThemeMode, ThemeProgressModeTokens>>;
     tones?: Record<string, ThemeProgressToneTokens>;
+  };
+  lineChart?: {
+    height?: string;
+    padding?: string;
+    radius?: string;
+    lineWidth?: string;
+    markerSize?: string;
+    maxXTicks?: number;
+    yTickCount?: number;
+    markerThreshold?: number;
+    modes?: Partial<Record<ThemeMode, ThemeLineChartModeTokens>>;
   };
   input?: {
     defaultSize?: string;
