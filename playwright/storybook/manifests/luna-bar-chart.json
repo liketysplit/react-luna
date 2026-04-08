@@ -1,0 +1,52 @@
+[
+  {
+    "storyId": "components-lunabarchart--basic",
+    "fileName": "luna-bar-chart-basic",
+    "backgrounds": [
+      "light",
+      "dark"
+    ]
+  },
+  {
+    "storyId": "components-lunabarchart--small-dataset",
+    "fileName": "luna-bar-chart-small-dataset",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunabarchart--longer-labels",
+    "fileName": "luna-bar-chart-longer-labels",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunabarchart--narrow-width",
+    "fileName": "luna-bar-chart-narrow-width",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunabarchart--empty",
+    "fileName": "luna-bar-chart-empty",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunabarchart--loading",
+    "fileName": "luna-bar-chart-loading",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunabarchart--panel-embedding",
+    "fileName": "luna-bar-chart-panel-embedding",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]

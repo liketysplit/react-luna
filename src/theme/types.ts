@@ -208,6 +208,16 @@ export type ThemeProgressToneTokens = {
   glow?: string;
 };
 
+export type ThemeBarChartModeTokens = {
+  bg?: string;
+  border?: string;
+  axisText?: string;
+  axisGrid?: string;
+  legendText?: string;
+  valueText?: string;
+  stateText?: string;
+};
+
 export type ThemeInputSizeProfile = {
   minHeight?: string;
   paddingX?: string;
@@ -530,6 +540,17 @@ export type ThemeComponents = {
     sizes?: Record<string, ThemeProgressSizeProfile>;
     modes?: Partial<Record<ThemeMode, ThemeProgressModeTokens>>;
     tones?: Record<string, ThemeProgressToneTokens>;
+  };
+  barChart?: {
+    radius?: string;
+    padding?: string;
+    headerGap?: string;
+    legendGap?: string;
+    chartHeight?: string;
+    barGap?: string;
+    barMinWidth?: string;
+    palette?: string[];
+    modes?: Partial<Record<ThemeMode, ThemeBarChartModeTokens>>;
   };
   input?: {
     defaultSize?: string;

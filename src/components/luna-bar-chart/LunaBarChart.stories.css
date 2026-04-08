@@ -1,0 +1,12 @@
+.luna-bar-chart-story-narrow {
+  width: min(100%, 22rem);
+}
+
+.luna-bar-chart-story-panel {
+  width: min(100%, 44rem);
+}
+
+.luna-bar-chart-story-dashboard {
+  display: grid;
+  gap: 1rem;
+}
