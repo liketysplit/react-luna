@@ -1,0 +1,52 @@
+[
+  {
+    "storyId": "components-lunapiechart--basic",
+    "fileName": "luna-pie-chart-basic",
+    "backgrounds": [
+      "light",
+      "dark"
+    ]
+  },
+  {
+    "storyId": "components-lunapiechart--many-categories",
+    "fileName": "luna-pie-chart-many-categories",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunapiechart--legend-forward",
+    "fileName": "luna-pie-chart-legend-forward",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunapiechart--narrow-width",
+    "fileName": "luna-pie-chart-narrow-width",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunapiechart--empty-state",
+    "fileName": "luna-pie-chart-empty-state",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunapiechart--loading-state",
+    "fileName": "luna-pie-chart-loading-state",
+    "backgrounds": [
+      "light"
+    ]
+  },
+  {
+    "storyId": "components-lunapiechart--dashboard-panel",
+    "fileName": "luna-pie-chart-dashboard-panel",
+    "backgrounds": [
+      "light"
+    ]
+  }
+]
