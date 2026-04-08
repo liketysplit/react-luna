@@ -1756,6 +1756,46 @@ export const lunarTheme: Theme = {
         }
       }
     },
+    scatterChart: {
+      radius: "1.25rem",
+      padding: "4",
+      gap: "4",
+      headerGap: "2",
+      legendGap: "2",
+      chartHeight: "15rem",
+      pointSize: "0.75rem",
+      palette: ["primary.500"],
+      modes: {
+        light: {
+          bg: "rgba(255, 255, 255, 0.92)",
+          border: "rgba(108, 122, 171, 0.22)",
+          shadow: "inset 0 1px 0 rgba(255, 255, 255, 0.72)",
+          plotBg: "linear-gradient(180deg, rgba(244, 247, 255, 0.94), rgba(255, 255, 255, 0.82))",
+          titleFg: "#46537e",
+          descriptionFg: "#5b688f",
+          axisText: "#5f6d93",
+          axisLine: "rgba(108, 122, 171, 0.42)",
+          grid: "rgba(108, 122, 171, 0.16)",
+          legendText: "#46537e",
+          legendMetaText: "#7380a2",
+          stateText: "#5b688f"
+        },
+        dark: {
+          bg: "rgba(20, 27, 45, 0.92)",
+          border: "rgba(124, 138, 185, 0.34)",
+          shadow: "inset 0 1px 0 rgba(255, 255, 255, 0.04)",
+          plotBg: "linear-gradient(180deg, rgba(26, 35, 58, 0.98), rgba(17, 24, 39, 0.94))",
+          titleFg: "#dbe7ff",
+          descriptionFg: "#9fb2de",
+          axisText: "#8fa3d0",
+          axisLine: "rgba(143, 163, 208, 0.46)",
+          grid: "rgba(143, 163, 208, 0.18)",
+          legendText: "#dbe7ff",
+          legendMetaText: "#9fb2de",
+          stateText: "#b4c4e9"
+        }
+      }
+    },
     wireframe: {
       gap: "4",
       padding: "4",

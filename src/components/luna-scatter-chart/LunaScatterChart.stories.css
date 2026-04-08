@@ -1,0 +1,12 @@
+.luna-scatter-chart-story-narrow {
+  width: 18rem;
+}
+
+.luna-scatter-chart-story-panel {
+  width: min(44rem, calc(100vw - 3rem));
+}
+
+.luna-scatter-chart-story-dashboard {
+  display: grid;
+  gap: 1rem;
+}

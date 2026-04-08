@@ -1,0 +1,275 @@
+.luna-scatter-chart {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--luna-scatter-chart-gap, 1rem);
+  padding: var(--luna-scatter-chart-padding, 1rem);
+  box-sizing: border-box;
+  border: 1px solid var(--luna-scatter-chart-border, rgba(108, 122, 171, 0.22));
+  border-radius: var(--luna-scatter-chart-radius, 1.25rem);
+  background: var(--luna-scatter-chart-bg, rgba(255, 255, 255, 0.92));
+  box-shadow: var(--luna-scatter-chart-shadow, inset 0 1px 0 rgba(255, 255, 255, 0.72));
+}
+
+.luna-scatter-chart__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--luna-scatter-chart-header-gap, 0.5rem);
+}
+
+.luna-scatter-chart__title {
+  margin: 0;
+  color: var(--luna-scatter-chart-title-fg, #46537e);
+}
+
+.luna-scatter-chart__description {
+  margin: 0;
+  color: var(--luna-scatter-chart-description-fg, #5b688f);
+}
+
+.luna-scatter-chart__legend {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--luna-scatter-chart-legend-gap, 0.5rem);
+  min-width: 0;
+}
+
+.luna-scatter-chart__legend-swatch {
+  flex: none;
+  inline-size: calc(var(--luna-scatter-chart-point-size, 0.75rem) + 0.3rem);
+  block-size: calc(var(--luna-scatter-chart-point-size, 0.75rem) + 0.3rem);
+  border-radius: 999px;
+  background: var(--luna-scatter-chart-current-point-color, #6366f1);
+  box-shadow: 0 0 0 0.28rem color-mix(in srgb, var(--luna-scatter-chart-current-point-color, #6366f1) 18%, transparent);
+}
+
+.luna-scatter-chart__legend-copy {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.luna-scatter-chart__legend-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--luna-scatter-chart-legend-text, #46537e);
+}
+
+.luna-scatter-chart__legend-meta {
+  font-size: 0.75rem;
+  color: var(--luna-scatter-chart-legend-meta-text, #7380a2);
+}
+
+.luna-scatter-chart__visual {
+  min-width: 0;
+  min-height: var(--luna-scatter-chart-height, 15rem);
+}
+
+.luna-scatter-chart__frame {
+  display: grid;
+  grid-template-columns: minmax(2.75rem, 3.75rem) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) auto;
+  column-gap: 0.75rem;
+  row-gap: 0.6rem;
+  min-height: var(--luna-scatter-chart-height, 15rem);
+}
+
+.luna-scatter-chart__y-axis {
+  position: relative;
+  min-height: 0;
+  color: var(--luna-scatter-chart-axis-text, #5f6d93);
+}
+
+.luna-scatter-chart__y-axis-label {
+  position: absolute;
+  right: 0;
+  transform: translateY(50%);
+  font-size: 0.75rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.luna-scatter-chart__plot-shell {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  row-gap: 0.6rem;
+}
+
+.luna-scatter-chart__plot-surface {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  border-radius: calc(var(--luna-scatter-chart-radius, 1.25rem) - 0.35rem);
+  background: var(
+    --luna-scatter-chart-plot-bg,
+    linear-gradient(180deg, rgba(244, 247, 255, 0.94), rgba(255, 255, 255, 0.82))
+  );
+  overflow: hidden;
+}
+
+.luna-scatter-chart__grid-line,
+.luna-scatter-chart__axis-line {
+  position: absolute;
+  display: block;
+}
+
+.luna-scatter-chart__grid-line {
+  background: var(--luna-scatter-chart-grid, rgba(108, 122, 171, 0.16));
+}
+
+.luna-scatter-chart__grid-line--horizontal {
+  left: 0;
+  right: 0;
+  height: 1px;
+  transform: translateY(50%);
+}
+
+.luna-scatter-chart__grid-line--vertical {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform: translateX(-50%);
+}
+
+.luna-scatter-chart__axis-line {
+  background: var(--luna-scatter-chart-axis-line, rgba(108, 122, 171, 0.42));
+}
+
+.luna-scatter-chart__axis-line--x {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+}
+
+.luna-scatter-chart__axis-line--y {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+}
+
+.luna-scatter-chart__point {
+  position: absolute;
+  z-index: 1;
+  inline-size: var(--luna-scatter-chart-point-size, 0.75rem);
+  block-size: var(--luna-scatter-chart-point-size, 0.75rem);
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  background: var(--luna-scatter-chart-current-point-color, #6366f1);
+  box-shadow:
+    0 0 0 0.3rem color-mix(in srgb, var(--luna-scatter-chart-current-point-color, #6366f1) 16%, transparent),
+    0 0.3rem 0.85rem color-mix(in srgb, var(--luna-scatter-chart-current-point-color, #6366f1) 22%, transparent);
+}
+
+.luna-scatter-chart__x-axis {
+  position: relative;
+  min-height: 2rem;
+  color: var(--luna-scatter-chart-axis-text, #5f6d93);
+}
+
+.luna-scatter-chart__x-axis-label {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  inline-size: 5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  line-height: 1.25;
+}
+
+.luna-scatter-chart__state,
+.luna-scatter-chart__loading {
+  min-height: var(--luna-scatter-chart-height, 15rem);
+}
+
+.luna-scatter-chart__state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--luna-scatter-chart-state-text, #5b688f);
+}
+
+.luna-scatter-chart__loading {
+  display: grid;
+  grid-template-columns: minmax(2.75rem, 3.75rem) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) auto;
+  column-gap: 0.75rem;
+  row-gap: 0.6rem;
+}
+
+.luna-scatter-chart__loading-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-block: 0.25rem;
+}
+
+.luna-scatter-chart__loading-axis--x {
+  grid-column: 2;
+  grid-row: 2;
+  flex-direction: row;
+  padding-block: 0;
+}
+
+.luna-scatter-chart__loading-plot {
+  position: relative;
+  min-height: var(--luna-scatter-chart-height, 15rem);
+  overflow: hidden;
+  border-radius: calc(var(--luna-scatter-chart-radius, 1.25rem) - 0.35rem);
+}
+
+.luna-scatter-chart__loading-surface {
+  block-size: 100%;
+}
+
+.luna-scatter-chart__loading-dot {
+  position: absolute;
+  inline-size: var(--luna-scatter-chart-point-size, 0.75rem);
+  block-size: var(--luna-scatter-chart-point-size, 0.75rem);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--luna-scatter-chart-current-point-color, #6366f1) 44%, white);
+  box-shadow: 0 0 0 0.28rem color-mix(in srgb, var(--luna-scatter-chart-current-point-color, #6366f1) 14%, transparent);
+}
+
+.luna-scatter-chart__loading-dot--one {
+  left: 24%;
+  top: 62%;
+}
+
+.luna-scatter-chart__loading-dot--two {
+  left: 51%;
+  top: 38%;
+}
+
+.luna-scatter-chart__loading-dot--three {
+  left: 74%;
+  top: 52%;
+}
+
+.luna-scatter-chart__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  .luna-scatter-chart__frame,
+  .luna-scatter-chart__loading {
+    grid-template-columns: minmax(2.35rem, 3rem) minmax(0, 1fr);
+    column-gap: 0.55rem;
+  }
+
+  .luna-scatter-chart__x-axis-label {
+    inline-size: 3.75rem;
+  }
+}
